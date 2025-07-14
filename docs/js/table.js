@@ -1,330 +1,319 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Load all ingredients data
-    fetch('data/index.json')
-        .then(response => response.json())
-        .then(data => {
-            // Prepare data for DataTable
-            populateIngredientsTable(data.ingredients);
-        })
-        .catch(error => {
-            console.error('Error loading ingredients data:', error);
-            document.querySelector('.table-container').innerHTML = `
-                <div class="error-message">
-                    Failed to load ingredients data. Please try again later.
-                </div>
-            `;
-        });
-});
-
-function populateIngredientsTable(ingredients) {
-    // Process ingredients to include all necessary data
-    const tableData = ingredients.map(ingredient => {
-        return [
-            ingredient.inci_name,
-            ingredient.cas_numbers ? ingredient.cas_numbers.join(', ') : '',
-            formatFunctions(ingredient.functions),
-            formatSafetyScore(ingredient.safety_score),
-            ingredient.origin || 'Not specified',
-            '', // Product usage will be populated later
-            '', // Reddit sentiment will be populated later
-            '', // Popular forms will be populated later
-            `<button class="detail-btn" data-slug="${ingredient.slug}">View</button>`
-        ];
-    });
-
-    // Initialize DataTable
+$(document).ready(function() {
+    // Enhanced DataTables initialization
     const table = $('#ingredients-table').DataTable({
-        data: tableData,
         responsive: true,
-        dom: 'Bfrtip',
+        dom: 'Blfrtip',
         buttons: [
-            'copy', 'csv', 'excel'
+            'copy', 'csv', 'excel',
+            {
+                text: 'Toggle Columns',
+                action: function (e, dt, node, config) {
+                    $('#column-visibility-modal').toggle();
+                }
+            }
         ],
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
         pageLength: 25,
-        language: {
-            search: "Global Search:",
-            searchPlaceholder: "Search any field..."
-        },
+        fixedHeader: true,
+        stateSave: true,
+        deferRender: true,
         initComplete: function() {
-            // Add individual column filters
             this.api().columns().every(function(colIdx) {
                 let column = this;
-                // Skip the details column
-                if(colIdx === 8) return;
-                // Create filter input element
-                let title = $(column.header()).text();
-                let input = $('<input type="text" placeholder="Filter ' + title + '" />')
-                    .appendTo($(column.header()))
-                    .on('keyup change', function() {
-                        column
-                            .search(this.value)
-                            .draw();
-                    });
-                // Special handling for safety score - dropdown instead of text
-                if(colIdx === 3) {
-                    input.remove();
-                    let select = $('<select><option value="">All</option><option value="0">0 (Safe)</option><option value="1-3">1-3</option><option value="4-6">4-6</option><option value="7-10">7-10 (Hazardous)</option></select>')
+                const title = $(column.header()).text();
+                if (title !== 'Details' && title !== 'Actions') {
+                    const input = $('<input type="text" class="column-filter" placeholder="Filter..." />')
                         .appendTo($(column.header()))
-                        .on('change', function() {
-                            let val = $.fn.dataTable.util.escapeRegex($(this).val());
-                            if(val === "") {
-                                column.search('').draw();
-                            } else if(val.includes('-')) {
-                                // Range search
-                                let range = val.split('-').map(Number);
-                                column.search(getScoreRangeRegex(range[0], range[1]), true, false).draw();
-                            } else {
-                                column.search('^' + val + '$', true, false).draw();
+                        .on('keyup change', function() {
+                            if (column.search() !== this.value) {
+                                column.search(this.value).draw();
                             }
                         });
                 }
             });
-            // Load additional data for visible rows
-            loadAdditionalData(this.api());
-        },
-        drawCallback: function() {
-            // When table is redrawn (pagination, filtering), load additional data for visible rows
-            loadAdditionalData(this.api());
         }
     });
 
-    // Handle detail button clicks
-    $('#ingredients-table').on('click', '.detail-btn', function() {
-        const slug = $(this).data('slug');
-        showIngredientDetail(slug);
-    });
-}
-
-// Load additional data for visible rows
-function loadAdditionalData(tableApi) {
-    // Get visible rows
-    const visibleRows = tableApi.rows({page: 'current'}).nodes();
-    // For each visible row, load additional data if not already loaded
-    $(visibleRows).each(function(index) {
-        const row = tableApi.row(this);
-        const rowData = row.data();
-        const slug = $(rowData[8]).data('slug');
-        if(rowData[5] === '') { // If product usage not loaded
-            // Load additional data for this ingredient
-            fetch(`data/ingredients/${slug}.json`)
-                .then(response => response.json())
-                .then(data => {
-                    // Update product usage
-                    if(data.product_usage_data && data.product_usage_data.by_product_type) {
-                        const topProducts = data.product_usage_data.by_product_type
-                            .slice(0, 2)
-                            .map(p => `${p.product_type}: ${p.usage_percentage}%`)
-                            .join('<br>');
-                        rowData[5] = topProducts;
-                    }
-                    // Update Reddit sentiment
-                    if(data.reddit_community_analysis && data.reddit_community_analysis.sentiment_analysis) {
-                        const sentiment = data.reddit_community_analysis.sentiment_analysis.overall_sentiment;
-                        rowData[6] = `<span class="sentiment-${sentiment ? sentiment.toLowerCase() : 'neutral'}">${sentiment || 'N/A'}</span>`;
-                    }
-                    // Update popular forms
-                    if(data.reddit_community_analysis && data.reddit_community_analysis.product_forms) {
-                        const topForms = data.reddit_community_analysis.product_forms
-                            .slice(0, 3)
-                            .map(f => f.form)
-                            .join(', ');
-                        rowData[7] = topForms;
-                    }
-                    // Update the row data
-                    row.data(rowData).draw(false);
-                })
-                .catch(error => {
-                    console.error(`Error loading data for ${slug}:`, error);
-                });
-        }
-    });
-}
-
-// Format functions array for display
-function formatFunctions(functions) {
-    if(!functions || !Array.isArray(functions) || functions.length === 0) {
-        return 'Not specified';
-    }
-    // Filter out long descriptions that are mistakenly included as functions
-    const validFunctions = functions.filter(f => typeof f === 'string' && f.length < 50);
-    return validFunctions.join(', ');
-}
-
-// Format safety score with color coding
-function formatSafetyScore(score) {
-    if(score === null || score === undefined) {
-        return '<span class="safety-unknown">Unknown</span>';
-    }
-    return `<span class="safety-${score}">${score}</span>`;
-}
-
-// Get regex for safety score range search
-function getScoreRangeRegex(min, max) {
-    let regex = '^(';
-    for(let i = min; i <= max; i++) {
-        regex += i + (i < max ? '|' : '');
-    }
-    regex += ')$';
-    return regex;
-}
-
-// Show ingredient detail in modal
-function showIngredientDetail(slug) {
-    fetch(`data/ingredients/${slug}.json`)
-        .then(response => response.json())
-        .then(data => {
-            // Populate modal with data
-            const modalContent = document.getElementById('modal-content');
-            modalContent.innerHTML = `
-                <h2>${data.ingredient_overview.inci_name}</h2>
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="overview">Overview</button>
-                    <button class="tab-btn" data-tab="safety">Safety</button>
-                    <button class="tab-btn" data-tab="usage">Usage</button>
-                    <button class="tab-btn" data-tab="reddit">Reddit Analysis</button>
+    // Setup column visibility controls
+    function setupColumnVisibility() {
+        const container = $('#column-toggles');
+        container.empty();
+        table.columns().every(function(index) {
+            const column = this;
+            const title = $(column.header()).text();
+            const toggle = $(`
+                <div class="column-toggle">
+                    <label>
+                        <input type="checkbox" ${column.visible() ? 'checked' : ''}>
+                        ${title}
+                    </label>
                 </div>
-                <div class="tab-content active" id="tab-overview">
-                    ${renderOverviewTab(data.ingredient_overview)}
-                </div>
-                <div class="tab-content" id="tab-safety">
-                    ${renderSafetyTab(data.safety_information)}
-                </div>
-                <div class="tab-content" id="tab-usage">
-                    ${renderUsageTab(data.product_usage_data)}
-                </div>
-                <div class="tab-content" id="tab-reddit">
-                    ${renderRedditTab(data.reddit_community_analysis)}
-                </div>
-            `;
-            // Show the modal
-            document.getElementById('detail-modal').style.display = 'block';
-            // Add tab functionality
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all tabs and content
-                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                    // Add active class to clicked tab and corresponding content
-                    this.classList.add('active');
-                    document.getElementById(`tab-${this.dataset.tab}`).classList.add('active');
-                });
+            `);
+            $('input', toggle).on('change', function() {
+                column.visible(this.checked);
             });
-        })
-        .catch(error => {
-            console.error(`Error loading detail for ${slug}:`, error);
+            container.append(toggle);
         });
-}
-
-// Close modal when clicking X or outside the modal
-document.addEventListener('click', function(event) {
-    const modal = document.getElementById('detail-modal');
-    const closeBtn = document.querySelector('.close');
-    if(event.target === modal || event.target === closeBtn) {
-        modal.style.display = 'none';
+        $('#close-column-modal').on('click', function() {
+            $('#column-visibility-modal').hide();
+        });
     }
-});
+    setupColumnVisibility();
 
-// Tab content rendering functions
-function renderOverviewTab(overview) {
-    return `
-        <table class="detail-table">
-            <tr>
-                <th>INCI Name</th>
-                <td>${overview.inci_name}</td>
-            </tr>
-            <tr>
-                <th>CAS Number(s)</th>
-                <td>${overview.cas_numbers ? overview.cas_numbers.join(', ') : 'Not available'}</td>
-            </tr>
-            <tr>
-                <th>Functions</th>
-                <td>${formatFunctions(overview.functions)}</td>
-            </tr>
-            <tr>
-                <th>Origin</th>
-                <td>${overview.origin || 'Not specified'}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>${overview.description || 'No description available'}</td>
-            </tr>
-        </table>
-    `;
-}
-
-function renderSafetyTab(safety) {
-    if(!safety) return '<p>No safety information available</p>';
-    return `
-        <div class="safety-summary">
-            <div class="safety-score ${safety.safety_score !== undefined ? 'safety-' + safety.safety_score : ''}">
-                <h3>Safety Score</h3>
-                <p class="score">${safety.safety_score !== undefined ? safety.safety_score : 'Unknown'}</p>
-            </div>
-            <div class="safety-assessment">
-                <h3>Assessment</h3>
-                <p>${safety.assessment || 'No assessment available'}</p>
-            </div>
-        </div>
-    `;
-}
-
-function renderUsageTab(usage) {
-    if(!usage || !usage.by_product_type || usage.by_product_type.length === 0) {
-        return '<p>No usage data available</p>';
+    // Optimized data loading
+    function loadIngredientData() {
+        $('#loading-indicator').show();
+        fetch('data/index.json')
+            .then(response => response.json())
+            .then(data => {
+                table.clear();
+                const rowData = data.ingredients.map(ingredient => [
+                    ingredient.inci_name,
+                    ingredient.cas_numbers ? ingredient.cas_numbers.join(', ') : '',
+                    formatFunctions(ingredient.functions),
+                    formatSafetyScore(ingredient.safety_score),
+                    ingredient.origin || 'Not specified',
+                    '...',
+                    '...',
+                    '...',
+                    '...',
+                    `<button class="detail-btn" data-slug="${ingredient.slug}">View</button>`
+                ]);
+                table.rows.add(rowData).draw();
+                loadDetailedDataForVisibleRows();
+                $('#loading-indicator').hide();
+            })
+            .catch(error => {
+                console.error('Error loading ingredient data:', error);
+                $('#loading-indicator').hide();
+                alert('Failed to load ingredient data. Please try again later.');
+            });
     }
-    return `
-        <table class="detail-table">
-            <thead>
-                <tr>
-                    <th>Product Type</th>
-                    <th>Usage Percentage</th>
-                    <th>Sample Size</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${usage.by_product_type.map(item => `
-                    <tr>
-                        <td>${item.product_type}</td>
-                        <td>${item.usage_percentage}%</td>
-                        <td>${item.sample_size}</td>
-                    </tr>
-                `).join('')}
-            </tbody>
-        </table>
-    `;
-}
+    function loadDetailedDataForVisibleRows() {
+        const visibleRows = table.rows({page: 'current'}).nodes();
+        $(visibleRows).each(function() {
+            const row = table.row(this);
+            const rowData = row.data();
+            const detailBtn = $(rowData[9]);
+            const slug = detailBtn.data('slug');
+            if (rowData[5] === '...') {
+                fetch(`data/ingredients/${slug}.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Top Product Usage
+                        if (data.product_usage_data && data.product_usage_data.by_product_type && data.product_usage_data.by_product_type.length > 0) {
+                            const topProduct = data.product_usage_data.by_product_type[0];
+                            rowData[5] = `${topProduct.product_type}: ${topProduct.usage_percentage}%`;
+                        } else {
+                            rowData[5] = 'N/A';
+                        }
+                        // Reddit Sentiment
+                        if (data.reddit_community_analysis && data.reddit_community_analysis.sentiment_analysis) {
+                            const sentiment = data.reddit_community_analysis.sentiment_analysis.overall_sentiment;
+                            rowData[6] = `<span class="sentiment-${sentiment.toLowerCase()}">${sentiment}</span>`;
+                        } else {
+                            rowData[6] = 'N/A';
+                        }
+                        // Popular Forms
+                        if (data.reddit_community_analysis && data.reddit_community_analysis.product_forms && data.reddit_community_analysis.product_forms.length > 0) {
+                            const topForms = data.reddit_community_analysis.product_forms.slice(0, 2).map(f => f.form).join(', ');
+                            rowData[7] = topForms;
+                        } else {
+                            rowData[7] = 'N/A';
+                        }
+                        // Body Parts
+                        if (data.reddit_community_analysis && data.reddit_community_analysis.body_parts_usage && data.reddit_community_analysis.body_parts_usage.length > 0) {
+                            const topParts = data.reddit_community_analysis.body_parts_usage.slice(0, 2).map(p => p.body_part).join(', ');
+                            rowData[8] = topParts;
+                        } else {
+                            rowData[8] = 'N/A';
+                        }
+                        row.data(rowData).draw(false);
+                    })
+                    .catch(error => {
+                        console.error(`Error loading detailed data for ${slug}:`, error);
+                    });
+            }
+        });
+    }
+    $('#ingredients-table').on('draw.dt', function() {
+        loadDetailedDataForVisibleRows();
+    });
+    loadIngredientData();
 
-function renderRedditTab(reddit) {
-    if(!reddit) return '<p>No Reddit analysis available</p>';
-    return `
-        <div class="reddit-summary">
-            <h3>Overview</h3>
-            <table class="detail-table">
-                <tr>
-                    <th>Total Posts Analyzed</th>
-                    <td>${reddit.overview ? reddit.overview.total_posts_analyzed : 'N/A'}</td>
-                </tr>
-                <tr>
-                    <th>Overall Sentiment</th>
-                    <td>${reddit.sentiment_analysis ? reddit.sentiment_analysis.overall_sentiment : 'N/A'}</td>
-                </tr>
-            </table>
-            ${reddit.product_forms && reddit.product_forms.length > 0 ? `
-                <h3>Product Forms</h3>
-                <ul>
-                    ${reddit.product_forms.slice(0, 5).map(form => `
-                        <li>${form.form} (${form.mentions} mentions)</li>
-                    `).join('')}
-                </ul>
-            ` : ''}
-            ${reddit.body_parts_usage && reddit.body_parts_usage.length > 0 ? `
-                <h3>Body Parts Usage</h3>
-                <ul>
-                    ${reddit.body_parts_usage.slice(0, 5).map(part => `
-                        <li>${part.body_part} (${part.mentions} mentions)</li>
-                    `).join('')}
-                </ul>
-            ` : ''}
-        </div>
-    `;
-} 
+    // Advanced filtering
+    function setupAdvancedFilters() {
+        $('#toggle-advanced-filters').on('click', function() {
+            $('#advanced-filters-container').slideToggle();
+            $(this).text(function(_, text) {
+                return text === 'Advanced Filters ▼' ? 'Advanced Filters ▲' : 'Advanced Filters ▼';
+            });
+        });
+        fetch('data/index.json')
+            .then(response => response.json())
+            .then(data => {
+                const allFunctions = new Set();
+                data.ingredients.forEach(ingredient => {
+                    if (ingredient.functions && Array.isArray(ingredient.functions)) {
+                        ingredient.functions.forEach(func => {
+                            if (typeof func === 'string' && func.length < 50) {
+                                allFunctions.add(func);
+                            }
+                        });
+                    }
+                });
+                const functionFilter = $('#function-filter');
+                [...allFunctions].sort().forEach(func => {
+                    functionFilter.append(`<option value="${func}">${func}</option>`);
+                });
+                if (functionFilter.select2) {
+                    functionFilter.select2({ placeholder: 'Select functions', width: '100%' });
+                }
+            });
+        $('#apply-advanced-filters').on('click', function() {
+            const safetyFilter = $('#safety-filter').val();
+            $.fn.dataTable.ext.search = $.fn.dataTable.ext.search.filter(fn => !fn._isAdvancedSafety);
+            if (safetyFilter) {
+                if (safetyFilter.includes('-')) {
+                    const [min, max] = safetyFilter.split('-').map(Number);
+                    const fn = function(settings, data, dataIndex) {
+                        const score = parseInt(data[3].replace(/\D/g, '')) || 0;
+                        return score >= min && score <= max;
+                    };
+                    fn._isAdvancedSafety = true;
+                    $.fn.dataTable.ext.search.push(fn);
+                } else {
+                    table.column(3).search(`^${safetyFilter}$`, true, false);
+                }
+            } else {
+                table.column(3).search('');
+            }
+            const originFilter = $('#origin-filter').val();
+            if (originFilter) {
+                table.column(4).search(originFilter);
+            } else {
+                table.column(4).search('');
+            }
+            const selectedFunctions = $('#function-filter').val();
+            if (selectedFunctions && selectedFunctions.length > 0) {
+                const functionRegex = selectedFunctions.map(f => f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+                table.column(2).search(functionRegex, true, false);
+            } else {
+                table.column(2).search('');
+            }
+            table.draw();
+        });
+        $('#reset-advanced-filters').on('click', function() {
+            $('#safety-filter').val('');
+            $('#origin-filter').val('');
+            $('#function-filter').val(null).trigger('change');
+            table.search('').columns().search('').draw();
+            $.fn.dataTable.ext.search = [];
+        });
+    }
+    setupAdvancedFilters();
+
+    // Detail modal logic
+    function setupDetailModal() {
+        $('#ingredients-table').on('click', '.detail-btn', function() {
+            const slug = $(this).data('slug');
+            showIngredientDetail(slug);
+        });
+        $('.close, .modal').on('click', function(event) {
+            if (event.target === this) {
+                $('.modal').hide();
+            }
+        });
+        $('.tab-btn').on('click', function() {
+            $('.tab-btn').removeClass('active');
+            $(this).addClass('active');
+            $('.tab-content').removeClass('active');
+            $(`#tab-${$(this).data('tab')}`).addClass('active');
+        });
+    }
+    setupDetailModal();
+    function showIngredientDetail(slug) {
+        fetch(`data/ingredients/${slug}.json`)
+            .then(response => response.json())
+            .then(data => {
+                $('#modal-title').text(data.ingredient_overview.inci_name);
+                $('#tab-overview').html(`
+                    <table class="detail-table">
+                        <tr><th>INCI Name</th><td>${data.ingredient_overview.inci_name}</td></tr>
+                        <tr><th>CAS Number(s)</th><td>${data.ingredient_overview.cas_numbers ? data.ingredient_overview.cas_numbers.join(', ') : 'Not available'}</td></tr>
+                        <tr><th>Functions</th><td>${formatFunctions(data.ingredient_overview.functions)}</td></tr>
+                        <tr><th>Origin</th><td>${data.ingredient_overview.origin || 'Not specified'}</td></tr>
+                        <tr><th>Description</th><td>${data.ingredient_overview.description || 'No description available'}</td></tr>
+                    </table>
+                `);
+                $('#tab-safety').html(`
+                    <div class="safety-score safety-${data.safety_information.safety_score}">
+                        <h3>Safety Score</h3>
+                        <div class="score">${data.safety_information.safety_score}</div>
+                    </div>
+                    <p><strong>Assessment:</strong> ${data.safety_information.assessment || 'No assessment available'}</p>
+                `);
+                if (data.product_usage_data && data.product_usage_data.by_product_type && data.product_usage_data.by_product_type.length > 0) {
+                    let usageHtml = '<table class="detail-table"><thead><tr><th>Product Type</th><th>Usage %</th><th>Sample Size</th></tr></thead><tbody>';
+                    data.product_usage_data.by_product_type.forEach(item => {
+                        usageHtml += `<tr><td>${item.product_type}</td><td>${item.usage_percentage}%</td><td>${item.sample_size}</td></tr>`;
+                    });
+                    usageHtml += '</tbody></table>';
+                    $('#tab-usage').html(usageHtml);
+                } else {
+                    $('#tab-usage').html('<p>No product usage data available</p>');
+                }
+                if (data.reddit_community_analysis) {
+                    const reddit = data.reddit_community_analysis;
+                    let redditHtml = `
+                        <div class="reddit-overview">
+                            <p><strong>Posts Analyzed:</strong> ${reddit.overview ? reddit.overview.total_posts_analyzed : 'N/A'}</p>
+                            <p><strong>Overall Sentiment:</strong> <span class="sentiment-${reddit.sentiment_analysis ? reddit.sentiment_analysis.overall_sentiment.toLowerCase() : 'neutral'}">${reddit.sentiment_analysis ? reddit.sentiment_analysis.overall_sentiment : 'N/A'}</span></p>
+                        </div>
+                    `;
+                    if (reddit.product_forms && reddit.product_forms.length > 0) {
+                        redditHtml += '<h3>Product Forms</h3><ul>';
+                        reddit.product_forms.slice(0, 5).forEach(form => {
+                            redditHtml += `<li>${form.form} (${form.mentions} mentions)</li>`;
+                        });
+                        redditHtml += '</ul>';
+                    }
+                    if (reddit.body_parts_usage && reddit.body_parts_usage.length > 0) {
+                        redditHtml += '<h3>Body Parts</h3><ul>';
+                        reddit.body_parts_usage.slice(0, 5).forEach(part => {
+                            redditHtml += `<li>${part.body_part} (${part.mentions} mentions)</li>`;
+                        });
+                        redditHtml += '</ul>';
+                    }
+                    if (reddit.key_insights && reddit.key_insights.length > 0) {
+                        redditHtml += '<h3>Key Insights</h3><ul>';
+                        reddit.key_insights.forEach(insight => {
+                            redditHtml += `<li>${insight}</li>`;
+                        });
+                        redditHtml += '</ul>';
+                    }
+                    $('#tab-reddit').html(redditHtml);
+                } else {
+                    $('#tab-reddit').html('<p>No Reddit analysis available</p>');
+                }
+                $('#ingredient-modal').show();
+            })
+            .catch(error => {
+                console.error(`Error loading ingredient detail for ${slug}:`, error);
+                alert('Failed to load ingredient detail. Please try again later.');
+            });
+    }
+    // Helper functions
+    function formatFunctions(functions) {
+        if (!functions || !Array.isArray(functions)) {
+            return 'Not specified';
+        }
+        return functions.filter(f => typeof f === 'string' && f.length < 50).join(', ') || 'Not specified';
+    }
+    function formatSafetyScore(score) {
+        if (score === null || score === undefined) {
+            return '<span class="safety-unknown">Unknown</span>';
+        }
+        return `<span class="safety-${score}">${score}</span>`;
+    }
+}); 
