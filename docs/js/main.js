@@ -1,211 +1,188 @@
-// Global variables
-const API_BASE_URL = 'data/';
-let allIngredients = [];
-let uniqueFunctions = new Set();
-let currentSafetyScore = null;
+$(document).ready(function() {
+    let ingredientsTable;
 
-document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('ingredients-list')) {
-        initializeIndexPage();
-    } else if (document.getElementById('ingredient-detail')) {
-        initializeDetailPage();
-    }
-    const lastUpdatedEl = document.getElementById('last-updated');
-    if (lastUpdatedEl) {
-        lastUpdatedEl.textContent = new Date().toLocaleDateString();
-    }
-});
+    // Initialize the table with minimal configuration first
+    ingredientsTable = $('#ingredients-table').DataTable({
+        processing: true,
+        pageLength: 25,
+        lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+        deferRender: true,
+        scrollX: true,
+        dom: 'Blfrtip',
+        buttons: [
+            'copy', 'csv', 'excel',
+            {
+                extend: 'colvis',
+                text: 'Show/Hide Columns'
+            }
+        ],
+        columnDefs: [
+            { targets: [11], visible: false } // Hide slug column
+        ]
+    });
 
-function initializeIndexPage() {
-    fetch(`${API_BASE_URL}index.json`)
-        .then(response => response.json())
-        .then(data => {
-            allIngredients = data.ingredients;
-            allIngredients.forEach(ingredient => {
-                if (ingredient.functions && Array.isArray(ingredient.functions)) {
-                    ingredient.functions.forEach(func => uniqueFunctions.add(func));
+    // Load data incrementally to prevent memory issues
+    loadIngredientsData();
+
+    function loadIngredientsData() {
+        $('#loading-indicator').show();
+        fetch('data/index.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load index data');
                 }
+                return response.json();
+            })
+            .then(data => {
+                const chunkSize = 20;
+                const ingredients = data.ingredients;
+                for (let i = 0; i < ingredients.length; i += chunkSize) {
+                    const chunk = ingredients.slice(i, i + chunkSize);
+                    setTimeout(() => {
+                        processIngredientChunk(chunk, i, ingredients.length);
+                    }, (i / chunkSize) * 100);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading ingredients data:', error);
+                $('#loading-indicator').hide();
+                $('#error-message').text('Failed to load ingredients data: ' + error.message).show();
             });
-            populateFunctionFilter();
-            createAlphabeticalIndex();
-            displayIngredients(allIngredients);
-            initializeSearchAndFilters();
-        })
-        .catch(error => {
-            console.error('Error loading ingredient index:', error);
-            document.getElementById('ingredients-list').innerHTML = 
-                `<div class="column is-full"><div class="notification is-danger">
-                    Error loading ingredients. Please try again later.
-                </div></div>`;
+    }
+
+    function processIngredientChunk(ingredients, startIndex, totalCount) {
+        const rows = [];
+        ingredients.forEach(ingredient => {
+            const rowData = createRowData(ingredient);
+            rows.push(rowData);
+            loadDetailedData(ingredient.slug);
         });
-}
-
-function populateFunctionFilter() {
-    const filterElement = document.getElementById('function-filter');
-    if (!filterElement) return;
-    while (filterElement.options.length > 1) {
-        filterElement.remove(1);
-    }
-    Array.from(uniqueFunctions).sort().forEach(func => {
-        const option = document.createElement('option');
-        option.value = func;
-        option.textContent = func;
-        filterElement.appendChild(option);
-    });
-}
-
-function createAlphabeticalIndex() {
-    const alphaButtonsContainer = document.getElementById('alpha-buttons');
-    if (!alphaButtonsContainer) return;
-    for (let i = 65; i <= 90; i++) {
-        const letter = String.fromCharCode(i);
-        const button = document.createElement('a');
-        button.href = '#';
-        button.textContent = letter;
-        button.dataset.letter = letter;
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const letterIngredients = allIngredients.filter(ingredient => 
-                ingredient.inci_name && ingredient.inci_name.charAt(0).toUpperCase() === letter
-            );
-            displayIngredients(letterIngredients);
-            document.querySelectorAll('.alpha-buttons a').forEach(el => {
-                el.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
-        alphaButtonsContainer.appendChild(button);
-    }
-    const allButton = document.createElement('a');
-    allButton.href = '#';
-    allButton.textContent = 'All';
-    allButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        displayIngredients(allIngredients);
-        document.querySelectorAll('.alpha-buttons a').forEach(el => {
-            el.classList.remove('active');
-        });
-    });
-    alphaButtonsContainer.appendChild(allButton);
-}
-
-function displayIngredients(ingredients) {
-    const container = document.getElementById('ingredients-list');
-    if (!container) return;
-    container.innerHTML = '';
-    if (ingredients.length === 0) {
-        container.innerHTML = `
-            <div class="column is-full">
-                <div class="notification is-warning">
-                    No ingredients found matching your criteria.
-                </div>
-            </div>
-        `;
-        return;
-    }
-    ingredients.sort((a, b) => a.inci_name.localeCompare(b.inci_name));
-    ingredients.forEach(ingredient => {
-        const slug = ingredient.slug;
-        const safetyClass = `safety-${ingredient.safety_score || 0}`;
-        const column = document.createElement('div');
-        column.className = 'column is-one-third-desktop is-half-tablet';
-        column.innerHTML = `
-            <div class="card ingredient-card">
-                <div class="card-content">
-                    <div class="content">
-                        <h4 class="title is-4">
-                            <a href="ingredient.html?id=${slug}">${ingredient.inci_name}</a>
-                        </h4>
-                        <p>
-                            <span class="safety-badge ${safetyClass}">
-                                Safety: ${ingredient.safety_score !== undefined && ingredient.safety_score !== null ? ingredient.safety_score : 'N/A'}
-                            </span>
-                        </p>
-                        <p>
-                            <strong>Functions:</strong> ${ingredient.functions ? ingredient.functions.join(', ') : 'Unknown'}
-                        </p>
-                    </div>
-                </div>
-                <footer class="card-footer">
-                    <a href="ingredient.html?id=${slug}" class="card-footer-item">View Details</a>
-                </footer>
-            </div>
-        `;
-        container.appendChild(column);
-    });
-}
-
-function slugify(text) {
-    return text
-        .toString()
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^\w-]+/g, '')
-        .replace(/--+/g, '-')
-        .trim();
-}
-
-function getUrlParameter(name) {
-    const params = new URLSearchParams(window.location.search);
-    return params.get(name);
-}
-
-function initializeSearchAndFilters() {
-    const searchInput = document.getElementById('search-input');
-    const searchButton = document.getElementById('search-button');
-    const functionFilter = document.getElementById('function-filter');
-    const safetySlider = document.getElementById('safety-slider');
-    const safetyValue = document.getElementById('safety-value');
-
-    // Safety slider logic
-    if (safetySlider && safetyValue) {
-        safetySlider.addEventListener('input', function() {
-            const val = safetySlider.value;
-            safetyValue.textContent = val === '0' ? 'Any' : val;
-            currentSafetyScore = val === '0' ? null : parseInt(val);
-            filterAndDisplay();
-        });
-    }
-
-    // Function filter logic
-    if (functionFilter) {
-        functionFilter.addEventListener('change', filterAndDisplay);
-    }
-
-    // Search logic
-    if (searchInput) {
-        searchInput.addEventListener('input', filterAndDisplay);
-    }
-    if (searchButton) {
-        searchButton.addEventListener('click', filterAndDisplay);
-    }
-}
-
-function filterAndDisplay() {
-    const searchInput = document.getElementById('search-input');
-    const functionFilter = document.getElementById('function-filter');
-    const safetySlider = document.getElementById('safety-slider');
-    let filtered = allIngredients;
-    // Search
-    if (searchInput && searchInput.value.trim()) {
-        const query = searchInput.value.trim().toLowerCase();
-        filtered = filtered.filter(ingredient =>
-            ingredient.inci_name && ingredient.inci_name.toLowerCase().includes(query)
-        );
-    }
-    // Function filter
-    if (functionFilter) {
-        const selected = Array.from(functionFilter.selectedOptions).map(opt => opt.value).filter(Boolean);
-        if (selected.length > 0) {
-            filtered = filtered.filter(ingredient =>
-                ingredient.functions && selected.some(f => ingredient.functions.includes(f))
-            );
+        ingredientsTable.rows.add(rows).draw(false);
+        if (startIndex + ingredients.length >= totalCount) {
+            $('#loading-indicator').hide();
         }
     }
-    // Safety filter
-    if (safetySlider && safetySlider.value !== '0') {
-        const score = parseInt(safetySlider.value);
-        filtered = filtered.filter(ingredient => ingredient.safety_score === score);
+
+    function createRowData(ingredient) {
+        return [
+            ingredient.inci_name,
+            formatCASNumbers(ingredient.cas_numbers),
+            formatFunctions(ingredient.functions),
+            formatSafetyScore(ingredient.safety_score),
+            ingredient.origin || 'N/A',
+            'Loading...', // Top product usage
+            'Loading...', // Sentiment
+            'Loading...', // Common forms
+            'Loading...', // Body parts
+            'Loading...', // Positive benefits
+            'Loading...', // Negative concerns
+            ingredient.slug // Hidden slug for reference
+        ];
     }
-    displayIngredients(filtered);
-} 
+
+    function loadDetailedData(slug) {
+        fetch(`data/ingredients/${slug}.json`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to load data for ${slug}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                ingredientsTable.rows().every(function() {
+                    const rowData = this.data();
+                    if (rowData[11] === slug) {
+                        const updatedData = updateRowWithDetailedData(rowData, data);
+                        this.data(updatedData);
+                        return false;
+                    }
+                    return true;
+                });
+                ingredientsTable.rows().invalidate().draw(false);
+            })
+            .catch(error => {
+                console.error(`Error loading detailed data for ${slug}:`, error);
+            });
+    }
+
+    function updateRowWithDetailedData(rowData, detailData) {
+        const newData = [...rowData];
+        // Top Product Usage
+        if (detailData.product_usage_data && detailData.product_usage_data.by_product_type && detailData.product_usage_data.by_product_type.length > 0) {
+            const topProduct = detailData.product_usage_data.by_product_type[0];
+            newData[5] = `${topProduct.product_type}: ${topProduct.usage_percentage}%`;
+        } else {
+            newData[5] = 'N/A';
+        }
+        // Sentiment
+        if (detailData.reddit_community_analysis && detailData.reddit_community_analysis.sentiment_analysis) {
+            const sentiment = detailData.reddit_community_analysis.sentiment_analysis.overall_sentiment;
+            newData[6] = `<span class="sentiment-${sentiment.toLowerCase()}">${sentiment}</span>`;
+        } else {
+            newData[6] = 'N/A';
+        }
+        // Common Forms
+        if (detailData.reddit_community_analysis && detailData.reddit_community_analysis.product_forms && detailData.reddit_community_analysis.product_forms.length > 0) {
+            const forms = detailData.reddit_community_analysis.product_forms.slice(0, 3).map(form => `${form.form} (${form.mentions})`).join(', ');
+            newData[7] = forms;
+        } else {
+            newData[7] = 'N/A';
+        }
+        // Body Parts
+        if (detailData.reddit_community_analysis && detailData.reddit_community_analysis.body_parts_usage && detailData.reddit_community_analysis.body_parts_usage.length > 0) {
+            const parts = detailData.reddit_community_analysis.body_parts_usage.slice(0, 3).map(part => `${part.body_part} (${part.mentions})`).join(', ');
+            newData[8] = parts;
+        } else {
+            newData[8] = 'N/A';
+        }
+        // Positive Benefits
+        if (detailData.reddit_community_analysis && detailData.reddit_community_analysis.sentiment_analysis && detailData.reddit_community_analysis.sentiment_analysis.positive_benefits) {
+            const benefits = detailData.reddit_community_analysis.sentiment_analysis.positive_benefits;
+            if (benefits.key_positive_themes && benefits.key_positive_themes.length > 0) {
+                const topBenefits = benefits.key_positive_themes.slice(0, 2).join(', ');
+                newData[9] = topBenefits;
+            } else {
+                newData[9] = benefits.total_positive_statements > 0 ? `${benefits.total_positive_statements} positive statements` : 'None';
+            }
+        } else {
+            newData[9] = 'N/A';
+        }
+        // Negative Concerns
+        if (detailData.reddit_community_analysis && detailData.reddit_community_analysis.sentiment_analysis && detailData.reddit_community_analysis.sentiment_analysis.negative_cons) {
+            const cons = detailData.reddit_community_analysis.sentiment_analysis.negative_cons;
+            if (cons.key_negative_themes && cons.key_negative_themes.length > 0) {
+                const topCons = cons.key_negative_themes.slice(0, 2).join(', ');
+                newData[10] = topCons;
+            } else {
+                newData[10] = cons.total_negative_statements > 0 ? `${cons.total_negative_statements} negative statements` : 'None';
+            }
+        } else {
+            newData[10] = 'N/A';
+        }
+        return newData;
+    }
+
+    // Helper functions
+    function formatCASNumbers(casNumbers) {
+        if (!casNumbers || !Array.isArray(casNumbers) || casNumbers.length === 0) {
+            return 'N/A';
+        }
+        return casNumbers.join(', ');
+    }
+    function formatFunctions(functions) {
+        if (!functions || !Array.isArray(functions) || functions.length === 0) {
+            return 'N/A';
+        }
+        const validFunctions = functions.filter(f => typeof f === 'string' && f.length < 50);
+        if (validFunctions.length === 0) {
+            return 'N/A';
+        }
+        return validFunctions.join(', ');
+    }
+    function formatSafetyScore(score) {
+        if (score === null || score === undefined) {
+            return '<span class="safety-unknown">Unknown</span>';
+        }
+        return `<span class="safety-${score}">${score}</span>`;
+    }
+}); 
