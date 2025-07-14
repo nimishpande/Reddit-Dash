@@ -164,8 +164,8 @@ def extract_single_ingredient(ingredient_name, output_prefix="magnesium_ascorbyl
 
 
 def main():
-    # Extract data for behentrimonium chloride
-    extract_single_ingredient("behentrimonium chloride", "behentrimonium")
+    # Extract data for cocamidopropyl
+    extract_single_ingredient("cocamidopropyl", "cocamidopropyl")
 
 
 if __name__ == "__main__":
