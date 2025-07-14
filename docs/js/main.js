@@ -2,6 +2,7 @@
 const API_BASE_URL = 'data/';
 let allIngredients = [];
 let uniqueFunctions = new Set();
+let currentSafetyScore = null;
 
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('ingredients-list')) {
@@ -28,7 +29,7 @@ function initializeIndexPage() {
             populateFunctionFilter();
             createAlphabeticalIndex();
             displayIngredients(allIngredients);
-            initializeSearch();
+            initializeSearchAndFilters();
         })
         .catch(error => {
             console.error('Error loading ingredient index:', error);
@@ -40,29 +41,16 @@ function initializeIndexPage() {
 }
 
 function populateFunctionFilter() {
-    const filterElement = document.getElementById('filter-function');
+    const filterElement = document.getElementById('function-filter');
     if (!filterElement) return;
     while (filterElement.options.length > 1) {
         filterElement.remove(1);
     }
-    uniqueFunctions.forEach(func => {
+    Array.from(uniqueFunctions).sort().forEach(func => {
         const option = document.createElement('option');
         option.value = func;
         option.textContent = func;
         filterElement.appendChild(option);
-    });
-    filterElement.addEventListener('change', function() {
-        const selectedFunctions = Array.from(this.selectedOptions).map(option => option.value);
-        if (selectedFunctions.length === 0 || 
-            (selectedFunctions.length === 1 && selectedFunctions[0] === '')) {
-            displayIngredients(allIngredients);
-            return;
-        }
-        const filteredIngredients = allIngredients.filter(ingredient => {
-            if (!ingredient.functions) return false;
-            return selectedFunctions.some(func => ingredient.functions.includes(func));
-        });
-        displayIngredients(filteredIngredients);
     });
 }
 
@@ -130,7 +118,7 @@ function displayIngredients(ingredients) {
                         </h4>
                         <p>
                             <span class="safety-badge ${safetyClass}">
-                                Safety: ${ingredient.safety_score || 'N/A'}
+                                Safety: ${ingredient.safety_score !== undefined && ingredient.safety_score !== null ? ingredient.safety_score : 'N/A'}
                             </span>
                         </p>
                         <p>
@@ -160,4 +148,64 @@ function slugify(text) {
 function getUrlParameter(name) {
     const params = new URLSearchParams(window.location.search);
     return params.get(name);
+}
+
+function initializeSearchAndFilters() {
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+    const functionFilter = document.getElementById('function-filter');
+    const safetySlider = document.getElementById('safety-slider');
+    const safetyValue = document.getElementById('safety-value');
+
+    // Safety slider logic
+    if (safetySlider && safetyValue) {
+        safetySlider.addEventListener('input', function() {
+            const val = safetySlider.value;
+            safetyValue.textContent = val === '0' ? 'Any' : val;
+            currentSafetyScore = val === '0' ? null : parseInt(val);
+            filterAndDisplay();
+        });
+    }
+
+    // Function filter logic
+    if (functionFilter) {
+        functionFilter.addEventListener('change', filterAndDisplay);
+    }
+
+    // Search logic
+    if (searchInput) {
+        searchInput.addEventListener('input', filterAndDisplay);
+    }
+    if (searchButton) {
+        searchButton.addEventListener('click', filterAndDisplay);
+    }
+}
+
+function filterAndDisplay() {
+    const searchInput = document.getElementById('search-input');
+    const functionFilter = document.getElementById('function-filter');
+    const safetySlider = document.getElementById('safety-slider');
+    let filtered = allIngredients;
+    // Search
+    if (searchInput && searchInput.value.trim()) {
+        const query = searchInput.value.trim().toLowerCase();
+        filtered = filtered.filter(ingredient =>
+            ingredient.inci_name && ingredient.inci_name.toLowerCase().includes(query)
+        );
+    }
+    // Function filter
+    if (functionFilter) {
+        const selected = Array.from(functionFilter.selectedOptions).map(opt => opt.value).filter(Boolean);
+        if (selected.length > 0) {
+            filtered = filtered.filter(ingredient =>
+                ingredient.functions && selected.some(f => ingredient.functions.includes(f))
+            );
+        }
+    }
+    // Safety filter
+    if (safetySlider && safetySlider.value !== '0') {
+        const score = parseInt(safetySlider.value);
+        filtered = filtered.filter(ingredient => ingredient.safety_score === score);
+    }
+    displayIngredients(filtered);
 } 

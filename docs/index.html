@@ -9,43 +9,63 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <!-- Navbar/Header -->
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="index.html">
                 <strong>Cosmetic Ingredient DB</strong>
             </a>
         </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="index.html">Home</a>
+                <a class="navbar-item" href="#about">About</a>
+            </div>
+        </div>
     </nav>
     <section class="section">
         <div class="container">
             <h1 class="title">Cosmetic Ingredient Database</h1>
-            <div class="search-container mb-5">
-                <div class="field">
-                    <div class="control has-icons-left">
-                        <input class="input is-medium" type="text" id="search-input" placeholder="Search ingredients...">
-                        <span class="icon is-left">
-                            <i class="fas fa-search"></i>
-                        </span>
+            <!-- Search & Filters -->
+            <div class="box search-filters mb-5">
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" id="search-input" placeholder="Search ingredients..." aria-label="Search ingredients">
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" id="search-button" aria-label="Search">Search</button>
                     </div>
                 </div>
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-multiple">
-                            <select id="filter-function" multiple>
+                <div class="columns is-mobile mt-3 filter-controls">
+                    <div class="column is-half">
+                        <div class="select is-multiple is-fullwidth">
+                            <select id="function-filter" multiple aria-label="Filter by function">
                                 <option value="">All Functions</option>
+                                <!-- Populated dynamically -->
                             </select>
+                        </div>
+                    </div>
+                    <div class="column is-half safety-filter">
+                        <label for="safety-slider">Safety Score:</label>
+                        <div class="range-slider is-flex is-align-items-center">
+                            <input type="range" min="0" max="10" id="safety-slider" aria-valuemin="0" aria-valuemax="10">
+                            <span id="safety-value" class="ml-2">Any</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Alphabetical Index -->
             <div class="alpha-index mb-4">
                 <div class="alpha-buttons" id="alpha-buttons"></div>
             </div>
+            <!-- Ingredient Cards -->
             <div class="ingredients-container">
                 <div class="columns is-multiline" id="ingredients-list">
                     <div class="column is-loading">Loading ingredients...</div>
                 </div>
             </div>
+            <!-- Visualization Container (optional for homepage) -->
+            <div id="homepage-visualizations" class="mt-6"></div>
         </div>
     </section>
     <footer class="footer">

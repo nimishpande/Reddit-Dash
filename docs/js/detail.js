@@ -5,10 +5,10 @@ function initializeDetailPage() {
         return;
     }
     loadIngredientData(ingredientId);
-    initializeTabs();
 }
+
 function loadIngredientData(ingredientId) {
-    fetch(`${API_BASE_URL}ingredients/${ingredientId}.json`)
+    fetch(`data/ingredients/${ingredientId}.json`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Ingredient not found');
@@ -29,6 +29,7 @@ function loadIngredientData(ingredientId) {
             showError('Error loading ingredient data. The ingredient may not exist or there was a problem accessing the data.');
         });
 }
+
 function displayIngredientHeader(data) {
     const detailContainer = document.getElementById('ingredient-detail');
     if (!detailContainer) return;
@@ -39,7 +40,7 @@ function displayIngredientHeader(data) {
         <div class="box">
             <h1 class="title is-2">${overview.inci_name}</h1>
             <div class="tags">
-                <span class="tag is-medium ${safetyClass}">Safety Score: ${safety.safety_score || 'N/A'}</span>
+                <span class="tag is-medium ${safetyClass}">Safety Score: ${safety.safety_score !== undefined && safety.safety_score !== null ? safety.safety_score : 'N/A'}</span>
                 ${overview.origin ? `<span class="tag is-medium is-info">Origin: ${overview.origin}</span>` : ''}
             </div>
             <div class="subtitle">
@@ -53,6 +54,7 @@ function displayIngredientHeader(data) {
         </div>
     `;
 }
+
 function initializeTabs() {
     const tabs = document.querySelectorAll('#detail-tabs li');
     tabs.forEach(tab => {
@@ -67,6 +69,7 @@ function initializeTabs() {
         });
     });
 }
+
 function populateOverviewTab(data) {
     const tabPane = document.getElementById('tab-overview');
     if (!tabPane) return;
@@ -102,6 +105,7 @@ function populateOverviewTab(data) {
         </div>
     `;
 }
+
 function populateSafetyTab(data) {
     const tabPane = document.getElementById('tab-safety');
     if (!tabPane) return;
@@ -110,35 +114,20 @@ function populateSafetyTab(data) {
     tabPane.innerHTML = `
         <div class="content">
             <h2 class="title is-4">Safety Information</h2>
+            <div class="stat-box ${safetyClass}">
+                <h3>Safety Score</h3>
+                <div class="stat-value">${safety.safety_score !== undefined && safety.safety_score !== null ? safety.safety_score : 'N/A'}</div>
+            </div>
             <div class="notification ${safetyClass}">
-                <p class="is-size-4"><strong>Safety Score: ${safety.safety_score || 'N/A'}</strong></p>
                 <p>${safety.assessment || 'No assessment available'}</p>
             </div>
-            ${safety.categories && Object.keys(safety.categories).length > 0 ? `
-                <h3 class="title is-5">Assessment Categories</h3>
-                <table class="table is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Assessment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${Object.entries(safety.categories).map(([category, assessment]) => `
-                            <tr>
-                                <td>${category}</td>
-                                <td>${assessment}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            ` : '<p>No detailed category assessments available for this ingredient.</p>'}
             <div class="chart-container mt-5">
-                <canvas id="safetyChart"></canvas>
+                <canvas id="safety-chart"></canvas>
             </div>
         </div>
     `;
 }
+
 function populateUsageTab(data) {
     const tabPane = document.getElementById('tab-usage');
     if (!tabPane) return;
@@ -174,6 +163,7 @@ function populateUsageTab(data) {
         </div>
     `;
 }
+
 function populateRedditTab(data) {
     const tabPane = document.getElementById('tab-reddit');
     if (!tabPane) return;
@@ -182,108 +172,50 @@ function populateRedditTab(data) {
         tabPane.innerHTML = '<p>No Reddit community analysis available for this ingredient.</p>';
         return;
     }
+    // Stat boxes and chart containers for Reddit analysis
     tabPane.innerHTML = `
         <div class="content">
             <h2 class="title is-4">Reddit Community Analysis</h2>
-            <div class="columns">
-                <div class="column">
-                    <div class="box">
-                        <h3 class="title is-5">Overview</h3>
-                        <table class="table is-fullwidth">
-                            <tbody>
-                                <tr>
-                                    <th>Total Posts Analyzed</th>
-                                    <td>${reddit.overview.total_posts_analyzed}</td>
-                                </tr>
-                                <tr>
-                                    <th>Posts with Comments</th>
-                                    <td>${reddit.overview.posts_with_comments}</td>
-                                </tr>
-                                <tr>
-                                    <th>Comment Coverage</th>
-                                    <td>${reddit.overview.comment_coverage_percentage}%</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="reddit-overview">
+                <div class="columns">
+                    <div class="column">
+                        <div class="stat-box">
+                            <h3>Total Posts</h3>
+                            <div class="stat-value">${reddit.overview && reddit.overview.total_posts_analyzed ? reddit.overview.total_posts_analyzed : 'N/A'}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="column">
-                    <div class="box">
-                        <h3 class="title is-5">Sentiment Analysis</h3>
-                        <p><strong>Overall Sentiment:</strong> ${reddit.sentiment_analysis.overall_sentiment}</p>
-                        <p>
-                            <strong>Positive Keywords:</strong> ${reddit.sentiment_analysis.sentiment_keywords.positive.count} 
-                            (${reddit.sentiment_analysis.sentiment_keywords.positive.percentage}%)
-                        </p>
-                        <p>
-                            <strong>Negative Keywords:</strong> ${reddit.sentiment_analysis.sentiment_keywords.negative.count} 
-                            (${reddit.sentiment_analysis.sentiment_keywords.negative.percentage}%)
-                        </p>
+                    <div class="column">
+                        <div class="stat-box">
+                            <h3>Sentiment</h3>
+                            <div class="stat-value sentiment-${(reddit.sentiment_analysis && reddit.sentiment_analysis.overall_sentiment) ? reddit.sentiment_analysis.overall_sentiment.toLowerCase() : 'neutral'}">${reddit.sentiment_analysis && reddit.sentiment_analysis.overall_sentiment ? reddit.sentiment_analysis.overall_sentiment : 'N/A'}</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="stat-box">
+                            <h3>Most Popular Form</h3>
+                            <div class="stat-value">N/A</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="chart-container mt-4">
-                <canvas id="sentimentChart"></canvas>
-            </div>
-            <div class="columns mt-5">
-                <div class="column is-half">
-                    <div class="reddit-section">
-                        <h3 class="title is-5">Positive Benefits</h3>
-                        ${reddit.sentiment_analysis.positive_benefits.total_positive_statements > 0 ? `
-                            <p>Total Positive Statements: ${reddit.sentiment_analysis.positive_benefits.total_positive_statements}</p>
-                            ${reddit.sentiment_analysis.positive_benefits.key_positive_themes.length > 0 ? `
-                                <h4 class="subtitle is-6">Key Positive Themes:</h4>
-                                <ul>
-                                    ${reddit.sentiment_analysis.positive_benefits.key_positive_themes.map(theme => `
-                                        <li>${theme}</li>
-                                    `).join('')}
-                                </ul>
-                            ` : '<p>No specific positive themes identified.</p>'}
-                        ` : '<p>No positive statements identified in the analysis.</p>'}
-                    </div>
+            <div class="chart-row">
+                <div class="chart-container half">
+                    <h3>Sentiment Analysis</h3>
+                    <canvas id="sentiment-chart"></canvas>
                 </div>
-                <div class="column is-half">
-                    <div class="reddit-section">
-                        <h3 class="title is-5">Negative Cons</h3>
-                        ${reddit.sentiment_analysis.negative_cons.total_negative_statements > 0 ? `
-                            <p>Total Negative Statements: ${reddit.sentiment_analysis.negative_cons.total_negative_statements}</p>
-                            ${reddit.sentiment_analysis.negative_cons.key_negative_themes.length > 0 ? `
-                                <h4 class="subtitle is-6">Key Negative Themes:</h4>
-                                <ul>
-                                    ${reddit.sentiment_analysis.negative_cons.key_negative_themes.map(theme => `
-                                        <li>${theme}</li>
-                                    `).join('')}
-                                </ul>
-                            ` : '<p>No specific negative themes identified.</p>'}
-                        ` : '<p>No negative statements identified in the analysis.</p>'}
-                    </div>
+                <div class="chart-container half">
+                    <h3>Product Forms</h3>
+                    <canvas id="forms-chart"></canvas>
                 </div>
             </div>
-            <div class="reddit-section mt-5">
-                <h3 class="title is-5">Temporal Patterns</h3>
-                <div class="chart-container">
-                    <canvas id="temporalChart"></canvas>
-                </div>
+            <div class="subreddit-distribution">
+                <h3>Top Subreddits</h3>
+                <div class="tag-cloud" id="subreddit-tags"></div>
             </div>
-            <div class="reddit-section mt-5">
-                <h3 class="title is-5">Category Breakdown</h3>
-                <div class="chart-container">
-                    <canvas id="categoryChart"></canvas>
-                </div>
-            </div>
-            ${reddit.key_insights && reddit.key_insights.length > 0 ? `
-                <div class="reddit-section mt-5">
-                    <h3 class="title is-5">Key Insights</h3>
-                    <ul>
-                        ${reddit.key_insights.map(insight => `
-                            <li>${insight}</li>
-                        `).join('')}
-                    </ul>
-                </div>
-            ` : ''}
         </div>
     `;
 }
+
 function showError(message) {
     const detailContainer = document.getElementById('ingredient-detail');
     if (!detailContainer) return;
@@ -294,7 +226,7 @@ function showError(message) {
         </div>
     `;
     document.getElementById('detail-tabs').style.display = 'none';
-    document.querySelectorAll('.tab-pane').forEach(pane => {
+    document.querySelectorAll('.tab-content').forEach(pane => {
         pane.style.display = 'none';
     });
 } 

@@ -58,11 +58,15 @@
     color: white;
     border-color: #00d1b2;
 }
-.tab-pane {
+.tab-content {
     display: none;
+    padding: 1.5rem 0 0 0;
 }
-.tab-pane.is-active {
+.tab-content.is-active, .tab-content:target {
     display: block;
+}
+.tabs li.is-active a {
+    font-weight: bold;
 }
 .chart-container {
     position: relative;
@@ -81,6 +85,72 @@
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.5rem;
 }
+/* Search/Filter Bar */
+.search-filters {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem 1rem;
+}
+.filter-controls .select {
+    width: 100%;
+}
+.safety-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.range-slider input[type=range] {
+    width: 120px;
+    margin-left: 0.5rem;
+}
+#safety-value {
+    min-width: 2.5em;
+    display: inline-block;
+    text-align: center;
+}
+/* Stat Boxes */
+.stat-box {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.stat-box h3 {
+    font-size: 1.1rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.sentiment-positive { color: #4caf50; }
+.sentiment-negative { color: #f44336; }
+.sentiment-neutral { color: #ffc107; }
+/* Tag Cloud */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.tag-cloud .tag {
+    font-size: 1em;
+    padding: 0.5em 1em;
+}
+/* Chart Row */
+.chart-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.chart-container.half {
+    width: 48%;
+    min-width: 250px;
+}
 @media screen and (max-width: 768px) {
     .alpha-buttons a {
         width: 1.8em;
@@ -90,5 +160,12 @@
     }
     .chart-container {
         height: 250px;
+    }
+    .chart-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .chart-container.half {
+        width: 100%;
     }
 } 
