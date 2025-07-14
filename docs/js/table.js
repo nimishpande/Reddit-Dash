@@ -95,10 +95,11 @@ $(document).ready(function() {
                     formatFunctions(ingredient.functions),
                     formatSafetyScore(ingredient.safety_score),
                     ingredient.origin || 'Not specified',
-                    '...',
-                    '...',
-                    '...',
-                    '...',
+                    '...', // Top Product Usage
+                    '...', // Sentiment
+                    '...', // Popular Forms
+                    '...', // Body Parts
+                    '...', // Key Insights
                     `<button class="detail-btn" data-slug="${ingredient.slug}">View</button>`
                 ]);
                 table.rows.add(rowData).draw();
@@ -116,7 +117,7 @@ $(document).ready(function() {
         $(visibleRows).each(function() {
             const row = table.row(this);
             const rowData = row.data();
-            const detailBtn = $(rowData[9]);
+            const detailBtn = $(rowData[10]);
             const slug = detailBtn.data('slug');
             if (rowData[5] === '...') {
                 fetch(`data/ingredients/${slug}.json`)
@@ -129,7 +130,7 @@ $(document).ready(function() {
                         } else {
                             rowData[5] = 'N/A';
                         }
-                        // Reddit Sentiment
+                        // Sentiment
                         if (data.reddit_community_analysis && data.reddit_community_analysis.sentiment_analysis) {
                             const sentiment = data.reddit_community_analysis.sentiment_analysis.overall_sentiment;
                             rowData[6] = `<span class="sentiment-${sentiment ? sentiment.toLowerCase() : 'neutral'}">${sentiment || 'N/A'}</span>`;
@@ -138,22 +139,30 @@ $(document).ready(function() {
                         }
                         // Popular Forms
                         if (data.reddit_community_analysis && data.reddit_community_analysis.product_forms && data.reddit_community_analysis.product_forms.length > 0) {
-                            const topForms = data.reddit_community_analysis.product_forms.slice(0, 2).map(f => f.form).join(', ');
+                            const topForms = data.reddit_community_analysis.product_forms.slice(0, 3).map(f => f.form).join(', ');
                             rowData[7] = topForms;
                         } else {
                             rowData[7] = 'N/A';
                         }
                         // Body Parts
                         if (data.reddit_community_analysis && data.reddit_community_analysis.body_parts_usage && data.reddit_community_analysis.body_parts_usage.length > 0) {
-                            const topParts = data.reddit_community_analysis.body_parts_usage.slice(0, 2).map(p => p.body_part).join(', ');
+                            const topParts = data.reddit_community_analysis.body_parts_usage.slice(0, 3).map(p => p.body_part).join(', ');
                             rowData[8] = topParts;
                         } else {
                             rowData[8] = 'N/A';
+                        }
+                        // Key Insights
+                        if (data.reddit_community_analysis && data.reddit_community_analysis.key_insights && data.reddit_community_analysis.key_insights.length > 0) {
+                            rowData[9] = data.reddit_community_analysis.key_insights[0];
+                        } else {
+                            rowData[9] = 'N/A';
                         }
                         row.data(rowData).draw(false);
                     })
                     .catch(error => {
                         console.error(`Error loading detailed data for ${slug}:`, error);
+                        rowData[5] = rowData[6] = rowData[7] = rowData[8] = rowData[9] = 'N/A';
+                        row.data(rowData).draw(false);
                     });
             }
         });

@@ -15,13 +15,25 @@
 #ingredients-table th {
     position: relative;
     padding-top: 40px !important;
-    background-color: #f8f9fa;
+    background-color: #f2f2f2;
     border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
 }
 #ingredients-table td {
     padding: 8px;
     vertical-align: middle;
     border: 1px solid #dee2e6;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* Key Insights column: allow more width on desktop */
+@media (min-width: 992px) {
+    #ingredients-table td:nth-child(10),
+    #ingredients-table th:nth-child(10) {
+        max-width: 320px;
+    }
 }
 .column-filter {
     position: absolute;
