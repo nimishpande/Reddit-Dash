@@ -1,12 +1,9 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive SODIUM LAUROYL METHYL ISETHIONATE Report",
-    "generated_date": "2025-07-14T10:25:47.738114Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "SODIUM LAUROYL METHYL ISETHIONATE",
-    "cas_numbers": [],
+    "cas_numbers": [
+      "-"
+    ],
     "functions": [
       "Cleansing",
       "Surfactant"
@@ -50,87 +47,23 @@
       "comment_coverage_percentage": 78.2
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 47,
+          "percentage": 62.7
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 28,
+          "percentage": 37.3
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 19,
         "negative_sentiment_posts": 10
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 0,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 51,
-        "percentage": 65.4
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 48,
-        "percentage": 61.5
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 62,
-        "percentage": 79.5
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 23,
-        "percentage": 29.5
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 37,
-        "percentage": 47.4
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 22,
-        "percentage": 28.2
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 75,
-        "percentage": 96.2
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 16,
-        "percentage": 20.5
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 75,
-        "percentage": 96.2
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 11,
-        "percentage": 14.1
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

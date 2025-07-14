@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive CETRIMONIUM CHLORIDE Report",
-    "generated_date": "2025-07-14T10:25:47.729835Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "CETRIMONIUM CHLORIDE",
     "cas_numbers": [
@@ -59,91 +54,23 @@
       "comment_coverage_percentage": 84.9
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 2,
-        "key_positive_themes": [
-          "Hair Growth Enhancement: 1",
-          "Overall Effectiveness: 1",
-          "High Recommendation: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 1,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 151,
+          "percentage": 64.8
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 82,
+          "percentage": 35.2
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 44,
         "negative_sentiment_posts": 22
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 5,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 93,
-        "percentage": 66.9
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 98,
-        "percentage": 70.5
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 124,
-        "percentage": 89.2
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 56,
-        "percentage": 40.3
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 49,
-        "percentage": 35.3
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 134,
-        "percentage": 96.4
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 52,
-        "percentage": 37.4
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 32,
-        "percentage": 23.0
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 37,
-        "percentage": 26.6
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

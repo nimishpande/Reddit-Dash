@@ -1,14 +1,8 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive MACADAMIA INTEGRIFOLIA SEED OIL Report",
-    "generated_date": "2025-07-14T10:25:47.724488Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "MACADAMIA INTEGRIFOLIA SEED OIL",
     "cas_numbers": [
-      "438545-25-6",
-      "159518-86-2"
+      "438545-25-6; 159518-86-2"
     ],
     "functions": [
       "Skin conditioning"
@@ -57,87 +51,23 @@
       "comment_coverage_percentage": 92.1
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 199,
+          "percentage": 65.2
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 106,
+          "percentage": 34.8
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 57,
         "negative_sentiment_posts": 33
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 2,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 94,
-        "percentage": 67.6
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 102,
-        "percentage": 73.4
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 122,
-        "percentage": 87.8
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 65,
-        "percentage": 46.8
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 72,
-        "percentage": 51.8
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 57,
-        "percentage": 41.0
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 136,
-        "percentage": 97.8
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 35,
-        "percentage": 25.2
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 56,
-        "percentage": 40.3
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 132,
-        "percentage": 95.0
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

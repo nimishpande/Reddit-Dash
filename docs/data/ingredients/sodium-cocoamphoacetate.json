@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive SODIUM COCOAMPHOACETATE Report",
-    "generated_date": "2025-07-14T10:25:47.711604Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "SODIUM COCOAMPHOACETATE",
     "cas_numbers": [
@@ -59,87 +54,23 @@
       "comment_coverage_percentage": 79.8
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 89,
+          "percentage": 65.0
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 48,
+          "percentage": 35.0
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 26,
         "negative_sentiment_posts": 10
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 2,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 73,
-        "percentage": 70.2
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 59,
-        "percentage": 56.7
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 92,
-        "percentage": 88.5
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 30,
-        "percentage": 28.8
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 54,
-        "percentage": 51.9
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 39,
-        "percentage": 37.5
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 99,
-        "percentage": 95.2
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 24,
-        "percentage": 23.1
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 96,
-        "percentage": 92.3
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 17,
-        "percentage": 16.3
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

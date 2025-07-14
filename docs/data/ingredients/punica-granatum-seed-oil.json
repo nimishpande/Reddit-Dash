@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive PUNICA GRANATUM SEED OIL Report",
-    "generated_date": "2025-07-14T10:25:47.715380Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "PUNICA GRANATUM SEED OIL",
     "cas_numbers": [
@@ -56,87 +51,23 @@
       "comment_coverage_percentage": 61.7
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 83,
+          "percentage": 65.9
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 43,
+          "percentage": 34.1
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 27,
         "negative_sentiment_posts": 9
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 5,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Treatment Experiences",
-        "post_count": 64,
-        "percentage": 59.8
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 87,
-        "percentage": 81.3
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 42,
-        "percentage": 39.3
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 39,
-        "percentage": 36.4
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 94,
-        "percentage": 87.9
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 27,
-        "percentage": 25.2
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 93,
-        "percentage": 86.9
-      },
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 63,
-        "percentage": 58.9
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 30,
-        "percentage": 28.0
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 40,
-        "percentage": 37.4
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

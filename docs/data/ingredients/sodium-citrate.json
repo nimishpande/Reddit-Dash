@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive SODIUM CITRATE Report",
-    "generated_date": "2025-07-14T10:25:47.728195Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "SODIUM CITRATE",
     "cas_numbers": [
@@ -59,95 +54,23 @@
       "comment_coverage_percentage": 100.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 31,
-        "key_positive_themes": [
-          "High Recommendation: 20",
-          "Overall Effectiveness: 13",
-          "Nail Strength & Beauty: 1",
-          "Skin Health Improvement: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 14,
-        "key_negative_themes": [
-          "Side Effects: 7",
-          "Thyroid/Hormonal Issues: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 329,
+          "percentage": 69.0
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 148,
+          "percentage": 31.0
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 89,
         "negative_sentiment_posts": 21
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 6,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 95,
-        "percentage": 68.3
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 105,
-        "percentage": 75.5
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 123,
-        "percentage": 88.5
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 79,
-        "percentage": 56.8
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 72,
-        "percentage": 51.8
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 50,
-        "percentage": 36.0
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 78,
-        "percentage": 56.1
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 133,
-        "percentage": 95.7
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 65,
-        "percentage": 46.8
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

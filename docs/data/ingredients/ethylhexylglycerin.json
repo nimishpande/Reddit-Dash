@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive ETHYLHEXYLGLYCERIN Report",
-    "generated_date": "2025-07-14T10:25:47.696180Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "ETHYLHEXYLGLYCERIN",
     "cas_numbers": [
@@ -57,92 +52,23 @@
       "comment_coverage_percentage": 98.6
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 1,
-        "key_positive_themes": [
-          "Skin Health Improvement: 1",
-          "Overall Effectiveness: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 1,
-        "key_negative_themes": [
-          "Side Effects: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 436,
+          "percentage": 65.2
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 233,
+          "percentage": 34.8
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 90,
         "negative_sentiment_posts": 21
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 12,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 121,
-        "percentage": 87.1
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 125,
-        "percentage": 89.9
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 109,
-        "percentage": 78.4
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 55,
-        "percentage": 39.6
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 108,
-        "percentage": 77.7
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 97,
-        "percentage": 69.8
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 89,
-        "percentage": 64.0
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

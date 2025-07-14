@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive HYDROXYPROPYL METHYLCELLULOSE Report",
-    "generated_date": "2025-07-14T10:25:47.741450Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "HYDROXYPROPYL METHYLCELLULOSE",
     "cas_numbers": [
@@ -61,89 +56,23 @@
       "comment_coverage_percentage": 79.9
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 1,
-        "key_positive_themes": [
-          "Overall Effectiveness: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 115,
+          "percentage": 63.2
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 67,
+          "percentage": 36.8
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 39,
         "negative_sentiment_posts": 24
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 3,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 90,
-        "percentage": 64.7
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 81,
-        "percentage": 58.3
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 121,
-        "percentage": 87.1
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 52,
-        "percentage": 37.4
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 64,
-        "percentage": 46.0
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 65,
-        "percentage": 46.8
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 132,
-        "percentage": 95.0
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 35,
-        "percentage": 25.2
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 131,
-        "percentage": 94.2
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 30,
-        "percentage": 21.6
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

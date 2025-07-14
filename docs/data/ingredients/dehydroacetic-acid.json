@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive DEHYDROACETIC ACID Report",
-    "generated_date": "2025-07-14T10:25:47.698323Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "DEHYDROACETIC ACID",
     "cas_numbers": [
@@ -58,87 +53,23 @@
       "comment_coverage_percentage": 89.9
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 161,
+          "percentage": 64.9
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 87,
+          "percentage": 35.1
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 57,
         "negative_sentiment_posts": 18
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 10,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 104,
-        "percentage": 74.8
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 103,
-        "percentage": 74.1
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 122,
-        "percentage": 87.8
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 62,
-        "percentage": 44.6
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 70,
-        "percentage": 50.4
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 59,
-        "percentage": 42.4
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 136,
-        "percentage": 97.8
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 27,
-        "percentage": 19.4
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 132,
-        "percentage": 95.0
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 48,
-        "percentage": 34.5
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

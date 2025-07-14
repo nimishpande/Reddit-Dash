@@ -1,14 +1,8 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive DISODIUM EDTA Report",
-    "generated_date": "2025-07-14T10:25:47.702649Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "DISODIUM EDTA",
     "cas_numbers": [
-      "139-33-3",
-      "6381-92-6"
+      "139-33-3 --- 6381-92-6"
     ],
     "functions": [
       "Chelating",
@@ -58,93 +52,23 @@
       "comment_coverage_percentage": 100.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 1,
-        "key_positive_themes": [
-          "Hair Growth Enhancement: 1",
-          "Overall Effectiveness: 1",
-          "High Recommendation: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 1,
-        "key_negative_themes": [
-          "Side Effects: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 457,
+          "percentage": 65.1
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 245,
+          "percentage": 34.9
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 99,
         "negative_sentiment_posts": 23
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 21,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 125,
-        "percentage": 89.9
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 128,
-        "percentage": 92.1
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 107,
-        "percentage": 77.0
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 57,
-        "percentage": 41.0
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 111,
-        "percentage": 79.9
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 108,
-        "percentage": 77.7
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 91,
-        "percentage": 65.5
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

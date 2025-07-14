@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive LINALOOL Report",
-    "generated_date": "2025-07-14T10:25:47.714634Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "LINALOOL",
     "cas_numbers": [
@@ -57,94 +52,23 @@
       "comment_coverage_percentage": 99.3
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 6,
-        "key_positive_themes": [
-          "High Recommendation: 6",
-          "Skin Health Improvement: 2",
-          "Overall Effectiveness: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 2,
-        "key_negative_themes": [
-          "Side Effects: 1",
-          "Skin Irritation: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 433,
+          "percentage": 73.8
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 154,
+          "percentage": 26.2
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 103,
         "negative_sentiment_posts": 16
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 11,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 103,
-        "percentage": 74.1
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 123,
-        "percentage": 88.5
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 134,
-        "percentage": 96.4
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 99,
-        "percentage": 71.2
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 76,
-        "percentage": 54.7
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 77,
-        "percentage": 55.4
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 73,
-        "percentage": 52.5
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 97,
-        "percentage": 69.8
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 137,
-        "percentage": 98.6
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive SODIUM HYDROXIDE Report",
-    "generated_date": "2025-07-14T10:25:47.699570Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "SODIUM HYDROXIDE",
     "cas_numbers": [
@@ -17,8 +12,8 @@
     "description": "Caustic soda is used in the preparation of many products (detergents, explosives ...). It is used to make sodium salts and to neutralize acids. In cosmetics, it allows the manufacture of solid soaps. Caustic soda is allowed in organic, it does not pose problems in the conditions of regulation."
   },
   "safety_information": {
-    "safety_score": 2,
-    "assessment": "\"Low penalty\" in all other categories.",
+    "safety_score": 0,
+    "assessment": "\"No penalty\" in the following categories :",
     "categories": {}
   },
   "product_usage_data": {
@@ -57,93 +52,23 @@
       "comment_coverage_percentage": 99.3
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 4,
-        "key_positive_themes": [
-          "High Recommendation: 4",
-          "Skin Health Improvement: 1",
-          "Overall Effectiveness: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 4,
-        "key_negative_themes": [
-          "Acne/Breakout Issues: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 340,
+          "percentage": 65.3
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 181,
+          "percentage": 34.7
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 75,
         "negative_sentiment_posts": 17
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 11,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Product Recommendations",
-        "post_count": 116,
-        "percentage": 83.5
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 85,
-        "percentage": 61.2
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 133,
-        "percentage": 95.7
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 69,
-        "percentage": 49.6
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 132,
-        "percentage": 95.0
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 81,
-        "percentage": 58.3
-      },
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 85,
-        "percentage": 61.2
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 101,
-        "percentage": 72.7
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 80,
-        "percentage": 57.6
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 63,
-        "percentage": 45.3
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

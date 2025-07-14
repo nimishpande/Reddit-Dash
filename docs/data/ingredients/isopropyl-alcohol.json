@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive ISOPROPYL ALCOHOL Report",
-    "generated_date": "2025-07-14T10:25:47.693938Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "ISOPROPYL ALCOHOL",
     "cas_numbers": [
@@ -59,99 +54,23 @@
       "comment_coverage_percentage": 99.3
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 14,
-        "key_positive_themes": [
-          "Overall Effectiveness: 8",
-          "High Recommendation: 8",
-          "Skin Health Improvement: 3",
-          "Nail Strength & Beauty: 2",
-          "Hair Growth Enhancement: 2",
-          "Fast Results: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 14,
-        "key_negative_themes": [
-          "Side Effects: 3",
-          "Cost Concerns: 2",
-          "Ineffectiveness: 1",
-          "Thyroid/Hormonal Issues: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 417,
+          "percentage": 63.1
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 244,
+          "percentage": 36.9
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 79,
         "negative_sentiment_posts": 35
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 28,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 94,
-        "percentage": 67.6
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 128,
-        "percentage": 92.1
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 131,
-        "percentage": 94.2
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 100,
-        "percentage": 71.9
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 83,
-        "percentage": 59.7
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 72,
-        "percentage": 51.8
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 100,
-        "percentage": 71.9
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 135,
-        "percentage": 97.1
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 44,
-        "percentage": 31.7
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive HYDROLYZED RICE PROTEIN Report",
-    "generated_date": "2025-07-14T10:25:47.723372Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "HYDROLYZED RICE PROTEIN",
     "cas_numbers": [
@@ -58,87 +53,23 @@
       "comment_coverage_percentage": 80.6
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 105,
+          "percentage": 68.6
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 48,
+          "percentage": 31.4
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 47,
         "negative_sentiment_posts": 9
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 4,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 66,
-        "percentage": 61.1
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 64,
-        "percentage": 59.3
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 96,
-        "percentage": 88.9
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 36,
-        "percentage": 33.3
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 41,
-        "percentage": 38.0
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 105,
-        "percentage": 97.2
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 16,
-        "percentage": 14.8
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 24,
-        "percentage": 22.2
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 99,
-        "percentage": 91.7
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 39,
-        "percentage": 36.1
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

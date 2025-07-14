@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive COCAMIDOPROPYL HYDROXYSULTAINE Report",
-    "generated_date": "2025-07-14T10:25:47.714047Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "COCAMIDOPROPYL HYDROXYSULTAINE",
     "cas_numbers": [
@@ -62,87 +57,23 @@
       "comment_coverage_percentage": 83.5
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 108,
+          "percentage": 56.0
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 85,
+          "percentage": 44.0
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 42,
         "negative_sentiment_posts": 22
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 4,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 94,
-        "percentage": 67.6
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 80,
-        "percentage": 57.6
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 117,
-        "percentage": 84.2
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 44,
-        "percentage": 31.7
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 65,
-        "percentage": 46.8
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 48,
-        "percentage": 34.5
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 136,
-        "percentage": 97.8
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 23,
-        "percentage": 16.5
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 36,
-        "percentage": 25.9
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 132,
-        "percentage": 95.0
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

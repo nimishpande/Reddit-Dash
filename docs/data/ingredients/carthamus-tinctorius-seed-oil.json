@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive CARTHAMUS TINCTORIUS SEED OIL Report",
-    "generated_date": "2025-07-14T10:25:47.706122Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "CARTHAMUS TINCTORIUS SEED OIL",
     "cas_numbers": [
@@ -57,87 +52,23 @@
       "comment_coverage_percentage": 72.2
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 71,
+          "percentage": 55.9
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 56,
+          "percentage": 44.1
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 24,
         "negative_sentiment_posts": 13
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 3,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 61,
-        "percentage": 67.8
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 65,
-        "percentage": 72.2
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 80,
-        "percentage": 88.9
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 41,
-        "percentage": 45.6
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 44,
-        "percentage": 48.9
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 33,
-        "percentage": 36.7
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 84,
-        "percentage": 93.3
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 25,
-        "percentage": 27.8
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 84,
-        "percentage": 93.3
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 18,
-        "percentage": 20.0
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

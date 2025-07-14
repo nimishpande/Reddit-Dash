@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive LIMONENE Report",
-    "generated_date": "2025-07-14T10:25:47.681785Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "LIMONENE",
     "cas_numbers": [
@@ -58,97 +53,23 @@
       "comment_coverage_percentage": 100.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 10,
-        "key_positive_themes": [
-          "High Recommendation: 8",
-          "Overall Effectiveness: 5",
-          "Skin Health Improvement: 2",
-          "Fast Results: 1",
-          "Nail Strength & Beauty: 1",
-          "Anti-Aging Benefits: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 10,
-        "key_negative_themes": [
-          "Side Effects: 3",
-          "Discontinued Due to Problems: 2"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 432,
+          "percentage": 67.6
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 207,
+          "percentage": 32.4
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 87,
         "negative_sentiment_posts": 20
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 16,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Product Recommendations",
-        "post_count": 121,
-        "percentage": 87.1
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 131,
-        "percentage": 94.2
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 126,
-        "percentage": 90.6
-      },
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 95,
-        "percentage": 68.3
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 109,
-        "percentage": 78.4
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 88,
-        "percentage": 63.3
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 72,
-        "percentage": 51.8
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 73,
-        "percentage": 52.5
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 62,
-        "percentage": 44.6
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 91,
-        "percentage": 65.5
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

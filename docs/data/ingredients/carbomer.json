@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive CARBOMER Report",
-    "generated_date": "2025-07-14T10:25:47.684744Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "CARBOMER",
     "cas_numbers": [
@@ -63,87 +58,23 @@
       "comment_coverage_percentage": 100.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 1,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 409,
+          "percentage": 63.5
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 235,
+          "percentage": 36.5
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 92,
         "negative_sentiment_posts": 24
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 12,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 123,
-        "percentage": 88.5
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 129,
-        "percentage": 92.8
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 106,
-        "percentage": 76.3
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 105,
-        "percentage": 75.5
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 94,
-        "percentage": 67.6
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 56,
-        "percentage": 40.3
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 110,
-        "percentage": 79.1
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 139,
-        "percentage": 100.0
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

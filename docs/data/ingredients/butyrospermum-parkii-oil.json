@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive BUTYROSPERMUM PARKII OIL Report",
-    "generated_date": "2025-07-14T10:25:47.688522Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "BUTYROSPERMUM PARKII OIL",
     "cas_numbers": [
@@ -57,87 +52,23 @@
       "comment_coverage_percentage": 76.7
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 104,
+          "percentage": 75.4
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 34,
+          "percentage": 24.6
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 46,
         "negative_sentiment_posts": 11
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 4,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 78,
-        "percentage": 58.6
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 82,
-        "percentage": 61.7
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 104,
-        "percentage": 78.2
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 51,
-        "percentage": 38.3
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 38,
-        "percentage": 28.6
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 120,
-        "percentage": 90.2
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 113,
-        "percentage": 85.0
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 41,
-        "percentage": 30.8
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 13,
-        "percentage": 9.8
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 34,
-        "percentage": 25.6
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

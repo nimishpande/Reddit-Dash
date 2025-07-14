@@ -1,12 +1,9 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive SCLEROCARYA BIRREA SEED OIL Report",
-    "generated_date": "2025-07-14T10:25:47.707299Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "SCLEROCARYA BIRREA SEED OIL",
-    "cas_numbers": [],
+    "cas_numbers": [
+      ""
+    ],
     "functions": [
       "Hair conditioning",
       "Humectant"
@@ -55,87 +52,23 @@
       "comment_coverage_percentage": 93.2
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 61,
+          "percentage": 67.8
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 29,
+          "percentage": 32.2
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 17,
         "negative_sentiment_posts": 7
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 2,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 29,
-        "percentage": 65.9
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 28,
-        "percentage": 63.6
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 43,
-        "percentage": 97.7
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 17,
-        "percentage": 38.6
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 18,
-        "percentage": 40.9
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 14,
-        "percentage": 31.8
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 42,
-        "percentage": 95.5
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 11,
-        "percentage": 25.0
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 44,
-        "percentage": 100.0
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 16,
-        "percentage": 36.4
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

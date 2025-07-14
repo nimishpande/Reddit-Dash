@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive CAFFEINE Report",
-    "generated_date": "2025-07-14T10:25:47.690628Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "CAFFEINE",
     "cas_numbers": [
@@ -58,102 +53,23 @@
       "comment_coverage_percentage": 100.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 70,
-        "key_positive_themes": [
-          "High Recommendation: 48",
-          "Overall Effectiveness: 24",
-          "Hair Growth Enhancement: 5",
-          "Skin Health Improvement: 5",
-          "Fast Results: 5",
-          "Anti-Aging Benefits: 2",
-          "Nail Strength & Beauty: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 99,
-        "key_negative_themes": [
-          "Side Effects: 26",
-          "Discontinued Due to Problems: 19",
-          "Ineffectiveness: 5",
-          "Thyroid/Hormonal Issues: 4",
-          "Skin Irritation: 2",
-          "Cost Concerns: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 424,
+          "percentage": 53.2
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 373,
+          "percentage": 46.8
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 61,
         "negative_sentiment_posts": 53
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 15,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Treatment Experiences",
-        "post_count": 130,
-        "percentage": 93.5
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 136,
-        "percentage": 97.8
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 106,
-        "percentage": 76.3
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 99,
-        "percentage": 71.2
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 108,
-        "percentage": 77.7
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 102,
-        "percentage": 73.4
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 105,
-        "percentage": 75.5
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 80,
-        "percentage": 57.6
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

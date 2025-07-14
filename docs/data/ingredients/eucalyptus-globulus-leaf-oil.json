@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive EUCALYPTUS GLOBULUS LEAF OIL Report",
-    "generated_date": "2025-07-14T10:25:47.722468Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "EUCALYPTUS GLOBULUS LEAF OIL",
     "cas_numbers": [
@@ -11,11 +6,8 @@
       "84625-32-1"
     ],
     "functions": [
-      "The Eucalyptus leaf has been used for hundreds of years in various remedies. For example",
-      "the plant is used in medicines to relieve the airways. In cosmetics",
-      "it is used for its flavor and antiseptic functions. It has recently been shown (Bachir",
-      "Selvakumar",
-      "2012) that this oil may have an action in the anti-dandruff treatment of certain dandruff like Malassezia furfur. It is also effective against lice (pediculus humanus) by destroying the slow ones."
+      "Skin conditioning",
+      "Perfuming"
     ],
     "origin": "Vegetal",
     "description": "The Eucalyptus leaf has been used for hundreds of years in various remedies. For example, the plant is used in medicines to relieve the airways. In cosmetics, it is used for its flavor and antiseptic functions. It has recently been shown (Bachir, Selvakumar, 2012) that this oil may have an action in the anti-dandruff treatment of certain dandruff like Malassezia furfur. It is also effective against lice (pediculus humanus) by destroying the slow ones."
@@ -61,99 +53,23 @@
       "comment_coverage_percentage": 98.6
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 10,
-        "key_positive_themes": [
-          "High Recommendation: 10",
-          "Skin Health Improvement: 2",
-          "Overall Effectiveness: 2",
-          "Nail Strength & Beauty: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 13,
-        "key_negative_themes": [
-          "Side Effects: 6",
-          "Thyroid/Hormonal Issues: 2",
-          "Acne/Breakout Issues: 2",
-          "Discontinued Due to Problems: 2",
-          "Skin Irritation: 1",
-          "Ineffectiveness: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 339,
+          "percentage": 60.8
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 219,
+          "percentage": 39.2
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 81,
         "negative_sentiment_posts": 27
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 9,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 94,
-        "percentage": 67.6
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 116,
-        "percentage": 83.5
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 117,
-        "percentage": 84.2
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 79,
-        "percentage": 56.8
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 89,
-        "percentage": 64.0
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 73,
-        "percentage": 52.5
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 41,
-        "percentage": 29.5
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 128,
-        "percentage": 92.1
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 77,
-        "percentage": 55.4
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

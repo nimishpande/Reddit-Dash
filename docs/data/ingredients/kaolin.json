@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive KAOLIN Report",
-    "generated_date": "2025-07-14T10:25:47.690952Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "KAOLIN",
     "cas_numbers": [
@@ -61,98 +56,23 @@
       "comment_coverage_percentage": 99.3
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 18,
-        "key_positive_themes": [
-          "High Recommendation: 13",
-          "Overall Effectiveness: 5",
-          "Skin Health Improvement: 4",
-          "Fast Results: 1",
-          "Anti-Aging Benefits: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 11,
-        "key_negative_themes": [
-          "Side Effects: 4",
-          "Discontinued Due to Problems: 2",
-          "Ineffectiveness: 2",
-          "Thyroid/Hormonal Issues: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 319,
+          "percentage": 72.3
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 122,
+          "percentage": 27.7
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 94,
         "negative_sentiment_posts": 11
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 6,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 65,
-        "percentage": 46.8
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 96,
-        "percentage": 69.1
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 109,
-        "percentage": 78.4
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 76,
-        "percentage": 54.7
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 62,
-        "percentage": 44.6
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 49,
-        "percentage": 35.3
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 128,
-        "percentage": 92.1
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 37,
-        "percentage": 26.6
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 80,
-        "percentage": 57.6
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 117,
-        "percentage": 84.2
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

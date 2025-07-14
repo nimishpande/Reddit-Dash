@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive ASCORBIC ACID Report",
-    "generated_date": "2025-07-14T10:25:47.697199Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "ASCORBIC ACID",
     "cas_numbers": [
@@ -60,100 +55,23 @@
       "comment_coverage_percentage": 100.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 27,
-        "key_positive_themes": [
-          "Skin Health Improvement: 18",
-          "High Recommendation: 17",
-          "Overall Effectiveness: 14",
-          "Hair Growth Enhancement: 2",
-          "Nail Strength & Beauty: 1",
-          "Anti-Aging Benefits: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 14,
-        "key_negative_themes": [
-          "Acne/Breakout Issues: 4",
-          "Side Effects: 2",
-          "Skin Irritation: 1",
-          "Ineffectiveness: 1",
-          "Discontinued Due to Problems: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 479,
+          "percentage": 62.3
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 290,
+          "percentage": 37.7
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 84,
         "negative_sentiment_posts": 29
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 23,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 118,
-        "percentage": 84.9
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 126,
-        "percentage": 90.6
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 131,
-        "percentage": 94.2
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 116,
-        "percentage": 83.5
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 111,
-        "percentage": 79.9
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 137,
-        "percentage": 98.6
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 79,
-        "percentage": 56.8
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 92,
-        "percentage": 66.2
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 135,
-        "percentage": 97.1
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 108,
-        "percentage": 77.7
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

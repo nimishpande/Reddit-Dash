@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive ALOE BARBADENSIS LEAF EXTRACT Report",
-    "generated_date": "2025-07-14T10:25:47.730532Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "ALOE BARBADENSIS LEAF EXTRACT",
     "cas_numbers": [
@@ -60,87 +55,23 @@
       "comment_coverage_percentage": 95.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 0,
-        "key_positive_themes": []
-      },
-      "negative_cons": {
-        "total_negative_statements": 0,
-        "key_negative_themes": []
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 224,
+          "percentage": 63.3
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 130,
+          "percentage": 36.7
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 62,
         "negative_sentiment_posts": 21
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 6,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 118,
-        "percentage": 84.9
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 101,
-        "percentage": 72.7
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 135,
-        "percentage": 97.1
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 80,
-        "percentage": 57.6
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 67,
-        "percentage": 48.2
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 88,
-        "percentage": 63.3
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 30,
-        "percentage": 21.6
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 77,
-        "percentage": 55.4
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 137,
-        "percentage": 98.6
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

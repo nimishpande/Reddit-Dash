@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive CHOLECALCIFEROL Report",
-    "generated_date": "2025-07-14T10:25:47.726805Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "CHOLECALCIFEROL",
     "cas_numbers": [
@@ -31,99 +26,23 @@
       "comment_coverage_percentage": 95.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 11,
-        "key_positive_themes": [
-          "High Recommendation: 4",
-          "Anti-Aging Benefits: 3",
-          "Overall Effectiveness: 3",
-          "Skin Health Improvement: 2",
-          "Nail Strength & Beauty: 1",
-          "Hair Growth Enhancement: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 4,
-        "key_negative_themes": [
-          "Thyroid/Hormonal Issues: 1",
-          "Acne/Breakout Issues: 1",
-          "Side Effects: 1",
-          "Ineffectiveness: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 196,
+          "percentage": 58.2
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 141,
+          "percentage": 41.8
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 56,
         "negative_sentiment_posts": 30
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 10,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Combination Therapy",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 127,
-        "percentage": 91.4
-      },
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 121,
-        "percentage": 87.1
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 122,
-        "percentage": 87.8
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 125,
-        "percentage": 89.9
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 100,
-        "percentage": 71.9
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 78,
-        "percentage": 56.1
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 109,
-        "percentage": 78.4
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 94,
-        "percentage": 67.6
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 51,
-        "percentage": 36.7
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

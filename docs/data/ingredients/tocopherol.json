@@ -1,20 +1,15 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive TOCOPHEROL Report",
-    "generated_date": "2025-07-14T10:25:47.738841Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "TOCOPHEROL",
     "cas_numbers": [
-      "54-28-4",
-      "16698-35-4",
-      "10191-41-0",
+      "54-28-4 (gamma)",
+      "16698-35-4(beta)",
+      "10191-41-0(DL)",
       "119-13-1",
       "1406-18-4",
       "1406-66-2",
-      "2074-53-5",
-      "59-02-9",
+      "2074-53-5 (DL)",
+      "59-02-9 (D)",
       "7616-22-0"
     ],
     "functions": [
@@ -67,93 +62,23 @@
       "comment_coverage_percentage": 99.3
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 2,
-        "key_positive_themes": [
-          "High Recommendation: 2",
-          "Skin Health Improvement: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 3,
-        "key_negative_themes": [
-          "Acne/Breakout Issues: 1",
-          "Discontinued Due to Problems: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 536,
+          "percentage": 64.2
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 299,
+          "percentage": 35.8
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 96,
         "negative_sentiment_posts": 28
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 28,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 120,
-        "percentage": 86.3
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 130,
-        "percentage": 93.5
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 135,
-        "percentage": 97.1
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 113,
-        "percentage": 81.3
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 105,
-        "percentage": 75.5
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 74,
-        "percentage": 53.2
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 136,
-        "percentage": 97.8
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 91,
-        "percentage": 65.5
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 110,
-        "percentage": 79.1
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

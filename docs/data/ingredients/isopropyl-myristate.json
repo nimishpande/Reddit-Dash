@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive ISOPROPYL MYRISTATE Report",
-    "generated_date": "2025-07-14T10:25:47.704595Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "ISOPROPYL MYRISTATE",
     "cas_numbers": [
@@ -59,97 +54,23 @@
       "comment_coverage_percentage": 97.1
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 5,
-        "key_positive_themes": [
-          "Skin Health Improvement: 5",
-          "High Recommendation: 3",
-          "Nail Strength & Beauty: 2",
-          "Overall Effectiveness: 1"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 12,
-        "key_negative_themes": [
-          "Acne/Breakout Issues: 9",
-          "Discontinued Due to Problems: 3",
-          "Skin Irritation: 1",
-          "Side Effects: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 284,
+          "percentage": 61.1
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 181,
+          "percentage": 38.9
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 68,
         "negative_sentiment_posts": 27
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 15,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 106,
-        "percentage": 76.3
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 123,
-        "percentage": 88.5
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 133,
-        "percentage": 95.7
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 76,
-        "percentage": 54.7
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 83,
-        "percentage": 59.7
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 138,
-        "percentage": 99.3
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 41,
-        "percentage": 29.5
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 67,
-        "percentage": 48.2
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 130,
-        "percentage": 93.5
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 62,
-        "percentage": 44.6
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

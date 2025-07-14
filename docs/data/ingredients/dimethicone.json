@@ -1,9 +1,4 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive DIMETHICONE Report",
-    "generated_date": "2025-07-14T10:25:47.690062Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "DIMETHICONE",
     "cas_numbers": [
@@ -61,96 +56,23 @@
       "comment_coverage_percentage": 94.2
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 30,
-        "key_positive_themes": [
-          "Hair Growth Enhancement: 27",
-          "High Recommendation: 16",
-          "Overall Effectiveness: 15",
-          "Nail Strength & Beauty: 5",
-          "Skin Health Improvement: 4"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 10,
-        "key_negative_themes": [
-          "Side Effects: 4",
-          "Discontinued Due to Problems: 2"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 284,
+          "percentage": 62.3
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 172,
+          "percentage": 37.7
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 65,
         "negative_sentiment_posts": 25
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 12,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 108,
-        "percentage": 77.7
-      },
-      {
-        "category": "Treatment Experiences",
-        "post_count": 107,
-        "percentage": 77.0
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 132,
-        "percentage": 95.0
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 81,
-        "percentage": 58.3
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 82,
-        "percentage": 59.0
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 139,
-        "percentage": 100.0
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 46,
-        "percentage": 33.1
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 70,
-        "percentage": 50.4
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 133,
-        "percentage": 95.7
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 61,
-        "percentage": 43.9
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []

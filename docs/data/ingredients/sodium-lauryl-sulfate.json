@@ -1,15 +1,10 @@
 {
-  "report_metadata": {
-    "title": "Comprehensive SODIUM LAURYL SULFATE Report",
-    "generated_date": "2025-07-14T10:25:47.740698Z",
-    "report_type": "ingredient_analysis"
-  },
   "ingredient_overview": {
     "inci_name": "SODIUM LAURYL SULFATE",
     "cas_numbers": [
       "151-21-3",
-      "68585-47-7",
-      "68955-19-1",
+      "68585-47-7 (generic)",
+      "68955-19-1 (generic)",
       "73296-89-6",
       "85586-07-8"
     ],
@@ -63,95 +58,23 @@
       "comment_coverage_percentage": 100.0
     },
     "sentiment_analysis": {
-      "positive_benefits": {
-        "total_positive_statements": 5,
-        "key_positive_themes": [
-          "High Recommendation: 3",
-          "Overall Effectiveness: 2",
-          "Skin Health Improvement: 2"
-        ]
-      },
-      "negative_cons": {
-        "total_negative_statements": 7,
-        "key_negative_themes": [
-          "Discontinued Due to Problems: 2",
-          "Side Effects: 2",
-          "Thyroid/Hormonal Issues: 1"
-        ]
-      },
-      "overall_sentiment": null,
       "sentiment_keywords": {
         "positive": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 372,
+          "percentage": 57.7
         },
         "negative": {
-          "count": 0,
-          "percentage": 0.0
+          "count": 273,
+          "percentage": 42.3
         }
       },
+      "overall_sentiment": "POSITIVE",
       "sentiment_posts": {
         "positive_sentiment_posts": 65,
         "negative_sentiment_posts": 38
       }
     },
-    "dosage_effectiveness": {
-      "total_dosage_statements": 13,
-      "effective_dosage_mentions": 0,
-      "most_common_dosages": []
-    },
-    "category_breakdown": [
-      {
-        "category": "Treatment Experiences",
-        "post_count": 119,
-        "percentage": 85.6
-      },
-      {
-        "category": "Product Recommendations",
-        "post_count": 131,
-        "percentage": 94.2
-      },
-      {
-        "category": "Side Effects",
-        "post_count": 109,
-        "percentage": 78.4
-      },
-      {
-        "category": "Combination Therapy",
-        "post_count": 136,
-        "percentage": 97.8
-      },
-      {
-        "category": "Scientific Discussion",
-        "post_count": 60,
-        "percentage": 43.2
-      },
-      {
-        "category": "Humor Meme",
-        "post_count": 75,
-        "percentage": 54.0
-      },
-      {
-        "category": "Seeking Advice",
-        "post_count": 131,
-        "percentage": 94.2
-      },
-      {
-        "category": "Ingredient Usage Patterns",
-        "post_count": 111,
-        "percentage": 79.9
-      },
-      {
-        "category": "Progress Report",
-        "post_count": 93,
-        "percentage": 66.9
-      },
-      {
-        "category": "Dosage Questions",
-        "post_count": 83,
-        "percentage": 59.7
-      }
-    ],
+    "category_breakdown": [],
     "ingredient_combinations": {
       "top_combinations": [],
       "ingredients_mentioned_in_comments": []
