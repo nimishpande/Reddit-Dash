@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic Ingredient Database</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <strong>Cosmetic Ingredient DB</strong>
+            </a>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Cosmetic Ingredient Database</h1>
+            <div class="search-container mb-5">
+                <div class="field">
+                    <div class="control has-icons-left">
+                        <input class="input is-medium" type="text" id="search-input" placeholder="Search ingredients...">
+                        <span class="icon is-left">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="select is-multiple">
+                            <select id="filter-function" multiple>
+                                <option value="">All Functions</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alpha-index mb-4">
+                <div class="alpha-buttons" id="alpha-buttons"></div>
+            </div>
+            <div class="ingredients-container">
+                <div class="columns is-multiline" id="ingredients-list">
+                    <div class="column is-loading">Loading ingredients...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>Cosmetic Ingredient Database</p>
+            <p>Last updated: <span id="last-updated"></span></p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html> 
