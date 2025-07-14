@@ -112,6 +112,52 @@ $(document).ready(function() {
                 alert('Failed to load ingredient data. Please try again later.');
             });
     }
+    // --- Throttled fetch and cache for ingredient details ---
+    const MAX_CONCURRENT_FETCHES = 6;
+    let currentFetches = 0;
+    const fetchQueue = [];
+    const ingredientDetailCache = {};
+
+    function throttledFetch(url) {
+        return new Promise((resolve, reject) => {
+            const task = () => {
+                currentFetches++;
+                fetch(url)
+                    .then(response => {
+                        currentFetches--;
+                        processQueue();
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.json();
+                    })
+                    .then(resolve)
+                    .catch(err => {
+                        currentFetches--;
+                        processQueue();
+                        reject(err);
+                    });
+            };
+            fetchQueue.push(task);
+            processQueue();
+        });
+    }
+
+    function processQueue() {
+        while (currentFetches < MAX_CONCURRENT_FETCHES && fetchQueue.length > 0) {
+            const nextTask = fetchQueue.shift();
+            nextTask();
+        }
+    }
+
+    function getIngredientDetail(slug, url) {
+        if (ingredientDetailCache[slug]) {
+            return Promise.resolve(ingredientDetailCache[slug]);
+        }
+        return throttledFetch(url).then(data => {
+            ingredientDetailCache[slug] = data;
+            return data;
+        });
+    }
+
     function loadDetailedDataForVisibleRows() {
         const visibleRows = table.rows({page: 'current'}).nodes();
         $(visibleRows).each(function() {
@@ -120,8 +166,7 @@ $(document).ready(function() {
             const detailBtn = $(rowData[10]);
             const slug = detailBtn.data('slug');
             if (rowData[5] === '...') {
-                fetch(`data/ingredients/${slug}.json`)
-                    .then(response => response.json())
+                getIngredientDetail(slug, `data/ingredients/${slug}.json`)
                     .then(data => {
                         // Top Product Usage
                         if (data.product_usage_data && data.product_usage_data.by_product_type && data.product_usage_data.by_product_type.length > 0) {
