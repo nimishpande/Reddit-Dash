@@ -105,7 +105,7 @@ function displayIngredients(ingredients) {
     }
     ingredients.sort((a, b) => a.inci_name.localeCompare(b.inci_name));
     ingredients.forEach(ingredient => {
-        const slug = slugify(ingredient.inci_name);
+        const slug = ingredient.slug;
         const safetyClass = `safety-${ingredient.safety_score || 0}`;
         const column = document.createElement('div');
         column.className = 'column is-one-third-desktop is-half-tablet';
