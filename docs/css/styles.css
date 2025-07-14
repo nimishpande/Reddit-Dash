@@ -9,6 +9,7 @@
 }
 #ingredients-table {
     width: 100% !important;
+    font-size: 14px;
     border-collapse: collapse;
 }
 #ingredients-table th {
@@ -32,6 +33,7 @@
     border: 1px solid #ced4da;
     border-radius: 4px;
 }
+/* Safety score colors */
 .safety-0 { background-color: #28a745; color: white; }
 .safety-1, .safety-2, .safety-3 { background-color: #8bc34a; color: black; }
 .safety-4, .safety-5, .safety-6 { background-color: #ffc107; color: black; }
@@ -365,4 +367,43 @@
     border: 1px solid #dee2e6;
     padding: 6px 10px;
     text-align: left;
+}
+
+/* Filter row styling */
+.filter-row th {
+    padding: 5px !important;
+    background: #f8f9fa;
+}
+.filter-row input, .filter-row select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+/* Tooltip for truncated function lists */
+[title] {
+    cursor: help;
+    border-bottom: 1px dotted #888;
+}
+
+/* Ensure all columns are visually clear and responsive */
+#ingredients-table {
+    width: 100% !important;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+#ingredients-table th, #ingredients-table td {
+    padding: 8px;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+}
+
+@media screen and (max-width: 768px) {
+    #ingredients-table th, #ingredients-table td {
+        font-size: 12px;
+        padding: 4px;
+    }
 } 

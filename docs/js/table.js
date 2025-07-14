@@ -16,19 +16,41 @@ $(document).ready(function() {
         pageLength: 25,
         fixedHeader: true,
         stateSave: true,
-        deferRender: true,
-        initComplete: function() {
-            this.api().columns().every(function(colIdx) {
-                let column = this;
-                const title = $(column.header()).text();
-                if (title !== 'Details' && title !== 'Actions') {
-                    const input = $('<input type="text" class="column-filter" placeholder="Filter..." />')
-                        .appendTo($(column.header()))
-                        .on('keyup change', function() {
-                            if (column.search() !== this.value) {
-                                column.search(this.value).draw();
-                            }
-                        });
+        deferRender: true
+    });
+
+    // --- Filter row logic ---
+    // For each filter input/select in the filter row, wire up column search
+    $('#ingredients-table thead .filter-row th').each(function(colIdx) {
+        const input = $(this).find('.column-filter');
+        if (input.length) {
+            input.on('keyup change', function() {
+                let val = $(this).val();
+                // Special handling for safety score select
+                if ($(this).is('select')) {
+                    // Remove previous custom search for this column
+                    $.fn.dataTable.ext.search = $.fn.dataTable.ext.search.filter(fn => !fn._isSafetyScore);
+                    if (val && val.includes('-')) {
+                        const [min, max] = val.split('-').map(Number);
+                        const fn = function(settings, data, dataIndex) {
+                            // Safety score is column 3 (index 3)
+                            const score = parseInt($(data[3]).text() || data[3]) || 0;
+                            return score >= min && score <= max;
+                        };
+                        fn._isSafetyScore = true;
+                        $.fn.dataTable.ext.search.push(fn);
+                        table.draw();
+                        return;
+                    } else if (val) {
+                        table.column(colIdx).search('^' + val + '$', true, false).draw();
+                        return;
+                    } else {
+                        table.column(colIdx).search('').draw();
+                        table.draw();
+                        return;
+                    }
+                } else {
+                    table.column(colIdx).search(val).draw();
                 }
             });
         }
@@ -110,7 +132,7 @@ $(document).ready(function() {
                         // Reddit Sentiment
                         if (data.reddit_community_analysis && data.reddit_community_analysis.sentiment_analysis) {
                             const sentiment = data.reddit_community_analysis.sentiment_analysis.overall_sentiment;
-                            rowData[6] = `<span class="sentiment-${sentiment.toLowerCase()}">${sentiment}</span>`;
+                            rowData[6] = `<span class="sentiment-${sentiment ? sentiment.toLowerCase() : 'neutral'}">${sentiment || 'N/A'}</span>`;
                         } else {
                             rowData[6] = 'N/A';
                         }
@@ -308,7 +330,14 @@ $(document).ready(function() {
         if (!functions || !Array.isArray(functions)) {
             return 'Not specified';
         }
-        return functions.filter(f => typeof f === 'string' && f.length < 50).join(', ') || 'Not specified';
+        // Truncate long lists, add tooltip for full list
+        const valid = functions.filter(f => typeof f === 'string' && f.length < 50);
+        if (valid.length === 0) return 'Not specified';
+        const display = valid.slice(0, 3).join(', ');
+        const tooltip = valid.join(', ');
+        return valid.length > 3
+            ? `<span title="${tooltip}">${display} &hellip;</span>`
+            : display;
     }
     function formatSafetyScore(score) {
         if (score === null || score === undefined) {
