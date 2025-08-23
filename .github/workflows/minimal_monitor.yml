@@ -1,0 +1,44 @@
+name: Minimal Monitor
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Python Setup
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Dependencies
+      run: |
+        pip install requests python-dotenv
+        
+    - name: Create Environment
+      run: |
+        echo "REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }}" > .env
+        echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}" >> .env
+        
+    - name: Run Minimal Monitor
+      run: |
+        python misc_py_root/reddit_monitor_minimal.py
+        
+    - name: Show Results
+      run: |
+        ls -la reddit_monitoring/
+        
+    - name: Commit Results
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add reddit_monitoring/
+        git commit -m "Update minimal monitoring data" || echo "No changes"
+        git push origin main
