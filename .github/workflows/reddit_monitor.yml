@@ -32,20 +32,20 @@ jobs:
         
     - name: Test environment setup
       run: |
-        echo "Testing environment variables:"
-        python -c "
-        import os
-        from dotenv import load_dotenv
-        load_dotenv()
-        print(f'REDDIT_CLIENT_ID: {os.getenv(\"REDDIT_CLIENT_ID\", \"NOT_FOUND\")[:10]}...' if os.getenv(\"REDDIT_CLIENT_ID\") else 'REDDIT_CLIENT_ID: NOT_FOUND')
-        print(f'REDDIT_CLIENT_SECRET: {os.getenv(\"REDDIT_CLIENT_SECRET\", \"NOT_FOUND\")[:10]}...' if os.getenv(\"REDDIT_CLIENT_SECRET\") else 'REDDIT_CLIENT_SECRET: NOT_FOUND')
-        print(f'GIT_TOKEN: {os.getenv(\"GIT_TOKEN\", \"NOT_FOUND\")[:10]}...' if os.getenv(\"GIT_TOKEN\") else 'GIT_TOKEN: NOT_FOUND')
-        "
+        echo "Running comprehensive environment test..."
+        python misc_py_root/test_workflow.py
         
     - name: Run Reddit monitor
       run: |
-        echo "Running script with error handling:"
-        python misc_py_root/reddit_monitor.py 2>&1 || echo "Script failed with exit code $?"
+        echo "Running main Reddit monitor script..."
+        python misc_py_root/reddit_monitor.py
+        
+    - name: Check for errors
+      if: failure()
+      run: |
+        echo "❌ Script failed! Checking for error details..."
+        echo "Last 50 lines of output:"
+        tail -50 /tmp/reddit_monitor.log 2>/dev/null || echo "No log file found"
         
     - name: Debug - List files
       run: |
