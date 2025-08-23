@@ -1,0 +1,67 @@
+name: Reddit Monitor V2
+
+on:
+  schedule:
+    # Run every 4 hours (UTC)
+    - cron: '0 */4 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  monitor-reddit:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests python-dotenv PyGithub
+        
+    - name: Create environment file
+      run: |
+        echo "REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }}" > .env
+        echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}" >> .env
+        echo "GIT_TOKEN=${{ secrets.GIT_TOKEN }}" >> .env
+        echo "Environment file created successfully"
+        
+    - name: Test environment
+      run: |
+        echo "Testing environment setup..."
+        python -c "
+        import os
+        from dotenv import load_dotenv
+        load_dotenv()
+        print('REDDIT_CLIENT_ID:', '✅ FOUND' if os.getenv('REDDIT_CLIENT_ID') else '❌ MISSING')
+        print('REDDIT_CLIENT_SECRET:', '✅ FOUND' if os.getenv('REDDIT_CLIENT_SECRET') else '❌ MISSING')
+        print('GIT_TOKEN:', '✅ FOUND' if os.getenv('GIT_TOKEN') else '❌ MISSING')
+        "
+        
+    - name: Run Reddit monitoring
+      run: |
+        echo "Starting Reddit monitoring..."
+        python misc_py_root/reddit_monitor_simple.py
+        
+    - name: Show results
+      run: |
+        echo "Monitoring results:"
+        ls -la reddit_monitoring/ || echo "No reddit_monitoring directory found"
+        
+    - name: Commit and push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        if [ -d "reddit_monitoring" ]; then
+          git add reddit_monitoring/
+          git commit -m "Update Reddit monitoring data - $(date)" || echo "No changes to commit"
+          git push origin main
+          echo "✅ Changes committed and pushed successfully"
+        else
+          echo "No reddit_monitoring directory to commit"
+        fi
