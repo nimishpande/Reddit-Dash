@@ -297,19 +297,7 @@ def main():
     except Exception as e:
         print(f"⚠️ GitHub upload error: {e}")
     
-    # Upload to Google Drive (optional - fallback)
-    try:
-        from google_drive_uploader import upload_monitoring_files
-        print("\n☁️ Uploading to Google Drive...")
-        upload_success = upload_monitoring_files()
-        if upload_success:
-            print("✅ Files uploaded to Google Drive!")
-        else:
-            print("⚠️ Google Drive upload failed (files still saved locally)")
-    except ImportError:
-        print("ℹ️ Google Drive uploader not available (files saved locally only)")
-    except Exception as e:
-        print(f"⚠️ Google Drive upload error: {e}")
+    # Note: Only GitHub storage is used now - Google Drive upload removed
     
     # Print summary to console
     print(f"\n✅ Monitoring complete!")

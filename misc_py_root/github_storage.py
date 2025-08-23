@@ -15,7 +15,7 @@ from github import Github
 # Configuration
 LOCAL_MONITORING_DIR = 'reddit_monitoring'
 RELEASE_TAG_PREFIX = 'reddit-monitor'
-REPO_NAME = 'nimishpande/Ingredient_cosmetic'  # Your repository name (username/repo)
+REPO_NAME = 'nimishpande/ingredient_cosmetics'  # Your repository name (username/repo)
 
 def authenticate_github():
     """Authenticate with GitHub using token"""
