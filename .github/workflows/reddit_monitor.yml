@@ -59,6 +59,10 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add reddit_monitoring/
-        git diff --quiet && git diff --staged --quiet || git commit -m "Update Reddit monitoring data - $(date)"
-        git push
+        if [ -d "reddit_monitoring" ]; then
+          git add reddit_monitoring/
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update Reddit monitoring data - $(date)"
+          git push origin main
+        else
+          echo "No reddit_monitoring directory to commit"
+        fi
