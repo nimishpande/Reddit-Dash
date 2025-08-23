@@ -241,77 +241,84 @@ def save_posts_json(posts, run_timestamp):
 
 def main():
     """Main monitoring function"""
-    print(f"🔍 Starting Reddit monitoring for r/{SUBREDDIT}")
-    print(f"⏰ Run time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    
-    # Create monitoring directory
-    os.makedirs(MONITORING_DIR, exist_ok=True)
-    
-    # Get access token
-    access_token = get_reddit_token()
-    if not access_token:
-        print("❌ Failed to get access token")
-        return
-    
-    print("✅ Successfully obtained access token")
-    
-    # Fetch posts
-    print(f"📥 Fetching posts from r/{SUBREDDIT}...")
-    posts = fetch_subreddit_posts(access_token, SUBREDDIT, POSTS_LIMIT, 'new')
-    
-    if not posts:
-        print("❌ No posts fetched")
-        return
-    
-    print(f"📊 Fetched {len(posts)} posts")
-    
-    # Filter engaging posts
-    engaging_posts = filter_engaging_posts(posts)
-    print(f"🎯 Found {len(engaging_posts)} engaging posts")
-    
-    # Get run timestamp
-    run_timestamp = datetime.now()
-    
-    # Create summary
-    print("📝 Creating daily summary...")
-    create_daily_summary(engaging_posts, run_timestamp)
-    
-    # Save JSON backup
-    print("💾 Saving JSON backup...")
-    save_posts_json(engaging_posts, run_timestamp)
-    
-    # Save timestamp
-    save_last_run_timestamp()
-    
-    # Upload to GitHub Releases (optional)
     try:
-        from github_storage import upload_to_github
-        print("\n☁️ Uploading to GitHub Releases...")
-        upload_success = upload_to_github()
-        if upload_success:
-            print("✅ Files uploaded to GitHub Releases!")
-        else:
-            print("⚠️ GitHub upload failed (files still saved locally)")
-    except ImportError:
-        print("ℹ️ GitHub storage not available (files saved locally only)")
+        print(f"🔍 Starting Reddit monitoring for r/{SUBREDDIT}")
+        print(f"⏰ Run time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        
+        # Create monitoring directory
+        os.makedirs(MONITORING_DIR, exist_ok=True)
+        
+        # Get access token
+        access_token = get_reddit_token()
+        if not access_token:
+            print("❌ Failed to get access token")
+            return
+        
+        print("✅ Successfully obtained access token")
+        
+        # Fetch posts
+        print(f"📥 Fetching posts from r/{SUBREDDIT}...")
+        posts = fetch_subreddit_posts(access_token, SUBREDDIT, POSTS_LIMIT, 'new')
+        
+        if not posts:
+            print("❌ No posts fetched")
+            return
+        
+        print(f"📊 Fetched {len(posts)} posts")
+        
+        # Filter engaging posts
+        engaging_posts = filter_engaging_posts(posts)
+        print(f"🎯 Found {len(engaging_posts)} engaging posts")
+        
+        # Get run timestamp
+        run_timestamp = datetime.now()
+        
+        # Create summary
+        print("📝 Creating daily summary...")
+        create_daily_summary(engaging_posts, run_timestamp)
+        
+        # Save JSON backup
+        print("💾 Saving JSON backup...")
+        save_posts_json(engaging_posts, run_timestamp)
+        
+        # Save timestamp
+        save_last_run_timestamp()
+        
+        # Upload to GitHub Releases (optional)
+        try:
+            from github_storage import upload_to_github
+            print("\n☁️ Uploading to GitHub Releases...")
+            upload_success = upload_to_github()
+            if upload_success:
+                print("✅ Files uploaded to GitHub Releases!")
+            else:
+                print("⚠️ GitHub upload failed (files still saved locally)")
+        except ImportError:
+            print("ℹ️ GitHub storage not available (files saved locally only)")
+        except Exception as e:
+            print(f"⚠️ GitHub upload error: {e}")
+        
+        # Note: Only GitHub storage is used now - Google Drive upload removed
+        
+        # Print summary to console
+        print(f"\n✅ Monitoring complete!")
+        print(f"📁 Summary saved to: {MONITORING_DIR}/daily_summary_{datetime.now().strftime('%Y-%m-%d')}.txt")
+        print(f"📊 Engaging posts found: {len(engaging_posts)}")
+        
+        if engaging_posts:
+            print(f"\n🏆 Top engaging posts:")
+            for i, post in enumerate(engaging_posts[:3], 1):
+                title = post.get('title', 'No Title')[:60] + '...' if len(post.get('title', '')) > 60 else post.get('title', 'No Title')
+                score = post.get('score', 0)
+                comments = post.get('num_comments', 0)
+                print(f"{i}. {title}")
+                print(f"   Score: {score}, Comments: {comments}")
+                
     except Exception as e:
-        print(f"⚠️ GitHub upload error: {e}")
-    
-    # Note: Only GitHub storage is used now - Google Drive upload removed
-    
-    # Print summary to console
-    print(f"\n✅ Monitoring complete!")
-    print(f"📁 Summary saved to: {MONITORING_DIR}/daily_summary_{datetime.now().strftime('%Y-%m-%d')}.txt")
-    print(f"📊 Engaging posts found: {len(engaging_posts)}")
-    
-    if engaging_posts:
-        print(f"\n🏆 Top engaging posts:")
-        for i, post in enumerate(engaging_posts[:3], 1):
-            title = post.get('title', 'No Title')[:60] + '...' if len(post.get('title', '')) > 60 else post.get('title', 'No Title')
-            score = post.get('score', 0)
-            comments = post.get('num_comments', 0)
-            print(f"{i}. {title}")
-            print(f"   Score: {score}, Comments: {comments}")
+        print(f"❌ Error in main function: {e}")
+        import traceback
+        traceback.print_exc()
+        return
 
 if __name__ == "__main__":
     main()

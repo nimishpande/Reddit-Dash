@@ -30,11 +30,22 @@ jobs:
         echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}" >> .env
         echo "GIT_TOKEN=${{ secrets.GIT_TOKEN }}" >> .env
         
+    - name: Test environment setup
+      run: |
+        echo "Testing environment variables:"
+        python -c "
+        import os
+        from dotenv import load_dotenv
+        load_dotenv()
+        print(f'REDDIT_CLIENT_ID: {os.getenv(\"REDDIT_CLIENT_ID\", \"NOT_FOUND\")[:10]}...' if os.getenv(\"REDDIT_CLIENT_ID\") else 'REDDIT_CLIENT_ID: NOT_FOUND')
+        print(f'REDDIT_CLIENT_SECRET: {os.getenv(\"REDDIT_CLIENT_SECRET\", \"NOT_FOUND\")[:10]}...' if os.getenv(\"REDDIT_CLIENT_SECRET\") else 'REDDIT_CLIENT_SECRET: NOT_FOUND')
+        print(f'GIT_TOKEN: {os.getenv(\"GIT_TOKEN\", \"NOT_FOUND\")[:10]}...' if os.getenv(\"GIT_TOKEN\") else 'GIT_TOKEN: NOT_FOUND')
+        "
+        
     - name: Run Reddit monitor
       run: |
-        echo "Checking .env file contents:"
-        cat .env | sed 's/=.*/=***/'  # Show keys but hide values
-        python misc_py_root/reddit_monitor.py
+        echo "Running script with error handling:"
+        python misc_py_root/reddit_monitor.py 2>&1 || echo "Script failed with exit code $?"
         
     - name: Debug - List files
       run: |
