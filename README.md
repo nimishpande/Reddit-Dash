@@ -1,70 +1,86 @@
-# Ingredient & Reddit Data Extractor
+# Reddit Monitor
 
-This project extracts ingredient data from an API and fetches related Reddit posts for cosmetic ingredients. It supports recursive flattening of API/Reddit data and organizes results in a clean directory structure.
+A GitHub Actions-based Reddit monitoring system that tracks engaging posts from skincare and haircare communities.
 
-## Features
-- Search for cosmetic ingredients via API
-- Fetch Reddit posts mentioning ingredients (all of Reddit or specific subreddits)
-- Save results as JSON and CSV, with recursive flattening
-- Configurable via `.env` file
+## 🚀 Features
 
-## Directory Structure
+- **Automated Monitoring**: Runs every 4 hours via GitHub Actions
+- **Engagement Filtering**: Identifies posts with high engagement (upvotes + comments)
+- **Structured Data**: Generates JSON files with detailed post information
+- **Date-based Organization**: Stores data in organized folder structure
+- **Dashboard Ready**: JSON output formatted for web dashboard consumption
+
+## 📁 Project Structure
+
 ```
-Ingredient_cosmetic/
-  reddit_data/
-    json/
-      all_reddit/
-        reddit_search_results.json
-      subreddits/
-        reddit_skincareaddiction_results.json
-        reddit_asianbeauty_results.json
-        reddit_acne_results.json
-    csv/
-      all_reddit/
-        reddit_search_results.csv
-      subreddits/
-        reddit_skincareaddiction_results.csv
-        reddit_asianbeauty_results.csv
-        reddit_acne_results.csv
-  requirements.txt
-  .env
-  reddit_api_connector.py
-  json_to_csv_converter.py
+├── reddit-monitor/
+│   ├── scripts/
+│   │   └── reddit_monitor_phase1.py    # Main monitoring script
+│   ├── workflows/
+│   │   ├── phase1_test.yml             # Test workflow (manual trigger)
+│   │   └── reddit_monitor.yml          # Production workflow (scheduled)
+│   ├── data/                           # Generated data (created by script)
+│   ├── requirements.txt                # Python dependencies
+│   ├── .gitignore                      # Git ignore rules
+│   └── README.md                       # Detailed documentation
+├── .github/
+│   └── workflows/
+│       ├── phase1_test.yml             # GitHub Actions test workflow
+│       └── reddit_monitor.yml          # GitHub Actions production workflow
+└── README.md                           # This file
 ```
 
-## Setup
-1. Clone the repo and navigate to the project directory.
-2. Install dependencies:
+## 🛠️ Setup
+
+1. **Fork this repository**
+2. **Set up GitHub Secrets**:
+   - `REDDIT_CLIENT_ID`: Your Reddit API client ID
+   - `REDDIT_CLIENT_SECRET`: Your Reddit API client secret
+
+3. **Install dependencies**:
+   ```bash
+   pip install -r reddit-monitor/requirements.txt
    ```
-   pip install -r requirements.txt
-   ```
-3. Create a `.env` file in the project root with your API keys:
-   ```
-   REDDIT_CLIENT_ID=your_client_id
-   REDDIT_CLIENT_SECRET=your_client_secret
-   ```
 
-## Usage
-- **Reddit API Search:**
-  ```
-  python3 reddit_api_connector.py
-  ```
-  This will fetch posts for the default ingredient ("salicylic acid") and save results in the `reddit_data/json/` folders.
+## 🧪 Testing
 
-- **Convert JSON to CSV:**
-  ```
-  python3 json_to_csv_converter.py
-  ```
-  This will convert JSON files to CSV and save them in the corresponding `reddit_data/csv/` folders.
+### Manual Testing
+```bash
+python reddit-monitor/scripts/reddit_monitor_phase1.py
+```
 
-## Customization
-- To search for a different ingredient, edit the query in `reddit_api_connector.py`.
-- To add more subreddits, update the `skincare_subreddits` list in the script.
+### GitHub Actions Testing
+1. Go to **Actions** tab
+2. Find **"Phase 1 Test"** workflow
+3. Click **"Run workflow"**
+4. Select the branch and run
 
-## Notes
-- The script creates all necessary folders automatically.
-- Only public Reddit data is fetched.
-- For large-scale or automated use, consider Reddit API rate limits.
+## 📊 Output
 
----
-Feel free to extend the scripts for more advanced analysis or data sources!
+The script generates:
+- `reddit-monitor/data/analysis/YYYY-MM-DD/HH_MM_summary.json` - Timestamped data files
+- `reddit-monitor/data/analysis/latest.json` - Latest data for dashboard consumption
+
+## 🔧 Configuration
+
+Edit `reddit-monitor/scripts/reddit_monitor_phase1.py` to modify:
+- Target subreddit (`SUBREDDIT`)
+- Engagement thresholds (`MIN_ENGAGEMENT_SCORE`, `MIN_UPVOTES`, `MIN_COMMENTS`)
+- Number of posts to fetch (`POSTS_LIMIT`)
+
+## 🔄 Workflows
+
+- **Phase 1 Test**: Manual trigger for testing the monitoring system
+- **Reddit Monitor**: Automated workflow that runs every 4 hours
+
+## 🎯 Development Roadmap
+
+This is Phase 1 of the Reddit monitoring system. Future phases will include:
+- Web dashboard
+- Additional subreddits
+- Enhanced analytics
+- Real-time notifications
+
+## 📝 License
+
+This project is open source and available under the MIT License.
