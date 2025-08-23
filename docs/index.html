@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Engagement Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="header-main">
+                <h1 class="dashboard-title">
+                    <i class="fas fa-chart-line"></i>
+                    Reddit Engagement Dashboard
+                </h1>
+                <p class="dashboard-subtitle">Skincare & Haircare Communities</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Last Updated</span>
+                    <span class="stat-value" id="last-updated">Loading...</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Posts</span>
+                    <span class="stat-value" id="total-posts">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Communities</span>
+                    <span class="stat-value" id="communities-count">-</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading-state" class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading engaging posts...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="error-state" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Unable to load data</h3>
+                <p>Please check your connection and try again.</p>
+                <button onclick="loadDashboardData()" class="retry-btn">
+                    <i class="fas fa-redo"></i>
+                    Retry
+                </button>
+            </div>
+
+            <!-- Posts Feed -->
+            <div id="posts-feed" class="posts-feed" style="display: none;">
+                <!-- Posts will be dynamically inserted here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <i class="fas fa-inbox"></i>
+                <h3>No engaging posts found</h3>
+                <p>Check back later for new content.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p>
+                <i class="fas fa-sync-alt"></i>
+                Data refreshed every 4 hours via Reddit API
+            </p>
+            <p class="footer-links">
+                <a href="#" onclick="loadDashboardData()">
+                    <i class="fas fa-refresh"></i>
+                    Refresh Now
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
