@@ -1,0 +1,69 @@
+name: Phase 1 Test
+
+on:
+  workflow_dispatch:  # Manual trigger only
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Python Setup
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Dependencies
+      run: |
+        pip install requests python-dotenv
+        
+    - name: Create Environment
+      run: |
+        echo "REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }}" > .env
+        echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}" >> .env
+        
+    - name: Test Environment
+      run: |
+        echo "Testing environment setup..."
+        python -c "
+        import os
+        from dotenv import load_dotenv
+        load_dotenv()
+        print('REDDIT_CLIENT_ID:', '✅ FOUND' if os.getenv('REDDIT_CLIENT_ID') else '❌ MISSING')
+        print('REDDIT_CLIENT_SECRET:', '✅ FOUND' if os.getenv('REDDIT_CLIENT_SECRET') else '❌ MISSING')
+        "
+        
+    - name: Run Phase 1 Monitor
+      run: |
+        echo "Running Phase 1 Reddit monitor..."
+        python reddit-monitor/scripts/reddit_monitor_phase1.py
+        
+    - name: Show Results
+      run: |
+        echo "Phase 1 Results:"
+        echo "Analysis directory structure:"
+        find reddit-monitor/data/ -type f -name "*.json" | head -10
+        echo ""
+        echo "Latest JSON file size:"
+        ls -lh reddit-monitor/data/analysis/latest.json
+        echo ""
+        echo "Sample JSON structure:"
+        head -20 reddit-monitor/data/analysis/latest.json
+        
+    - name: Commit Results
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add reddit-monitor/data/
+        git commit -m "Phase 1 test results - $(date)" || echo "No changes"
+        git push
+        
+    - name: Success
+      run: |
+        echo "🎉 Phase 1 test completed successfully!"
