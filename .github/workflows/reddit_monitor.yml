@@ -6,63 +6,44 @@ on:
     - cron: '0 */4 * * *'
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
-  monitor-reddit:
+  monitor:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
       
-    - name: Set up Python
+    - name: Python Setup
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
         
-    - name: Install dependencies
+    - name: Install Dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install requests python-dotenv PyGithub
+        pip install requests python-dotenv
         
-    - name: Create .env file
+    - name: Create Environment
       run: |
         echo "REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }}" > .env
         echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}" >> .env
-        echo "GIT_TOKEN=${{ secrets.GIT_TOKEN }}" >> .env
         
-    - name: Test environment setup
+    - name: Run Reddit Monitor
       run: |
-        echo "Running comprehensive environment test..."
-        python misc_py_root/test_workflow.py
+        echo "Starting Reddit monitoring..."
+        python reddit-monitor/scripts/reddit_monitor_phase1.py
         
-    - name: Run Reddit monitor
-      run: |
-        echo "Running main Reddit monitor script..."
-        python misc_py_root/reddit_monitor.py
-        
-    - name: Check for errors
-      if: failure()
-      run: |
-        echo "❌ Script failed! Checking for error details..."
-        echo "Last 50 lines of output:"
-        tail -50 /tmp/reddit_monitor.log 2>/dev/null || echo "No log file found"
-        
-    - name: Debug - List files
-      run: |
-        echo "Current directory: $(pwd)"
-        echo "Files in misc_py_root:"
-        ls -la misc_py_root/
-        echo "Files in reddit_monitoring:"
-        ls -la reddit_monitoring/ || echo "reddit_monitoring directory not found"
-        
-    - name: Commit and push changes
+    - name: Commit Results
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        if [ -d "reddit_monitoring" ]; then
-          git add reddit_monitoring/
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update Reddit monitoring data - $(date)"
-          git push origin main
-        else
-          echo "No reddit_monitoring directory to commit"
-        fi
+        git add reddit-monitor/data/
+        git commit -m "Update Reddit monitoring data - $(date)" || echo "No changes"
+        git push
+        
+    - name: Success
+      run: |
+        echo "🎉 Reddit monitoring completed successfully!"
