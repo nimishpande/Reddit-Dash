@@ -87,8 +87,15 @@ def main():
             f.write("=" * 50 + "\n\n")
             
             for i, post in enumerate(post_data[:10], 1):
-                f.write(f"{i}. {post.get('title', 'No Title')}\n")
-                f.write(f"   Score: {post.get('score', 0)}, Comments: {post.get('num_comments', 0)}\n\n")
+                title = post.get('title', 'No Title')
+                score = post.get('score', 0)
+                comments = post.get('num_comments', 0)
+                permalink = post.get('permalink', '')
+                url = f"https://reddit.com{permalink}" if permalink else "No URL"
+                
+                f.write(f"{i}. {title}\n")
+                f.write(f"   Score: {score}, Comments: {comments}\n")
+                f.write(f"   URL: {url}\n\n")
         
         print(f"✅ Summary saved: {summary_file}")
         
