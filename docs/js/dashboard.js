@@ -2,7 +2,7 @@
 
 // Configuration
 const CONFIG = {
-    dataUrl: '../reddit-monitor/data/analysis/latest.json',
+    dataUrl: 'https://raw.githubusercontent.com/nimishpande/ingredient_cosmetics/reddit-monitor/reddit-monitor/data/analysis/latest.json',
     refreshInterval: 4 * 60 * 60 * 1000, // 4 hours in milliseconds
     autoRefresh: true
 };
