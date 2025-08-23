@@ -16,91 +16,46 @@
         <h1>Cosmetic Ingredients Database</h1>
     </header>
     <main>
-        <!-- Add loading indicator at the top of body -->
-        <div id="loading-indicator" style="display:none;">
-          <div class="spinner"></div>
-          <p>Loading data...</p>
+        <!-- Loading indicator -->
+        <div id="loading-indicator">
+            <div class="spinner"></div>
+            <p>Loading ingredients data...</p>
         </div>
-
-        <!-- Advanced Filters Panel -->
-        <div class="advanced-filters-panel">
-          <button id="toggle-advanced-filters">Advanced Filters ▼</button>
-          <div id="advanced-filters-container" style="display:none;">
-            <div class="filter-row">
-              <div class="filter-group">
-                <label>Safety Score:</label>
-                <select id="safety-filter">
-                  <option value="">Any</option>
-                  <option value="0">0 (Very Safe)</option>
-                  <option value="1-3">1-3 (Safe)</option>
-                  <option value="4-6">4-6 (Moderate)</option>
-                  <option value="7-10">7-10 (Concern)</option>
-                </select>
-              </div>
-              <div class="filter-group">
-                <label>Origin:</label>
-                <select id="origin-filter">
-                  <option value="">Any</option>
-                  <option value="Vegetal">Vegetal</option>
-                  <option value="Synthetic">Synthetic</option>
-                  <option value="Mineral">Mineral</option>
-                  <option value="Animal">Animal</option>
-                </select>
-              </div>
-              <div class="filter-group">
-                <label>Function:</label>
-                <select id="function-filter" multiple></select>
-              </div>
-            </div>
-            <div class="filter-actions">
-              <button id="apply-advanced-filters">Apply Filters</button>
-              <button id="reset-advanced-filters">Reset Filters</button>
-            </div>
-          </div>
+        <!-- Error message container -->
+        <div id="error-message" class="error" style="display: none;"></div>
+        <!-- Ingredients table -->
+        <div class="table-container">
+            <table id="ingredients-table" class="display nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th title="International Nomenclature of Cosmetic Ingredients name">INCI Name</th>
+                        <th title="Chemical Abstracts Service registry number">CAS Number(s)</th>
+                        <th title="Primary functions in cosmetic formulations">Functions</th>
+                        <th title="Safety score from 0 (safe) to 10 (concern)">Safety Score</th>
+                        <th title="Summary of safety assessment">Safety Assessment</th>
+                        <th title="Natural or synthetic origin of the ingredient">Origin</th>
+                        <th title="Product type with highest usage percentage">Top Product Usage</th>
+                        <th title="Number of Reddit posts analyzed">Posts Analyzed</th>
+                        <th title="Percentage of posts with comments">Comment Coverage</th>
+                        <th title="Overall sentiment from Reddit analysis">Overall Sentiment</th>
+                        <th title="Count of positive statements in Reddit posts">Positive Statements</th>
+                        <th title="Top reported benefits from Reddit">Key Benefits</th>
+                        <th title="Count of negative statements in Reddit posts">Negative Statements</th>
+                        <th title="Top reported concerns from Reddit">Key Concerns</th>
+                        <th title="Most commonly mentioned dosages on Reddit">Common Dosages</th>
+                        <th title="Most popular product forms on Reddit">Popular Forms</th>
+                        <th title="Body parts where most commonly used">Body Parts</th>
+                        <th title="Ingredients most often used together">Top Ingredients Combined</th>
+                        <th title="Most mentioned brands on Reddit">Top Brands</th>
+                        <th title="Subreddits with most discussions">Top Subreddits</th>
+                        <th title="Year with most Reddit activity">Most Active Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated via JavaScript -->
+                </tbody>
+            </table>
         </div>
-
-        <!-- Ingredient Table -->
-        <table id="ingredients-table" class="display nowrap" style="width:100%">
-          <thead>
-            <tr>
-              <th>INCI Name</th>
-              <th>CAS Number(s)</th>
-              <th>Functions</th>
-              <th>Safety Score</th>
-              <th>Origin</th>
-              <th>Top Product Usage</th>
-              <th>Sentiment</th>
-              <th>Popular Forms</th>
-              <th>Body Parts</th>
-              <th>Key Insights</th>
-              <th>Actions</th>
-            </tr>
-            <tr class="filter-row">
-              <th><input type="text" placeholder="Filter Name" class="column-filter"></th>
-              <th><input type="text" placeholder="Filter CAS" class="column-filter"></th>
-              <th><input type="text" placeholder="Filter Functions" class="column-filter"></th>
-              <th>
-                <select class="column-filter">
-                  <option value="">All</option>
-                  <option value="0">0 (Very Safe)</option>
-                  <option value="1-3">1-3 (Safe)</option>
-                  <option value="4-6">4-6 (Moderate)</option>
-                  <option value="7-10">7-10 (Concern)</option>
-                </select>
-              </th>
-              <th><input type="text" placeholder="Filter Origin" class="column-filter"></th>
-              <th><input type="text" placeholder="Filter Usage" class="column-filter"></th>
-              <th><input type="text" placeholder="Filter Sentiment" class="column-filter"></th>
-              <th><input type="text" placeholder="Filter Forms" class="column-filter"></th>
-              <th><input type="text" placeholder="Filter Body Parts" class="column-filter"></th>
-              <th><input type="text" placeholder="Filter Insights" class="column-filter"></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Data rows will be populated via JavaScript -->
-          </tbody>
-        </table>
 
         <!-- Column Visibility Modal -->
         <div id="column-visibility-modal" class="modal" style="display:none;">
