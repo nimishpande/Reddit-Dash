@@ -119,14 +119,20 @@ function createPostCard(post) {
     
     return `
         <div class="post-card" style="--subreddit-color: ${subredditColor}" onclick="openPost('${post.url}')">
-            ${post.has_images ? '<div class="image-indicator"><i class="fas fa-image"></i> Has Image</div>' : ''}
-            
             <div class="post-header">
                 <span class="subreddit-pill">${post.subreddit_display}</span>
                 <div class="post-title">${post.title}</div>
             </div>
             
-            ${post.content_preview ? `<div class="post-content">${post.content_preview}</div>` : ''}
+            <div class="post-content-wrapper">
+                ${post.content_preview ? `<div class="post-content">${post.content_preview}</div>` : ''}
+                ${post.has_images ? `<div class="post-thumbnail">
+                    <img class="lazy-image" data-src="${getRedditThumbnail(post.url)}" alt="Post thumbnail" loading="lazy">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                    </div>
+                </div>` : ''}
+            </div>
             
             <div class="post-meta">
                 <div class="meta-item">
@@ -175,6 +181,18 @@ function isDataFresh(timestamp) {
     const now = new Date();
     const diffInHours = (now - dataTime) / (1000 * 60 * 60);
     return diffInHours < 4;
+}
+
+// Get Reddit thumbnail URL
+function getRedditThumbnail(redditUrl) {
+    // Convert Reddit URL to thumbnail URL
+    // Example: https://reddit.com/r/subreddit/comments/id/title/
+    // To: https://i.redd.it/thumbnail_id.jpg or similar
+    const postId = redditUrl.split('/comments/')[1]?.split('/')[0];
+    if (postId) {
+        return `https://i.redd.it/${postId}.jpg`;
+    }
+    return 'https://via.placeholder.com/120x90/cccccc/666666?text=Image';
 }
 
 // Add data freshness indicator
