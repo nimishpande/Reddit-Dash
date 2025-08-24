@@ -2,7 +2,7 @@
 
 // Configuration
 const CONFIG = {
-    dataUrl: '../data/analysis/latest.json',
+    dataUrl: './data.json?v=' + Date.now(), // Use relative path with cache busting
     refreshInterval: 4 * 60 * 60 * 1000, // 4 hours in milliseconds
     autoRefresh: true
 };
