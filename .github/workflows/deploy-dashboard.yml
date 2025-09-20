@@ -2,7 +2,7 @@ name: Deploy Dashboard to GitHub Pages
 
 on:
   push:
-    branches: [ reddit-monitor ]
+    branches: [ relevance-scoring-clean ]
   workflow_dispatch:
 
 permissions:
