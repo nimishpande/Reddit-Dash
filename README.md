@@ -64,8 +64,8 @@ reddit-dashboard/
 pip install -r requirements.txt
 
 # Set up environment variables
-echo "REDDIT_CLIENT_ID=your_client_id" > .env
-echo "REDDIT_CLIENT_SECRET=your_client_secret" >> .env
+echo "REDDIT_CLIENT_ID=your_reddit_client_id" > .env
+echo "REDDIT_CLIENT_SECRET=your_reddit_client_secret" >> .env
 
 # Run monitoring script
 python scripts/reddit_monitor_phase1.py
