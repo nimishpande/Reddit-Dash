@@ -2,7 +2,7 @@
 
 // Configuration
 const CONFIG = {
-    dataUrl: './data.json',
+    dataUrl: './data.json?v=' + Date.now(), // Use relative path with cache busting
     refreshInterval: 4 * 60 * 60 * 1000, // 4 hours in milliseconds
     autoRefresh: true
 };
@@ -97,6 +97,16 @@ function renderPosts(posts) {
     // Sort posts by engagement score (highest first)
     const sortedPosts = posts.sort((a, b) => b.engagement_score - a.engagement_score);
     
+    // Debug: Log posts with images
+    const postsWithImages = sortedPosts.filter(post => post.has_images || (post.image_urls && post.image_urls.length > 0));
+    console.log(`Found ${postsWithImages.length} posts with images:`, postsWithImages.map(p => ({
+        id: p.id,
+        title: p.title,
+        has_images: p.has_images,
+        image_count: p.image_count,
+        image_urls: p.image_urls
+    })));
+    
     // Create HTML for each post
     const postsHTML = sortedPosts.map(post => createPostCard(post)).join('');
     
@@ -105,9 +115,6 @@ function renderPosts(posts) {
     
     // Add click tracking
     addPostClickTracking();
-    
-    // Initialize lazy loading
-    initializeLazyLoading();
 }
 
 // Add click tracking for analytics
@@ -157,42 +164,6 @@ function setupKeyboardShortcuts() {
 
 // Global function for manual refresh (called from HTML)
 window.loadDashboardData = loadDashboardData;
-
-// Initialize lazy loading for images
-function initializeLazyLoading() {
-    const lazyImages = document.querySelectorAll('.lazy-image');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                
-                // Hide placeholder when image loads
-                img.onload = function() {
-                    const placeholder = img.parentElement.querySelector('.image-placeholder');
-                    if (placeholder) {
-                        placeholder.style.display = 'none';
-                    }
-                };
-                
-                // Show placeholder if image fails to load
-                img.onerror = function() {
-                    const placeholder = img.parentElement.querySelector('.image-placeholder');
-                    if (placeholder) {
-                        placeholder.style.display = 'flex';
-                    }
-                    img.style.display = 'none';
-                };
-                
-                observer.unobserve(img);
-            }
-        });
-    });
-    
-    lazyImages.forEach(img => imageObserver.observe(img));
-}
 
 // Add some additional utility functions
 function getTopPosts(limit = 5) {

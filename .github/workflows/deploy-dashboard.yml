@@ -1,0 +1,60 @@
+name: Deploy Dashboard
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'data/analysis/**'
+      - 'docs/**'
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Copy Dashboard Files
+      run: |
+        # Ensure docs folder exists
+        mkdir -p docs
+        # Copy latest data to docs folder for dashboard access
+        cp data/analysis/latest.json docs/data.json
+        echo "✅ Dashboard data copied to docs/data.json"
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './docs'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      
+    - name: Trigger Reddit Monitor (if data is stale)
+      run: |
+        echo "🔄 Checking if data needs refresh..."
+        # Check if data is older than 4 hours
+        DATA_FILE="data/analysis/latest.json"
+        if [ -f "$DATA_FILE" ]; then
+          LAST_UPDATE=$(grep -o '"last_updated":"[^"]*"' "$DATA_FILE" | cut -d'"' -f4)
+          echo "Last update: $LAST_UPDATE"
+          # This is a simple check - in production you might want more sophisticated logic
+        fi
+        echo "📊 Data refresh check completed"

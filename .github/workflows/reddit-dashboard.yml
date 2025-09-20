@@ -1,18 +1,27 @@
-name: Reddit Monitor
+name: Reddit Dashboard - Complete Workflow
 
 on:
   schedule:
     # Run every 4 hours (UTC)
     - cron: '0 */4 * * *'
   workflow_dispatch:  # Allow manual trigger
+  push:
+    branches: [ main ]
+    paths:
+      - 'dashboard/**'
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "reddit-dashboard"
+  cancel-in-progress: false
 
 jobs:
-  monitor:
+  monitor-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -33,8 +42,29 @@ jobs:
         
     - name: Run Reddit Monitor
       run: |
-        echo "Starting Reddit monitoring..."
+        echo "🔍 Starting Reddit monitoring..."
         python scripts/reddit_monitor_phase1.py
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Copy Dashboard Files
+      run: |
+        # Copy dashboard files to docs folder
+        cp -r dashboard/* docs/
+        # Copy latest data
+        cp data/analysis/latest.json docs/data.json
+        # Ensure docs folder exists
+        mkdir -p docs
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './docs'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
         
     - name: Commit Results
       run: |
@@ -44,11 +74,7 @@ jobs:
         git commit -m "Update Reddit monitoring data - $(date)" || echo "No changes"
         git push
         
-    - name: Trigger Dashboard Deployment
-      run: |
-        echo "🔄 Triggering dashboard deployment..."
-        echo "Data updated, dashboard will be deployed automatically"
-        
     - name: Success
       run: |
-        echo "🎉 Reddit monitoring completed successfully!"
+        echo "🎉 Reddit dashboard updated and deployed successfully!"
+        echo "📊 Dashboard URL: ${{ steps.deployment.outputs.page_url }}"

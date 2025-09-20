@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Loading Test</title>
+</head>
+<body>
+    <h1>Data Loading Test</h1>
+    <div id="status">Loading...</div>
+    <div id="data"></div>
+    
+    <script>
+        async function testDataLoading() {
+            try {
+                console.log('Testing data loading...');
+                const response = await fetch('./data.json');
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Data loaded:', data);
+                
+                document.getElementById('status').innerHTML = '✅ Data loaded successfully!';
+                document.getElementById('data').innerHTML = `
+                    <h3>Dashboard Info:</h3>
+                    <p>Title: ${data.dashboard_info.title}</p>
+                    <p>Posts: ${data.posts.length}</p>
+                    <p>Last Updated: ${data.dashboard_info.last_updated}</p>
+                `;
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('status').innerHTML = `❌ Error: ${error.message}`;
+            }
+        }
+        
+        testDataLoading();
+    </script>
+</body>
+</html>

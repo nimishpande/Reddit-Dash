@@ -116,9 +116,60 @@ function updateHeaderStats(data) {
 // Create post card HTML
 function createPostCard(post) {
     const subredditColor = getSubredditColor(post.subreddit);
+    const opportunityClass = post.opportunity_rating || 'low';
+    
+    // Generate image HTML based on available image URLs
+    let imageHTML = '';
+    if (post.image_urls && post.image_urls.length > 0) {
+        if (post.image_urls.length === 1) {
+            // Single image
+            const image = post.image_urls[0];
+            imageHTML = `
+                <div class="post-thumbnail">
+                    <img src="${image.url}" alt="Post image" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; console.log('Image failed:', '${image.url}')" 
+                         onload="this.nextElementSibling.style.display='none'; console.log('Image loaded:', '${image.url}')">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Multiple images - show first image with count indicator
+            const firstImage = post.image_urls[0];
+            imageHTML = `
+                <div class="post-thumbnail multiple-images">
+                    <img src="${firstImage.url}" alt="Post image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; console.log('Image failed:', '${firstImage.url}')" 
+                         onload="this.nextElementSibling.style.display='none'; console.log('Image loaded:', '${firstImage.url}')">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="image-count">
+                        <i class="fas fa-images"></i>
+                        <span>+${post.image_urls.length - 1}</span>
+                    </div>
+                </div>
+            `;
+        }
+        console.log(`Generated image HTML for post ${post.id}:`, imageHTML);
+    } else if (post.has_images) {
+        // Fallback for posts marked as having images but no URLs
+        imageHTML = `
+            <div class="post-thumbnail">
+                <img src="${getRedditThumbnail(post.url)}" alt="Post thumbnail"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="image-placeholder">
+                    <i class="fas fa-image"></i>
+                </div>
+            </div>
+        `;
+    }
     
     return `
-        <div class="post-card" style="--subreddit-color: ${subredditColor}" onclick="openPost('${post.url}')">
+        <div class="post-card ${opportunityClass}-opportunity" style="--subreddit-color: ${subredditColor}" onclick="openPost('${post.url}')">
+            ${post.has_images ? '<div class="image-indicator"><i class="fas fa-image"></i> Has Image</div>' : ''}
+            
             <div class="post-header">
                 <span class="subreddit-pill">${post.subreddit_display}</span>
                 <div class="post-title">${post.title}</div>
@@ -126,12 +177,7 @@ function createPostCard(post) {
             
             <div class="post-content-wrapper">
                 ${post.content_preview ? `<div class="post-content">${post.content_preview}</div>` : ''}
-                ${post.has_images ? `<div class="post-thumbnail">
-                    <img class="lazy-image" data-src="${getRedditThumbnail(post.url)}" alt="Post thumbnail" loading="lazy">
-                    <div class="image-placeholder">
-                        <i class="fas fa-image"></i>
-                    </div>
-                </div>` : ''}
+                ${imageHTML}
             </div>
             
             <div class="post-meta">
@@ -150,6 +196,10 @@ function createPostCard(post) {
                 <div class="engagement-score">
                     <i class="fas fa-chart-line"></i>
                     ${formatEngagementScore(post.engagement_score)}
+                </div>
+                <div class="relevance-score">
+                    <i class="fas fa-target"></i>
+                    ${post.relevance_score?.toFixed(1) || '0'}
                 </div>
                 ${post.flair ? `<div class="post-flair">${post.flair}</div>` : ''}
             </div>
