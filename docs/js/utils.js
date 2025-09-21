@@ -199,8 +199,6 @@ function createPostCard(post) {
              role="article" aria-label="Reddit post: ${post.title}" 
              data-ai-readable="true" data-scroll-target="true">
             
-            <div class="opportunity-badge ${opportunityLevel}">${opportunityText}</div>
-            
             <div class="post-header">
                 <div class="subreddit-info">
                     <span class="subreddit-pill">${post.subreddit_display}</span>
