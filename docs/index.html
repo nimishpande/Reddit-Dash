@@ -35,65 +35,29 @@
     </script>
 </head>
 <body>
-    <!-- Modern Analytics Header -->
-    <header class="modern-header">
+    <!-- Clean Header -->
+    <header class="dashboard-header">
         <div class="container">
-            <div class="header-main">
-                <div class="header-brand">
-                    <div class="brand-icon">📊</div>
-                    <div class="brand-content">
-                        <h1 class="dashboard-title">Reddit Growth Dashboard</h1>
-                        <p class="dashboard-subtitle">Discover high-impact engagement opportunities</p>
-                    </div>
+            <div class="header-content">
+                <div class="header-main">
+                    <h1 class="dashboard-title">
+                        <i class="fas fa-chart-line"></i>
+                        Reddit Engagement Dashboard
+                    </h1>
+                    <p class="dashboard-subtitle">Skincare & Haircare Communities</p>
                 </div>
-                <div class="header-actions">
-                    <div class="action-center">
-                        <div class="status-indicator" id="status-indicator">
-                            <span class="status-dot"></span>
-                            <span class="status-text">Live</span>
-                        </div>
-                        <div class="refresh-info">
-                            <span class="next-scan" id="next-scan">Next scan: 2h</span>
-                            <span class="auto-refresh">Auto-refresh: ✓</span>
-                        </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Last Updated</span>
+                        <span class="stat-value" id="last-updated">Loading...</span>
                     </div>
-                </div>
-            </div>
-            
-            <div class="analytics-cards">
-                <div class="analytics-card posts-card" onclick="filterByType('all')">
-                    <div class="card-icon">📊</div>
-                    <div class="card-content">
-                        <div class="card-number" id="total-posts">-</div>
-                        <div class="card-label">Posts</div>
-                        <div class="card-change" id="posts-change">+0</div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Posts</span>
+                        <span class="stat-value" id="total-posts">-</span>
                     </div>
-                </div>
-                
-                <div class="analytics-card sources-card" onclick="filterBySource('all')">
-                    <div class="card-icon">🌐</div>
-                    <div class="card-content">
-                        <div class="card-number" id="communities-count">-</div>
-                        <div class="card-label">Sources</div>
-                        <div class="card-change" id="sources-change">+0</div>
-                    </div>
-                </div>
-                
-                <div class="analytics-card opportunities-card" onclick="filterByOpportunity('high')">
-                    <div class="card-icon">⚡</div>
-                    <div class="card-content">
-                        <div class="card-number" id="high-opportunities">-</div>
-                        <div class="card-label">Hot Now</div>
-                        <div class="card-change" id="opportunities-change">+0</div>
-                    </div>
-                </div>
-                
-                <div class="analytics-card engagement-card">
-                    <div class="card-icon">🎯</div>
-                    <div class="card-content">
-                        <div class="card-number" id="avg-relevance">-</div>
-                        <div class="card-label">Avg Relevance</div>
-                        <div class="card-change" id="relevance-change">+0</div>
+                    <div class="stat-item">
+                        <span class="stat-label">Communities</span>
+                        <span class="stat-value" id="communities-count">-</span>
                     </div>
                 </div>
             </div>
