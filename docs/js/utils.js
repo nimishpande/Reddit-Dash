@@ -108,29 +108,80 @@ function showEmptyState() {
 function updateHeaderStats(data) {
     const { dashboard_info, posts, subreddits } = data;
     
-    document.getElementById('last-updated').textContent = formatDate(dashboard_info.last_updated);
-    document.getElementById('total-posts').textContent = dashboard_info.total_posts;
-    document.getElementById('communities-count').textContent = dashboard_info.subreddits_count;
+    // Update total posts
+    const totalPostsElement = document.getElementById('total-posts');
+    if (totalPostsElement) {
+        totalPostsElement.textContent = dashboard_info.total_posts || posts?.length || 0;
+    }
     
-    // Add enhanced stats if available
-    if (posts && posts.length > 0) {
-        const highRelevancePosts = posts.filter(post => post.relevance_score >= 10).length;
+    // Update communities count
+    const communitiesElement = document.getElementById('communities-count');
+    if (communitiesElement) {
+        communitiesElement.textContent = dashboard_info.subreddits_count || subreddits?.length || 0;
+    }
+    
+    // Update high opportunities count
+    const highOpportunitiesElement = document.getElementById('high-opportunities');
+    if (highOpportunitiesElement && posts && posts.length > 0) {
+        const highOpportunities = posts.filter(post => (post.relevance_score || 0) >= 15).length;
+        highOpportunitiesElement.textContent = highOpportunities;
+    }
+    
+    // Update average relevance
+    const avgRelevanceElement = document.getElementById('avg-relevance');
+    if (avgRelevanceElement && posts && posts.length > 0) {
         const avgRelevance = posts.reduce((sum, post) => sum + (post.relevance_score || 0), 0) / posts.length;
-        
-        // Add enhanced stats to header if elements exist
-        const enhancedStats = document.querySelector('.enhanced-stats');
-        if (enhancedStats) {
-            enhancedStats.innerHTML = `
-                <div class="stat-item">
-                    <span class="stat-label">High Relevance</span>
-                    <span class="stat-value">${highRelevancePosts}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Avg Relevance</span>
-                    <span class="stat-value">${avgRelevance.toFixed(1)}</span>
-                </div>
-            `;
+        avgRelevanceElement.textContent = avgRelevance.toFixed(1);
+    }
+    
+    // Update status indicator
+    updateStatusIndicator(dashboard_info);
+    
+    // Update next scan time
+    updateNextScanTime(dashboard_info);
+}
+
+function updateStatusIndicator(dashboard_info) {
+    const statusIndicator = document.getElementById('status-indicator');
+    const statusDot = statusIndicator?.querySelector('.status-dot');
+    const statusText = statusIndicator?.querySelector('.status-text');
+    
+    if (!statusIndicator || !statusDot || !statusText) return;
+    
+    const lastUpdated = new Date(dashboard_info.last_updated);
+    const now = new Date();
+    const diffInMinutes = Math.floor((now - lastUpdated) / (1000 * 60));
+    
+    if (diffInMinutes < 5) {
+        statusDot.style.background = '#00c851';
+        statusText.textContent = 'Live';
+    } else if (diffInMinutes < 30) {
+        statusDot.style.background = '#ffc107';
+        statusText.textContent = 'Recent';
+    } else {
+        statusDot.style.background = '#dc3545';
+        statusText.textContent = 'Stale';
+    }
+}
+
+function updateNextScanTime(dashboard_info) {
+    const nextScanElement = document.getElementById('next-scan');
+    if (!nextScanElement || !dashboard_info) return;
+    
+    const lastUpdated = new Date(dashboard_info.last_updated);
+    const nextScan = new Date(lastUpdated.getTime() + (4 * 60 * 60 * 1000)); // 4 hours later
+    const now = new Date();
+    const diffInMinutes = Math.floor((nextScan - now) / (1000 * 60));
+    
+    if (diffInMinutes > 0) {
+        if (diffInMinutes < 60) {
+            nextScanElement.textContent = `Next scan: ${diffInMinutes}m`;
+        } else {
+            const hours = Math.floor(diffInMinutes / 60);
+            nextScanElement.textContent = `Next scan: ${hours}h`;
         }
+    } else {
+        nextScanElement.textContent = 'Scanning now...';
     }
 }
 
@@ -274,6 +325,25 @@ function openReplyModal(postId) {
     // This would open a modal with quick reply options
     // For now, just show an alert
     alert(`Quick reply feature for post ${postId} - Coming soon!`);
+}
+
+// Analytics card click handlers
+function filterByType(type) {
+    console.log(`Filtering by type: ${type}`);
+    // This would filter posts by type
+    // For now, just log the action
+}
+
+function filterBySource(source) {
+    console.log(`Filtering by source: ${source}`);
+    // This would filter posts by source
+    // For now, just log the action
+}
+
+function filterByOpportunity(opportunity) {
+    console.log(`Filtering by opportunity: ${opportunity}`);
+    // This would filter posts by opportunity level
+    // For now, just log the action
 }
 
 // Create compact post row HTML
