@@ -45,4 +45,5 @@ jobs:
           else
             git commit -m "Auto-update: Reddit data $(date '+%Y-%m-%d %H:%M')"
             git push
+            echo "✅ Data updated and pushed - deployment will trigger automatically"
           fi
