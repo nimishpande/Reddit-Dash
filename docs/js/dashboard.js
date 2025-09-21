@@ -10,6 +10,7 @@ const CONFIG = {
 // Global state
 let dashboardData = null;
 let refreshTimer = null;
+let currentView = 'compact'; // Default to compact view
 
 // Initialize dashboard when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -110,11 +111,19 @@ function renderPosts(posts) {
         image_urls: p.image_urls
     })));
     
-    // Create HTML for each post
-    const postsHTML = sortedPosts.map(post => createPostCard(post)).join('');
+    // Create HTML based on current view
+    let postsHTML;
+    if (currentView === 'compact') {
+        postsHTML = sortedPosts.map(post => createCompactPostRow(post)).join('');
+    } else {
+        postsHTML = sortedPosts.map(post => createPostCard(post)).join('');
+    }
     
     // Update the feed
     postsFeed.innerHTML = postsHTML;
+    
+    // Update view classes
+    postsFeed.className = `posts-feed ${currentView}-view`;
     
     // Add click tracking
     addPostClickTracking();
@@ -122,7 +131,7 @@ function renderPosts(posts) {
 
 // Add click tracking for analytics
 function addPostClickTracking() {
-    const postCards = document.querySelectorAll('.post-card');
+    const postCards = document.querySelectorAll('.post-card, .compact-post-row');
     
     postCards.forEach(card => {
         card.addEventListener('click', function() {
@@ -216,6 +225,7 @@ function setupFiltering() {
     const sortFilter = document.getElementById('sort-filter');
     const opportunityToggles = document.querySelectorAll('.toggle');
     const searchInput = document.getElementById('search-input');
+    const viewToggles = document.querySelectorAll('.view-toggle');
     
     if (sortFilter) {
         sortFilter.addEventListener('change', applyFilters);
@@ -234,6 +244,24 @@ function setupFiltering() {
     if (searchInput) {
         searchInput.addEventListener('input', debounce(applyFilters, 300));
     }
+    
+    // View toggle functionality
+    viewToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            // Remove active class from all view toggles
+            viewToggles.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked toggle
+            this.classList.add('active');
+            
+            // Update current view
+            currentView = this.dataset.view;
+            
+            // Re-render posts with new view
+            if (dashboardData && dashboardData.posts) {
+                renderPosts(dashboardData.posts);
+            }
+        });
+    });
 }
 
 // Apply filters to posts

@@ -276,6 +276,55 @@ function openReplyModal(postId) {
     alert(`Quick reply feature for post ${postId} - Coming soon!`);
 }
 
+// Create compact post row HTML
+function createCompactPostRow(post) {
+    const subredditColor = getSubredditColor(post.subreddit);
+    const relevanceScore = post.relevance_score || 0;
+    const opportunityLevel = relevanceScore >= 15 ? 'high' : relevanceScore >= 8 ? 'medium' : 'low';
+    
+    return `
+        <div class="compact-post-row ${opportunityLevel}-opportunity" 
+             data-post-id="${post.id}" data-post-url="${post.url}" data-opportunity="${opportunityLevel}"
+             onclick="openPost('${post.url}')">
+            
+            <div class="compact-row-content">
+                <div class="compact-opportunity-indicator ${opportunityLevel}"></div>
+                
+                <div class="compact-row-main">
+                    <div class="compact-row-title">${post.title}</div>
+                    <div class="compact-row-meta">
+                        <span class="compact-row-subreddit">${post.subreddit_display}</span>
+                        <div class="compact-row-time">
+                            <i class="fas fa-clock"></i>
+                            <span>${post.age_human}</span>
+                        </div>
+                        ${post.flair ? `<span class="post-flair">${post.flair}</span>` : ''}
+                    </div>
+                </div>
+                
+                <div class="compact-row-metrics">
+                    <div class="compact-metric votes">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>${post.score}</span>
+                    </div>
+                    <div class="compact-metric comments">
+                        <i class="fas fa-comment"></i>
+                        <span>${post.comments}</span>
+                    </div>
+                    <div class="compact-metric engagement">
+                        <i class="fas fa-fire"></i>
+                        <span>${formatEngagementScore(post.engagement_score)}</span>
+                    </div>
+                    <div class="compact-metric relevance">
+                        <i class="fas fa-target"></i>
+                        <span>${post.relevance_score?.toFixed(1) || '0'}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 // Check if data is fresh (less than 20 minutes old)
 function isDataFresh(timestamp) {
     const dataTime = new Date(timestamp);
