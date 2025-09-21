@@ -3,7 +3,7 @@
 // Configuration
 const CONFIG = {
     dataUrl: './data.json?v=' + Date.now(), // Use relative path with cache busting
-    refreshInterval: 4 * 60 * 60 * 1000, // 4 hours in milliseconds
+    refreshInterval: 20 * 60 * 1000, // 20 minutes in milliseconds
     autoRefresh: true
 };
 
@@ -29,6 +29,9 @@ function initializeDashboard() {
     
     // Add keyboard shortcuts
     setupKeyboardShortcuts();
+    
+    // Set up filtering and search
+    setupFiltering();
 }
 
 // Load dashboard data from JSON file
@@ -207,6 +210,93 @@ function logPerformance() {
 
 // Log performance when page is fully loaded
 window.addEventListener('load', logPerformance);
+
+// Set up filtering and search functionality
+function setupFiltering() {
+    const sortFilter = document.getElementById('sort-filter');
+    const opportunityToggles = document.querySelectorAll('.toggle');
+    const searchInput = document.getElementById('search-input');
+    
+    if (sortFilter) {
+        sortFilter.addEventListener('change', applyFilters);
+    }
+    
+    opportunityToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            // Remove active class from all toggles
+            opportunityToggles.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked toggle
+            this.classList.add('active');
+            applyFilters();
+        });
+    });
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', debounce(applyFilters, 300));
+    }
+}
+
+// Apply filters to posts
+function applyFilters() {
+    if (!dashboardData || !dashboardData.posts) return;
+    
+    const sortFilter = document.getElementById('sort-filter');
+    const activeToggle = document.querySelector('.toggle.active');
+    const searchInput = document.getElementById('search-input');
+    
+    let filteredPosts = [...dashboardData.posts];
+    
+    // Filter by opportunity level
+    if (activeToggle && activeToggle.dataset.filter !== 'all') {
+        const filterLevel = activeToggle.dataset.filter;
+        filteredPosts = filteredPosts.filter(post => {
+            const relevanceScore = post.relevance_score || 0;
+            if (filterLevel === 'high') return relevanceScore >= 15;
+            if (filterLevel === 'medium') return relevanceScore >= 8 && relevanceScore < 15;
+            if (filterLevel === 'low') return relevanceScore < 8;
+            return true;
+        });
+    }
+    
+    // Filter by search term
+    if (searchInput && searchInput.value.trim()) {
+        const searchTerm = searchInput.value.toLowerCase();
+        filteredPosts = filteredPosts.filter(post => 
+            post.title.toLowerCase().includes(searchTerm) ||
+            (post.content_preview && post.content_preview.toLowerCase().includes(searchTerm)) ||
+            post.subreddit.toLowerCase().includes(searchTerm)
+        );
+    }
+    
+    // Sort posts
+    if (sortFilter) {
+        const sortBy = sortFilter.value;
+        switch (sortBy) {
+            case 'engagement':
+                filteredPosts.sort((a, b) => b.engagement_score - a.engagement_score);
+                break;
+            case 'relevance':
+                filteredPosts.sort((a, b) => (b.relevance_score || 0) - (a.relevance_score || 0));
+                break;
+            case 'opportunity':
+                filteredPosts.sort((a, b) => (b.combined_score || 0) - (a.combined_score || 0));
+                break;
+            case 'recent':
+                filteredPosts.sort((a, b) => new Date(b.created_utc * 1000) - new Date(a.created_utc * 1000));
+                break;
+        }
+    }
+    
+    // Render filtered posts
+    renderPosts(filteredPosts);
+}
+
+// Quick reply modal function
+function openReplyModal(postId) {
+    // This would open a modal with quick reply options
+    // For now, just show an alert
+    alert(`Quick reply feature for post ${postId} - Coming soon!`);
+}
 
 // Add service worker for offline support (future enhancement)
 if ('serviceWorker' in navigator) {

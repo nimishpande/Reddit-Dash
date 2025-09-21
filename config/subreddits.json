@@ -59,7 +59,8 @@
   ],
   "settings": {
     "total_posts_limit": 200,
-    "refresh_interval_hours": 4,
+    "refresh_interval_hours": 0.33,
+    "refresh_interval_minutes": 20,
     "min_engagement_score": 7,
     "min_upvotes": 5,
     "min_comments": 2

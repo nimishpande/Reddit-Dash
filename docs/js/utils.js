@@ -187,42 +187,67 @@ function createPostCard(post) {
         `;
     }
     
+    // Determine opportunity level for badge
+    const relevanceScore = post.relevance_score || 0;
+    const opportunityLevel = relevanceScore >= 15 ? 'high' : relevanceScore >= 8 ? 'medium' : 'low';
+    const opportunityText = opportunityLevel === 'high' ? 'High Opportunity' : 
+                           opportunityLevel === 'medium' ? 'Medium Opportunity' : 'Low Opportunity';
+
     return `
-        <div class="post-card ${opportunityClass}-opportunity" style="--subreddit-color: ${subredditColor}" onclick="openPost('${post.url}')">
-            ${post.has_images ? '<div class="image-indicator"><i class="fas fa-image"></i> Has Image</div>' : ''}
+        <article class="post-card ${opportunityClass}-opportunity" style="--subreddit-color: ${subredditColor}" 
+             data-post-id="${post.id}" data-post-url="${post.url}" data-opportunity="${opportunityLevel}"
+             role="article" aria-label="Reddit post: ${post.title}" 
+             data-ai-readable="true" data-scroll-target="true">
+            
+            <div class="opportunity-badge ${opportunityLevel}">${opportunityText}</div>
             
             <div class="post-header">
-                <span class="subreddit-pill">${post.subreddit_display}</span>
-                <div class="post-title">${post.title}</div>
-            </div>
-            
-            <div class="post-content-wrapper">
-                ${post.content_preview ? `<div class="post-content">${post.content_preview}</div>` : ''}
-                ${imageHTML}
-            </div>
-            
-            <div class="post-meta">
-                <div class="meta-item">
+                <div class="subreddit-info">
+                    <span class="subreddit-pill">${post.subreddit_display}</span>
+                    ${post.flair ? `<span class="post-flair">${post.flair}</span>` : ''}
+                </div>
+                <div class="post-timing">
                     <i class="fas fa-clock"></i>
                     <span>${post.age_human}</span>
                 </div>
-                <div class="meta-item">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>${post.score}</span>
+            </div>
+            
+            <div class="post-content">
+                <h3 class="post-title">${post.title}</h3>
+                ${post.content_preview ? `<p class="post-preview">${post.content_preview}</p>` : ''}
+                ${imageHTML}
+            </div>
+            
+            <div class="post-metrics">
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>${post.score} upvotes</span>
+                    </div>
+                    <div class="metric">
+                        <i class="fas fa-comment"></i>
+                        <span>${post.comments} replies</span>
+                    </div>
+                    <div class="metric engagement-score">
+                        <i class="fas fa-fire"></i>
+                        <span>${formatEngagementScore(post.engagement_score)} engagement</span>
+                    </div>
+                    <div class="metric relevance-score">
+                        <i class="fas fa-target"></i>
+                        <span>${post.relevance_score?.toFixed(1) || '0'} relevance</span>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <i class="fas fa-comment"></i>
-                    <span>${post.comments}</span>
+                
+                <div class="action-buttons">
+                    <button class="btn-action btn-view" onclick="openPost('${post.url}')">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Post
+                    </button>
+                    <button class="btn-action btn-reply" onclick="openReplyModal('${post.id}')">
+                        <i class="fas fa-reply"></i>
+                        Quick Reply
+                    </button>
                 </div>
-                <div class="engagement-score">
-                    <i class="fas fa-chart-line"></i>
-                    ${formatEngagementScore(post.engagement_score)}
-                </div>
-                <div class="relevance-score">
-                    <i class="fas fa-target"></i>
-                    ${post.relevance_score?.toFixed(1) || '0'}
-                </div>
-                ${post.flair ? `<div class="post-flair">${post.flair}</div>` : ''}
             </div>
         </div>
     `;
@@ -246,12 +271,19 @@ function debounce(func, wait) {
     };
 }
 
-// Check if data is fresh (less than 4 hours old)
+// Quick reply modal function
+function openReplyModal(postId) {
+    // This would open a modal with quick reply options
+    // For now, just show an alert
+    alert(`Quick reply feature for post ${postId} - Coming soon!`);
+}
+
+// Check if data is fresh (less than 20 minutes old)
 function isDataFresh(timestamp) {
     const dataTime = new Date(timestamp);
     const now = new Date();
-    const diffInHours = (now - dataTime) / (1000 * 60 * 60);
-    return diffInHours < 4;
+    const diffInMinutes = (now - dataTime) / (1000 * 60);
+    return diffInMinutes < 20;
 }
 
 // Get Reddit thumbnail URL
@@ -296,24 +328,24 @@ function addFreshnessIndicator(timestamp) {
     }
 }
 
-// Get next update time
+// Get next update time (every 20 minutes)
 function getNextUpdateTime() {
     const now = new Date();
     const nextUpdate = new Date(now);
     
-    // Find next 4-hour interval (00:15, 04:15, 08:15, 12:15, 16:15, 20:15)
-    const currentHour = now.getHours();
+    // Find next 20-minute interval
     const currentMinute = now.getMinutes();
+    const nextMinute = Math.ceil(currentMinute / 20) * 20;
     
-    let nextHour = Math.ceil(currentHour / 4) * 4;
-    if (nextHour >= 24) nextHour = 0;
-    
-    // If we're past 15 minutes of the current 4-hour block, move to next
-    if (currentMinute > 15 && nextHour === currentHour) {
-        nextHour = (nextHour + 4) % 24;
+    if (nextMinute >= 60) {
+        nextUpdate.setHours(nextUpdate.getHours() + 1);
+        nextUpdate.setMinutes(0);
+    } else {
+        nextUpdate.setMinutes(nextMinute);
     }
     
-    nextUpdate.setHours(nextHour, 15, 0, 0);
+    nextUpdate.setSeconds(0);
+    nextUpdate.setMilliseconds(0);
     
     return formatTimestamp(nextUpdate.getTime());
 }

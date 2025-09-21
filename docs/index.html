@@ -7,6 +7,32 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Using system fonts to avoid GitHub secret scanning false positives -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Structured Data for AI Accessibility -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Reddit Engagement Dashboard",
+        "description": "AI-powered dashboard for monitoring Reddit posts with relevance scoring and engagement analytics",
+        "url": "https://nimishpande.github.io/Reddit-Dash/",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Reddit post monitoring",
+            "Relevance scoring",
+            "Engagement analytics", 
+            "Opportunity identification",
+            "Real-time filtering",
+            "AI-accessible content"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -36,8 +62,40 @@
         </div>
     </header>
 
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="container">
+            <div class="filter-content">
+                <div class="filter-section">
+                    <label>Sort by:</label>
+                    <select id="sort-filter">
+                        <option value="engagement">Engagement Score</option>
+                        <option value="relevance">Relevance</option>
+                        <option value="opportunity">Reply Opportunity</option>
+                        <option value="recent">Most Recent</option>
+                    </select>
+                </div>
+                
+                <div class="filter-section">
+                    <label>Opportunity:</label>
+                    <div class="toggle-group">
+                        <button class="toggle active" data-filter="all">All</button>
+                        <button class="toggle" data-filter="high">High</button>
+                        <button class="toggle" data-filter="medium">Medium</button>
+                        <button class="toggle" data-filter="low">Low</button>
+                    </div>
+                </div>
+                
+                <div class="search-section">
+                    <input type="text" placeholder="Search posts..." id="search-input">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
-    <main class="dashboard-main">
+    <main class="dashboard-main" role="main" aria-label="Reddit posts dashboard">
         <div class="container">
             <!-- Loading State -->
             <div id="loading-state" class="loading-state">
@@ -57,7 +115,9 @@
             </div>
 
             <!-- Posts Feed -->
-            <div id="posts-feed" class="posts-feed" style="display: none;">
+            <div id="posts-feed" class="posts-feed" style="display: none;" 
+                 role="feed" aria-label="Reddit posts feed" 
+                 data-scrollable="true" data-ai-accessible="true">
                 <!-- Posts will be dynamically inserted here -->
             </div>
 

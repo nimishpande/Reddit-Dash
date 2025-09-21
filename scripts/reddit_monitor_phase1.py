@@ -335,7 +335,7 @@ def create_dashboard_data(posts, run_timestamp):
         'last_updated': run_timestamp.isoformat(),
         'total_posts': len(posts),
         'subreddits_count': len(subreddits),
-        'refresh_interval': '4 hours',
+        'refresh_interval': '20 minutes',
         'run_id': run_timestamp.strftime('%Y-%m-%d_%H_%M'),
         'run_date': run_timestamp.strftime('%Y-%m-%d'),
         'run_time': run_timestamp.strftime('%H_%M')
