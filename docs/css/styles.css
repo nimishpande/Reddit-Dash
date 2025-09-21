@@ -277,8 +277,16 @@ body {
     display: block;
 }
 
+.posts-feed.detailed-view .compact-post-row {
+    display: none;
+}
+
 .posts-feed.compact-view .post-card {
     display: none;
+}
+
+.posts-feed.compact-view .compact-post-row {
+    display: block;
 }
 
 /* Simplified Compact Post Rows */
