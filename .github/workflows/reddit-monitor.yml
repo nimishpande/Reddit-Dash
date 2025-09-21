@@ -32,16 +32,32 @@ jobs:
           REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
           REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
         run: |
+          echo "🔍 Starting Reddit monitoring..."
           python3 scripts/reddit_monitor_phase1.py
+          echo "✅ Reddit monitoring completed"
           
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/analysis/
-          git add docs/data.json
+          
+          # Check if data files exist before trying to add them
+          if [ -f "data/analysis/latest.json" ]; then
+            git add data/analysis/
+            echo "✅ Added analysis data"
+          else
+            echo "⚠️ No analysis data found"
+          fi
+          
+          if [ -f "docs/data.json" ]; then
+            git add docs/data.json
+            echo "✅ Added dashboard data"
+          else
+            echo "⚠️ No dashboard data found"
+          fi
+          
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "ℹ️ No changes to commit"
           else
             git commit -m "Auto-update: Reddit data $(date '+%Y-%m-%d %H:%M')"
             git push
