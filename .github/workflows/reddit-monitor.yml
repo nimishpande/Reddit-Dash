@@ -1,0 +1,48 @@
+name: Reddit Monitor - Automated Data Collection
+
+on:
+  schedule:
+    # Run every 4 hours at 15 minutes past the hour (to avoid peak times)
+    - cron: '15 */4 * * *'
+  workflow_dispatch:  # Allow manual triggering
+  push:
+    branches: [ reddit-monitor ]
+    paths: [ 'scripts/**', 'config/**' ]
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Run Reddit Monitor
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+        run: |
+          python3 scripts/reddit_monitor_phase1.py
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/analysis/
+          git add docs/data.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-update: Reddit data $(date '+%Y-%m-%d %H:%M')"
+            git push
+          fi

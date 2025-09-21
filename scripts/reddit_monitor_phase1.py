@@ -16,24 +16,21 @@ import re
 load_dotenv()
 
 # Configuration
-SUBREDDIT = 'skincareaddictsindia'
-MIN_ENGAGEMENT_SCORE = 7
-MIN_UPVOTES = 5
-MIN_COMMENTS = 2
-POSTS_LIMIT = 50
 ANALYSIS_DIR = 'data/analysis'  # Updated path for new repository structure
 
-# Subreddit color mapping
-SUBREDDIT_COLORS = {
-    'skincareaddictsindia': '#0079d3',
-    'IndianSkincareAddicts': '#ff4500',
-    'SkincareAddiction': '#7193ff',
-    'HaircareScience': '#00c851',
-    'curlyhair': '#ff6b35',
-    'tressless': '#8e44ad',
-    'Hair': '#e74c3c',
-    'beauty': '#f39c12'
-}
+def load_subreddit_config():
+    """Load subreddit configuration from JSON file"""
+    config_path = 'config/subreddits.json'
+    try:
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+            return config
+    except FileNotFoundError:
+        print("⚠️ Subreddit config not found, using default settings")
+        return {
+            "subreddits": [{"name": "skincareaddictsindia", "enabled": True, "posts_limit": 25}],
+            "settings": {"min_engagement_score": 7, "min_upvotes": 5, "min_comments": 2}
+        }
 
 def load_user_profile():
     """Load user profile configuration"""
@@ -277,7 +274,10 @@ def create_enhanced_post_data(post):
     # Get subreddit info
     subreddit = post.get('subreddit', '')
     subreddit_display = f"r/{subreddit}"
-    subreddit_color = SUBREDDIT_COLORS.get(subreddit, '#0079d3')
+    # Load subreddit config for color
+    subreddit_config = load_subreddit_config()
+    subreddit_info = next((s for s in subreddit_config['subreddits'] if s['name'] == subreddit), None)
+    subreddit_color = subreddit_info.get('color', '#0079d3') if subreddit_info else '#0079d3'
     
     # Content preview
     content = post.get('selftext', '')
@@ -381,12 +381,17 @@ def save_json_data(data, run_timestamp):
 
 def main():
     """Main monitoring function"""
-    print(f"🔍 Starting Reddit monitoring for r/{SUBREDDIT}")
-    print(f"⏰ Run time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    
-    # Load user profile
+    # Load configurations
+    subreddit_config = load_subreddit_config()
     user_profile = load_user_profile()
-    print(f"👤 Loaded user profile with {len(user_profile.get('expertise_areas', []))} expertise areas")
+    
+    # Get enabled subreddits
+    enabled_subreddits = [s for s in subreddit_config['subreddits'] if s.get('enabled', True)]
+    settings = subreddit_config.get('settings', {})
+    
+    print(f"🔍 Starting Reddit monitoring for {len(enabled_subreddits)} subreddits")
+    print(f"⏰ Run time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"👤 User profile loaded: {len(user_profile.get('expertise_areas', []))} expertise areas")
     
     # Create analysis directory
     os.makedirs(ANALYSIS_DIR, exist_ok=True)
@@ -400,18 +405,28 @@ def main():
     
     print("✅ Reddit authentication successful")
     
-    # Fetch posts
-    print(f"📥 Fetching posts from r/{SUBREDDIT}...")
-    posts = fetch_posts(access_token, SUBREDDIT, POSTS_LIMIT)
+    # Fetch posts from all enabled subreddits
+    all_posts = []
+    for subreddit_info in enabled_subreddits:
+        subreddit_name = subreddit_info['name']
+        posts_limit = subreddit_info.get('posts_limit', 25)
+        
+        print(f"📥 Fetching posts from r/{subreddit_name} (limit: {posts_limit})...")
+        posts = fetch_posts(access_token, subreddit_name, posts_limit)
+        if posts:
+            all_posts.extend(posts)
+            print(f"   ✅ Found {len(posts)} posts from r/{subreddit_name}")
+        else:
+            print(f"   ⚠️ No posts found in r/{subreddit_name}")
     
-    if not posts:
-        print("❌ No posts fetched")
+    if not all_posts:
+        print("❌ No posts fetched from any subreddit")
         return False
     
-    print(f"📊 Fetched {len(posts)} posts")
+    print(f"📊 Total posts fetched: {len(all_posts)} from {len(enabled_subreddits)} subreddits")
     
     # Filter engaging posts (now with relevance scoring)
-    engaging_posts = filter_engaging_posts(posts, user_profile)
+    engaging_posts = filter_engaging_posts(all_posts, user_profile)
     print(f"🎯 Found {len(engaging_posts)} relevant posts")
     
     if not engaging_posts:
