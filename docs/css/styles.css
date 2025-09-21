@@ -281,136 +281,74 @@ body {
     display: none;
 }
 
-/* Compact Post Rows */
+/* Simplified Compact Post Rows */
 .compact-post-row {
-    display: flex;
-    align-items: center;
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #f1f3f4;
     transition: all 0.15s ease;
     cursor: pointer;
     position: relative;
-    min-height: 60px;
-    max-height: 80px;
 }
 
 .compact-post-row:hover {
     background: #f6f8fa;
-    border-left: 3px solid var(--subreddit-color, #0969da);
 }
 
 .compact-post-row.high-opportunity {
     border-left: 3px solid #1a7f37;
-    background: linear-gradient(to right, rgba(26, 127, 55, 0.02), transparent);
 }
 
 .compact-post-row.medium-opportunity {
     border-left: 3px solid #d97706;
-    background: linear-gradient(to right, rgba(217, 119, 6, 0.02), transparent);
 }
 
 .compact-post-row.low-opportunity {
     border-left: 3px solid #6b7280;
-    background: linear-gradient(to right, rgba(107, 114, 128, 0.02), transparent);
 }
 
-/* Compact Row Layout */
-.compact-row-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 1rem;
-}
-
-.compact-row-main {
-    flex: 1;
-    min-width: 0;
-}
-
-.compact-row-title {
+.compact-title {
     font-size: 0.875rem;
     font-weight: 600;
     color: #24292f;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     line-height: 1.3;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
 }
 
-.compact-row-meta {
+.compact-meta {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     font-size: 0.75rem;
     color: #656d76;
+    flex-wrap: wrap;
 }
 
-.compact-row-subreddit {
+.compact-subreddit {
     background: #f6f8fa;
     color: #656d76;
     padding: 0.125rem 0.5rem;
     border-radius: 4px;
-    font-size: 0.75rem;
     font-weight: 500;
     border: 1px solid #d0d7de;
 }
 
-.compact-row-time {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+.compact-time {
+    color: #656d76;
 }
 
-.compact-row-metrics {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-shrink: 0;
-}
-
-.compact-metric {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.75rem;
+.compact-score {
+    color: #1a7f37;
     font-weight: 500;
 }
 
-.compact-metric.engagement {
-    color: #1a7f37;
-}
-
-.compact-metric.relevance {
+.compact-comments {
     color: #0969da;
+    font-weight: 500;
 }
 
-.compact-metric.votes {
-    color: #656d76;
-}
-
-.compact-metric.comments {
-    color: #656d76;
-}
-
-.compact-opportunity-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.compact-opportunity-indicator.high {
-    background: #1a7f37;
-}
-
-.compact-opportunity-indicator.medium {
-    background: #d97706;
-}
-
-.compact-opportunity-indicator.low {
-    background: #6b7280;
+.compact-relevance {
+    color: #d97706;
+    font-weight: 500;
 }
 
 /* Loading State */
@@ -1147,30 +1085,16 @@ body {
         font-size: 1rem;
     }
 
-    /* Compact layout mobile */
+    /* Simplified compact layout mobile */
     .compact-post-row {
         padding: 0.5rem;
-        min-height: 50px;
-        max-height: 70px;
     }
 
-    .compact-row-content {
-        gap: 0.5rem;
-    }
-
-    .compact-row-metrics {
-        gap: 0.5rem;
-    }
-
-    .compact-metric {
-        font-size: 0.6875rem;
-    }
-
-    .compact-row-title {
+    .compact-title {
         font-size: 0.8125rem;
     }
 
-    .compact-row-meta {
+    .compact-meta {
         gap: 0.5rem;
         font-size: 0.6875rem;
     }

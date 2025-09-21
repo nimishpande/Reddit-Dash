@@ -278,7 +278,6 @@ function openReplyModal(postId) {
 
 // Create compact post row HTML
 function createCompactPostRow(post) {
-    const subredditColor = getSubredditColor(post.subreddit);
     const relevanceScore = post.relevance_score || 0;
     const opportunityLevel = relevanceScore >= 15 ? 'high' : relevanceScore >= 8 ? 'medium' : 'low';
     
@@ -287,39 +286,13 @@ function createCompactPostRow(post) {
              data-post-id="${post.id}" data-post-url="${post.url}" data-opportunity="${opportunityLevel}"
              onclick="openPost('${post.url}')">
             
-            <div class="compact-row-content">
-                <div class="compact-opportunity-indicator ${opportunityLevel}"></div>
-                
-                <div class="compact-row-main">
-                    <div class="compact-row-title">${post.title}</div>
-                    <div class="compact-row-meta">
-                        <span class="compact-row-subreddit">${post.subreddit_display}</span>
-                        <div class="compact-row-time">
-                            <i class="fas fa-clock"></i>
-                            <span>${post.age_human}</span>
-                        </div>
-                        ${post.flair ? `<span class="post-flair">${post.flair}</span>` : ''}
-                    </div>
-                </div>
-                
-                <div class="compact-row-metrics">
-                    <div class="compact-metric votes">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>${post.score}</span>
-                    </div>
-                    <div class="compact-metric comments">
-                        <i class="fas fa-comment"></i>
-                        <span>${post.comments}</span>
-                    </div>
-                    <div class="compact-metric engagement">
-                        <i class="fas fa-fire"></i>
-                        <span>${formatEngagementScore(post.engagement_score)}</span>
-                    </div>
-                    <div class="compact-metric relevance">
-                        <i class="fas fa-target"></i>
-                        <span>${post.relevance_score?.toFixed(1) || '0'}</span>
-                    </div>
-                </div>
+            <div class="compact-title">${post.title}</div>
+            <div class="compact-meta">
+                <span class="compact-subreddit">${post.subreddit_display}</span>
+                <span class="compact-time">${post.age_human}</span>
+                <span class="compact-score">${post.score} ↑</span>
+                <span class="compact-comments">${post.comments} 💬</span>
+                <span class="compact-relevance">${post.relevance_score?.toFixed(1) || '0'} 🎯</span>
             </div>
         </div>
     `;
