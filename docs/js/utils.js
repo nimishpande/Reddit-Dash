@@ -104,13 +104,34 @@ function showEmptyState() {
     document.getElementById('empty-state').style.display = 'block';
 }
 
-// Update header stats
+// Update header stats with enhanced information
 function updateHeaderStats(data) {
-    const { dashboard_info } = data;
+    const { dashboard_info, posts, subreddits } = data;
     
     document.getElementById('last-updated').textContent = formatDate(dashboard_info.last_updated);
     document.getElementById('total-posts').textContent = dashboard_info.total_posts;
     document.getElementById('communities-count').textContent = dashboard_info.subreddits_count;
+    
+    // Add enhanced stats if available
+    if (posts && posts.length > 0) {
+        const highRelevancePosts = posts.filter(post => post.relevance_score >= 10).length;
+        const avgRelevance = posts.reduce((sum, post) => sum + (post.relevance_score || 0), 0) / posts.length;
+        
+        // Add enhanced stats to header if elements exist
+        const enhancedStats = document.querySelector('.enhanced-stats');
+        if (enhancedStats) {
+            enhancedStats.innerHTML = `
+                <div class="stat-item">
+                    <span class="stat-label">High Relevance</span>
+                    <span class="stat-value">${highRelevancePosts}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Avg Relevance</span>
+                    <span class="stat-value">${avgRelevance.toFixed(1)}</span>
+                </div>
+            `;
+        }
+    }
 }
 
 // Create post card HTML
@@ -245,19 +266,56 @@ function getRedditThumbnail(redditUrl) {
     return 'https://via.placeholder.com/120x90/cccccc/666666?text=Image';
 }
 
-// Add data freshness indicator
+// Add comprehensive data status indicators
 function addFreshnessIndicator(timestamp) {
     const isFresh = isDataFresh(timestamp);
-    const indicator = document.createElement('div');
-    indicator.className = `freshness-indicator ${isFresh ? 'fresh' : 'stale'}`;
-    indicator.innerHTML = `
-        <i class="fas ${isFresh ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i>
-        ${isFresh ? 'Data is fresh' : 'Data may be stale'}
+    const timeAgo = formatTimestamp(timestamp);
+    
+    // Create main status indicator
+    const mainIndicator = document.createElement('div');
+    mainIndicator.className = `freshness-indicator main-status ${isFresh ? 'fresh' : 'stale'}`;
+    mainIndicator.innerHTML = `
+        <div class="status-header">
+            <i class="fas ${isFresh ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i>
+            <span class="status-text">${isFresh ? 'All Data Fresh' : 'Data May Be Stale'}</span>
+        </div>
+        <div class="status-details">
+            <span class="last-update">Last updated: ${timeAgo}</span>
+            <span class="next-update">Next update: ${getNextUpdateTime()}</span>
+        </div>
     `;
     
     // Add to header stats
     const headerStats = document.querySelector('.header-stats');
-    headerStats.appendChild(indicator);
+    if (headerStats) {
+        // Remove any existing freshness indicators
+        const existingIndicators = headerStats.querySelectorAll('.freshness-indicator');
+        existingIndicators.forEach(indicator => indicator.remove());
+        
+        headerStats.appendChild(mainIndicator);
+    }
+}
+
+// Get next update time
+function getNextUpdateTime() {
+    const now = new Date();
+    const nextUpdate = new Date(now);
+    
+    // Find next 4-hour interval (00:15, 04:15, 08:15, 12:15, 16:15, 20:15)
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    
+    let nextHour = Math.ceil(currentHour / 4) * 4;
+    if (nextHour >= 24) nextHour = 0;
+    
+    // If we're past 15 minutes of the current 4-hour block, move to next
+    if (currentMinute > 15 && nextHour === currentHour) {
+        nextHour = (nextHour + 4) % 24;
+    }
+    
+    nextUpdate.setHours(nextHour, 15, 0, 0);
+    
+    return formatTimestamp(nextUpdate.getTime());
 }
 
 // Export functions for use in other scripts
