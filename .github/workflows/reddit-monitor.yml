@@ -2,8 +2,8 @@ name: Reddit Monitor - Automated Data Collection
 
 on:
   schedule:
-    # Run every 20 minutes
-    - cron: '*/20 * * * *'
+    # Run every 4 hours (GitHub Actions minimum recommended interval)
+    - cron: '0 */4 * * *'
   workflow_dispatch:  # Allow manual triggering
   push:
     branches: [ reddit-monitor ]
