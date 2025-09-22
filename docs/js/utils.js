@@ -90,6 +90,48 @@ function getSubredditIcon(subreddit) {
     return icons[subreddit] || '📝';
 }
 
+// Get category class for styling
+function getCategoryClass(subreddit) {
+    const skincareSubreddits = ['SkincareAddiction', 'AsianBeauty', 'Skincare', '30PlusSkinCare', 'SkincareFlatlays', 'SkincareAddicts', 'skincareaddictsindia', 'IndianSkincareAddicts'];
+    const haircareSubreddits = ['HaircareScience', 'curlyhair', 'Hair', 'Haircare', 'tressless'];
+    
+    if (skincareSubreddits.includes(subreddit)) {
+        return 'skincare-category';
+    } else if (haircareSubreddits.includes(subreddit)) {
+        return 'haircare-category';
+    } else {
+        return 'general-category';
+    }
+}
+
+// Get category icon
+function getCategoryIcon(subreddit) {
+    const skincareSubreddits = ['SkincareAddiction', 'AsianBeauty', 'Skincare', '30PlusSkinCare', 'SkincareFlatlays', 'SkincareAddicts', 'skincareaddictsindia', 'IndianSkincareAddicts'];
+    const haircareSubreddits = ['HaircareScience', 'curlyhair', 'Hair', 'Haircare', 'tressless'];
+    
+    if (skincareSubreddits.includes(subreddit)) {
+        return 'fa-spa';
+    } else if (haircareSubreddits.includes(subreddit)) {
+        return 'fa-cut';
+    } else {
+        return 'fa-tag';
+    }
+}
+
+// Get category name
+function getCategoryName(subreddit) {
+    const skincareSubreddits = ['SkincareAddiction', 'AsianBeauty', 'Skincare', '30PlusSkinCare', 'SkincareFlatlays', 'SkincareAddicts', 'skincareaddictsindia', 'IndianSkincareAddicts'];
+    const haircareSubreddits = ['HaircareScience', 'curlyhair', 'Hair', 'Haircare', 'tressless'];
+    
+    if (skincareSubreddits.includes(subreddit)) {
+        return 'Skincare';
+    } else if (haircareSubreddits.includes(subreddit)) {
+        return 'Haircare';
+    } else {
+        return 'General';
+    }
+}
+
 // Format engagement score
 function formatEngagementScore(score) {
     if (score >= 1000) {
@@ -340,6 +382,18 @@ function createTableRow(post) {
                 <span class="relevance-score relevance-${opportunityLevel}">
                     <i class="fas fa-target"></i>
                     ${post.relevance_score?.toFixed(1) || '0'}
+                </span>
+            </td>
+            <td class="col-category">
+                <span class="category-badge ${getCategoryClass(post.subreddit)}">
+                    <i class="fas ${getCategoryIcon(post.subreddit)}"></i>
+                    ${getCategoryName(post.subreddit)}
+                </span>
+            </td>
+            <td class="col-age">
+                <span class="age-indicator">
+                    <i class="fas fa-clock"></i>
+                    ${post.age_human}
                 </span>
             </td>
             <td class="col-actions">

@@ -350,6 +350,16 @@ function sortTable(column) {
                 bValue = parseFloat(b.dataset.relevance) || 0;
                 return bValue - aValue;
                 
+            case 'category':
+                aValue = a.querySelector('.category-badge').textContent.trim();
+                bValue = b.querySelector('.category-badge').textContent.trim();
+                return aValue.localeCompare(bValue);
+                
+            case 'age':
+                aValue = a.querySelector('.age-indicator').textContent.trim();
+                bValue = b.querySelector('.age-indicator').textContent.trim();
+                return aValue.localeCompare(bValue);
+                
             default:
                 return 0;
         }
