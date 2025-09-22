@@ -331,11 +331,6 @@ function debounce(func, wait) {
 }
 
 // Quick reply modal function
-function openReplyModal(postId) {
-    // This would open a modal with quick reply options
-    // For now, just show an alert
-    alert(`Quick reply feature for post ${postId} - Coming soon!`);
-}
 
 
 // Create table row HTML
