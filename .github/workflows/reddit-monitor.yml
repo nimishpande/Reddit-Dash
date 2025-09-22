@@ -6,7 +6,7 @@ on:
     - cron: '0 */4 * * *'
   workflow_dispatch:  # Allow manual triggering
   push:
-    branches: [ reddit-monitor ]
+    branches: [ main ]
     paths: [ 'scripts/**', 'config/**' ]
 
 jobs:
@@ -39,8 +39,8 @@ jobs:
       - name: Copy data to dashboard
         run: |
           echo "📋 Copying data to dashboard..."
-          if [ -f "data/analysis/latest.json" ]; then
-            cp data/analysis/latest.json docs/data.json
+          if [ -f "scripts/data/analysis/latest.json" ]; then
+            cp scripts/data/analysis/latest.json docs/data.json
             echo "✅ Data copied to docs/data.json"
           else
             echo "⚠️ No latest.json found to copy"
@@ -52,8 +52,8 @@ jobs:
           git config --local user.name "GitHub Action"
           
           # Check if data files exist before trying to add them
-          if [ -f "data/analysis/latest.json" ]; then
-            git add data/analysis/
+          if [ -f "scripts/data/analysis/latest.json" ]; then
+            git add scripts/data/analysis/
             echo "✅ Added analysis data"
           else
             echo "⚠️ No analysis data found"
