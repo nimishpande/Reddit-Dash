@@ -270,25 +270,46 @@ function openReplyModal(postId) {
 }
 
 
-// Create compact post row HTML
-function createCompactPostRow(post) {
+// Create table row HTML
+function createTableRow(post) {
     const relevanceScore = post.relevance_score || 0;
     const opportunityLevel = relevanceScore >= 15 ? 'high' : relevanceScore >= 8 ? 'medium' : 'low';
+    const subredditColor = getSubredditColor(post.subreddit);
     
     return `
-        <div class="compact-post-row ${opportunityLevel}-opportunity" 
-             data-post-id="${post.id}" data-post-url="${post.url}" data-opportunity="${opportunityLevel}"
-             onclick="openPost('${post.url}')">
-            
-            <div class="compact-title">${post.title}</div>
-            <div class="compact-meta">
-                <span class="compact-subreddit">${post.subreddit_display}</span>
-                <span class="compact-time">${post.age_human}</span>
-                <span class="compact-score">${post.score} ↑</span>
-                <span class="compact-comments">${post.comments} 💬</span>
-                <span class="compact-relevance">${post.relevance_score?.toFixed(1) || '0'} 🎯</span>
-            </div>
-        </div>
+        <tr class="post-row ${opportunityLevel}-opportunity" 
+            data-post-id="${post.id}" data-post-url="${post.url}" data-opportunity="${opportunityLevel}">
+            <td class="col-subreddit">
+                <span class="subreddit-badge" style="--subreddit-color: ${subredditColor}">
+                    ${post.subreddit_display}
+                </span>
+            </td>
+            <td class="col-title">
+                <a href="${post.url}" target="_blank" class="post-title-link" title="${post.title}">
+                    ${post.title.length > 80 ? post.title.substring(0, 80) + '...' : post.title}
+                </a>
+            </td>
+            <td class="col-engagement">
+                <span class="engagement-score">${formatEngagementScore(post.engagement_score)}</span>
+            </td>
+            <td class="col-comments">
+                <span class="comment-count">
+                    <i class="fas fa-comment"></i>
+                    ${post.comments}
+                </span>
+            </td>
+            <td class="col-relevance">
+                <span class="relevance-score relevance-${opportunityLevel}">
+                    ${post.relevance_score?.toFixed(1) || '0'}
+                </span>
+            </td>
+            <td class="col-actions">
+                <button class="btn-reply" onclick="openReplyModal('${post.id}')">
+                    <i class="fas fa-reply"></i>
+                    Reply
+                </button>
+            </td>
+        </tr>
     `;
 }
 

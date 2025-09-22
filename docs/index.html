@@ -44,20 +44,21 @@
                         <i class="fas fa-chart-line"></i>
                         Reddit Engagement Dashboard
                     </h1>
-                    <p class="dashboard-subtitle">Skincare & Haircare Communities</p>
-                </div>
-                <div class="header-stats">
-                    <div class="stat-item">
-                        <span class="stat-label">Last Updated</span>
-                        <span class="stat-value" id="last-updated">Loading...</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">Total Posts</span>
-                        <span class="stat-value" id="total-posts">-</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">Communities</span>
-                        <span class="stat-value" id="communities-count">-</span>
+                    <div class="header-stats-horizontal">
+                        <span class="stat-inline">
+                            <span class="stat-label">Last Updated:</span>
+                            <span class="stat-value" id="last-updated">Loading...</span>
+                        </span>
+                        <span class="stat-separator">•</span>
+                        <span class="stat-inline">
+                            <span class="stat-label">Posts:</span>
+                            <span class="stat-value" id="total-posts">-</span>
+                        </span>
+                        <span class="stat-separator">•</span>
+                        <span class="stat-inline">
+                            <span class="stat-label">Communities:</span>
+                            <span class="stat-value" id="communities-count">-</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -88,14 +89,6 @@
                     </div>
                 </div>
                 
-                <div class="view-toggle-section">
-                    <button class="view-toggle active" data-view="compact" title="Compact view">
-                        <i class="fas fa-list"></i>
-                    </button>
-                    <button class="view-toggle" data-view="detailed" title="Detailed view">
-                        <i class="fas fa-th-large"></i>
-                    </button>
-                </div>
                 
                 <div class="search-section">
                     <input type="text" placeholder="Search posts..." id="search-input">
@@ -125,11 +118,23 @@
                 </button>
             </div>
 
-            <!-- Posts Feed -->
-            <div id="posts-feed" class="posts-feed" style="display: none;" 
-                 role="feed" aria-label="Reddit posts feed" 
-                 data-scrollable="true" data-ai-accessible="true">
-                <!-- Posts will be dynamically inserted here -->
+            <!-- Posts Table -->
+            <div class="posts-table-container" id="posts-table-container" style="display: none;">
+                <table class="posts-table" id="posts-table">
+                    <thead>
+                        <tr>
+                            <th class="col-subreddit">Subreddit</th>
+                            <th class="col-title">Post Title</th>
+                            <th class="col-engagement">Engagement</th>
+                            <th class="col-comments">Comments</th>
+                            <th class="col-relevance">Relevance</th>
+                            <th class="col-actions">Reply Opportunity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="posts-tbody">
+                        <!-- Posts will be loaded here -->
+                    </tbody>
+                </table>
             </div>
 
             <!-- Empty State -->

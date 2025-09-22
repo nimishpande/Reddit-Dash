@@ -94,36 +94,22 @@ function renderDashboard(data) {
     console.log(`🎨 Dashboard rendered with ${posts.length} posts`);
 }
 
-// Render posts in the feed
+// Render posts in the table
 function renderPosts(posts) {
-    const postsFeed = document.getElementById('posts-feed');
+    const postsTableContainer = document.getElementById('posts-table-container');
+    const postsTbody = document.getElementById('posts-tbody');
     
     // Sort posts by engagement score (highest first)
     const sortedPosts = posts.sort((a, b) => b.engagement_score - a.engagement_score);
     
-    // Debug: Log posts with images
-    const postsWithImages = sortedPosts.filter(post => post.has_images || (post.image_urls && post.image_urls.length > 0));
-    console.log(`Found ${postsWithImages.length} posts with images:`, postsWithImages.map(p => ({
-        id: p.id,
-        title: p.title,
-        has_images: p.has_images,
-        image_count: p.image_count,
-        image_urls: p.image_urls
-    })));
+    // Create table rows
+    const tableRows = sortedPosts.map(post => createTableRow(post)).join('');
     
-    // Create HTML based on current view
-    let postsHTML;
-    if (currentView === 'compact') {
-        postsHTML = sortedPosts.map(post => createCompactPostRow(post)).join('');
-    } else {
-        postsHTML = sortedPosts.map(post => createPostCard(post)).join('');
-    }
+    // Update the table
+    postsTbody.innerHTML = tableRows;
     
-    // Update the feed
-    postsFeed.innerHTML = postsHTML;
-    
-    // Update view classes
-    postsFeed.className = `posts-feed ${currentView}-view`;
+    // Show table container
+    postsTableContainer.style.display = 'block';
     
     // Add click tracking
     addPostClickTracking();
@@ -131,12 +117,21 @@ function renderPosts(posts) {
 
 // Add click tracking for analytics
 function addPostClickTracking() {
-    const postCards = document.querySelectorAll('.post-card, .compact-post-row');
+    const postRows = document.querySelectorAll('.post-row');
     
-    postCards.forEach(card => {
-        card.addEventListener('click', function() {
+    postRows.forEach(row => {
+        row.addEventListener('click', function(e) {
+            // Don't trigger if clicking on a button or link
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+                return;
+            }
+            
             const postId = this.getAttribute('data-post-id');
+            const postUrl = this.getAttribute('data-post-url');
             console.log(`📊 Post clicked: ${postId}`);
+            
+            // Open post in new tab
+            window.open(postUrl, '_blank');
             
             // You can add analytics tracking here
             // trackPostClick(postId);
