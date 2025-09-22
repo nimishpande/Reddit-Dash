@@ -93,6 +93,52 @@ function renderDashboard(data) {
     console.log(`🎨 Dashboard rendered with ${posts.length} posts`);
 }
 
+// Show posts feed
+function showPostsFeed() {
+    const loadingState = document.getElementById('loading-state');
+    const postsTableContainer = document.getElementById('posts-table-container');
+    const emptyState = document.getElementById('empty-state');
+    
+    if (loadingState) loadingState.style.display = 'none';
+    if (emptyState) emptyState.style.display = 'none';
+    if (postsTableContainer) postsTableContainer.style.display = 'block';
+}
+
+// Show empty state
+function showEmptyState() {
+    const loadingState = document.getElementById('loading-state');
+    const postsTableContainer = document.getElementById('posts-table-container');
+    const emptyState = document.getElementById('empty-state');
+    
+    if (loadingState) loadingState.style.display = 'none';
+    if (postsTableContainer) postsTableContainer.style.display = 'none';
+    if (emptyState) emptyState.style.display = 'block';
+}
+
+// Show loading state
+function showLoading() {
+    const loadingState = document.getElementById('loading-state');
+    const postsTableContainer = document.getElementById('posts-table-container');
+    const emptyState = document.getElementById('empty-state');
+    
+    if (loadingState) loadingState.style.display = 'block';
+    if (postsTableContainer) postsTableContainer.style.display = 'none';
+    if (emptyState) emptyState.style.display = 'none';
+}
+
+// Show error state
+function showError() {
+    const loadingState = document.getElementById('loading-state');
+    const postsTableContainer = document.getElementById('posts-table-container');
+    const emptyState = document.getElementById('empty-state');
+    const errorState = document.getElementById('error-state');
+    
+    if (loadingState) loadingState.style.display = 'none';
+    if (postsTableContainer) postsTableContainer.style.display = 'none';
+    if (emptyState) emptyState.style.display = 'none';
+    if (errorState) errorState.style.display = 'block';
+}
+
 // Render posts in the table
 function renderPosts(posts) {
     const postsTableContainer = document.getElementById('posts-table-container');
