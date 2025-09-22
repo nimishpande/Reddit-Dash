@@ -841,14 +841,53 @@ body {
     color: #667eea;
     text-decoration: none;
     font-weight: 500;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    margin-right: 15px;
+    padding: 8px 16px;
+    border-radius: 4px;
 }
 
 .footer-links a:hover {
     color: #5a6fd8;
+}
+
+.refresh-btn {
+    background: #007bff;
+    color: white !important;
+}
+
+.refresh-btn:hover {
+    background: #0056b3;
+    color: white !important;
+}
+
+.hard-refresh-btn {
+    background: #28a745;
+    color: white !important;
+}
+
+.hard-refresh-btn:hover {
+    background: #1e7e34;
+    color: white !important;
+}
+
+/* Auto-refresh animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.refresh-notification {
+    animation: pulse 2s infinite;
 }
 
 /* Responsive Design */

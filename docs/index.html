@@ -156,9 +156,13 @@
                 Data refreshed every 4 hours via Reddit API
             </p>
             <p class="footer-links">
-                <a href="#" onclick="loadDashboardData()">
+                <a href="#" onclick="loadDashboardData()" class="refresh-btn">
                     <i class="fas fa-refresh"></i>
                     Refresh Now
+                </a>
+                <a href="#" onclick="location.reload()" class="hard-refresh-btn">
+                    <i class="fas fa-sync-alt"></i>
+                    Hard Refresh
                 </a>
             </p>
         </div>

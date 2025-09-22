@@ -72,4 +72,7 @@ jobs:
             git commit -m "Auto-update: Reddit data $(date '+%Y-%m-%d %H:%M')"
             git push
             echo "✅ Data updated and pushed - deployment will trigger automatically"
+            echo "🔄 Dashboard will be updated in 2-3 minutes"
+            echo "📱 Users should refresh their browsers to see the latest data"
+            echo "🎯 Auto-refresh is enabled - page will update automatically for users"
           fi

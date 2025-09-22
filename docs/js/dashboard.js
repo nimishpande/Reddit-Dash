@@ -491,6 +491,76 @@ function openReplyModal(postId) {
     alert(`Quick reply feature for post ${postId} - Coming soon!`);
 }
 
+// Auto-refresh functionality
+let autoRefreshInterval;
+let currentDataTimestamp;
+
+// Check for updates every 5 minutes
+function startAutoRefresh() {
+    autoRefreshInterval = setInterval(() => {
+        checkForUpdates();
+    }, 300000); // 5 minutes
+}
+
+// Check if data has been updated
+function checkForUpdates() {
+    fetch('/data.json?' + Date.now())
+        .then(response => response.json())
+        .then(data => {
+            const newTimestamp = data.dashboard_info.last_updated;
+            if (currentDataTimestamp && newTimestamp !== currentDataTimestamp) {
+                console.log('🔄 New data detected, refreshing page...');
+                showRefreshNotification();
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
+            }
+            currentDataTimestamp = newTimestamp;
+        })
+        .catch(error => {
+            console.log('Failed to check for updates:', error);
+        });
+}
+
+// Show refresh notification
+function showRefreshNotification() {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    `;
+    notification.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-sync-alt" style="animation: spin 1s linear infinite;"></i>
+            <span>New data available! Refreshing...</span>
+        </div>
+    `;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+        }
+    }, 2000);
+}
+
+// Initialize auto-refresh when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Start auto-refresh after initial load
+    setTimeout(() => {
+        startAutoRefresh();
+        console.log('🔄 Auto-refresh enabled (checks every 5 minutes)');
+    }, 10000); // Start after 10 seconds
+});
+
 // Add service worker for offline support (future enhancement)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
