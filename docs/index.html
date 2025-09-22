@@ -3,79 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmetic Ingredient Database</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Reddit Engagement Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Using system fonts to avoid GitHub secret scanning false positives -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Structured Data for AI Accessibility -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Reddit Engagement Dashboard",
+        "description": "AI-powered dashboard for monitoring Reddit posts with relevance scoring and engagement analytics",
+        "url": "https://nimishpande.github.io/Reddit-Dash/",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Reddit post monitoring",
+            "Relevance scoring",
+            "Engagement analytics", 
+            "Opportunity identification",
+            "Real-time filtering",
+            "AI-accessible content"
+        ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Navbar/Header -->
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.html">
-                <strong>Cosmetic Ingredient DB</strong>
-            </a>
-        </div>
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" href="index.html">Home</a>
-                <a class="navbar-item" href="#about">About</a>
-            </div>
-        </div>
-    </nav>
-    <section class="section">
+    <!-- Clean Header -->
+    <header class="dashboard-header">
         <div class="container">
-            <h1 class="title">Cosmetic Ingredient Database</h1>
-            <!-- Search & Filters -->
-            <div class="box search-filters mb-5">
-                <div class="field has-addons">
-                    <div class="control is-expanded">
-                        <input class="input" type="text" id="search-input" placeholder="Search ingredients..." aria-label="Search ingredients">
-                    </div>
-                    <div class="control">
-                        <button class="button is-primary" id="search-button" aria-label="Search">Search</button>
-                    </div>
-                </div>
-                <div class="columns is-mobile mt-3 filter-controls">
-                    <div class="column is-half">
-                        <div class="select is-multiple is-fullwidth">
-                            <select id="function-filter" multiple aria-label="Filter by function">
-                                <option value="">All Functions</option>
-                                <!-- Populated dynamically -->
-                            </select>
-                        </div>
-                    </div>
-                    <div class="column is-half safety-filter">
-                        <label for="safety-slider">Safety Score:</label>
-                        <div class="range-slider is-flex is-align-items-center">
-                            <input type="range" min="0" max="10" id="safety-slider" aria-valuemin="0" aria-valuemax="10">
-                            <span id="safety-value" class="ml-2">Any</span>
-                        </div>
+            <div class="header-content">
+                <div class="header-main">
+                    <h1 class="dashboard-title">
+                        <i class="fas fa-chart-line"></i>
+                        Reddit Engagement Dashboard
+                    </h1>
+                    <div class="header-stats-horizontal">
+                        <span class="stat-inline">
+                            <span class="stat-label">Last Updated:</span>
+                            <span class="stat-value" id="last-updated">Loading...</span>
+                        </span>
+                        <span class="stat-separator">•</span>
+                        <span class="stat-inline">
+                            <span class="stat-label">Posts:</span>
+                            <span class="stat-value" id="total-posts">-</span>
+                        </span>
+                        <span class="stat-separator">•</span>
+                        <span class="stat-inline">
+                            <span class="stat-label">Communities:</span>
+                            <span class="stat-value" id="communities-count">-</span>
+                        </span>
                     </div>
                 </div>
             </div>
-            <!-- Alphabetical Index -->
-            <div class="alpha-index mb-4">
-                <div class="alpha-buttons" id="alpha-buttons"></div>
-            </div>
-            <!-- Ingredient Cards -->
-            <div class="ingredients-container">
-                <div class="columns is-multiline" id="ingredients-list">
-                    <div class="column is-loading">Loading ingredients...</div>
-                </div>
-            </div>
-            <!-- Visualization Container (optional for homepage) -->
-            <div id="homepage-visualizations" class="mt-6"></div>
         </div>
-    </section>
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>Cosmetic Ingredient Database</p>
-            <p>Last updated: <span id="last-updated"></span></p>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="container">
+            <div class="filter-content">
+                <div class="filter-section">
+                    <label>Sort by:</label>
+                    <select id="sort-filter">
+                        <option value="engagement">Engagement Score</option>
+                        <option value="relevance">Relevance</option>
+                        <option value="opportunity">Reply Opportunity</option>
+                        <option value="recent">Most Recent</option>
+                    </select>
+                </div>
+                
+                <div class="filter-section">
+                    <label>Opportunity:</label>
+                    <div class="toggle-group">
+                        <button class="toggle active" data-filter="all">All</button>
+                        <button class="toggle" data-filter="high">High</button>
+                        <button class="toggle" data-filter="medium">Medium</button>
+                        <button class="toggle" data-filter="low">Low</button>
+                    </div>
+                </div>
+                
+                
+                <div class="search-section">
+                    <input type="text" placeholder="Search posts..." id="search-input">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="dashboard-main" role="main" aria-label="Reddit posts dashboard">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading-state" class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading engaging posts...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="error-state" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Unable to load data</h3>
+                <p>Please check your connection and try again.</p>
+                <button onclick="loadDashboardData()" class="retry-btn">
+                    <i class="fas fa-redo"></i>
+                    Retry
+                </button>
+            </div>
+
+            <!-- Posts Table -->
+            <div class="posts-table-container" id="posts-table-container" style="display: none;">
+                <table class="posts-table" id="posts-table" role="table" aria-label="Reddit posts table">
+                    <thead>
+                        <tr role="row">
+                            <th class="col-subreddit" role="columnheader" aria-sort="none" tabindex="0">Subreddit</th>
+                            <th class="col-title" role="columnheader" aria-sort="none" tabindex="0">Post Title</th>
+                            <th class="col-engagement" role="columnheader" aria-sort="none" tabindex="0">Engagement</th>
+                            <th class="col-comments" role="columnheader" aria-sort="none" tabindex="0">Comments</th>
+                            <th class="col-relevance" role="columnheader" aria-sort="none" tabindex="0">Relevance</th>
+                            <th class="col-category" role="columnheader" aria-sort="none" tabindex="0">Category</th>
+                            <th class="col-age" role="columnheader" aria-sort="none" tabindex="0">Age</th>
+                            <th class="col-actions" role="columnheader" aria-sort="none" tabindex="0">Reply Opportunity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="posts-tbody">
+                        <!-- Posts will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <i class="fas fa-inbox"></i>
+                <h3>No engaging posts found</h3>
+                <p>Check back later for new content.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p>
+                <i class="fas fa-sync-alt"></i>
+                Data refreshed every 4 hours via Reddit API
+            </p>
+            <p class="footer-links">
+                <a href="#" onclick="loadDashboardData()">
+                    <i class="fas fa-refresh"></i>
+                    Refresh Now
+                </a>
+            </p>
         </div>
     </footer>
-    <script src="js/main.js"></script>
-    <script src="js/search.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
-</html> 
+</html>

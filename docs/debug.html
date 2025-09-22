@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Data Loading</title>
+</head>
+<body>
+    <h1>Debug Data Loading</h1>
+    <div id="status">Testing...</div>
+    <div id="url"></div>
+    <div id="response"></div>
+    
+    <script>
+        async function debugDataLoading() {
+            const dataUrl = './data.json';
+            document.getElementById('url').innerHTML = `Trying URL: ${dataUrl}`;
+            
+            try {
+                console.log('Testing fetch to:', dataUrl);
+                const response = await fetch(dataUrl);
+                
+                document.getElementById('status').innerHTML = `Response Status: ${response.status}`;
+                document.getElementById('response').innerHTML = `Response OK: ${response.ok}`;
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('response').innerHTML += `<br>Data loaded: ${data.dashboard_info.title}`;
+                } else {
+                    document.getElementById('response').innerHTML += `<br>Error: ${response.statusText}`;
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('status').innerHTML = `Error: ${error.message}`;
+            }
+        }
+        
+        debugDataLoading();
+    </script>
+</body>
+</html>

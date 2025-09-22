@@ -1,0 +1,49 @@
+name: Deploy Dashboard to GitHub Pages
+
+on:
+  push:
+    branches: [ main, reddit-monitor ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Copy Latest Data
+        run: |
+          # Ensure docs folder exists
+          mkdir -p docs
+          # Copy latest data to docs folder for dashboard access
+          if [ -f "data/analysis/latest.json" ]; then
+            cp data/analysis/latest.json docs/data.json
+            echo "✅ Latest data copied to docs/data.json"
+          else
+            echo "⚠️ No latest.json found, using existing docs/data.json"
+          fi
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

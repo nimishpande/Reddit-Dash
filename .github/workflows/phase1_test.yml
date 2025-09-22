@@ -42,25 +42,25 @@ jobs:
     - name: Run Phase 1 Monitor
       run: |
         echo "Running Phase 1 Reddit monitor..."
-        python misc_py_root/reddit_monitor_phase1.py
+        python reddit-monitor/scripts/reddit_monitor_phase1.py
         
     - name: Show Results
       run: |
         echo "Phase 1 Results:"
         echo "Analysis directory structure:"
-        find analysis/ -type f -name "*.json" | head -10
+        find reddit-monitor/data/ -type f -name "*.json" | head -10
         echo ""
         echo "Latest JSON file size:"
-        ls -lh analysis/latest.json
+        ls -lh reddit-monitor/data/analysis/latest.json
         echo ""
         echo "Sample JSON structure:"
-        head -20 analysis/latest.json
+        head -20 reddit-monitor/data/analysis/latest.json
         
     - name: Commit Results
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add analysis/
+        git add reddit-monitor/data/
         git commit -m "Phase 1 test results - $(date)" || echo "No changes"
         git push
         
