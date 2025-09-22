@@ -36,6 +36,16 @@ jobs:
           python3 scripts/reddit_monitor_phase1.py
           echo "✅ Reddit monitoring completed"
           
+      - name: Copy data to dashboard
+        run: |
+          echo "📋 Copying data to dashboard..."
+          if [ -f "data/analysis/latest.json" ]; then
+            cp data/analysis/latest.json docs/data.json
+            echo "✅ Data copied to docs/data.json"
+          else
+            echo "⚠️ No latest.json found to copy"
+          fi
+          
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"

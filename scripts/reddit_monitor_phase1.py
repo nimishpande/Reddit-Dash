@@ -448,6 +448,17 @@ def main():
     print("💾 Saving JSON data...")
     timestamped_file, latest_file = save_json_data(dashboard_data, run_timestamp)
     
+    # Copy latest data to docs folder for dashboard
+    print("📋 Copying data to dashboard...")
+    try:
+        import shutil
+        docs_dir = 'docs'
+        os.makedirs(docs_dir, exist_ok=True)
+        shutil.copy2(latest_file, os.path.join(docs_dir, 'data.json'))
+        print("✅ Data copied to docs/data.json")
+    except Exception as e:
+        print(f"⚠️ Failed to copy data to docs: {e}")
+    
     print(f"\n✅ Phase 1 monitoring complete!")
     print(f"📊 Engaging posts found: {len(enhanced_posts)}")
     print(f"📁 Files saved:")
