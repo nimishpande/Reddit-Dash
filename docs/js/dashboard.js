@@ -220,7 +220,6 @@ function setupFiltering() {
     const sortFilter = document.getElementById('sort-filter');
     const opportunityToggles = document.querySelectorAll('.toggle');
     const searchInput = document.getElementById('search-input');
-    const viewToggles = document.querySelectorAll('.view-toggle');
     
     if (sortFilter) {
         sortFilter.addEventListener('change', applyFilters);
@@ -240,23 +239,68 @@ function setupFiltering() {
         searchInput.addEventListener('input', debounce(applyFilters, 300));
     }
     
-    // View toggle functionality
-    viewToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            // Remove active class from all view toggles
-            viewToggles.forEach(t => t.classList.remove('active'));
-            // Add active class to clicked toggle
-            this.classList.add('active');
-            
-            // Update current view
-            currentView = this.dataset.view;
-            
-            // Re-render posts with new view
-            if (dashboardData && dashboardData.posts) {
-                renderPosts(dashboardData.posts);
-            }
+    // Set up table sorting
+    setupTableSorting();
+}
+
+// Set up table column sorting
+function setupTableSorting() {
+    const tableHeaders = document.querySelectorAll('.posts-table th');
+    
+    tableHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const column = this.className.replace('col-', '');
+            sortTable(column);
         });
+        
+        // Add cursor pointer and sort indicators
+        header.style.cursor = 'pointer';
+        header.innerHTML += ' <i class="fas fa-sort sort-icon"></i>';
     });
+}
+
+// Sort table by column
+function sortTable(column) {
+    const tbody = document.getElementById('posts-tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    
+    rows.sort((a, b) => {
+        let aValue, bValue;
+        
+        switch(column) {
+            case 'subreddit':
+                aValue = a.querySelector('.subreddit-badge').textContent.trim();
+                bValue = b.querySelector('.subreddit-badge').textContent.trim();
+                return aValue.localeCompare(bValue);
+                
+            case 'title':
+                aValue = a.querySelector('.post-title-link').textContent.trim();
+                bValue = b.querySelector('.post-title-link').textContent.trim();
+                return aValue.localeCompare(bValue);
+                
+            case 'engagement':
+                aValue = parseFloat(a.dataset.engagement) || 0;
+                bValue = parseFloat(b.dataset.engagement) || 0;
+                return bValue - aValue;
+                
+            case 'comments':
+                aValue = parseInt(a.querySelector('.comment-count').textContent.trim()) || 0;
+                bValue = parseInt(b.querySelector('.comment-count').textContent.trim()) || 0;
+                return bValue - aValue;
+                
+            case 'relevance':
+                aValue = parseFloat(a.dataset.relevance) || 0;
+                bValue = parseFloat(b.dataset.relevance) || 0;
+                return bValue - aValue;
+                
+            default:
+                return 0;
+        }
+    });
+    
+    // Clear tbody and re-append sorted rows
+    tbody.innerHTML = '';
+    rows.forEach(row => tbody.appendChild(row));
 }
 
 // Apply filters to posts

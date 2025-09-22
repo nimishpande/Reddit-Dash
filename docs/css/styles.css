@@ -1383,6 +1383,24 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border-bottom: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.posts-table th:hover {
+    background: #f8f9fa;
+    color: #212529;
+}
+
+.sort-icon {
+    opacity: 0.5;
+    margin-left: 0.25rem;
+    font-size: 0.625rem;
+}
+
+.posts-table th:hover .sort-icon {
+    opacity: 1;
 }
 
 .posts-table td {
@@ -1427,7 +1445,9 @@ body {
 
 /* Table Element Styles */
 .subreddit-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
     padding: 0.25rem 0.5rem;
     background: var(--subreddit-color, #6c757d);
     color: white;
@@ -1436,6 +1456,10 @@ body {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.subreddit-icon {
+    font-size: 0.875rem;
 }
 
 .post-title-link {
@@ -1450,9 +1474,59 @@ body {
     text-decoration: underline;
 }
 
+.post-meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+.post-time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.post-time::before {
+    content: '🕒';
+    font-size: 0.625rem;
+}
+
+.post-score {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #1a7f37;
+    font-weight: 500;
+}
+
+.engagement-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+}
+
 .engagement-score {
     font-weight: 600;
     color: #1a7f37;
+    font-size: 0.875rem;
+}
+
+.engagement-bar {
+    width: 60px;
+    height: 4px;
+    background: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.engagement-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1a7f37, #2ed573);
+    border-radius: 2px;
+    transition: width 0.3s ease;
 }
 
 .comment-count {
@@ -1507,6 +1581,107 @@ body {
 
 .btn-reply:active {
     transform: translateY(0);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .posts-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .posts-table {
+        min-width: 600px;
+    }
+    
+    .posts-table th,
+    .posts-table td {
+        padding: 0.5rem 0.375rem;
+        font-size: 0.75rem;
+    }
+    
+    .col-subreddit {
+        width: 80px;
+        min-width: 80px;
+    }
+    
+    .col-title {
+        min-width: 200px;
+    }
+    
+    .col-engagement {
+        width: 80px;
+    }
+    
+    .col-comments {
+        width: 60px;
+    }
+    
+    .col-relevance {
+        width: 80px;
+    }
+    
+    .col-actions {
+        width: 100px;
+    }
+    
+    .subreddit-badge {
+        font-size: 0.625rem;
+        padding: 0.125rem 0.25rem;
+    }
+    
+    .post-title-link {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+    
+    .post-meta {
+        font-size: 0.625rem;
+        gap: 0.25rem;
+    }
+    
+    .engagement-bar {
+        width: 40px;
+        height: 3px;
+    }
+    
+    .btn-reply {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.625rem;
+    }
+    
+    .btn-reply i {
+        display: none;
+    }
+    
+    .btn-reply::after {
+        content: 'Reply';
+    }
+}
+
+@media (max-width: 480px) {
+    .header-stats-horizontal {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    
+    .stat-separator {
+        display: none;
+    }
+    
+    .filter-bar .filter-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filter-section {
+        width: 100%;
+    }
+    
+    .toggle-group {
+        flex-wrap: wrap;
+    }
 }
 
     .post-metrics {

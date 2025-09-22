@@ -58,10 +58,36 @@ function getSubredditColor(subreddit) {
         'curlyhair': '#ff6b35',
         'tressless': '#8e44ad',
         'Hair': '#e74c3c',
-        'beauty': '#f39c12'
+        'beauty': '#f39c12',
+        'AsianBeauty': '#4ecdc4',
+        'Skincare': '#ff9ff3',
+        '30PlusSkinCare': '#54a0ff',
+        'SkincareFlatlays': '#5f27cd',
+        'Haircare': '#ff6348',
+        'SkincareAddicts': '#2ed573'
     };
     
     return colors[subreddit] || '#0079d3';
+}
+
+function getSubredditIcon(subreddit) {
+    const icons = {
+        'SkincareAddiction': '🧴',
+        'AsianBeauty': '🌸',
+        'HaircareScience': '🔬',
+        'curlyhair': '🌀',
+        'Hair': '💇',
+        'Skincare': '✨',
+        '30PlusSkinCare': '👩',
+        'SkincareFlatlays': '📸',
+        'Haircare': '💆',
+        'SkincareAddicts': '💄',
+        'beauty': '💅',
+        'tressless': '💇‍♂️',
+        'skincareaddictsindia': '🇮🇳',
+        'IndianSkincareAddicts': '🇮🇳'
+    };
+    return icons[subreddit] || '📝';
 }
 
 // Format engagement score
@@ -275,12 +301,15 @@ function createTableRow(post) {
     const relevanceScore = post.relevance_score || 0;
     const opportunityLevel = relevanceScore >= 15 ? 'high' : relevanceScore >= 8 ? 'medium' : 'low';
     const subredditColor = getSubredditColor(post.subreddit);
+    const subredditIcon = getSubredditIcon(post.subreddit);
     
     return `
         <tr class="post-row ${opportunityLevel}-opportunity" 
-            data-post-id="${post.id}" data-post-url="${post.url}" data-opportunity="${opportunityLevel}">
+            data-post-id="${post.id}" data-post-url="${post.url}" data-opportunity="${opportunityLevel}"
+            data-engagement="${post.engagement_score}" data-relevance="${relevanceScore}">
             <td class="col-subreddit">
                 <span class="subreddit-badge" style="--subreddit-color: ${subredditColor}">
+                    <span class="subreddit-icon">${subredditIcon}</span>
                     ${post.subreddit_display}
                 </span>
             </td>
@@ -288,9 +317,18 @@ function createTableRow(post) {
                 <a href="${post.url}" target="_blank" class="post-title-link" title="${post.title}">
                     ${post.title.length > 80 ? post.title.substring(0, 80) + '...' : post.title}
                 </a>
+                <div class="post-meta">
+                    <span class="post-time">${post.age_human}</span>
+                    <span class="post-score">${post.score} ↑</span>
+                </div>
             </td>
             <td class="col-engagement">
-                <span class="engagement-score">${formatEngagementScore(post.engagement_score)}</span>
+                <div class="engagement-container">
+                    <span class="engagement-score">${formatEngagementScore(post.engagement_score)}</span>
+                    <div class="engagement-bar">
+                        <div class="engagement-fill" style="width: ${Math.min((post.engagement_score / 100) * 100, 100)}%"></div>
+                    </div>
+                </div>
             </td>
             <td class="col-comments">
                 <span class="comment-count">
@@ -300,6 +338,7 @@ function createTableRow(post) {
             </td>
             <td class="col-relevance">
                 <span class="relevance-score relevance-${opportunityLevel}">
+                    <i class="fas fa-target"></i>
                     ${post.relevance_score?.toFixed(1) || '0'}
                 </span>
             </td>
