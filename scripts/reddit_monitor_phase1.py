@@ -390,7 +390,7 @@ def main():
     settings = subreddit_config.get('settings', {})
     
     print(f"🔍 Starting Reddit monitoring for {len(enabled_subreddits)} subreddits")
-    print(f"⏰ Run time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"⏰ Run time: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
     print(f"👤 User profile loaded: {len(user_profile.get('expertise_areas', []))} expertise areas")
     
     # Create analysis directory
@@ -433,8 +433,8 @@ def main():
         print("ℹ️ No engaging posts found")
         return False
     
-    # Get run timestamp
-    run_timestamp = datetime.now()
+    # Get run timestamp (UTC)
+    run_timestamp = datetime.now(timezone.utc)
     
     # Create enhanced post data
     print("🔧 Creating enhanced post data...")
