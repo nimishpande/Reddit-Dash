@@ -1409,8 +1409,18 @@ body {
     vertical-align: top;
 }
 
-.posts-table tbody tr:hover {
+.posts-table tbody tr:nth-child(even) {
     background: #f8f9fa;
+}
+
+.posts-table tbody tr:hover {
+    background: #e3f2fd !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.posts-table tbody tr {
+    transition: all 0.2s ease;
 }
 
 /* Table Column Styles */

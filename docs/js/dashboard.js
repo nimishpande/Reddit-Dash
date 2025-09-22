@@ -10,7 +10,6 @@ const CONFIG = {
 // Global state
 let dashboardData = null;
 let refreshTimer = null;
-let currentView = 'compact'; // Default to compact view
 
 // Initialize dashboard when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -241,6 +240,9 @@ function setupFiltering() {
     
     // Set up table sorting
     setupTableSorting();
+    
+    // Set up enhanced filtering for table
+    setupTableFiltering();
 }
 
 // Set up table column sorting
@@ -251,6 +253,15 @@ function setupTableSorting() {
         header.addEventListener('click', function() {
             const column = this.className.replace('col-', '');
             sortTable(column);
+        });
+        
+        // Add keyboard navigation
+        header.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const column = this.className.replace('col-', '');
+                sortTable(column);
+            }
         });
         
         // Add cursor pointer and sort indicators
@@ -301,6 +312,65 @@ function sortTable(column) {
     // Clear tbody and re-append sorted rows
     tbody.innerHTML = '';
     rows.forEach(row => tbody.appendChild(row));
+}
+
+// Set up enhanced table filtering
+function setupTableFiltering() {
+    const searchInput = document.getElementById('search-input');
+    const opportunityToggles = document.querySelectorAll('.toggle');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', debounce(filterTableRows, 300));
+    }
+    
+    opportunityToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            opportunityToggles.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            filterTableRows();
+        });
+    });
+}
+
+// Filter table rows based on search and opportunity filters
+function filterTableRows() {
+    const searchInput = document.getElementById('search-input');
+    const activeToggle = document.querySelector('.toggle.active');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const opportunityFilter = activeToggle ? activeToggle.dataset.filter : 'all';
+    
+    const rows = document.querySelectorAll('.post-row');
+    
+    rows.forEach(row => {
+        const title = row.querySelector('.post-title-link').textContent.toLowerCase();
+        const subreddit = row.querySelector('.subreddit-badge').textContent.toLowerCase();
+        const opportunity = row.dataset.opportunity;
+        
+        let showRow = true;
+        
+        // Search filter
+        if (searchTerm && !title.includes(searchTerm) && !subreddit.includes(searchTerm)) {
+            showRow = false;
+        }
+        
+        // Opportunity filter
+        if (opportunityFilter !== 'all' && opportunity !== opportunityFilter) {
+            showRow = false;
+        }
+        
+        row.style.display = showRow ? '' : 'none';
+    });
+    
+    // Update visible row count
+    updateVisibleRowCount();
+}
+
+// Update visible row count
+function updateVisibleRowCount() {
+    const visibleRows = document.querySelectorAll('.post-row:not([style*="display: none"])');
+    const totalRows = document.querySelectorAll('.post-row');
+    
+    console.log(`📊 Filtered: ${visibleRows.length}/${totalRows.length} posts visible`);
 }
 
 // Apply filters to posts

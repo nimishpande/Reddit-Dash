@@ -120,15 +120,15 @@
 
             <!-- Posts Table -->
             <div class="posts-table-container" id="posts-table-container" style="display: none;">
-                <table class="posts-table" id="posts-table">
+                <table class="posts-table" id="posts-table" role="table" aria-label="Reddit posts table">
                     <thead>
-                        <tr>
-                            <th class="col-subreddit">Subreddit</th>
-                            <th class="col-title">Post Title</th>
-                            <th class="col-engagement">Engagement</th>
-                            <th class="col-comments">Comments</th>
-                            <th class="col-relevance">Relevance</th>
-                            <th class="col-actions">Reply Opportunity</th>
+                        <tr role="row">
+                            <th class="col-subreddit" role="columnheader" aria-sort="none" tabindex="0">Subreddit</th>
+                            <th class="col-title" role="columnheader" aria-sort="none" tabindex="0">Post Title</th>
+                            <th class="col-engagement" role="columnheader" aria-sort="none" tabindex="0">Engagement</th>
+                            <th class="col-comments" role="columnheader" aria-sort="none" tabindex="0">Comments</th>
+                            <th class="col-relevance" role="columnheader" aria-sort="none" tabindex="0">Relevance</th>
+                            <th class="col-actions" role="columnheader" aria-sort="none" tabindex="0">Reply Opportunity</th>
                         </tr>
                     </thead>
                     <tbody id="posts-tbody">
