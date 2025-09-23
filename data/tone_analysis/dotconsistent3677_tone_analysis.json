@@ -1,0 +1,47 @@
+{
+  "tone_scores": {
+    "formal": 0.0,
+    "casual": 0.00981818181818182,
+    "technical": 0.006666666666666666,
+    "empathetic": 0.02,
+    "educational": 0.13866666666666666,
+    "questioning": 0.34684848484848485,
+    "enthusiastic": 0.11800000000000001,
+    "cautious": 0.0
+  },
+  "writing_style": {
+    "avg_sentence_length": 9.25,
+    "avg_readability": -194.18,
+    "punctuation_usage": {
+      "exclamation": 6,
+      "question": 17,
+      "ellipsis": 12,
+      "caps": 0
+    },
+    "writing_consistency": {
+      "score": 0.4,
+      "level": "moderate",
+      "std_deviation": 5.55
+    }
+  },
+  "tone_profile": {
+    "primary_tone": "questioning",
+    "dominant_tones": [
+      "questioning",
+      "educational",
+      "enthusiastic"
+    ],
+    "writing_style": "concise",
+    "formality": "casual",
+    "engagement_style": "inquisitive",
+    "tone_confidence": 0.34684848484848485
+  },
+  "analysis_metadata": {
+    "comments_analyzed": 50,
+    "analysis_date": "2025-09-23T07:39:30.838627+00:00"
+  },
+  "recommendations": [
+    "Your casual tone is engaging - consider adding more technical details when appropriate",
+    "Your questioning approach is great - continue asking clarifying questions"
+  ]
+}

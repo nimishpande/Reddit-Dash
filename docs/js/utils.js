@@ -391,6 +391,27 @@ function createTableRow(post) {
                     ${post.age_human}
                 </span>
             </td>
+            <td class="col-help-type">
+                <span class="help-type-badge ${getHelpTypeClass(post.context?.help_type || 'general')}">
+                    <i class="fas ${getHelpTypeIcon(post.context?.help_type || 'general')}"></i>
+                    ${formatHelpType(post.context?.help_type || 'general')}
+                </span>
+            </td>
+            <td class="col-expertise">
+                <div class="expertise-match">
+                    ${formatExpertiseMatch(post.context?.expertise_match || [])}
+                </div>
+            </td>
+            <td class="col-confidence">
+                <div class="confidence-score">
+                    <span class="confidence-value confidence-${getConfidenceLevel(post.context?.confidence_score || 0)}">
+                        ${formatConfidenceScore(post.context?.confidence_score || 0)}
+                    </span>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: ${(post.context?.confidence_score || 0) * 100}%"></div>
+                    </div>
+                </div>
+            </td>
             <td class="col-actions">
                 <button class="btn-reply" onclick="openReplyModal('${post.id}')">
                     <i class="fas fa-reply"></i>
@@ -399,6 +420,67 @@ function createTableRow(post) {
             </td>
         </tr>
     `;
+}
+
+// Helper functions for context columns
+function getHelpTypeClass(helpType) {
+    const classes = {
+        'routine_help': 'help-routine',
+        'product_recommendation': 'help-product',
+        'troubleshooting': 'help-troubleshooting',
+        'ingredient_question': 'help-ingredient',
+        'skin_concern': 'help-skin',
+        'hair_concern': 'help-hair',
+        'general': 'help-general'
+    };
+    return classes[helpType] || 'help-general';
+}
+
+function getHelpTypeIcon(helpType) {
+    const icons = {
+        'routine_help': 'fa-list-ol',
+        'product_recommendation': 'fa-shopping-cart',
+        'troubleshooting': 'fa-tools',
+        'ingredient_question': 'fa-flask',
+        'skin_concern': 'fa-user-md',
+        'hair_concern': 'fa-cut',
+        'general': 'fa-question-circle'
+    };
+    return icons[helpType] || 'fa-question-circle';
+}
+
+function formatHelpType(helpType) {
+    const names = {
+        'routine_help': 'Routine',
+        'product_recommendation': 'Product',
+        'troubleshooting': 'Troubleshoot',
+        'ingredient_question': 'Ingredient',
+        'skin_concern': 'Skin',
+        'hair_concern': 'Hair',
+        'general': 'General'
+    };
+    return names[helpType] || 'General';
+}
+
+function formatExpertiseMatch(expertiseMatches) {
+    if (!expertiseMatches || expertiseMatches.length === 0) {
+        return '<span class="no-expertise">No match</span>';
+    }
+    
+    const topMatches = expertiseMatches.slice(0, 2);
+    return topMatches.map(match => 
+        `<span class="expertise-tag">${match}</span>`
+    ).join(' ');
+}
+
+function getConfidenceLevel(score) {
+    if (score >= 0.8) return 'high';
+    if (score >= 0.5) return 'medium';
+    return 'low';
+}
+
+function formatConfidenceScore(score) {
+    return `${Math.round(score * 100)}%`;
 }
 
 // Check if data is fresh (less than 20 minutes old)
