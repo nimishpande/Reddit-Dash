@@ -418,7 +418,9 @@ function toggleContextColumns() {
     const contextColumns = document.querySelectorAll('.col-help-type, .col-expertise, .col-confidence');
     const toggleBtn = document.getElementById('toggle-columns');
     
-    const isVisible = contextColumns[0].style.display !== 'none';
+    // Check if columns are currently visible (either inline style or computed style)
+    const isVisible = contextColumns[0].style.display === 'table-cell' || 
+                      getComputedStyle(contextColumns[0]).display !== 'none';
     
     contextColumns.forEach(column => {
         if (isVisible) {
@@ -700,7 +702,7 @@ function startAutoRefresh() {
 
 // Check if data has been updated
 function checkForUpdates() {
-    fetch('/data.json?' + Date.now())
+    fetch(CONFIG.dataUrl)
         .then(response => response.json())
         .then(data => {
             const newTimestamp = data.dashboard_info.last_updated;
