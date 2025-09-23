@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1404,7 +1404,7 @@ body {
 
 .posts-table {
     width: 100%;
-    min-width: 1400px;
+    min-width: 1800px;
     border-collapse: collapse;
     font-size: 0.875rem;
 }
@@ -1467,6 +1467,8 @@ body {
 .col-subreddit {
     width: 120px;
     min-width: 120px;
+    font-size: 0.75rem;
+    font-weight: 500;
 }
 
 .col-title {
