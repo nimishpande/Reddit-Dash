@@ -89,14 +89,14 @@
                     </div>
                 </div>
                 
-                <div class="filter-section">
+                <div class="filter-section advanced-filters" style="display: none;">
                     <label>Subreddit:</label>
                     <select id="subreddit-filter" class="filter-select">
                         <option value="all">All Subreddits</option>
                     </select>
                 </div>
                 
-                <div class="filter-section">
+                <div class="filter-section advanced-filters" style="display: none;">
                     <label>Category:</label>
                     <select id="category-filter" class="filter-select">
                         <option value="all">All Categories</option>
@@ -106,7 +106,7 @@
                     </select>
                 </div>
                 
-                <div class="filter-section">
+                <div class="filter-section advanced-filters" style="display: none;">
                     <label>Help Type:</label>
                     <select id="help-type-filter" class="filter-select">
                         <option value="all">All Types</option>
@@ -118,7 +118,7 @@
                     </select>
                 </div>
                 
-                <div class="filter-section">
+                <div class="filter-section advanced-filters" style="display: none;">
                     <label>Expertise:</label>
                     <select id="expertise-filter" class="filter-select">
                         <option value="all">All Matches</option>
@@ -135,6 +135,14 @@
                 </div>
                 
                 <div class="filter-actions">
+                    <button id="toggle-columns" class="btn-toggle-columns">
+                        <i class="fas fa-columns"></i>
+                        Show Context
+                    </button>
+                    <button id="toggle-advanced" class="btn-toggle-advanced">
+                        <i class="fas fa-sliders-h"></i>
+                        Advanced
+                    </button>
                     <button id="clear-filters" class="btn-clear-filters">
                         <i class="fas fa-times"></i>
                         Clear All

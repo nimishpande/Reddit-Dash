@@ -313,6 +313,18 @@ function setupFiltering() {
         clearFiltersBtn.addEventListener('click', clearAllFilters);
     }
     
+    // Set up toggle advanced filters button
+    const toggleAdvancedBtn = document.getElementById('toggle-advanced');
+    if (toggleAdvancedBtn) {
+        toggleAdvancedBtn.addEventListener('click', toggleAdvancedFilters);
+    }
+    
+    // Set up toggle columns button
+    const toggleColumnsBtn = document.getElementById('toggle-columns');
+    if (toggleColumnsBtn) {
+        toggleColumnsBtn.addEventListener('click', toggleContextColumns);
+    }
+    
     // Set up table sorting
     setupTableSorting();
     
@@ -373,6 +385,58 @@ function clearAllFilters() {
     applyFilters();
     
     console.log('🧹 All filters cleared');
+}
+
+// Toggle advanced filters visibility
+function toggleAdvancedFilters() {
+    const advancedFilters = document.querySelectorAll('.advanced-filters');
+    const toggleBtn = document.getElementById('toggle-advanced');
+    
+    const isVisible = advancedFilters[0].style.display !== 'none';
+    
+    advancedFilters.forEach(filter => {
+        if (isVisible) {
+            filter.style.display = 'none';
+        } else {
+            filter.style.display = 'flex';
+        }
+    });
+    
+    if (toggleBtn) {
+        if (isVisible) {
+            toggleBtn.innerHTML = '<i class="fas fa-sliders-h"></i> Advanced';
+        } else {
+            toggleBtn.innerHTML = '<i class="fas fa-sliders-h"></i> Hide Advanced';
+        }
+    }
+    
+    console.log(`🔧 Advanced filters ${isVisible ? 'hidden' : 'shown'}`);
+}
+
+// Toggle context columns visibility
+function toggleContextColumns() {
+    const contextColumns = document.querySelectorAll('.col-help-type, .col-expertise, .col-confidence');
+    const toggleBtn = document.getElementById('toggle-columns');
+    
+    const isVisible = contextColumns[0].style.display !== 'none';
+    
+    contextColumns.forEach(column => {
+        if (isVisible) {
+            column.style.display = 'none';
+        } else {
+            column.style.display = 'table-cell';
+        }
+    });
+    
+    if (toggleBtn) {
+        if (isVisible) {
+            toggleBtn.innerHTML = '<i class="fas fa-columns"></i> Show Context';
+        } else {
+            toggleBtn.innerHTML = '<i class="fas fa-columns"></i> Hide Context';
+        }
+    }
+    
+    console.log(`📊 Context columns ${isVisible ? 'hidden' : 'shown'}`);
 }
 
 // Set up table column sorting
