@@ -217,35 +217,7 @@ function setupKeyboardShortcuts() {
 // Global function for manual refresh (called from HTML)
 window.loadDashboardData = loadDashboardData;
 
-// Add some additional utility functions
-function getTopPosts(limit = 5) {
-    if (!dashboardData || !dashboardData.posts) return [];
-    
-    return dashboardData.posts
-        .sort((a, b) => b.engagement_score - a.engagement_score)
-        .slice(0, limit);
-}
-
-function getPostsBySubreddit(subreddit) {
-    if (!dashboardData || !dashboardData.posts) return [];
-    
-    return dashboardData.posts.filter(post => post.subreddit === subreddit);
-}
-
-function getPostsWithImages() {
-    if (!dashboardData || !dashboardData.posts) return [];
-    
-    return dashboardData.posts.filter(post => post.has_images);
-}
-
-// Export functions for debugging
-window.DashboardAPI = {
-    getTopPosts,
-    getPostsBySubreddit,
-    getPostsWithImages,
-    getData: () => dashboardData,
-    refresh: loadDashboardData
-};
+// Removed unused utility functions - not needed for current functionality
 
 // Add performance monitoring
 function logPerformance() {
@@ -682,12 +654,7 @@ function applyFilters() {
     renderPosts(filteredPosts);
 }
 
-// Quick reply modal function
-function openReplyModal(postId) {
-    // This would open a modal with quick reply options
-    // For now, just show an alert
-    alert(`Quick reply feature for post ${postId} - Coming soon!`);
-}
+// Quick reply modal function moved to utils.js
 
 // Auto-refresh functionality
 let autoRefreshInterval;
@@ -761,11 +728,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Add service worker for offline support (future enhancement)
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered'))
-        //     .catch(error => console.log('SW registration failed'));
-    });
+    // Service worker registration removed - not needed for current functionality
 }
 
 console.log('🎯 Dashboard JavaScript loaded successfully!');
