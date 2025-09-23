@@ -39,11 +39,14 @@ jobs:
       - name: Copy data to dashboard
         run: |
           echo "📋 Copying data to dashboard..."
-          if [ -f "data/analysis/latest.json" ]; then
+          if [ -f "data/analysis/latest_enhanced.json" ]; then
+            cp data/analysis/latest_enhanced.json docs/data.json
+            echo "✅ Enhanced data copied to docs/data.json"
+          elif [ -f "data/analysis/latest.json" ]; then
             cp data/analysis/latest.json docs/data.json
-            echo "✅ Data copied to docs/data.json"
+            echo "✅ Basic data copied to docs/data.json"
           else
-            echo "⚠️ No latest.json found to copy"
+            echo "⚠️ No data files found to copy"
           fi
           
       - name: Commit and push changes
