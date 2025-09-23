@@ -11,6 +11,18 @@ import base64
 from datetime import datetime, timezone
 from dotenv import load_dotenv
 import re
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Import our sophisticated analysis modules
+try:
+    from response_strategy import ResponseStrategyGenerator
+    from account_analyzer import RedditAccountAnalyzer
+    ENHANCED_ANALYSIS_AVAILABLE = True
+    print("✅ Enhanced analysis modules loaded")
+except ImportError as e:
+    print(f"⚠️ Enhanced analysis not available: {e}")
+    ENHANCED_ANALYSIS_AVAILABLE = False
 
 # Load environment variables
 load_dotenv()
@@ -20,7 +32,7 @@ ANALYSIS_DIR = 'data/analysis'  # Updated path for new repository structure
 
 def load_subreddit_config():
     """Load subreddit configuration from JSON file"""
-    config_path = 'config/subreddits.json'
+    config_path = '../config/subreddits.json'  # Fix path from scripts directory
     try:
         with open(config_path, 'r', encoding='utf-8') as f:
             config = json.load(f)
@@ -33,8 +45,20 @@ def load_subreddit_config():
         }
 
 def load_user_profile():
-    """Load user profile configuration"""
-    profile_path = 'config/user_profile.json'
+    """Load user profile configuration - enhanced version"""
+    # Try enhanced profile first
+    enhanced_profile_path = '../config/user_profile_enhanced.json'  # Fix path from scripts directory
+    if os.path.exists(enhanced_profile_path):
+        try:
+            with open(enhanced_profile_path, 'r', encoding='utf-8') as f:
+                enhanced_profile = json.load(f)
+                print("✅ Using enhanced user profile")
+                return enhanced_profile
+        except Exception as e:
+            print(f"⚠️ Error loading enhanced profile: {e}")
+    
+    # Fallback to basic profile
+    profile_path = '../config/user_profile.json'  # Fix path from scripts directory
     try:
         with open(profile_path, 'r', encoding='utf-8') as f:
             return json.load(f)['user_profile']
@@ -87,6 +111,58 @@ def calculate_relevance_score(post, user_profile):
         relevance_score += 5
     
     return max(0, relevance_score)  # Don't go below 0
+
+def calculate_enhanced_relevance_score(post, enhanced_profile):
+    """Calculate relevance using sophisticated account analysis"""
+    try:
+        active_account = enhanced_profile.get('active_account', 'dotconsistent3677')
+        account_data = enhanced_profile['accounts'].get(active_account, {})
+        
+        # Get expertise confidence scores from account analysis
+        expertise_confidence = account_data.get('account_analysis', {}).get('expertise_confidence', {})
+        
+        title = post.get('title', '').lower()
+        content = post.get('selftext', '').lower()
+        flair = post.get('link_flair_text', '').lower() if post.get('link_flair_text') else ''
+        combined_text = f"{title} {content} {flair}"
+        
+        # Calculate weighted relevance based on expertise confidence
+        total_score = 0
+        
+        for expertise_area, confidence in expertise_confidence.items():
+            if confidence > 0.1:  # Only consider areas with some confidence
+                # Check if this expertise area is relevant to the post
+                area_keywords = get_expertise_keywords(expertise_area)
+                matches = sum(1 for keyword in area_keywords if keyword in combined_text)
+                
+                if matches > 0:
+                    # Weight by confidence and number of matches
+                    weighted_score = confidence * matches * 10
+                    total_score += weighted_score
+        
+        # Add base keyword matching
+        interest_keywords = account_data.get('interest_keywords', [])
+        for keyword in interest_keywords:
+            if keyword.lower() in combined_text:
+                total_score += 2
+        
+        return min(total_score, 100)  # Cap at 100
+        
+    except Exception as e:
+        print(f"⚠️ Error in enhanced relevance calculation: {e}")
+        return calculate_relevance_score(post, {'expertise_areas': [], 'interest_keywords': []})
+
+def get_expertise_keywords(expertise_area):
+    """Get keywords for an expertise area"""
+    keyword_map = {
+        'skincare': ['routine', 'cleanser', 'moisturizer', 'serum', 'acne', 'skin'],
+        'haircare': ['hair', 'shampoo', 'conditioner', 'hair loss', 'scalp'],
+        'ingredients': ['ingredient', 'retinol', 'niacinamide', 'vitamin c', 'acid'],
+        'products': ['product', 'brand', 'recommendation', 'review'],
+        'problems': ['help', 'problem', 'issue', 'trouble', 'fix'],
+        'routine': ['morning', 'evening', 'night', 'step', 'order']
+    }
+    return keyword_map.get(expertise_area, [])
 
 def calculate_combined_score(post, user_profile):
     """Calculate combined engagement + relevance score"""
@@ -173,7 +249,13 @@ def filter_engaging_posts(posts, user_profile):
     for post in posts:
         # Calculate all scores
         engagement_score = post.get('score', 0) + post.get('num_comments', 0)
-        relevance_score = calculate_relevance_score(post, user_profile)
+        
+        # Use enhanced relevance scoring if available
+        if 'accounts' in user_profile and ENHANCED_ANALYSIS_AVAILABLE:
+            relevance_score = calculate_enhanced_relevance_score(post, user_profile)
+        else:
+            relevance_score = calculate_relevance_score(post, user_profile)
+        
         combined_score = calculate_combined_score(post, user_profile)
         
         # Filter criteria
@@ -253,6 +335,38 @@ def extract_image_urls(post):
         })
     
     return image_urls
+
+def create_enhanced_post_data_v2(post, user_profile):
+    """Create enhanced post data with sophisticated context analysis"""
+    # Start with basic enhanced data
+    enhanced_post = create_enhanced_post_data(post)
+    
+    # Add sophisticated context analysis if available
+    if ENHANCED_ANALYSIS_AVAILABLE and 'accounts' in user_profile:
+        try:
+            # Pass the user_profile dictionary directly to the generator
+            strategy_generator = ResponseStrategyGenerator()
+            strategy_generator.user_profile = user_profile  # Set the profile directly
+            context = strategy_generator.generate_enhanced_post_context(enhanced_post)
+            enhanced_post['context'] = context
+            print(f"✅ Added context analysis to post: {enhanced_post['title'][:50]}...")
+        except Exception as e:
+            print(f"⚠️ Error adding context analysis: {e}")
+            enhanced_post['context'] = {
+                'help_type': 'general',
+                'expertise_match': [],
+                'confidence_score': 0.0,
+                'error': str(e)
+            }
+    else:
+        # Basic context if enhanced analysis not available
+        enhanced_post['context'] = {
+            'help_type': 'general',
+            'expertise_match': [],
+            'confidence_score': 0.0
+        }
+    
+    return enhanced_post
 
 def create_enhanced_post_data(post):
     """Create enhanced post data with additional fields"""
@@ -371,7 +485,7 @@ def save_json_data(data, run_timestamp):
     print(f"✅ Latest JSON updated: {latest_file}")
     
     # Copy to docs folder for dashboard access
-    docs_data_file = os.path.join('docs', 'data.json')
+    docs_data_file = os.path.join('../docs', 'data.json')  # Fix path from scripts directory
     with open(docs_data_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     
@@ -436,9 +550,9 @@ def main():
     # Get run timestamp (UTC)
     run_timestamp = datetime.now(timezone.utc)
     
-    # Create enhanced post data
-    print("🔧 Creating enhanced post data...")
-    enhanced_posts = [create_enhanced_post_data(post) for post in engaging_posts]
+    # Create enhanced post data with sophisticated context analysis
+    print("🔧 Creating enhanced post data with context analysis...")
+    enhanced_posts = [create_enhanced_post_data_v2(post, user_profile) for post in engaging_posts]
     
     # Create dashboard data
     print("📋 Creating dashboard data structure...")
@@ -452,7 +566,7 @@ def main():
     print("📋 Copying data to dashboard...")
     try:
         import shutil
-        docs_dir = 'docs'
+        docs_dir = '../docs'  # Fix path from scripts directory
         os.makedirs(docs_dir, exist_ok=True)
         shutil.copy2(latest_file, os.path.join(docs_dir, 'data.json'))
         print("✅ Data copied to docs/data.json")
