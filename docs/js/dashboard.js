@@ -307,6 +307,12 @@ function setupFiltering() {
         expertiseFilter.addEventListener('change', applyFilters);
     }
     
+    // Set up clear filters button
+    const clearFiltersBtn = document.getElementById('clear-filters');
+    if (clearFiltersBtn) {
+        clearFiltersBtn.addEventListener('click', clearAllFilters);
+    }
+    
     // Set up table sorting
     setupTableSorting();
     
@@ -338,6 +344,35 @@ function populateFilterOptions() {
             subredditFilter.appendChild(option);
         });
     }
+}
+
+// Clear all filters and reset to default state
+function clearAllFilters() {
+    // Reset all filter dropdowns
+    const subredditFilter = document.getElementById('subreddit-filter');
+    const categoryFilter = document.getElementById('category-filter');
+    const helpTypeFilter = document.getElementById('help-type-filter');
+    const expertiseFilter = document.getElementById('expertise-filter');
+    const sortFilter = document.getElementById('sort-filter');
+    const searchInput = document.getElementById('search-input');
+    
+    if (subredditFilter) subredditFilter.value = 'all';
+    if (categoryFilter) categoryFilter.value = 'all';
+    if (helpTypeFilter) helpTypeFilter.value = 'all';
+    if (expertiseFilter) expertiseFilter.value = 'all';
+    if (sortFilter) sortFilter.value = 'engagement';
+    if (searchInput) searchInput.value = '';
+    
+    // Reset opportunity toggles
+    const opportunityToggles = document.querySelectorAll('.toggle');
+    opportunityToggles.forEach(toggle => toggle.classList.remove('active'));
+    const allToggle = document.querySelector('.toggle[data-filter="all"]');
+    if (allToggle) allToggle.classList.add('active');
+    
+    // Apply filters to show all posts
+    applyFilters();
+    
+    console.log('🧹 All filters cleared');
 }
 
 // Set up table column sorting
