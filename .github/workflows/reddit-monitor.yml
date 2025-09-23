@@ -25,6 +25,46 @@ jobs:
         run: |
           pip install -r requirements.txt
           
+      - name: Analyze Reddit Accounts
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        run: |
+          echo "🔍 Analyzing Reddit accounts..."
+          if [ -f "config/usernames.json" ]; then
+            python3 -c "
+import json
+import subprocess
+import sys
+
+# Load usernames configuration
+with open('config/usernames.json', 'r') as f:
+    config = json.load(f)
+
+usernames = config.get('usernames', [])
+comments_limit = config.get('analysis_settings', {}).get('comments_limit', 100)
+
+print(f'📊 Found {len(usernames)} usernames to analyze')
+
+for username in usernames:
+    print(f'🔍 Analyzing u/{username}...')
+    try:
+        result = subprocess.run([
+            'python3', 'scripts/account_analyzer.py', 
+            username, str(comments_limit)
+        ], capture_output=True, text=True)
+        
+        if result.returncode == 0:
+            print(f'✅ Analysis complete for u/{username}')
+        else:
+            print(f'⚠️ Analysis failed for u/{username}: {result.stderr}')
+    except Exception as e:
+        print(f'❌ Error analyzing u/{username}: {e}')
+"
+          else
+            echo "⚠️ No usernames.json found, skipping account analysis"
+          fi
+          
       - name: Run Reddit Monitor
         env:
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
