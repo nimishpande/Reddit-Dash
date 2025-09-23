@@ -266,6 +266,12 @@ function setupFiltering() {
     const opportunityToggles = document.querySelectorAll('.toggle');
     const searchInput = document.getElementById('search-input');
     
+    // New advanced filters
+    const subredditFilter = document.getElementById('subreddit-filter');
+    const categoryFilter = document.getElementById('category-filter');
+    const helpTypeFilter = document.getElementById('help-type-filter');
+    const expertiseFilter = document.getElementById('expertise-filter');
+    
     if (sortFilter) {
         sortFilter.addEventListener('change', applyFilters);
     }
@@ -284,11 +290,54 @@ function setupFiltering() {
         searchInput.addEventListener('input', debounce(applyFilters, 300));
     }
     
+    // Set up new advanced filters
+    if (subredditFilter) {
+        subredditFilter.addEventListener('change', applyFilters);
+    }
+    
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', applyFilters);
+    }
+    
+    if (helpTypeFilter) {
+        helpTypeFilter.addEventListener('change', applyFilters);
+    }
+    
+    if (expertiseFilter) {
+        expertiseFilter.addEventListener('change', applyFilters);
+    }
+    
     // Set up table sorting
     setupTableSorting();
     
     // Set up enhanced filtering for table
     setupTableFiltering();
+    
+    // Populate filter options when data is loaded
+    populateFilterOptions();
+}
+
+// Populate filter dropdown options based on available data
+function populateFilterOptions() {
+    if (!dashboardData || !dashboardData.posts) return;
+    
+    // Populate subreddit filter
+    const subredditFilter = document.getElementById('subreddit-filter');
+    if (subredditFilter) {
+        const subreddits = [...new Set(dashboardData.posts.map(post => post.subreddit))];
+        subreddits.sort();
+        
+        // Clear existing options except "All Subreddits"
+        subredditFilter.innerHTML = '<option value="all">All Subreddits</option>';
+        
+        // Add subreddit options
+        subreddits.forEach(subreddit => {
+            const option = document.createElement('option');
+            option.value = subreddit;
+            option.textContent = `r/${subreddit}`;
+            subredditFilter.appendChild(option);
+        });
+    }
 }
 
 // Set up table column sorting
@@ -437,6 +486,12 @@ function applyFilters() {
     const activeToggle = document.querySelector('.toggle.active');
     const searchInput = document.getElementById('search-input');
     
+    // New advanced filters
+    const subredditFilter = document.getElementById('subreddit-filter');
+    const categoryFilter = document.getElementById('category-filter');
+    const helpTypeFilter = document.getElementById('help-type-filter');
+    const expertiseFilter = document.getElementById('expertise-filter');
+    
     let filteredPosts = [...dashboardData.posts];
     
     // Filter by opportunity level
@@ -447,6 +502,48 @@ function applyFilters() {
             if (filterLevel === 'high') return relevanceScore >= 15;
             if (filterLevel === 'medium') return relevanceScore >= 8 && relevanceScore < 15;
             if (filterLevel === 'low') return relevanceScore < 8;
+            return true;
+        });
+    }
+    
+    // Filter by subreddit
+    if (subredditFilter && subredditFilter.value !== 'all') {
+        filteredPosts = filteredPosts.filter(post => 
+            post.subreddit === subredditFilter.value
+        );
+    }
+    
+    // Filter by category
+    if (categoryFilter && categoryFilter.value !== 'all') {
+        filteredPosts = filteredPosts.filter(post => {
+            const category = post.category || 'general';
+            return category.toLowerCase() === categoryFilter.value.toLowerCase();
+        });
+    }
+    
+    // Filter by help type
+    if (helpTypeFilter && helpTypeFilter.value !== 'all') {
+        filteredPosts = filteredPosts.filter(post => {
+            const helpType = post.context?.help_type || 'general';
+            return helpType === helpTypeFilter.value;
+        });
+    }
+    
+    // Filter by expertise match
+    if (expertiseFilter && expertiseFilter.value !== 'all') {
+        filteredPosts = filteredPosts.filter(post => {
+            const expertiseMatches = post.context?.expertise_match || [];
+            const confidenceScore = post.context?.confidence_score || 0;
+            
+            if (expertiseFilter.value === 'none') {
+                return expertiseMatches.length === 0;
+            } else if (expertiseFilter.value === 'high') {
+                return confidenceScore >= 0.8;
+            } else if (expertiseFilter.value === 'medium') {
+                return confidenceScore >= 0.5 && confidenceScore < 0.8;
+            } else if (expertiseFilter.value === 'low') {
+                return confidenceScore > 0 && confidenceScore < 0.5;
+            }
             return true;
         });
     }
