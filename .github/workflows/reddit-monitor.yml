@@ -34,7 +34,12 @@ jobs:
         run: |
           echo "🔍 Starting Reddit monitoring..."
           python3 scripts/reddit_monitor_phase1.py
-          echo "✅ Reddit monitoring completed"
+          if [ $? -eq 0 ]; then
+            echo "✅ Reddit monitoring completed successfully"
+          else
+            echo "❌ Reddit monitoring failed"
+            exit 1
+          fi
           
       - name: Copy data to dashboard
         run: |
@@ -55,7 +60,7 @@ jobs:
           git config --local user.name "GitHub Action"
           
           # Check if data files exist before trying to add them
-          if [ -f "data/analysis/latest.json" ]; then
+          if [ -f "data/analysis/latest.json" ] || [ -f "data/analysis/latest_enhanced.json" ]; then
             git add data/analysis/
             echo "✅ Added analysis data"
           else

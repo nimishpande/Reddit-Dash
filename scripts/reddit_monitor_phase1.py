@@ -477,19 +477,17 @@ def save_json_data(data, run_timestamp):
     
     print(f"✅ JSON saved: {timestamped_file}")
     
-    # Also save as latest.json for easy access
+    # Save as latest.json for basic access
     latest_file = os.path.join(ANALYSIS_DIR, 'latest.json')
     with open(latest_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     
-    print(f"✅ Latest JSON updated: {latest_file}")
-    
-    # Copy to docs folder for dashboard access
-    docs_data_file = os.path.join('../docs', 'data.json')  # Fix path from scripts directory
-    with open(docs_data_file, 'w', encoding='utf-8') as f:
+    # Save as latest_enhanced.json for enhanced dashboard
+    latest_enhanced_file = os.path.join(ANALYSIS_DIR, 'latest_enhanced.json')
+    with open(latest_enhanced_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     
-    print(f"✅ Dashboard data updated: {docs_data_file}")
+    print(f"✅ Enhanced JSON saved: {latest_enhanced_file}")
     
     return timestamped_file, latest_file
 
