@@ -1543,21 +1543,21 @@ body {
     width: 120px;
     min-width: 120px;
     text-align: center;
-    display: none; /* Hide by default to reduce clutter */
+    display: table-cell; /* Show by default */
 }
 
 .col-expertise {
     width: 130px;
     min-width: 130px;
     text-align: left;
-    display: none; /* Hide by default to reduce clutter */
+    display: table-cell; /* Show by default */
 }
 
 .col-confidence {
     width: 100px;
     min-width: 100px;
     text-align: center;
-    display: none; /* Hide by default to reduce clutter */
+    display: table-cell; /* Show by default */
 }
 
 .col-actions {

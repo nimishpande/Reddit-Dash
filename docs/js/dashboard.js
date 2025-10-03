@@ -483,6 +483,25 @@ function sortTable(column) {
                 bValue = b.querySelector('.age-indicator').textContent.trim();
                 return aValue.localeCompare(bValue);
                 
+            case 'help-type':
+                aValue = a.querySelector('.help-type-badge').textContent.trim();
+                bValue = b.querySelector('.help-type-badge').textContent.trim();
+                return aValue.localeCompare(bValue);
+                
+            case 'expertise':
+                aValue = a.querySelector('.expertise-match').textContent.trim();
+                bValue = b.querySelector('.expertise-match').textContent.trim();
+                return aValue.localeCompare(bValue);
+                
+            case 'confidence':
+                aValue = parseFloat(a.querySelector('.confidence-value').textContent.replace('%', '')) || 0;
+                bValue = parseFloat(b.querySelector('.confidence-value').textContent.replace('%', '')) || 0;
+                return bValue - aValue;
+                
+            case 'actions':
+                // Actions column doesn't need sorting
+                return 0;
+                
             default:
                 return 0;
         }
@@ -499,14 +518,14 @@ function setupTableFiltering() {
     const opportunityToggles = document.querySelectorAll('.toggle');
     
     if (searchInput) {
-        searchInput.addEventListener('input', debounce(filterTableRows, 300));
+        searchInput.addEventListener('input', debounce(applyFilters, 300));
     }
     
     opportunityToggles.forEach(toggle => {
         toggle.addEventListener('click', function() {
             opportunityToggles.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
-            filterTableRows();
+            applyFilters(); // Use applyFilters instead of filterTableRows to avoid conflicts
         });
     });
 }
@@ -572,11 +591,18 @@ function applyFilters() {
     if (activeToggle && activeToggle.dataset.filter !== 'all') {
         const filterLevel = activeToggle.dataset.filter;
         filteredPosts = filteredPosts.filter(post => {
-            const relevanceScore = post.relevance_score || 0;
-            if (filterLevel === 'high') return relevanceScore >= 15;
-            if (filterLevel === 'medium') return relevanceScore >= 8 && relevanceScore < 15;
-            if (filterLevel === 'low') return relevanceScore < 8;
-            return true;
+            // Use opportunity_rating if available, otherwise fall back to relevance_score
+            const opportunityRating = post.opportunity_rating;
+            if (opportunityRating) {
+                return opportunityRating === filterLevel;
+            } else {
+                // Fallback to relevance_score logic
+                const relevanceScore = post.relevance_score || 0;
+                if (filterLevel === 'high') return relevanceScore >= 15;
+                if (filterLevel === 'medium') return relevanceScore >= 8 && relevanceScore < 15;
+                if (filterLevel === 'low') return relevanceScore < 8;
+                return true;
+            }
         });
     }
     
