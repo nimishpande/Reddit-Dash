@@ -115,7 +115,7 @@ $(document).ready(function() {
     // Batch loading logic
     function populateTableWithIngredientData() {
         $('#loading-indicator').show();
-        fetch('data/index.json')
+        fetch('data/index.json?v=' + Date.now())
             .then(response => response.json())
             .then(data => {
                 // Sort ingredients by INCI Name (A-Z)

@@ -54,6 +54,7 @@ async function loadDashboardData() {
         }
         
         dashboardData = data;
+        currentDataTimestamp = data.dashboard_info?.last_updated;
         renderDashboard(data);
         
     } catch (error) {
@@ -191,8 +192,8 @@ function setupAutoRefresh() {
     }
     
     refreshTimer = setInterval(() => {
-        console.log('🔄 Auto-refreshing dashboard...');
-        loadDashboardData();
+        console.log('🔄 Checking for data updates...');
+        checkForDataUpdates();
     }, CONFIG.refreshInterval);
     
     console.log(`⏰ Auto-refresh set for every ${CONFIG.refreshInterval / (1000 * 60)} minutes`);
@@ -656,40 +657,45 @@ function applyFilters() {
 
 // Quick reply modal function moved to utils.js
 
-// Auto-refresh functionality
-let autoRefreshInterval;
+// Enhanced auto-refresh functionality with data freshness checking
 let currentDataTimestamp;
 
-// Check for updates every 5 minutes
-function startAutoRefresh() {
-    autoRefreshInterval = setInterval(() => {
-        checkForUpdates();
-    }, 300000); // 5 minutes
-}
-
-// Check if data has been updated
-function checkForUpdates() {
-    fetch(CONFIG.dataUrl)
-        .then(response => response.json())
-        .then(data => {
-            const newTimestamp = data.dashboard_info.last_updated;
-            if (currentDataTimestamp && newTimestamp !== currentDataTimestamp) {
-                console.log('🔄 New data detected, refreshing page...');
-                showRefreshNotification();
-                setTimeout(() => {
-                    location.reload();
-                }, 2000);
+// Check for updates and refresh data if needed
+function checkForDataUpdates() {
+    // Use a fresh URL to bypass cache
+    const freshDataUrl = `./data.json?v=${Date.now()}`;
+    
+    fetch(freshDataUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            currentDataTimestamp = newTimestamp;
+            return response.json();
+        })
+        .then(data => {
+            const newTimestamp = data.dashboard_info?.last_updated;
+            
+            if (newTimestamp && currentDataTimestamp && newTimestamp !== currentDataTimestamp) {
+                console.log('🔄 New data detected, updating dashboard...');
+                showDataUpdateNotification();
+                
+                // Update the dashboard with new data instead of full page reload
+                dashboardData = data;
+                renderDashboard(data);
+                currentDataTimestamp = newTimestamp;
+            } else if (newTimestamp) {
+                currentDataTimestamp = newTimestamp;
+            }
         })
         .catch(error => {
-            console.log('Failed to check for updates:', error);
+            console.log('Failed to check for data updates:', error);
         });
 }
 
-// Show refresh notification
-function showRefreshNotification() {
+// Show data update notification
+function showDataUpdateNotification() {
     const notification = document.createElement('div');
+    notification.className = 'data-update-notification';
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -701,30 +707,27 @@ function showRefreshNotification() {
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         z-index: 1000;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        animation: slideInRight 0.3s ease-out;
     `;
     notification.innerHTML = `
         <div style="display: flex; align-items: center; gap: 10px;">
             <i class="fas fa-sync-alt" style="animation: spin 1s linear infinite;"></i>
-            <span>New data available! Refreshing...</span>
+            <span>Data updated! Dashboard refreshed.</span>
         </div>
     `;
     document.body.appendChild(notification);
     
     setTimeout(() => {
         if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
+            notification.style.animation = 'slideOutRight 0.3s ease-in';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
         }
-    }, 2000);
+    }, 3000);
 }
-
-// Initialize auto-refresh when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Start auto-refresh after initial load
-    setTimeout(() => {
-        startAutoRefresh();
-        console.log('🔄 Auto-refresh enabled (checks every 5 minutes)');
-    }, 10000); // Start after 10 seconds
-});
 
 // Add service worker for offline support (future enhancement)
 if ('serviceWorker' in navigator) {
