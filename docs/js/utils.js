@@ -344,6 +344,13 @@ function createTableRow(post) {
     const subredditColor = getSubredditColor(post.subreddit);
     const subredditIcon = getSubredditIcon(post.subreddit);
     
+    // Debug logging for context data
+    console.log(`Creating row for post ${post.id}:`, {
+        helpType: post.context?.help_type,
+        expertiseMatch: post.context?.expertise_match?.length,
+        confidenceScore: post.context?.confidence_score
+    });
+    
     return `
         <tr class="post-row ${opportunityLevel}-opportunity" 
             data-post-id="${post.id}" data-post-url="${post.url}" data-opportunity="${opportunityLevel}"
