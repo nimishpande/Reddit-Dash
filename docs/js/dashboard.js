@@ -348,11 +348,7 @@ function clearAllFilters() {
     if (sortFilter) sortFilter.value = 'engagement';
     if (searchInput) searchInput.value = '';
     
-    // Reset opportunity toggles
-    const opportunityToggles = document.querySelectorAll('.toggle');
-    opportunityToggles.forEach(toggle => toggle.classList.remove('active'));
-    const allToggle = document.querySelector('.toggle[data-filter="all"]');
-    if (allToggle) allToggle.classList.add('active');
+    // Opportunity toggles removed - no longer needed
     
     // Apply filters to show all posts
     applyFilters();
@@ -515,44 +511,27 @@ function sortTable(column) {
 // Set up enhanced table filtering
 function setupTableFiltering() {
     const searchInput = document.getElementById('search-input');
-    const opportunityToggles = document.querySelectorAll('.toggle');
     
     if (searchInput) {
         searchInput.addEventListener('input', debounce(applyFilters, 300));
     }
-    
-    opportunityToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            opportunityToggles.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-            applyFilters(); // Use applyFilters instead of filterTableRows to avoid conflicts
-        });
-    });
 }
 
-// Filter table rows based on search and opportunity filters
+// Filter table rows based on search filters only
 function filterTableRows() {
     const searchInput = document.getElementById('search-input');
-    const activeToggle = document.querySelector('.toggle.active');
     const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-    const opportunityFilter = activeToggle ? activeToggle.dataset.filter : 'all';
     
     const rows = document.querySelectorAll('.post-row');
     
     rows.forEach(row => {
         const title = row.querySelector('.post-title-link').textContent.toLowerCase();
         const subreddit = row.querySelector('.subreddit-badge').textContent.toLowerCase();
-        const opportunity = row.dataset.opportunity;
         
         let showRow = true;
         
         // Search filter
         if (searchTerm && !title.includes(searchTerm) && !subreddit.includes(searchTerm)) {
-            showRow = false;
-        }
-        
-        // Opportunity filter
-        if (opportunityFilter !== 'all' && opportunity !== opportunityFilter) {
             showRow = false;
         }
         
@@ -587,24 +566,7 @@ function applyFilters() {
     
     let filteredPosts = [...dashboardData.posts];
     
-    // Filter by opportunity level
-    if (activeToggle && activeToggle.dataset.filter !== 'all') {
-        const filterLevel = activeToggle.dataset.filter;
-        filteredPosts = filteredPosts.filter(post => {
-            // Use opportunity_rating if available, otherwise fall back to relevance_score
-            const opportunityRating = post.opportunity_rating;
-            if (opportunityRating) {
-                return opportunityRating === filterLevel;
-            } else {
-                // Fallback to relevance_score logic
-                const relevanceScore = post.relevance_score || 0;
-                if (filterLevel === 'high') return relevanceScore >= 15;
-                if (filterLevel === 'medium') return relevanceScore >= 8 && relevanceScore < 15;
-                if (filterLevel === 'low') return relevanceScore < 8;
-                return true;
-            }
-        });
-    }
+    // Opportunity filter removed - no longer needed
     
     // Filter by subreddit
     if (subredditFilter && subredditFilter.value !== 'all') {
