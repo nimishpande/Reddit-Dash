@@ -32,45 +32,71 @@ ANALYSIS_DIR = 'data/analysis'  # Updated path for new repository structure
 
 def load_subreddit_config():
     """Load subreddit configuration from JSON file"""
-    config_path = '../config/subreddits.json'  # Fix path from scripts directory
-    try:
-        with open(config_path, 'r', encoding='utf-8') as f:
-            config = json.load(f)
-            return config
-    except FileNotFoundError:
-        print("⚠️ Subreddit config not found, using default settings")
-        return {
-            "subreddits": [{"name": "skincareaddictsindia", "enabled": True, "posts_limit": 25}],
-            "settings": {"min_engagement_score": 7, "min_upvotes": 5, "min_comments": 2}
-        }
-
-def load_user_profile():
-    """Load user profile configuration - enhanced version"""
-    # Try enhanced profile first
-    enhanced_profile_path = '../config/user_profile_enhanced.json'  # Fix path from scripts directory
-    if os.path.exists(enhanced_profile_path):
-        try:
-            with open(enhanced_profile_path, 'r', encoding='utf-8') as f:
-                enhanced_profile = json.load(f)
-                print("✅ Using enhanced user profile")
-                return enhanced_profile
-        except Exception as e:
-            print(f"⚠️ Error loading enhanced profile: {e}")
+    # Handle both script directory and root directory execution
+    config_paths = [
+        '../config/subreddits.json',  # From scripts directory
+        'config/subreddits.json'     # From root directory
+    ]
     
-    # Fallback to basic profile
-    profile_path = '../config/user_profile.json'  # Fix path from scripts directory
-    try:
-        with open(profile_path, 'r', encoding='utf-8') as f:
-            return json.load(f)['user_profile']
-    except FileNotFoundError:
-        print("⚠️ User profile not found, using default settings")
-        return {
-            "expertise_areas": ["skincare", "routine"],
-            "interest_keywords": ["help", "recommendation"],
-            "min_relevance_score": 10
-        }
+    for config_path in config_paths:
+        if os.path.exists(config_path):
+            try:
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    config = json.load(f)
+                    return config
+            except Exception as e:
+                print(f"⚠️ Error loading subreddit config from {config_path}: {e}")
+                continue
+    
+    print("⚠️ Subreddit config not found, using default settings")
+    return {
+        "subreddits": [{"name": "skincareaddictsindia", "enabled": True, "posts_limit": 25}],
+        "settings": {"min_engagement_score": 7, "min_upvotes": 5, "min_comments": 2}
+    }
 
-def calculate_relevance_score(post, user_profile):
+def load_post_filter_config():
+    """Load post filter configuration - enhanced version"""
+    # Try enhanced profile first - handle both script directory and root directory execution
+    enhanced_profile_paths = [
+        '../config/user_profile_enhanced.json',  # From scripts directory
+        'config/user_profile_enhanced.json'     # From root directory
+    ]
+    
+    for enhanced_profile_path in enhanced_profile_paths:
+        if os.path.exists(enhanced_profile_path):
+            try:
+                with open(enhanced_profile_path, 'r', encoding='utf-8') as f:
+                    enhanced_profile = json.load(f)
+                    print("✅ Using enhanced user profile")
+                    return enhanced_profile
+            except Exception as e:
+                print(f"⚠️ Error loading enhanced profile from {enhanced_profile_path}: {e}")
+                continue
+    
+    # Fallback to basic profile - handle both script directory and root directory execution
+    profile_paths = [
+        '../config/post_filter_config.json',  # From scripts directory
+        'config/post_filter_config.json'     # From root directory
+    ]
+    
+    for profile_path in profile_paths:
+        if os.path.exists(profile_path):
+            try:
+                with open(profile_path, 'r', encoding='utf-8') as f:
+                    return json.load(f)['user_profile']
+            except Exception as e:
+                print(f"⚠️ Error loading profile from {profile_path}: {e}")
+                continue
+    
+    # Final fallback to default settings
+    print("⚠️ No profile files found, using default settings")
+    return {
+        "expertise_areas": ["skincare", "routine"],
+        "interest_keywords": ["help", "recommendation"],
+        "min_relevance_score": 10
+    }
+
+def calculate_relevance_score(post, filter_config):
     """Calculate how relevant a post is to user's expertise and interests"""
     title = post.get('title', '').lower()
     content = post.get('selftext', '').lower()
@@ -83,14 +109,14 @@ def calculate_relevance_score(post, user_profile):
     
     # Expertise area matching (high weight)
     expertise_matches = 0
-    for expertise in user_profile.get('expertise_areas', []):
+    for expertise in filter_config.get('expertise_areas', []):
         if expertise.lower() in full_text:
             expertise_matches += 1
             relevance_score += 8  # High score for expertise match
     
     # Interest keyword matching (medium weight)
     interest_matches = 0
-    for keyword in user_profile.get('interest_keywords', []):
+    for keyword in filter_config.get('interest_keywords', []):
         if keyword.lower() in full_text:
             interest_matches += 1
             relevance_score += 5  # Medium score for interest match
@@ -101,7 +127,7 @@ def calculate_relevance_score(post, user_profile):
     relevance_score += min(question_score, 15)  # Cap at 15 points
     
     # Avoid certain content
-    avoid_keywords = user_profile.get('avoid_keywords', [])
+    avoid_keywords = filter_config.get('avoid_keywords', [])
     for avoid in avoid_keywords:
         if avoid.lower() in full_text:
             relevance_score -= 10  # Penalty for avoided content
@@ -164,13 +190,13 @@ def get_expertise_keywords(expertise_area):
     }
     return keyword_map.get(expertise_area, [])
 
-def calculate_combined_score(post, user_profile):
+def calculate_combined_score(post, filter_config):
     """Calculate combined engagement + relevance score"""
     # Your existing engagement score
     engagement_score = post.get('score', 0) + post.get('num_comments', 0)
     
     # New relevance score
-    relevance_score = calculate_relevance_score(post, user_profile)
+    relevance_score = calculate_relevance_score(post, filter_config)
     
     # Competition penalty (more comments = harder to get noticed)
     competition_penalty = max(0, (post.get('num_comments', 0) - 15) * 0.5)
@@ -242,7 +268,7 @@ def fetch_posts(access_token, subreddit, limit=50):
         print(f"❌ Failed to fetch posts: {e}")
         return []
 
-def filter_engaging_posts(posts, user_profile):
+def filter_engaging_posts(posts, filter_config):
     """Filter posts based on engagement AND relevance criteria"""
     engaging_posts = []
     
@@ -251,15 +277,15 @@ def filter_engaging_posts(posts, user_profile):
         engagement_score = post.get('score', 0) + post.get('num_comments', 0)
         
         # Use enhanced relevance scoring if available
-        if 'accounts' in user_profile and ENHANCED_ANALYSIS_AVAILABLE:
-            relevance_score = calculate_enhanced_relevance_score(post, user_profile)
+        if 'accounts' in filter_config and ENHANCED_ANALYSIS_AVAILABLE:
+            relevance_score = calculate_enhanced_relevance_score(post, filter_config)
         else:
-            relevance_score = calculate_relevance_score(post, user_profile)
+            relevance_score = calculate_relevance_score(post, filter_config)
         
-        combined_score = calculate_combined_score(post, user_profile)
+        combined_score = calculate_combined_score(post, filter_config)
         
         # Filter criteria
-        min_relevance = user_profile.get('min_relevance_score', 5)
+        min_relevance = filter_config.get('min_relevance_score', 5)
         min_combined = 8
         
         if (relevance_score >= min_relevance and 
@@ -336,17 +362,17 @@ def extract_image_urls(post):
     
     return image_urls
 
-def create_enhanced_post_data_v2(post, user_profile):
+def create_enhanced_post_data_v2(post, filter_config):
     """Create enhanced post data with sophisticated context analysis"""
     # Start with basic enhanced data
     enhanced_post = create_enhanced_post_data(post)
     
     # Add sophisticated context analysis if available
-    if ENHANCED_ANALYSIS_AVAILABLE and 'accounts' in user_profile:
+    if ENHANCED_ANALYSIS_AVAILABLE and 'accounts' in filter_config:
         try:
-            # Pass the user_profile dictionary directly to the generator
+            # Pass the filter_config dictionary directly to the generator
             strategy_generator = ResponseStrategyGenerator()
-            strategy_generator.user_profile = user_profile  # Set the profile directly
+            strategy_generator.user_profile = filter_config  # Set the profile directly
             context = strategy_generator.generate_enhanced_post_context(enhanced_post)
             enhanced_post['context'] = context
             print(f"✅ Added context analysis to post: {enhanced_post['title'][:50]}...")
@@ -495,7 +521,7 @@ def main():
     """Main monitoring function"""
     # Load configurations
     subreddit_config = load_subreddit_config()
-    user_profile = load_user_profile()
+    filter_config = load_post_filter_config()
     
     # Get enabled subreddits
     enabled_subreddits = [s for s in subreddit_config['subreddits'] if s.get('enabled', True)]
@@ -503,7 +529,7 @@ def main():
     
     print(f"🔍 Starting Reddit monitoring for {len(enabled_subreddits)} subreddits")
     print(f"⏰ Run time: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
-    print(f"👤 User profile loaded: {len(user_profile.get('expertise_areas', []))} expertise areas")
+    print(f"👤 Filter config loaded: {len(filter_config.get('expertise_areas', []))} expertise areas")
     
     # Create analysis directory
     os.makedirs(ANALYSIS_DIR, exist_ok=True)
@@ -538,7 +564,7 @@ def main():
     print(f"📊 Total posts fetched: {len(all_posts)} from {len(enabled_subreddits)} subreddits")
     
     # Filter engaging posts (now with relevance scoring)
-    engaging_posts = filter_engaging_posts(all_posts, user_profile)
+    engaging_posts = filter_engaging_posts(all_posts, filter_config)
     print(f"🎯 Found {len(engaging_posts)} relevant posts")
     
     if not engaging_posts:
@@ -550,7 +576,7 @@ def main():
     
     # Create enhanced post data with sophisticated context analysis
     print("🔧 Creating enhanced post data with context analysis...")
-    enhanced_posts = [create_enhanced_post_data_v2(post, user_profile) for post in engaging_posts]
+    enhanced_posts = [create_enhanced_post_data_v2(post, filter_config) for post in engaging_posts]
     
     # Create dashboard data
     print("📋 Creating dashboard data structure...")
@@ -564,10 +590,20 @@ def main():
     print("📋 Copying data to dashboard...")
     try:
         import shutil
-        docs_dir = '../docs'  # Fix path from scripts directory
+        
+        # Handle both working directories (root and scripts)
+        current_dir = os.getcwd()
+        if current_dir.endswith('/scripts'):
+            # Running from scripts directory
+            docs_dir = '../docs'
+        else:
+            # Running from root directory
+            docs_dir = 'docs'
+        
         os.makedirs(docs_dir, exist_ok=True)
-        shutil.copy2(latest_file, os.path.join(docs_dir, 'data.json'))
-        print("✅ Data copied to docs/data.json")
+        docs_data_path = os.path.join(docs_dir, 'data.json')
+        shutil.copy2(latest_file, docs_data_path)
+        print(f"✅ Data copied to {docs_data_path}")
     except Exception as e:
         print(f"⚠️ Failed to copy data to docs: {e}")
     
