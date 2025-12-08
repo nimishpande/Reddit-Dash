@@ -2,13 +2,13 @@
   "dashboard_info": {
     "title": "Reddit Engagement Dashboard",
     "subtitle": "Skincare & Haircare Communities",
-    "last_updated": "2025-12-08T16:10:36.820988+00:00",
-    "total_posts": 27,
-    "subreddits_count": 7,
+    "last_updated": "2025-12-08T18:12:11.265945+00:00",
+    "total_posts": 37,
+    "subreddits_count": 8,
     "refresh_interval": "2 hours",
-    "run_id": "2025-12-08_16_10",
+    "run_id": "2025-12-08_18_12",
     "run_date": "2025-12-08",
-    "run_time": "16_10"
+    "run_time": "18_12"
   },
   "posts": [
     {
@@ -21,12 +21,12 @@
       "subreddit_color": "#ff6b35",
       "subreddit_display": "r/curlyhair",
       "url": "https://reddit.com/r/curlyhair/comments/1phbu39/so_glad_i_decided_to_grow_my_hair_out/",
-      "score": 126,
-      "comments": 12,
-      "engagement_score": 138,
+      "score": 197,
+      "comments": 16,
+      "engagement_score": 213,
       "created_utc": 1765198946.0,
-      "age_human": "3h ago",
-      "age_seconds": 11290.82099199295,
+      "age_human": "5h ago",
+      "age_seconds": 18585.26594901085,
       "author": "Old_Butterfly_8129",
       "has_images": true,
       "image_urls": [
@@ -48,14 +48,14 @@
       "is_self": false,
       "permalink": "/r/curlyhair/comments/1phbu39/so_glad_i_decided_to_grow_my_hair_out/",
       "relevance_score": 100,
-      "combined_score": 50.59437992689676,
-      "engagement_score_original": 138,
+      "combined_score": 68.72754439539214,
+      "engagement_score_original": 213,
       "opportunity_rating": "high",
       "context": {
         "triggered_keywords": [
+          "shampoo",
           "routine",
-          "conditioner",
-          "shampoo"
+          "conditioner"
         ],
         "help_type": "routine_help",
         "help_type_confidence": 0.1,
@@ -76,7 +76,74 @@
         ],
         "urgency_level": "low",
         "competition_analysis": {
-          "comment_count": 12,
+          "comment_count": 16,
+          "engagement_level": "high",
+          "response_opportunity": "limited"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in skincare routine, vitamin c serum is highly relevant",
+          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
+        ]
+      }
+    },
+    {
+      "id": "1ph2hh3",
+      "title": "All day in a hat at work and this was the result. I've finally found my routine!",
+      "content": "Routine:\n\nOBX Quenching Coconut shampoo and conditioner. \n\nLove Your Curls step 3 All in 1\n\nShea Moisture Frizz Free Curl Mouse\n\nOGX Renewing + Argan Oil of Morocco. ",
+      "content_preview": "Routine:\n\nOBX Quenching Coconut shampoo and conditioner. \n\nLove Your Curls step 3 All in 1\n\nShea Moisture Frizz Free Curl Mouse\n\nOGX Renewing + Argan ...",
+      "content_length": 166,
+      "subreddit": "curlyhair",
+      "subreddit_color": "#ff6b35",
+      "subreddit_display": "r/curlyhair",
+      "url": "https://reddit.com/r/curlyhair/comments/1ph2hh3/all_day_in_a_hat_at_work_and_this_was_the_result/",
+      "score": 184,
+      "comments": 13,
+      "engagement_score": 197,
+      "created_utc": 1765165947.0,
+      "age_human": "14h ago",
+      "age_seconds": 51584.267098903656,
+      "author": "SeanInDC",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/ax8u65hmkw5g1.jpeg?auto=webp&s=5b009a9a5481d290f9fd42f18b59c1637960e335",
+          "width": 2208,
+          "height": 2944,
+          "type": "preview"
+        }
+      ],
+      "image_count": 1,
+      "flair": "Hair Victory!",
+      "is_self": false,
+      "permalink": "/r/curlyhair/comments/1ph2hh3/all_day_in_a_hat_at_work_and_this_was_the_result/",
+      "relevance_score": 100,
+      "combined_score": 40.900000000000006,
+      "engagement_score_original": 197,
+      "opportunity_rating": "high",
+      "context": {
+        "triggered_keywords": [
+          "shampoo",
+          "routine",
+          "conditioner"
+        ],
+        "help_type": "routine_help",
+        "help_type_confidence": 0.2,
+        "expertise_match": [
+          "skincare routine",
+          "vitamin c serum",
+          "skincare",
+          "haircare"
+        ],
+        "response_angles": [
+          "Share your personal routine experience",
+          "Suggest a step-by-step routine based on their skin type",
+          "Recommend products for each step"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 13,
           "engagement_level": "high",
           "response_opportunity": "moderate"
         },
@@ -98,12 +165,12 @@
       "subreddit_color": "#00c851",
       "subreddit_display": "r/HaircareScience",
       "url": "https://reddit.com/r/HaircareScience/comments/1ow8mnj/the_k18_vs_olaplex_paper/",
-      "score": 183,
+      "score": 182,
       "comments": 30,
-      "engagement_score": 213,
+      "engagement_score": 212,
       "created_utc": 1763058045.0,
       "age_human": "24d ago",
-      "age_seconds": 2152191.8222100735,
+      "age_seconds": 2159486.2674338818,
       "author": "sudosussudio",
       "has_images": true,
       "image_urls": [
@@ -119,15 +186,15 @@
       "is_self": true,
       "permalink": "/r/HaircareScience/comments/1ow8mnj/the_k18_vs_olaplex_paper/",
       "relevance_score": 100,
-      "combined_score": 39.300000000000004,
-      "engagement_score_original": 213,
+      "combined_score": 39.10000000000001,
+      "engagement_score_original": 212,
       "opportunity_rating": "high",
       "context": {
         "triggered_keywords": [
-          "protein treatment",
+          "products",
           "protein treatments",
           "conditioner",
-          "products"
+          "protein treatment"
         ],
         "help_type": "product_recommendation",
         "help_type_confidence": 0.5,
@@ -167,73 +234,6 @@
       }
     },
     {
-      "id": "1ph2hh3",
-      "title": "All day in a hat at work and this was the result. I've finally found my routine!",
-      "content": "Routine:\n\nOBX Quenching Coconut shampoo and conditioner. \n\nLove Your Curls step 3 All in 1\n\nShea Moisture Frizz Free Curl Mouse\n\nOGX Renewing + Argan Oil of Morocco. ",
-      "content_preview": "Routine:\n\nOBX Quenching Coconut shampoo and conditioner. \n\nLove Your Curls step 3 All in 1\n\nShea Moisture Frizz Free Curl Mouse\n\nOGX Renewing + Argan ...",
-      "content_length": 166,
-      "subreddit": "curlyhair",
-      "subreddit_color": "#ff6b35",
-      "subreddit_display": "r/curlyhair",
-      "url": "https://reddit.com/r/curlyhair/comments/1ph2hh3/all_day_in_a_hat_at_work_and_this_was_the_result/",
-      "score": 174,
-      "comments": 13,
-      "engagement_score": 187,
-      "created_utc": 1765165947.0,
-      "age_human": "12h ago",
-      "age_seconds": 44289.823618888855,
-      "author": "SeanInDC",
-      "has_images": true,
-      "image_urls": [
-        {
-          "url": "https://preview.redd.it/ax8u65hmkw5g1.jpeg?auto=webp&s=5b009a9a5481d290f9fd42f18b59c1637960e335",
-          "width": 2208,
-          "height": 2944,
-          "type": "preview"
-        }
-      ],
-      "image_count": 1,
-      "flair": "Hair Victory!",
-      "is_self": false,
-      "permalink": "/r/curlyhair/comments/1ph2hh3/all_day_in_a_hat_at_work_and_this_was_the_result/",
-      "relevance_score": 100,
-      "combined_score": 38.9,
-      "engagement_score_original": 187,
-      "opportunity_rating": "high",
-      "context": {
-        "triggered_keywords": [
-          "routine",
-          "conditioner",
-          "shampoo"
-        ],
-        "help_type": "routine_help",
-        "help_type_confidence": 0.2,
-        "expertise_match": [
-          "skincare routine",
-          "vitamin c serum",
-          "skincare",
-          "haircare"
-        ],
-        "response_angles": [
-          "Share your personal routine experience",
-          "Suggest a step-by-step routine based on their skin type",
-          "Recommend products for each step"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 13,
-          "engagement_level": "high",
-          "response_opportunity": "moderate"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in skincare routine, vitamin c serum is highly relevant",
-          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
-        ]
-      }
-    },
-    {
       "id": "1ph9jv6",
       "title": "This is how my hair looks like three days after washing, what am I doing wrong?",
       "content": "Here's my routine:\n1. Frank Provost Expert Reparation shampoo first.\n2. Secondly, I apply Skala Brasil Maracuja conditioner and leave it for 3 minutes.\n3. I brush it.\n4. I squeeze it to remove excess water, then apply a small dose of Milkshake's curl passion styling cream on hands and scrunch the tips of my hair with my head upside down.\n5. I wrap it in a towel for 10 minutes, then dry it with Parlux diffuser hairdryer. First I hover it over the hair without touching it to dry the product, then dry the roots, then scrunch it without using hands, only the hairdryer, flipping my head on both sides or upside down.\n\nPlus: I sleep on a 100% silk pillow.\n\nSo this is my routine, I hope I explained myself clearly as English is not my first language. I don't know what to change in my routine so my hair can stay curly for longer, this is only after three nights and it looks messy and dirty :(\n\nAll these products were recommended to me by a friend who is an hairdresser and also has curly hair. Her hair however looks amazing.",
@@ -243,12 +243,12 @@
       "subreddit_color": "#ff6b35",
       "subreddit_display": "r/curlyhair",
       "url": "https://reddit.com/r/curlyhair/comments/1ph9jv6/this_is_how_my_hair_looks_like_three_days_after/",
-      "score": 93,
-      "comments": 60,
-      "engagement_score": 153,
+      "score": 121,
+      "comments": 81,
+      "engagement_score": 202,
       "created_utc": 1765191462.0,
-      "age_human": "5h ago",
-      "age_seconds": 18774.82394695282,
+      "age_human": "7h ago",
+      "age_seconds": 26069.268811941147,
       "author": "purplebeef",
       "has_images": true,
       "image_urls": [
@@ -264,16 +264,16 @@
       "is_self": false,
       "permalink": "/r/curlyhair/comments/1ph9jv6/this_is_how_my_hair_looks_like_three_days_after/",
       "relevance_score": 100,
-      "combined_score": 31.975841364132037,
-      "engagement_score_original": 153,
-      "opportunity_rating": "high",
+      "combined_score": 29.28589995996048,
+      "engagement_score_original": 202,
+      "opportunity_rating": "medium",
       "context": {
         "triggered_keywords": [
+          "products",
+          "shampoo",
           "routine",
           "curly hair",
-          "conditioner",
-          "products",
-          "shampoo"
+          "conditioner"
         ],
         "help_type": "routine_help",
         "help_type_confidence": 0.6,
@@ -296,7 +296,7 @@
         ],
         "urgency_level": "low",
         "competition_analysis": {
-          "comment_count": 60,
+          "comment_count": 81,
           "engagement_level": "high",
           "response_opportunity": "limited"
         },
@@ -305,69 +305,6 @@
           "Moderate match for routine_help - share relevant experience and ask clarifying questions",
           "Your expertise in skincare routine, product recommendations is highly relevant",
           "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
-        ]
-      }
-    },
-    {
-      "id": "1p2uvqw",
-      "title": "Why would one need heat protectant when conditioner already has silicones?",
-      "content": "Why would a conditioner with silicones not be able to protect from heat damage (only talking about using a hair dryer, no curling/straightening tools), when a dedicated heat protectant has the same silicones? Some products have heat protectant claims \"up to X degree\" on their label, while other products with the same silicones do not. Could I just use the product without those claims on the label? Is it just marketing? Are there silicones that are better heat protectants than others?",
-      "content_preview": "Why would a conditioner with silicones not be able to protect from heat damage (only talking about using a hair dryer, no curling/straightening tools)...",
-      "content_length": 488,
-      "subreddit": "HaircareScience",
-      "subreddit_color": "#00c851",
-      "subreddit_display": "r/HaircareScience",
-      "url": "https://reddit.com/r/HaircareScience/comments/1p2uvqw/why_would_one_need_heat_protectant_when/",
-      "score": 61,
-      "comments": 15,
-      "engagement_score": 76,
-      "created_utc": 1763719739.0,
-      "age_human": "17d ago",
-      "age_seconds": 1490497.8244450092,
-      "author": "Fearless_Parfait_307",
-      "has_images": false,
-      "image_urls": [],
-      "image_count": 0,
-      "flair": "Question",
-      "is_self": true,
-      "permalink": "/r/HaircareScience/comments/1p2uvqw/why_would_one_need_heat_protectant_when/",
-      "relevance_score": 100,
-      "combined_score": 16.1,
-      "engagement_score_original": 76,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [
-          "conditioner",
-          "products"
-        ],
-        "help_type": "hair_concern",
-        "help_type_confidence": 0.2,
-        "expertise_match": [
-          "product recommendations",
-          "vitamin c serum",
-          "hair loss treatment",
-          "curly hair care",
-          "hair growth",
-          "hair oils",
-          "haircare",
-          "product"
-        ],
-        "response_angles": [
-          "Share your hair care experience",
-          "Suggest products for their hair type",
-          "Recommend professional consultation if needed"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 15,
-          "engagement_level": "high",
-          "response_opportunity": "limited"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in product recommendations, vitamin c serum is highly relevant",
-          "Consider these approaches: Share your hair care experience, Suggest products for their hair type"
         ]
       }
     },
@@ -381,12 +318,12 @@
       "subreddit_color": "#ff6b35",
       "subreddit_display": "r/curlyhair",
       "url": "https://reddit.com/r/curlyhair/comments/1ph8w6b/more_or_less_defined/",
-      "score": 18,
-      "comments": 9,
-      "engagement_score": 27,
+      "score": 40,
+      "comments": 13,
+      "engagement_score": 53,
       "created_utc": 1765189006.0,
-      "age_human": "5h ago",
-      "age_seconds": 21230.824829101562,
+      "age_human": "7h ago",
+      "age_seconds": 28525.26930809021,
       "author": "AdBig5266",
       "has_images": true,
       "image_urls": [
@@ -420,8 +357,8 @@
       "is_self": false,
       "permalink": "/r/curlyhair/comments/1ph8w6b/more_or_less_defined/",
       "relevance_score": 100,
-      "combined_score": 14.482040515581769,
-      "engagement_score_original": 27,
+      "combined_score": 19.827456239364764,
+      "engagement_score_original": 53,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
@@ -449,8 +386,8 @@
         ],
         "urgency_level": "low",
         "competition_analysis": {
-          "comment_count": 9,
-          "engagement_level": "medium",
+          "comment_count": 13,
+          "engagement_level": "high",
           "response_opportunity": "moderate"
         },
         "confidence_score": 1.0,
@@ -458,6 +395,367 @@
           "General match - provide helpful information and ask questions to understand their needs better",
           "Your expertise in skincare routine, vitamin c serum is highly relevant",
           "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
+        ]
+      }
+    },
+    {
+      "id": "1p2uvqw",
+      "title": "Why would one need heat protectant when conditioner already has silicones?",
+      "content": "Why would a conditioner with silicones not be able to protect from heat damage (only talking about using a hair dryer, no curling/straightening tools), when a dedicated heat protectant has the same silicones? Some products have heat protectant claims \"up to X degree\" on their label, while other products with the same silicones do not. Could I just use the product without those claims on the label? Is it just marketing? Are there silicones that are better heat protectants than others?",
+      "content_preview": "Why would a conditioner with silicones not be able to protect from heat damage (only talking about using a hair dryer, no curling/straightening tools)...",
+      "content_length": 488,
+      "subreddit": "HaircareScience",
+      "subreddit_color": "#00c851",
+      "subreddit_display": "r/HaircareScience",
+      "url": "https://reddit.com/r/HaircareScience/comments/1p2uvqw/why_would_one_need_heat_protectant_when/",
+      "score": 59,
+      "comments": 15,
+      "engagement_score": 74,
+      "created_utc": 1763719739.0,
+      "age_human": "17d ago",
+      "age_seconds": 1497792.2697000504,
+      "author": "Fearless_Parfait_307",
+      "has_images": false,
+      "image_urls": [],
+      "image_count": 0,
+      "flair": "Question",
+      "is_self": true,
+      "permalink": "/r/HaircareScience/comments/1p2uvqw/why_would_one_need_heat_protectant_when/",
+      "relevance_score": 100,
+      "combined_score": 15.700000000000001,
+      "engagement_score_original": 74,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "products",
+          "conditioner"
+        ],
+        "help_type": "hair_concern",
+        "help_type_confidence": 0.2,
+        "expertise_match": [
+          "product recommendations",
+          "vitamin c serum",
+          "hair loss treatment",
+          "curly hair care",
+          "hair growth",
+          "hair oils",
+          "haircare",
+          "product"
+        ],
+        "response_angles": [
+          "Share your hair care experience",
+          "Suggest products for their hair type",
+          "Recommend professional consultation if needed"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 15,
+          "engagement_level": "high",
+          "response_opportunity": "limited"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in product recommendations, vitamin c serum is highly relevant",
+          "Consider these approaches: Share your hair care experience, Suggest products for their hair type"
+        ]
+      }
+    },
+    {
+      "id": "1phikw3",
+      "title": "I cut my bangs by myself. Should I reduce the length or it suits me?",
+      "content": "I am really wondering ❤️",
+      "content_preview": "I am really wondering ❤️",
+      "content_length": 24,
+      "subreddit": "Hair",
+      "subreddit_color": "#e74c3c",
+      "subreddit_display": "r/Hair",
+      "url": "https://reddit.com/r/Hair/comments/1phikw3/i_cut_my_bangs_by_myself_should_i_reduce_the/",
+      "score": 12,
+      "comments": 7,
+      "engagement_score": 19,
+      "created_utc": 1765215119.0,
+      "age_human": "40m ago",
+      "age_seconds": 2412.2700729370117,
+      "author": "thecurrlyguy",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/gs4cx91um06g1.png?width=720&format=png&auto=webp&s=43f8744e1c4e3ae3899fbeb2b5ad6fadcfed9f60",
+          "width": 720,
+          "height": 720,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/50jji91um06g1.png?width=720&format=png&auto=webp&s=cca0b4a1ca8d4030730dd9eec5cec7468e4d7df5",
+          "width": 720,
+          "height": 1279,
+          "type": "gallery"
+        }
+      ],
+      "image_count": 2,
+      "flair": "Help",
+      "is_self": false,
+      "permalink": "/r/Hair/comments/1phikw3/i_cut_my_bangs_by_myself_should_i_reduce_the/",
+      "relevance_score": 100,
+      "combined_score": 13.803539807857184,
+      "engagement_score_original": 19,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "routine_help",
+        "help_type_confidence": 0.0,
+        "expertise_match": [
+          "vitamin c serum"
+        ],
+        "response_angles": [
+          "Share your personal routine experience",
+          "Suggest a step-by-step routine based on their skin type",
+          "Recommend products for each step"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 7,
+          "engagement_level": "medium",
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 0.2,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum is highly relevant",
+          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
+        ]
+      }
+    },
+    {
+      "id": "1phfw96",
+      "title": "Exfoliating the whole body, travel advice.",
+      "content": "Hey everyone, \n\nI'm travelling to another country for about 3 weeks. I'm an Asian and we usually scrub our body until the upper skin layer comes off haha. Just Kidding but, we do take exfoliating pretty seriously, the whole body should be squeaky clean after showers and baths. And that takes time as well but while travelling, I don't know how to keep up with the routine or else I will feel uncomfortable with the feeling of dead skin layer on me. \n\nWhile staying at hotels, I can't really spend much time showering as I'll be sharing my room with another family member and I can't take my usual physical exfoliators with me cause airport security and all. \n\nMy skin is used to exfoliating so if I use a scrub, it usually feels like it just made the dead skin loose but didn't remove it completely. So, using a scrub is not a great idea really for me. \n\nA friend of mind suggested to apply glycolic acid on wet skin, wait 3-5 minutes and then rinse it off in shower. I don't know if that'll work? Or should I buy a soap/body wash with chemical exfoliator? I want something that works instantly so I don't have to spend an hour in the bathroom and makes my skin squeaky clean like I want. \n\nPlease 🥺 help. Or share your exfoliating routine, please. ",
+      "content_preview": "Hey everyone, \n\nI'm travelling to another country for about 3 weeks. I'm an Asian and we usually scrub our body until the upper skin layer comes off h...",
+      "content_length": 1250,
+      "subreddit": "beauty",
+      "subreddit_color": "#f39c12",
+      "subreddit_display": "r/beauty",
+      "url": "https://reddit.com/r/beauty/comments/1phfw96/exfoliating_the_whole_body_travel_advice/",
+      "score": 2,
+      "comments": 3,
+      "engagement_score": 5,
+      "created_utc": 1765209098.0,
+      "age_human": "2h ago",
+      "age_seconds": 8433.270349025726,
+      "author": "Khazeena123456789",
+      "has_images": false,
+      "image_urls": [],
+      "image_count": 0,
+      "flair": null,
+      "is_self": true,
+      "permalink": "/r/beauty/comments/1phfw96/exfoliating_the_whole_body_travel_advice/",
+      "relevance_score": 100,
+      "combined_score": 12.633498651192145,
+      "engagement_score_original": 5,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "glycolic acid",
+          "routine",
+          "aha"
+        ],
+        "help_type": "routine_help",
+        "help_type_confidence": 0.3,
+        "expertise_match": [
+          "skincare routine",
+          "sensitive skin",
+          "vitamin c serum",
+          "skin barrier repair",
+          "pH balance",
+          "salicylic acid",
+          "hyaluronic acid",
+          "skincare",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Share your personal routine experience",
+          "Suggest a step-by-step routine based on their skin type",
+          "Recommend products for each step"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 3,
+          "engagement_level": "low",
+          "response_opportunity": "good"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in skincare routine, sensitive skin is highly relevant",
+          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
+        ]
+      }
+    },
+    {
+      "id": "1phhqz4",
+      "title": "Advice needed - my hair is getting less curly, and the curls don't hold",
+      "content": "I would be so grateful for any useful advice! \nI used to have beautiful curls as a teenager until my early 20s, but over the last few years (I'm 30 now)  they are getting looser and don't hold more than a day! \nI tried many different products but the majority just makes it worse, making my hair heavier with no volume.\nI'm sort of happy with how my hair looks on day 1 when I wash it,  but already from day 2 the curls are gone. \nShould I just accept that my hair is not going to be curly anymore? \nWhy does this happen? \nAny product recommendations? \nThank you! \n\nMy routine is: \nWash with head and shoulders shampoo, condition with ball curls conditioner, I'm still figuring our which product to use for definition (in the pictures, I used the ball curls mousse) and dry ideally with a diffuser (in the picture, I didn't use it because I didn't have one available) ",
+      "content_preview": "I would be so grateful for any useful advice! \nI used to have beautiful curls as a teenager until my early 20s, but over the last few years (I'm 30 no...",
+      "content_length": 868,
+      "subreddit": "curlyhair",
+      "subreddit_color": "#ff6b35",
+      "subreddit_display": "r/curlyhair",
+      "url": "https://reddit.com/r/curlyhair/comments/1phhqz4/advice_needed_my_hair_is_getting_less_curly_and/",
+      "score": 3,
+      "comments": 4,
+      "engagement_score": 7,
+      "created_utc": 1765213260.0,
+      "age_human": "1h ago",
+      "age_seconds": 4271.2710020542145,
+      "author": "sadappleeater",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/tsyqkl0bh06g1.jpg?width=1980&format=pjpg&auto=webp&s=c0f4d193925634c4ed6ca6be42a9ae6ded591fbf",
+          "width": 1980,
+          "height": 2640,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/ttqbrn0bh06g1.jpg?width=1980&format=pjpg&auto=webp&s=722f5566310f6498a5d635badf2f8b801015528e",
+          "width": 1980,
+          "height": 2640,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/d15vzn0bh06g1.jpg?width=1980&format=pjpg&auto=webp&s=ae08eca10144588c9efda38f42d5a44c523d4f83",
+          "width": 1980,
+          "height": 2640,
+          "type": "gallery"
+        }
+      ],
+      "image_count": 3,
+      "flair": "Help!",
+      "is_self": false,
+      "permalink": "/r/curlyhair/comments/1phhqz4/advice_needed_my_hair_is_getting_less_curly_and/",
+      "relevance_score": 100,
+      "combined_score": 12.357333243715543,
+      "engagement_score_original": 7,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "products",
+          "shampoo",
+          "routine",
+          "product recommendations",
+          "conditioner"
+        ],
+        "help_type": "product_recommendation",
+        "help_type_confidence": 0.5,
+        "expertise_match": [
+          "skincare routine",
+          "product recommendations",
+          "vitamin c serum",
+          "hair loss treatment",
+          "curly hair care",
+          "hair growth",
+          "hair oils",
+          "skincare",
+          "haircare",
+          "product",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Recommend specific products you've used",
+          "Suggest budget-friendly alternatives",
+          "Share your experience with similar products"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 4,
+          "engagement_level": "medium",
+          "response_opportunity": "good"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "Moderate match for product_recommendation - share relevant experience and ask clarifying questions",
+          "Your expertise in skincare routine, product recommendations is highly relevant",
+          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
+        ]
+      }
+    },
+    {
+      "id": "1phia21",
+      "title": "[PSA] Flaky red peeling cracked skin around eyes and eyelids - caused by hand soap (took 6 months to figure out)!",
+      "content": "Posting this because I want to warn others and to see if this has happened to anyone else.   \n  \n**TL;DR:** Used a hand soap I bought from a supermarket for months and developed a horrible skin reaction around my eyelids and eyes. Took me half a year to figure out it was the soap because honestly who suspects hand soap?? It's a soap by a company called Moss &amp; Adams.  \n  \n**What happened:** Started getting really dry, cracked skin around my eyelids. Then it got progressively worse - constant cracking, peeling, bleeding etc. It made my eyelids so heavy and I was tired all the time. I couldn't wear makeup and I just looked so unwell all the time. People kept asking me if I was okay. Wasn't the best.  \n  \nI went through EVERYTHING trying to figure out what was causing my problems. I read through lots of stories and suggestions on here. I changed my laundry detergent, all my cleaning products, bought a humidifier, got rid of my plants, threw out my new (expensive!) pillows, the list goes on. Nothing helped and I kept getting worse.  \n  \nI finally figured it out when I noticed I was getting extra damaged skin in the same place on my eyelid - where I was rubbing my eyes. So I realised that something from my hands was transferring onto my eyes. As I'd reduced down to using the bare minimum products (in an effort to identify the problem) there was only one product left that I used multiple times a day on my hands: hand soap. I used a hand soap by a company called Moss &amp; Adams which I just found in the supermarket. I switched to another brand asap and boom - it stopped getting worse within days.  \n  \nI wanted to post because in none of the forums that I found when I was looking was there a suggestion that it could be hand soap causing the issue - so I just thought I'd post in case this helps anyone at all. Genuinely wondering if I'm the only one or if others have had similar reactions and just haven't figured it out yet. It was only around my eyes because that's where I touched after washing my hands.  \n  \n**Has anyone else had issues with Moss &amp; Adams products or had mystery reactions that turned out to be something totally unexpected?**",
+      "content_preview": "Posting this because I want to warn others and to see if this has happened to anyone else.   \n  \n**TL;DR:** Used a hand soap I bought from a supermark...",
+      "content_length": 2178,
+      "subreddit": "SkincareAddiction",
+      "subreddit_color": "#7193ff",
+      "subreddit_display": "r/SkincareAddiction",
+      "url": "https://reddit.com/r/SkincareAddiction/comments/1phia21/psa_flaky_red_peeling_cracked_skin_around_eyes/",
+      "score": 6,
+      "comments": 5,
+      "engagement_score": 11,
+      "created_utc": 1765214443.0,
+      "age_human": "51m ago",
+      "age_seconds": 3088.271446943283,
+      "author": "Burnt-Umberly",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/4ydk81vpk06g1.jpg?width=946&format=pjpg&auto=webp&s=e2d4648a1885133007be3785f85a8086bbc68e72",
+          "width": 946,
+          "height": 308,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/o190zyhqk06g1.jpg?width=1026&format=pjpg&auto=webp&s=f049d38c64f7ba930c3abb7ff3a43c38fb3b8f0f",
+          "width": 1026,
+          "height": 232,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/pkx2bx0rk06g1.jpg?width=1100&format=pjpg&auto=webp&s=62993b56a0958164e176e1f8de952285d139fb0b",
+          "width": 1100,
+          "height": 274,
+          "type": "gallery"
+        }
+      ],
+      "image_count": 3,
+      "flair": "PSA",
+      "is_self": false,
+      "permalink": "/r/SkincareAddiction/comments/1phia21/psa_flaky_red_peeling_cracked_skin_around_eyes/",
+      "relevance_score": 100,
+      "combined_score": 12.342480016143234,
+      "engagement_score_original": 11,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "products"
+        ],
+        "help_type": "product_recommendation",
+        "help_type_confidence": 0.7,
+        "expertise_match": [
+          "product recommendations",
+          "sensitive skin",
+          "vitamin c serum",
+          "skin barrier repair",
+          "product",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Recommend specific products you've used",
+          "Suggest budget-friendly alternatives",
+          "Share your experience with similar products"
+        ],
+        "urgency_level": "high",
+        "competition_analysis": {
+          "comment_count": 5,
+          "engagement_level": "medium",
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "Moderate match for product_recommendation - share relevant experience and ask clarifying questions",
+          "Your expertise in product recommendations, sensitive skin is highly relevant",
+          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
         ]
       }
     },
@@ -475,8 +773,8 @@
       "comments": 9,
       "engagement_score": 16,
       "created_utc": 1765199201.0,
-      "age_human": "3h ago",
-      "age_seconds": 11035.825216054916,
+      "age_human": "5h ago",
+      "age_seconds": 18330.27223801613,
       "author": "Safe-Panic-7890",
       "has_images": false,
       "image_urls": [],
@@ -485,37 +783,37 @@
       "is_self": true,
       "permalink": "/r/skincareaddictsindia/comments/1phbxeo/710_step_skincare_routine/",
       "relevance_score": 100,
-      "combined_score": 12.909606210303528,
+      "combined_score": 11.660094741714223,
       "engagement_score_original": 16,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
-          "exfoliation",
-          "acne",
-          "bha",
-          "sunscreen",
-          "skincare routine",
-          "peptides",
-          "routine",
-          "dry skin",
-          "vitamin c",
-          "azelaic acid",
           "tretinoin",
-          "pha",
-          "ceramides",
-          "hydration",
-          "glycolic acid",
-          "cleansing",
-          "beauty",
-          "oily skin",
-          "aha",
-          "niacinamide",
           "products",
+          "vitamin c",
+          "bha",
+          "exfoliation",
+          "lactic acid",
+          "glycolic acid",
+          "hydration",
+          "cleansing",
+          "skincare routine",
+          "beauty",
+          "routine",
           "skincare",
-          "hyperpigmentation",
+          "pha",
+          "aha",
           "hyaluronic acid",
+          "hyperpigmentation",
+          "niacinamide",
           "ingredients",
-          "lactic acid"
+          "dry skin",
+          "acne",
+          "azelaic acid",
+          "peptides",
+          "oily skin",
+          "ceramides",
+          "sunscreen"
         ],
         "help_type": "skin_concern",
         "help_type_confidence": 0.8,
@@ -569,120 +867,72 @@
       }
     },
     {
-      "id": "1phfw96",
-      "title": "Exfoliating the whole body, travel advice.",
-      "content": "Hey everyone, \n\nI'm travelling to another country for about 3 weeks. I'm an Asian and we usually scrub our body until the upper skin layer comes off haha. Just Kidding but, we do take exfoliating pretty seriously, the whole body should be squeaky clean after showers and baths. And that takes time as well but while travelling, I don't know how to keep up with the routine or else I will feel uncomfortable with the feeling of dead skin layer on me. \n\nWhile staying at hotels, I can't really spend much time showering as I'll be sharing my room with another family member and I can't take my usual physical exfoliators with me cause airport security and all. \n\nMy skin is used to exfoliating so if I use a scrub, it usually feels like it just made the dead skin loose but didn't remove it completely. So, using a scrub is not a great idea really for me. \n\nA friend of mind suggested to apply glycolic acid on wet skin, wait 3-5 minutes and then rinse it off in shower. I don't know if that'll work? Or should I buy a soap/body wash with chemical exfoliator? I want something that works instantly so I don't have to spend an hour in the bathroom and makes my skin squeaky clean like I want. \n\nPlease 🥺 help. Or share your exfoliating routine, please. ",
-      "content_preview": "Hey everyone, \n\nI'm travelling to another country for about 3 weeks. I'm an Asian and we usually scrub our body until the upper skin layer comes off h...",
-      "content_length": 1250,
-      "subreddit": "beauty",
-      "subreddit_color": "#f39c12",
-      "subreddit_display": "r/beauty",
-      "url": "https://reddit.com/r/beauty/comments/1phfw96/exfoliating_the_whole_body_travel_advice/",
-      "score": 1,
-      "comments": 0,
-      "engagement_score": 1,
-      "created_utc": 1765209098.0,
-      "age_human": "18m ago",
-      "age_seconds": 1138.8263249397278,
-      "author": "Khazeena123456789",
-      "has_images": false,
-      "image_urls": [],
-      "image_count": 0,
-      "flair": null,
-      "is_self": true,
-      "permalink": "/r/beauty/comments/1phfw96/exfoliating_the_whole_body_travel_advice/",
-      "relevance_score": 100,
-      "combined_score": 12.23655820530101,
-      "engagement_score_original": 1,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [
-          "routine",
-          "glycolic acid",
-          "aha"
-        ],
-        "help_type": "routine_help",
-        "help_type_confidence": 0.3,
-        "expertise_match": [
-          "skincare routine",
-          "sensitive skin",
-          "vitamin c serum",
-          "skin barrier repair",
-          "pH balance",
-          "salicylic acid",
-          "hyaluronic acid",
-          "skincare",
-          "problem-solving"
-        ],
-        "response_angles": [
-          "Share your personal routine experience",
-          "Suggest a step-by-step routine based on their skin type",
-          "Recommend products for each step"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 0,
-          "engagement_level": "low",
-          "response_opportunity": "good"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in skincare routine, sensitive skin is highly relevant",
-          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
-        ]
-      }
-    },
-    {
-      "id": "1ph6sqb",
-      "title": "Skin texture",
-      "content": "I d k what to do at this point \nThis skin texture is so irritating and also even though the texture doesn't really appear in the morning, it tends to appear as the day passes, is it out of tiredness? \nHelp please 🥲",
-      "content_preview": "I d k what to do at this point \nThis skin texture is so irritating and also even though the texture doesn't really appear in the morning, it tends to ...",
-      "content_length": 214,
-      "subreddit": "IndianSkincareAddicts",
-      "subreddit_color": "#ff4500",
-      "subreddit_display": "r/IndianSkincareAddicts",
-      "url": "https://reddit.com/r/IndianSkincareAddicts/comments/1ph6sqb/skin_texture/",
-      "score": 14,
-      "comments": 14,
-      "engagement_score": 28,
-      "created_utc": 1765180677.0,
-      "age_human": "8h ago",
-      "age_seconds": 29559.826991081238,
-      "author": "harrym999",
+      "id": "1phdmyy",
+      "title": "how do i get out of moisture overload? is this even moisture overload?",
+      "content": "My hair has been feeling very limp &amp; shiny for quite some time.\n\n\nThe bottom of my hair is usually a mix of 2c-3a, predominantly very springy curls, and the past few wash days it’s been practically 2a. It feels stringy and too soft, but as far as i know i’m not doing anything excessive to be causing this(styling-wise).\n\n\nTo sum it up, the bottom is suffering the most, but all of my hair feels very limp, has basically no retention when messed with, and falls apart quick. \n\n\nI’ve been following a wavy-curly routine for 3 months, and this is what i know about my hair + my full monthly routine:\n\n\n• mixed porosity (crown+ face framing bits are high porosity, everything else is low-medium)\n\n• 2b-2c-3a, i have the occasional damaged pieces that curl and then fall into a 2b wave, and some that wont curl at all. i believe i’m predominantly 2c rn\n\n• medium density\n\n• fine strands\n\n• my curl pattern is quite damaged(used to be 3a-3b throughout my whole life) from years and years of straightening my hair twice a day, excessive bleaching and dying, and a hair pulling disorder focused on the crown &amp; pieces around my neck.\n\n• my hair naturally has a soft finish to it, so the excessive shine isn’t something i’m new to, but yesterday i looked in the mirror and literally looked like a disco ball… i’m reflecting INSANE amounts of light.\nthis isnt normal for me, lol!\n\n\npre-shampoo treatments:\n\n\ntwice a month - curlsmith bond curl rehab salve, i leave it on longer on my high porosity area, and about 20 min into waiting i apply it to everything else.\n\n\nonce a month - some kind of conditioning treatment, usually with a good protein-moisture balance. recently it was the garnier SOS keratin filler.\n\n\nwashing:\n\n- bounce curl gentle clarifying shampoo, i use this as a regular shampoo, it’s very light &amp; really doesnt strip much\n\n\n- macadamia naturals conditioner, i use this every second or third wash, my hair already feels too soft in the shower.\n\n\n- olaplex clarifying shampoo, once a week or once every two weeks. depends on how much i wash my hair that week.\n\n\nstyling:\n\n\n- i use mielle rosemary+mint leave in MAYBE once a month, only for my crown, if it feels dry. \n\n\n- balea sea salt spray, i use this before i do my whole routine &amp; spray pretty generously. my hair is naturally very soft too, so it needs some texture.\n\n\n- got2b curls mousse, 1 pump for my whole head, probably golf ball sized\n\n\n- keune styling x gel, i’m not sure exactly what amount i use, i just follow the needs of my hair that day. sometimes more, sometimes less.\n\n\n- i diffuse on medium air &amp; medium temp, switching to cool temp throughout the process.\n\n\nall products r applied with praying hands &amp; then scrunched in to the top.\n\ni don’t apply any stylers on the scalp, i just go near it, and my hair seems to react pretty well to it. i got it as a tip from my stylist, and my roots have been curling pretty well!\n\n",
+      "content_preview": "My hair has been feeling very limp &amp; shiny for quite some time.\n\n\nThe bottom of my hair is usually a mix of 2c-3a, predominantly very springy curl...",
+      "content_length": 2924,
+      "subreddit": "curlyhair",
+      "subreddit_color": "#ff6b35",
+      "subreddit_display": "r/curlyhair",
+      "url": "https://reddit.com/r/curlyhair/comments/1phdmyy/how_do_i_get_out_of_moisture_overload_is_this/",
+      "score": 8,
+      "comments": 10,
+      "engagement_score": 18,
+      "created_utc": 1765203783.0,
+      "age_human": "3h ago",
+      "age_seconds": 13748.273360013962,
+      "author": "viwxed",
       "has_images": true,
       "image_urls": [
         {
-          "url": "https://preview.redd.it/p5pjk34fsx5g1.png?width=1240&format=png&auto=webp&s=7b003161136a84fdb1663626405a292d485cf768",
-          "width": 1240,
-          "height": 1287,
+          "url": "https://preview.redd.it/uo18gek4pz5g1.jpg?width=1178&format=pjpg&auto=webp&s=f631344c42e62aded40829d9b1916b5489bad30b",
+          "width": 1178,
+          "height": 1482,
           "type": "gallery"
         },
         {
-          "url": "https://preview.redd.it/hjzyh24fsx5g1.png?width=1240&format=png&auto=webp&s=60e4dac27caedfe355786df68da41e36fb2fa1b3",
-          "width": 1240,
-          "height": 1531,
+          "url": "https://preview.redd.it/nelmefk4pz5g1.jpg?width=1179&format=pjpg&auto=webp&s=0c2f88134f8c64723863f98453d9867a841d8e70",
+          "width": 1179,
+          "height": 1647,
           "type": "gallery"
         }
       ],
       "image_count": 2,
-      "flair": "I Followed Posting Rules",
+      "flair": "Help!",
       "is_self": false,
-      "permalink": "/r/IndianSkincareAddicts/comments/1ph6sqb/skin_texture/",
+      "permalink": "/r/curlyhair/comments/1phdmyy/how_do_i_get_out_of_moisture_overload_is_this/",
       "relevance_score": 100,
-      "combined_score": 11.710130975913673,
-      "engagement_score_original": 28,
+      "combined_score": 11.60409697409802,
+      "engagement_score_original": 18,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
-          "texture"
+          "products",
+          "texture",
+          "shampoo",
+          "routine",
+          "scalp",
+          "conditioner"
         ],
         "help_type": "routine_help",
-        "help_type_confidence": 0.1,
+        "help_type_confidence": 0.4,
         "expertise_match": [
-          "sensitive skin",
-          "skin barrier repair",
-          "problem-solving"
+          "skincare routine",
+          "acne treatment",
+          "product recommendations",
+          "vitamin c serum",
+          "hyperpigmentation treatment",
+          "pH balance",
+          "hair loss treatment",
+          "scalp health",
+          "curly hair care",
+          "hair growth",
+          "protein treatments",
+          "hair oils",
+          "skincare",
+          "haircare",
+          "product"
         ],
         "response_angles": [
           "Share your personal routine experience",
@@ -691,315 +941,193 @@
         ],
         "urgency_level": "low",
         "competition_analysis": {
-          "comment_count": 14,
-          "engagement_level": "high",
+          "comment_count": 10,
+          "engagement_level": "medium",
           "response_opportunity": "moderate"
         },
-        "confidence_score": 0.7300000000000001,
+        "confidence_score": 1.0,
         "response_suggestions": [
           "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in sensitive skin, skin barrier repair is highly relevant",
+          "Your expertise in skincare routine, acne treatment is highly relevant",
           "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
         ]
       }
     },
     {
-      "id": "1ph9hwp",
-      "title": "What to do about these pimples?",
-      "content": "I have these inflated acnes from July and they just got worsen day by day\n\nI used to use a normal facewash patanjali or himalaya one but one of my friend suggested to use better face wash use moisturizer I started doing so i switched to derma co face wash and Nivea moisturizer but nothing helped.\n\nOnce I visited doctor in very early stage he just said that these are just due to puberty drink SAFI syrup I used it but no improvement.\n\nThey are really painful even when I mistakenly touch them it feels so painful.\n\nWhat should I do? Is there anything which I can do rn \n\nOr should I just visit a dermatologist??",
-      "content_preview": "I have these inflated acnes from July and they just got worsen day by day\n\nI used to use a normal facewash patanjali or himalaya one but one of my fri...",
-      "content_length": 613,
-      "subreddit": "IndianSkincareAddicts",
-      "subreddit_color": "#ff4500",
-      "subreddit_display": "r/IndianSkincareAddicts",
-      "url": "https://reddit.com/r/IndianSkincareAddicts/comments/1ph9hwp/what_to_do_about_these_pimples/",
-      "score": 5,
-      "comments": 6,
-      "engagement_score": 11,
-      "created_utc": 1765191257.0,
-      "age_human": "5h ago",
-      "age_seconds": 18979.827303886414,
-      "author": "chal_hatt_bkl",
+      "id": "1phh3qf",
+      "title": "[Acne] bad acne starting a week or 2 before period. Please help!",
+      "content": "Hello! Im just looking for some advice on what I can use to either stop or tone down the acne I get the week (sometimes 2 weeks) before I get my period.\n\nI am 30 years old, and in the past few years I have started getting HORRIBLE acne, mostly on one side of my face, a week or two before my period. It always seems to clear up almost completely right before it comes back again. These pimples are typically large and painful. I also get them along the bottom of my jaw.\n\nI also have constant sebum buildup on the nose and chin that I'd love to tone down or get rid of as well if anyone can help with that! And I am constantly finding blackheads on the sides of my face.  They never seem to stay away no matter what I've used.\n\nI’ve included a list of products I use below :)\n\n⭐ Face washes I currently use (rotating):\nCetaphil Gentle Exfoliating SA facial cleanser and Neutrogena Clear Pore Cleanser/mask. (Sometimes I use it as a mask but usually as a face wash.)\n\n⭐ Moisturizer:\nClean and Clear Essentials Daily Moisturizer\n\n⭐ Medicated cream:\nBenzoyl Peroxide with Clindamycin (I don’t really use this as much as I should because even with moisturizer it dries me out badly but I do break it out and use regularly for a few days when my acne gets bad)\n\n🌟I also use maximum strength stridex pads on occasion but not regularly because they also dry my skin out.🌟\n\nI have very oily skin  (but also somehow dry?)\n\nAny recommendations would be wonderful, thank you so much! ",
+      "content_preview": "Hello! Im just looking for some advice on what I can use to either stop or tone down the acne I get the week (sometimes 2 weeks) before I get my perio...",
+      "content_length": 1473,
+      "subreddit": "SkincareAddiction",
+      "subreddit_color": "#7193ff",
+      "subreddit_display": "r/SkincareAddiction",
+      "url": "https://reddit.com/r/SkincareAddiction/comments/1phh3qf/acne_bad_acne_starting_a_week_or_2_before_period/",
+      "score": 2,
+      "comments": 3,
+      "engagement_score": 5,
+      "created_utc": 1765211816.0,
+      "age_human": "1h ago",
+      "age_seconds": 5715.274488925934,
+      "author": "ShySherbert",
       "has_images": true,
       "image_urls": [
         {
-          "url": "https://preview.redd.it/m88fvgjvny5g1.jpg?width=1988&format=pjpg&auto=webp&s=c7d3d8c6da98ebbc49019de26c44324a8f68480d",
-          "width": 1988,
-          "height": 2493,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/98tbfhjvny5g1.jpg?width=2048&format=pjpg&auto=webp&s=f80a4760002646be6a0bc3175a81422301d44aa2",
-          "width": 2048,
-          "height": 2785,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/409kadjvny5g1.jpg?width=2003&format=pjpg&auto=webp&s=3266602a7ad36013a439ad2d471d7caa6556618c",
-          "width": 2003,
-          "height": 897,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/kx4maajvny5g1.png?width=282&format=png&auto=webp&s=e5af7429490e36ffa42dac205ed10cc88ac6dfec",
-          "width": 282,
-          "height": 480,
-          "type": "gallery"
-        }
-      ],
-      "image_count": 4,
-      "flair": "I Didnt Follow Rules,Want to Post Anyway. 5 Reports Removes This",
-      "is_self": false,
-      "permalink": "/r/IndianSkincareAddicts/comments/1ph9hwp/what_to_do_about_these_pimples/",
-      "relevance_score": 100,
-      "combined_score": 11.392762988079477,
-      "engagement_score_original": 11,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [
-          "acne"
-        ],
-        "help_type": "product_recommendation",
-        "help_type_confidence": 0.2,
-        "expertise_match": [
-          "acne treatment",
-          "vitamin c serum",
-          "skincare",
-          "problem-solving"
-        ],
-        "response_angles": [
-          "Recommend specific products you've used",
-          "Suggest budget-friendly alternatives",
-          "Share your experience with similar products"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 6,
-          "engagement_level": "medium",
-          "response_opportunity": "moderate"
-        },
-        "confidence_score": 0.9600000000000001,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in acne treatment, vitamin c serum is highly relevant",
-          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
-        ]
-      }
-    },
-    {
-      "id": "1ph9w58",
-      "title": "Delhi just hit my South Indian combo skin hard needs skincare recs ASAP!",
-      "content": "I recently moved to Delhi from Kerala , and honestly, my skin is not loving this city at all. I have combo skin mix that with the pollution and the weather. It's totally messing with my face, it feels dry, rough, almost like sandpaper every day. I need a full skincare routine that actually works against the harsh environment.\n\nBudget isn’t an issue, I just want stuff that genuinely helps and won’t make things worse. I have attached my cart with products I thought would work after doing some digging myself but wanted to know opinions from y’all. ",
-      "content_preview": "I recently moved to Delhi from Kerala , and honestly, my skin is not loving this city at all. I have combo skin mix that with the pollution and the we...",
-      "content_length": 551,
-      "subreddit": "IndianSkincareAddicts",
-      "subreddit_color": "#ff4500",
-      "subreddit_display": "r/IndianSkincareAddicts",
-      "url": "https://reddit.com/r/IndianSkincareAddicts/comments/1ph9w58/delhi_just_hit_my_south_indian_combo_skin_hard/",
-      "score": 12,
-      "comments": 9,
-      "engagement_score": 21,
-      "created_utc": 1765192675.0,
-      "age_human": "4h ago",
-      "age_seconds": 17561.827706098557,
-      "author": "Economist_sad2617",
-      "has_images": true,
-      "image_urls": [
-        {
-          "url": "https://preview.redd.it/cclf96h3sy5g1.jpeg?auto=webp&s=92c43d80b26c467eb84b74e205ee57cf92afbb86",
-          "width": 1170,
-          "height": 2532,
+          "url": "https://preview.redd.it/ssgph3k0d06g1.png?auto=webp&s=c7a958df2415a2004ef5f1f2e329a88727b61919",
+          "width": 1080,
+          "height": 1924,
           "type": "preview"
         }
       ],
       "image_count": 1,
-      "flair": "I Followed Posting Rules",
+      "flair": "Acne",
       "is_self": false,
-      "permalink": "/r/IndianSkincareAddicts/comments/1ph9w58/delhi_just_hit_my_south_indian_combo_skin_hard/",
+      "permalink": "/r/SkincareAddiction/comments/1phh3qf/acne_bad_acne_starting_a_week_or_2_before_period/",
       "relevance_score": 100,
-      "combined_score": 10.516945160935322,
-      "engagement_score_original": 21,
+      "combined_score": 11.39298410906008,
+      "engagement_score_original": 5,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
-          "skincare routine",
-          "routine",
           "products",
-          "skincare"
+          "benzoyl peroxide",
+          "acne",
+          "oily skin"
         ],
-        "help_type": "troubleshooting",
-        "help_type_confidence": 0.6,
+        "help_type": "skin_concern",
+        "help_type_confidence": 0.5,
         "expertise_match": [
-          "skincare routine",
+          "acne treatment",
           "product recommendations",
           "sensitive skin",
           "vitamin c serum",
           "skin barrier repair",
-          "curly hair care",
+          "pH balance",
           "skincare",
           "product",
           "problem-solving"
         ],
         "response_angles": [
-          "Share how you solved a similar problem",
-          "Suggest diagnostic questions to ask",
-          "Recommend gentle solutions to try first"
+          "Share your experience with similar skin concerns",
+          "Suggest gentle, proven solutions",
+          "Recommend a consultation approach"
         ],
-        "urgency_level": "high",
+        "urgency_level": "low",
         "competition_analysis": {
-          "comment_count": 9,
-          "engagement_level": "medium",
-          "response_opportunity": "moderate"
+          "comment_count": 3,
+          "engagement_level": "low",
+          "response_opportunity": "good"
         },
         "confidence_score": 1.0,
         "response_suggestions": [
-          "Moderate match for troubleshooting - share relevant experience and ask clarifying questions",
-          "Your expertise in skincare routine, product recommendations is highly relevant",
-          "Consider these approaches: Share how you solved a similar problem, Suggest diagnostic questions to ask"
+          "Moderate match for skin_concern - share relevant experience and ask clarifying questions",
+          "Your expertise in acne treatment, product recommendations is highly relevant",
+          "Consider these approaches: Share your experience with similar skin concerns, Suggest gentle, proven solutions"
         ]
       }
     },
     {
-      "id": "1phfu61",
-      "title": "Looking for Hair Care lol Advice",
-      "content": "Hi everyone! I feel like my hair is dry and frizzy. I just had a trim. I want to get my hair done to look like the second pic but I want to give it time (I’m thinking next summer I’ll do it) any advice on how to get my hair healthier? Both pics are my natural hair (as in not straightened, the color isn’t natural) \n\nI don’t really use heat products (sometimes on my bangs but that’s it) and the shampoo and conditioner I use is the Mielle Rosemary &amp; Mint because it helps with my itchy scalp",
-      "content_preview": "Hi everyone! I feel like my hair is dry and frizzy. I just had a trim. I want to get my hair done to look like the second pic but I want to give it ti...",
-      "content_length": 496,
+      "id": "1phga3o",
+      "title": "Pros and Cons of DHT suppression?",
+      "content": "Apart from growing back your hair what are some lesser known pros of suppressing or eliminating DHT?\n\nAre there are cons to this? \n\nDutasteride has been shown to decrease sperm count and motility from long term use ",
+      "content_preview": "Apart from growing back your hair what are some lesser known pros of suppressing or eliminating DHT?\n\nAre there are cons to this? \n\nDutasteride has be...",
+      "content_length": 215,
+      "subreddit": "tressless",
+      "subreddit_color": "#8e44ad",
+      "subreddit_display": "r/tressless",
+      "url": "https://reddit.com/r/tressless/comments/1phga3o/pros_and_cons_of_dht_suppression/",
+      "score": 10,
+      "comments": 15,
+      "engagement_score": 25,
+      "created_utc": 1765209949.0,
+      "age_human": "2h ago",
+      "age_seconds": 7582.2751750946045,
+      "author": "BinaryMatrix",
+      "has_images": false,
+      "image_urls": [],
+      "image_count": 0,
+      "flair": "Research/Science",
+      "is_self": true,
+      "permalink": "/r/tressless/comments/1phga3o/pros_and_cons_of_dht_suppression/",
+      "relevance_score": 100,
+      "combined_score": 10.764459389389666,
+      "engagement_score_original": 25,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "hair_concern",
+        "help_type_confidence": 0.1,
+        "expertise_match": [
+          "vitamin c serum",
+          "hair loss treatment",
+          "curly hair care",
+          "hair growth",
+          "hair oils",
+          "haircare"
+        ],
+        "response_angles": [
+          "Share your hair care experience",
+          "Suggest products for their hair type",
+          "Recommend professional consultation if needed"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 15,
+          "engagement_level": "high",
+          "response_opportunity": "limited"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
+          "Consider these approaches: Share your hair care experience, Suggest products for their hair type"
+        ]
+      }
+    },
+    {
+      "id": "1phjewt",
+      "title": "Any recommendations on how to glow up my hair for the holidays without paying for a salon visit?",
+      "content": "",
+      "content_preview": "",
+      "content_length": 0,
       "subreddit": "Hair",
       "subreddit_color": "#e74c3c",
       "subreddit_display": "r/Hair",
-      "url": "https://reddit.com/r/Hair/comments/1phfu61/looking_for_hair_care_lol_advice/",
+      "url": "https://reddit.com/r/Hair/comments/1phjewt/any_recommendations_on_how_to_glow_up_my_hair_for/",
       "score": 1,
       "comments": 0,
       "engagement_score": 1,
-      "created_utc": 1765208965.0,
-      "age_human": "21m ago",
-      "age_seconds": 1271.8281350135803,
-      "author": "suibiansuibian",
+      "created_utc": 1765216964.0,
+      "age_human": "9m ago",
+      "age_seconds": 567.2754700183868,
+      "author": "mintedapples",
       "has_images": true,
       "image_urls": [
         {
-          "url": "https://preview.redd.it/g115yeej406g1.jpg?width=2316&format=pjpg&auto=webp&s=dd168ed066830be0e6be6a0cff1c234cece2db28",
+          "url": "https://preview.redd.it/7ujlm6obs06g1.jpg?width=2316&format=pjpg&auto=webp&s=cda6d3398e6196912f28aee847a7fa52d63e2a90",
           "width": 2316,
           "height": 3088,
           "type": "gallery"
         },
         {
-          "url": "https://preview.redd.it/2qiigfej406g1.jpg?width=736&format=pjpg&auto=webp&s=cd0f96c3c9a6b399c9ed7367f8b7c46f3097e61e",
-          "width": 736,
-          "height": 921,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/4xgfvhej406g1.jpg?width=4032&format=pjpg&auto=webp&s=2cf719584cb9a25a4067468bc34ba9ba1c8d0d7b",
-          "width": 4032,
-          "height": 3024,
+          "url": "https://preview.redd.it/7b9t2aobs06g1.jpg?width=2316&format=pjpg&auto=webp&s=b12ed9afbbd4d6982c0b19ccc70ce9abbf4131dd",
+          "width": 2316,
+          "height": 3088,
           "type": "gallery"
         }
       ],
-      "image_count": 3,
+      "image_count": 2,
       "flair": "Help",
       "is_self": false,
-      "permalink": "/r/Hair/comments/1phfu61/looking_for_hair_care_lol_advice/",
+      "permalink": "/r/Hair/comments/1phjewt/any_recommendations_on_how_to_glow_up_my_hair_for/",
       "relevance_score": 100,
-      "combined_score": 10.443966599186261,
+      "combined_score": 10.530405051242973,
       "engagement_score_original": 1,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
-          "scalp",
-          "hair care",
-          "conditioner",
-          "products",
-          "shampoo"
+          "glow"
         ],
-        "help_type": "troubleshooting",
-        "help_type_confidence": 0.3,
-        "expertise_match": [
-          "product recommendations",
-          "vitamin c serum",
-          "hair loss treatment",
-          "scalp health",
-          "curly hair care",
-          "hair growth",
-          "hair oils",
-          "haircare",
-          "product",
-          "problem-solving"
-        ],
-        "response_angles": [
-          "Share how you solved a similar problem",
-          "Suggest diagnostic questions to ask",
-          "Recommend gentle solutions to try first"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 0,
-          "engagement_level": "low",
-          "response_opportunity": "good"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in product recommendations, vitamin c serum is highly relevant",
-          "Consider these approaches: Share how you solved a similar problem, Suggest diagnostic questions to ask"
-        ]
-      }
-    },
-    {
-      "id": "1phbo4x",
-      "title": "Recent haircut. It looks like I got a bowl cut with long hair kept on the back. Not sure how to fix it",
-      "content": "Hey, I recently got a haircut, but it looks off to me. It looks like I got a bowl cut with long hair on the back. I’m not even sure what to even ask for to get it fixed. It just looks off compared to when I see others with long hair (mainly women).\n\nI don’t like putting product in my hair, so I don’t wanna do that as any kind of fix.",
-      "content_preview": "Hey, I recently got a haircut, but it looks off to me. It looks like I got a bowl cut with long hair on the back. I’m not even sure what to even ask f...",
-      "content_length": 335,
-      "subreddit": "Hair",
-      "subreddit_color": "#e74c3c",
-      "subreddit_display": "r/Hair",
-      "url": "https://reddit.com/r/Hair/comments/1phbo4x/recent_haircut_it_looks_like_i_got_a_bowl_cut/",
-      "score": 3,
-      "comments": 10,
-      "engagement_score": 13,
-      "created_utc": 1765198476.0,
-      "age_human": "3h ago",
-      "age_seconds": 11760.82854294777,
-      "author": "KloppDuPopstar",
-      "has_images": true,
-      "image_urls": [
-        {
-          "url": "https://preview.redd.it/mh22wsnb9z5g1.jpg?width=2320&format=pjpg&auto=webp&s=c613267cf078e63c93549fe8a9d28ec28c3dac92",
-          "width": 2320,
-          "height": 3088,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/aw4rbunb9z5g1.jpg?width=2320&format=pjpg&auto=webp&s=965c79a907c2fdea4cf271bf2459792a9b55a809",
-          "width": 2320,
-          "height": 3088,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/jwpltsnb9z5g1.jpg?width=2320&format=pjpg&auto=webp&s=8889fde54843fe4190e47ead514afb913537e5a9",
-          "width": 2320,
-          "height": 3088,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/5w12eunb9z5g1.jpg?width=3024&format=pjpg&auto=webp&s=38cfbde63682010ec6fa9e29750713f949ce8a4e",
-          "width": 3024,
-          "height": 4032,
-          "type": "gallery"
-        }
-      ],
-      "image_count": 4,
-      "flair": "Help",
-      "is_self": false,
-      "permalink": "/r/Hair/comments/1phbo4x/recent_haircut_it_looks_like_i_got_a_bowl_cut/",
-      "relevance_score": 100,
-      "combined_score": 10.19377689512902,
-      "engagement_score_original": 13,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [],
         "help_type": "product_recommendation",
         "help_type_confidence": 0.1,
         "expertise_match": [
@@ -1019,9 +1147,9 @@
         ],
         "urgency_level": "low",
         "competition_analysis": {
-          "comment_count": 10,
-          "engagement_level": "medium",
-          "response_opportunity": "moderate"
+          "comment_count": 0,
+          "engagement_level": "low",
+          "response_opportunity": "good"
         },
         "confidence_score": 1.0,
         "response_suggestions": [
@@ -1041,12 +1169,12 @@
       "subreddit_color": "#ff6b35",
       "subreddit_display": "r/curlyhair",
       "url": "https://reddit.com/r/curlyhair/comments/1phcn5w/im_unsure_about_my_porosity_my_hair_absorbs_water/",
-      "score": 5,
+      "score": 7,
       "comments": 11,
-      "engagement_score": 16,
+      "engagement_score": 18,
       "created_utc": 1765201208.0,
-      "age_human": "2h ago",
-      "age_seconds": 9028.829762935638,
+      "age_human": "4h ago",
+      "age_seconds": 16323.276468992233,
       "author": "earthrisingbaby",
       "has_images": true,
       "image_urls": [
@@ -1080,16 +1208,16 @@
       "is_self": false,
       "permalink": "/r/curlyhair/comments/1phcn5w/im_unsure_about_my_porosity_my_hair_absorbs_water/",
       "relevance_score": 100,
-      "combined_score": 10.029597745096241,
-      "engagement_score_original": 16,
+      "combined_score": 9.73288019415405,
+      "engagement_score_original": 18,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
-          "scalp",
-          "routine",
-          "conditioner",
           "products",
-          "shampoo"
+          "shampoo",
+          "routine",
+          "scalp",
+          "conditioner"
         ],
         "help_type": "routine_help",
         "help_type_confidence": 0.5,
@@ -1128,69 +1256,72 @@
       }
     },
     {
-      "id": "1ph903y",
-      "title": "PLEASE help me to get rid of this tan",
-      "content": "Guys can you please suggest something to help me get rid of this tan😭🙏🏻",
-      "content_preview": "Guys can you please suggest something to help me get rid of this tan😭🙏🏻",
-      "content_length": 71,
+      "id": "1ph6sqb",
+      "title": "Skin texture",
+      "content": "I d k what to do at this point \nThis skin texture is so irritating and also even though the texture doesn't really appear in the morning, it tends to appear as the day passes, is it out of tiredness? \nHelp please 🥲",
+      "content_preview": "I d k what to do at this point \nThis skin texture is so irritating and also even though the texture doesn't really appear in the morning, it tends to ...",
+      "content_length": 214,
       "subreddit": "IndianSkincareAddicts",
       "subreddit_color": "#ff4500",
       "subreddit_display": "r/IndianSkincareAddicts",
-      "url": "https://reddit.com/r/IndianSkincareAddicts/comments/1ph903y/please_help_me_to_get_rid_of_this_tan/",
-      "score": 15,
-      "comments": 36,
-      "engagement_score": 51,
-      "created_utc": 1765189416.0,
-      "age_human": "5h ago",
-      "age_seconds": 20820.830360889435,
-      "author": "FlakyPreparation3274",
+      "url": "https://reddit.com/r/IndianSkincareAddicts/comments/1ph6sqb/skin_texture/",
+      "score": 12,
+      "comments": 16,
+      "engagement_score": 28,
+      "created_utc": 1765180677.0,
+      "age_human": "10h ago",
+      "age_seconds": 36854.27705407143,
+      "author": "harrym999",
       "has_images": true,
       "image_urls": [
         {
-          "url": "https://preview.redd.it/ari5ww7diy5g1.jpg?width=2160&format=pjpg&auto=webp&s=d827847e248d93ddd818848d1b7a6e8d8a35ca85",
-          "width": 2160,
-          "height": 3840,
+          "url": "https://preview.redd.it/p5pjk34fsx5g1.png?width=1240&format=png&auto=webp&s=7b003161136a84fdb1663626405a292d485cf768",
+          "width": 1240,
+          "height": 1287,
           "type": "gallery"
         },
         {
-          "url": "https://preview.redd.it/15ny9u7diy5g1.jpg?width=3024&format=pjpg&auto=webp&s=a2fe1b6dc5256bb9a51cb9d12ff54e2b8f802d60",
-          "width": 3024,
-          "height": 4032,
+          "url": "https://preview.redd.it/hjzyh24fsx5g1.png?width=1240&format=png&auto=webp&s=60e4dac27caedfe355786df68da41e36fb2fa1b3",
+          "width": 1240,
+          "height": 1531,
           "type": "gallery"
         }
       ],
       "image_count": 2,
       "flair": "I Followed Posting Rules",
       "is_self": false,
-      "permalink": "/r/IndianSkincareAddicts/comments/1ph903y/please_help_me_to_get_rid_of_this_tan/",
+      "permalink": "/r/IndianSkincareAddicts/comments/1ph6sqb/skin_texture/",
       "relevance_score": 100,
-      "combined_score": 9.993495747223498,
-      "engagement_score_original": 51,
+      "combined_score": 9.707340146103391,
+      "engagement_score_original": 28,
       "opportunity_rating": "low",
       "context": {
-        "triggered_keywords": [],
-        "help_type": "product_recommendation",
+        "triggered_keywords": [
+          "texture"
+        ],
+        "help_type": "routine_help",
         "help_type_confidence": 0.1,
         "expertise_match": [
-          "vitamin c serum",
+          "sensitive skin",
+          "skin barrier repair",
           "problem-solving"
         ],
         "response_angles": [
-          "Recommend specific products you've used",
-          "Suggest budget-friendly alternatives",
-          "Share your experience with similar products"
+          "Share your personal routine experience",
+          "Suggest a step-by-step routine based on their skin type",
+          "Recommend products for each step"
         ],
         "urgency_level": "low",
         "competition_analysis": {
-          "comment_count": 36,
+          "comment_count": 16,
           "engagement_level": "high",
           "response_opportunity": "limited"
         },
-        "confidence_score": 0.43000000000000005,
+        "confidence_score": 0.7300000000000001,
         "response_suggestions": [
           "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in vitamin c serum, problem-solving is highly relevant",
-          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
+          "Your expertise in sensitive skin, skin barrier repair is highly relevant",
+          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
         ]
       }
     },
@@ -1204,12 +1335,12 @@
       "subreddit_color": "#ff6b35",
       "subreddit_display": "r/curlyhair",
       "url": "https://reddit.com/r/curlyhair/comments/1ph0i3f/mastered_my_hair_routine/",
-      "score": 31,
+      "score": 30,
       "comments": 2,
-      "engagement_score": 33,
+      "engagement_score": 32,
       "created_utc": 1765160006.0,
-      "age_human": "13h ago",
-      "age_seconds": 50230.83063197136,
+      "age_human": "15h ago",
+      "age_seconds": 57525.27738404274,
       "author": "Own-Doughnut5169",
       "has_images": true,
       "image_urls": [
@@ -1225,17 +1356,17 @@
       "is_self": false,
       "permalink": "/r/curlyhair/comments/1ph0i3f/mastered_my_hair_routine/",
       "relevance_score": 100,
-      "combined_score": 9.9,
-      "engagement_score_original": 33,
+      "combined_score": 9.7,
+      "engagement_score_original": 32,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
-          "routine",
-          "curly hair",
-          "beauty",
           "products",
+          "texture",
+          "beauty",
           "shampoo",
-          "texture"
+          "routine",
+          "curly hair"
         ],
         "help_type": "product_recommendation",
         "help_type_confidence": 0.2,
@@ -1272,68 +1403,262 @@
       }
     },
     {
-      "id": "1phc8da",
-      "title": "are my highlights blended enough😭",
-      "content": "i never get my hair done so idk😭 i feel anxious that the blonde in my hair looks too streaky and looks bad, the last 2 pictures is what i asked for— what should i do? thank you❤️",
-      "content_preview": "i never get my hair done so idk😭 i feel anxious that the blonde in my hair looks too streaky and looks bad, the last 2 pictures is what i asked for— w...",
-      "content_length": 178,
-      "subreddit": "Hair",
-      "subreddit_color": "#e74c3c",
-      "subreddit_display": "r/Hair",
-      "url": "https://reddit.com/r/Hair/comments/1phc8da/are_my_highlights_blended_enough/",
-      "score": 2,
-      "comments": 5,
-      "engagement_score": 7,
-      "created_utc": 1765200066.0,
-      "age_human": "2h ago",
-      "age_seconds": 10170.83105301857,
-      "author": "jezzaelise",
+      "id": "1ph9w58",
+      "title": "Delhi just hit my South Indian combo skin hard needs skincare recs ASAP!",
+      "content": "I recently moved to Delhi from Kerala , and honestly, my skin is not loving this city at all. I have combo skin mix that with the pollution and the weather. It's totally messing with my face, it feels dry, rough, almost like sandpaper every day. I need a full skincare routine that actually works against the harsh environment.\n\nBudget isn’t an issue, I just want stuff that genuinely helps and won’t make things worse. I have attached my cart with products I thought would work after doing some digging myself but wanted to know opinions from y’all. ",
+      "content_preview": "I recently moved to Delhi from Kerala , and honestly, my skin is not loving this city at all. I have combo skin mix that with the pollution and the we...",
+      "content_length": 551,
+      "subreddit": "IndianSkincareAddicts",
+      "subreddit_color": "#ff4500",
+      "subreddit_display": "r/IndianSkincareAddicts",
+      "url": "https://reddit.com/r/IndianSkincareAddicts/comments/1ph9w58/delhi_just_hit_my_south_indian_combo_skin_hard/",
+      "score": 13,
+      "comments": 9,
+      "engagement_score": 22,
+      "created_utc": 1765192675.0,
+      "age_human": "6h ago",
+      "age_seconds": 24856.27778697014,
+      "author": "Economist_sad2617",
       "has_images": true,
       "image_urls": [
         {
-          "url": "https://preview.redd.it/glkwk4r2ez5g1.jpg?width=1242&format=pjpg&auto=webp&s=cd0ed24039e3f5eee2baa4a639eddeecf5f0c8e5",
-          "width": 1242,
-          "height": 2208,
+          "url": "https://preview.redd.it/cclf96h3sy5g1.jpeg?auto=webp&s=92c43d80b26c467eb84b74e205ee57cf92afbb86",
+          "width": 1170,
+          "height": 2532,
+          "type": "preview"
+        }
+      ],
+      "image_count": 1,
+      "flair": "I Followed Posting Rules",
+      "is_self": false,
+      "permalink": "/r/IndianSkincareAddicts/comments/1ph9w58/delhi_just_hit_my_south_indian_combo_skin_hard/",
+      "relevance_score": 100,
+      "combined_score": 9.68744073107949,
+      "engagement_score_original": 22,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "products",
+          "skincare routine",
+          "routine",
+          "skincare"
+        ],
+        "help_type": "troubleshooting",
+        "help_type_confidence": 0.6,
+        "expertise_match": [
+          "skincare routine",
+          "product recommendations",
+          "sensitive skin",
+          "vitamin c serum",
+          "skin barrier repair",
+          "curly hair care",
+          "skincare",
+          "product",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Share how you solved a similar problem",
+          "Suggest diagnostic questions to ask",
+          "Recommend gentle solutions to try first"
+        ],
+        "urgency_level": "high",
+        "competition_analysis": {
+          "comment_count": 9,
+          "engagement_level": "medium",
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "Moderate match for troubleshooting - share relevant experience and ask clarifying questions",
+          "Your expertise in skincare routine, product recommendations is highly relevant",
+          "Consider these approaches: Share how you solved a similar problem, Suggest diagnostic questions to ask"
+        ]
+      }
+    },
+    {
+      "id": "1phbyog",
+      "title": "Dermat prescribed isotretnoin on 1st ever visit",
+      "content": "I am 19 and i have always struggled with acne as long as i remember and i only got into skincare like 2 years ago so far i had tried aziderm little bit of glycolic acid and salcilyic acid here and there but they did not help so i went to dermatologist( fearing i might damage my skin). And she prescribed me isotret 20mg fro 20 days and told me to come back after that gave me a sunscreen a soap and some supplement? \n\nI feel like i have been ripped off but anyways my main concern is isotret.\n\nAny thoughts?",
+      "content_preview": "I am 19 and i have always struggled with acne as long as i remember and i only got into skincare like 2 years ago so far i had tried aziderm little bi...",
+      "content_length": 508,
+      "subreddit": "skincareaddictsindia",
+      "subreddit_color": "#0079d3",
+      "subreddit_display": "r/skincareaddictsindia",
+      "url": "https://reddit.com/r/skincareaddictsindia/comments/1phbyog/dermat_prescribed_isotretnoin_on_1st_ever_visit/",
+      "score": 0,
+      "comments": 14,
+      "engagement_score": 14,
+      "created_utc": 1765199305.0,
+      "age_human": "5h ago",
+      "age_seconds": 18226.278209924698,
+      "author": "Fit_Molasses1504",
+      "has_images": false,
+      "image_urls": [],
+      "image_count": 0,
+      "flair": "Skincare",
+      "is_self": true,
+      "permalink": "/r/skincareaddictsindia/comments/1phbyog/dermat_prescribed_isotretnoin_on_1st_ever_visit/",
+      "relevance_score": 100,
+      "combined_score": 9.626384936890668,
+      "engagement_score_original": 14,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "glycolic acid",
+          "skincare",
+          "acne",
+          "sunscreen"
+        ],
+        "help_type": "skin_concern",
+        "help_type_confidence": 0.3,
+        "expertise_match": [
+          "skincare routine",
+          "acne treatment",
+          "sensitive skin",
+          "vitamin c serum",
+          "skin barrier repair",
+          "salicylic acid",
+          "hyaluronic acid",
+          "sunscreen",
+          "curly hair care",
+          "skincare",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Share your experience with similar skin concerns",
+          "Suggest gentle, proven solutions",
+          "Recommend a consultation approach"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 14,
+          "engagement_level": "high",
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in skincare routine, acne treatment is highly relevant",
+          "Consider these approaches: Share your experience with similar skin concerns, Suggest gentle, proven solutions"
+        ]
+      }
+    },
+    {
+      "id": "1ph9hwp",
+      "title": "What to do about these pimples?",
+      "content": "I have these inflated acnes from July and they just got worsen day by day\n\nI used to use a normal facewash patanjali or himalaya one but one of my friend suggested to use better face wash use moisturizer I started doing so i switched to derma co face wash and Nivea moisturizer but nothing helped.\n\nOnce I visited doctor in very early stage he just said that these are just due to puberty drink SAFI syrup I used it but no improvement.\n\nThey are really painful even when I mistakenly touch them it feels so painful.\n\nWhat should I do? Is there anything which I can do rn \n\nOr should I just visit a dermatologist??",
+      "content_preview": "I have these inflated acnes from July and they just got worsen day by day\n\nI used to use a normal facewash patanjali or himalaya one but one of my fri...",
+      "content_length": 613,
+      "subreddit": "IndianSkincareAddicts",
+      "subreddit_color": "#ff4500",
+      "subreddit_display": "r/IndianSkincareAddicts",
+      "url": "https://reddit.com/r/IndianSkincareAddicts/comments/1ph9hwp/what_to_do_about_these_pimples/",
+      "score": 3,
+      "comments": 6,
+      "engagement_score": 9,
+      "created_utc": 1765191257.0,
+      "age_human": "7h ago",
+      "age_seconds": 26274.278568029404,
+      "author": "chal_hatt_bkl",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/m88fvgjvny5g1.jpg?width=1988&format=pjpg&auto=webp&s=c7d3d8c6da98ebbc49019de26c44324a8f68480d",
+          "width": 1988,
+          "height": 2493,
           "type": "gallery"
         },
         {
-          "url": "https://preview.redd.it/mb6nm5r2ez5g1.jpg?width=1242&format=pjpg&auto=webp&s=594dd29949cfc872c80e9d00c70cb3ada026bc99",
-          "width": 1242,
-          "height": 2208,
+          "url": "https://preview.redd.it/98tbfhjvny5g1.jpg?width=2048&format=pjpg&auto=webp&s=f80a4760002646be6a0bc3175a81422301d44aa2",
+          "width": 2048,
+          "height": 2785,
           "type": "gallery"
         },
         {
-          "url": "https://preview.redd.it/i24si4r2ez5g1.jpg?width=1179&format=pjpg&auto=webp&s=74d688d91abad1f1c650b2ff67e80eb4803a42dc",
-          "width": 1179,
-          "height": 2556,
+          "url": "https://preview.redd.it/409kadjvny5g1.jpg?width=2003&format=pjpg&auto=webp&s=3266602a7ad36013a439ad2d471d7caa6556618c",
+          "width": 2003,
+          "height": 897,
           "type": "gallery"
         },
         {
-          "url": "https://preview.redd.it/dw1o03r2ez5g1.jpg?width=1242&format=pjpg&auto=webp&s=0d18014db49ac4c382504d768965d7afb7b18a7c",
-          "width": 1242,
-          "height": 2208,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/ntevl4r2ez5g1.jpg?width=1179&format=pjpg&auto=webp&s=eb9a7a4bc17c16d78c8fec8492f716ac7a108146",
-          "width": 1179,
-          "height": 2556,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/gjiyr5r2ez5g1.jpg?width=1179&format=pjpg&auto=webp&s=5ca001157b2b04195ac8c9d6c87cd59613090929",
-          "width": 1179,
-          "height": 2556,
+          "url": "https://preview.redd.it/kx4maajvny5g1.png?width=282&format=png&auto=webp&s=e5af7429490e36ffa42dac205ed10cc88ac6dfec",
+          "width": 282,
+          "height": 480,
           "type": "gallery"
         }
       ],
-      "image_count": 6,
-      "flair": "Help",
+      "image_count": 4,
+      "flair": "I Didnt Follow Rules,Want to Post Anyway. 5 Reports Removes This",
       "is_self": false,
-      "permalink": "/r/Hair/comments/1phc8da/are_my_highlights_blended_enough/",
+      "permalink": "/r/IndianSkincareAddicts/comments/1ph9hwp/what_to_do_about_these_pimples/",
       "relevance_score": 100,
-      "combined_score": 9.88156037813646,
-      "engagement_score_original": 7,
+      "combined_score": 9.603416974559426,
+      "engagement_score_original": 9,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "acne"
+        ],
+        "help_type": "product_recommendation",
+        "help_type_confidence": 0.2,
+        "expertise_match": [
+          "acne treatment",
+          "vitamin c serum",
+          "skincare",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Recommend specific products you've used",
+          "Suggest budget-friendly alternatives",
+          "Share your experience with similar products"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 6,
+          "engagement_level": "medium",
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 0.9600000000000001,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in acne treatment, vitamin c serum is highly relevant",
+          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
+        ]
+      }
+    },
+    {
+      "id": "1ph3nbi",
+      "title": "3 years and 6 month Progress 1mg Fin Only zero Min or anything else",
+      "content": "Started June of 2022 was losing it fast and aggressive. Was 28 when I started fin, nearly 32 now. Started balding in 2018 but it wasn’t noticeable at all still peak hair, 2019 it started to thin out but honestly never noticed at all. End of 2020 in just a year and a half 50% of my density gone. Panicked when I couldn’t grab hair from my crown while showering looked at my crown with another mirror for the first time and nearly died. Looked up what to do and learned about fin, was afraid for 2 whole years due to fear mongering, that’s hair ill likely not get back due to not getting on instantly in 2020, couldn’t been in my 5th year mark with a head full of hair. But even with that I still recovered so much. Either patience and consistency. Only missed like 5 days total in all 3 years. Hope this gives some inspiration. This side by side blew my mind when I took them. Right now I’d be shinny bald. That’s a scary daunting thought. And in 2 more years I’ll get even better results. It’s never just a year. It’s more, I barely saw anything till year two, but year 3 was when it exploded. Been on this sub for so long and I’m finally one to post. ",
+      "content_preview": "Started June of 2022 was losing it fast and aggressive. Was 28 when I started fin, nearly 32 now. Started balding in 2018 but it wasn’t noticeable at ...",
+      "content_length": 1153,
+      "subreddit": "tressless",
+      "subreddit_color": "#8e44ad",
+      "subreddit_display": "r/tressless",
+      "url": "https://reddit.com/r/tressless/comments/1ph3nbi/3_years_and_6_month_progress_1mg_fin_only_zero/",
+      "score": 58,
+      "comments": 33,
+      "engagement_score": 91,
+      "created_utc": 1765169530.0,
+      "age_human": "13h ago",
+      "age_seconds": 48001.27893590927,
+      "author": "TanzuI5",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/fvmpdt0avw5g1.jpeg?auto=webp&s=12b02c3634c141ac185d6f3399830521a4bd16b7",
+          "width": 1290,
+          "height": 1240,
+          "type": "preview"
+        }
+      ],
+      "image_count": 1,
+      "flair": "Progress Pictures",
+      "is_self": false,
+      "permalink": "/r/tressless/comments/1ph3nbi/3_years_and_6_month_progress_1mg_fin_only_zero/",
+      "relevance_score": 100,
+      "combined_score": 9.2,
+      "engagement_score_original": 91,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [],
@@ -1352,17 +1677,116 @@
           "Suggest products for their hair type",
           "Recommend professional consultation if needed"
         ],
-        "urgency_level": "low",
+        "urgency_level": "medium",
         "competition_analysis": {
-          "comment_count": 5,
-          "engagement_level": "medium",
-          "response_opportunity": "moderate"
+          "comment_count": 33,
+          "engagement_level": "high",
+          "response_opportunity": "limited"
         },
         "confidence_score": 1.0,
         "response_suggestions": [
           "General match - provide helpful information and ask questions to understand their needs better",
           "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
           "Consider these approaches: Share your hair care experience, Suggest products for their hair type"
+        ]
+      }
+    },
+    {
+      "id": "1phht19",
+      "title": "best hydrating cleanser/moisturizer",
+      "content": "hi guys, my skin has honestly gone to.. crap.. and i honestly think its just because im lacking moisture (ill include pictures). my skin used to be so great and clear and i was happy with it but since its getting cold my skin is just… dry. so any tips on the most absolute gentle and non stripping, yet effective cleanser and or moisturizer will be great!! \n\nim already trying to be as gentle as possible by using gentle cleansers and not using harsh serums but nothing is working.. ive also been using hyaluronic acid on damp/wet skin since i heard that can help with holding moisture but i feel like its not doing.. much. also please dont recommend korean skincare.. it gives me really bad reactions and makes my skin worse. the only thing that kinda worked was medicube collagen/niacinamide gel. \nUNLESS its something thats like garunteed to not destroy my skin barrier.. \nthank you!",
+      "content_preview": "hi guys, my skin has honestly gone to.. crap.. and i honestly think its just because im lacking moisture (ill include pictures). my skin used to be so...",
+      "content_length": 886,
+      "subreddit": "beauty",
+      "subreddit_color": "#f39c12",
+      "subreddit_display": "r/beauty",
+      "url": "https://reddit.com/r/beauty/comments/1phht19/best_hydrating_cleansermoisturizer/",
+      "score": 1,
+      "comments": 2,
+      "engagement_score": 3,
+      "created_utc": 1765213377.0,
+      "age_human": "1h ago",
+      "age_seconds": 4154.279592037201,
+      "author": "certifiedgeniuss",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/uc76opinh06g1.jpg?width=2316&format=pjpg&auto=webp&s=38b26f85cf5a43948402d5405465a8b7b1b9a091",
+          "width": 2316,
+          "height": 3088,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/r6dzhjinh06g1.jpg?width=2316&format=pjpg&auto=webp&s=70f9f81f7e443e32c02ee7ea77ad1a2d9ad07778",
+          "width": 2316,
+          "height": 3088,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/603dw8inh06g1.jpg?width=1210&format=pjpg&auto=webp&s=370de9494f9f97e8601e22dde213546a1a6cc7e8",
+          "width": 1210,
+          "height": 1196,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/arqunpinh06g1.jpg?width=2316&format=pjpg&auto=webp&s=e15b7f4126bebb737f5482d7ab942491441600ab",
+          "width": 2316,
+          "height": 3088,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/rco5vcinh06g1.jpg?width=1986&format=pjpg&auto=webp&s=4454e25d9303fb49e8177c01930778f9a2408f98",
+          "width": 1986,
+          "height": 1062,
+          "type": "gallery"
+        }
+      ],
+      "image_count": 5,
+      "flair": "Seeking Advice",
+      "is_self": false,
+      "permalink": "/r/beauty/comments/1phht19/best_hydrating_cleansermoisturizer/",
+      "relevance_score": 100,
+      "combined_score": 9.138414967775347,
+      "engagement_score_original": 3,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "skincare",
+          "hyaluronic acid",
+          "niacinamide"
+        ],
+        "help_type": "troubleshooting",
+        "help_type_confidence": 0.3,
+        "expertise_match": [
+          "skincare routine",
+          "sensitive skin",
+          "niacinamide",
+          "vitamin c serum",
+          "skin barrier repair",
+          "salicylic acid",
+          "hyaluronic acid",
+          "curly hair care",
+          "skincare",
+          "ingredients",
+          "product",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Share how you solved a similar problem",
+          "Suggest diagnostic questions to ask",
+          "Recommend gentle solutions to try first"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 2,
+          "engagement_level": "low",
+          "response_opportunity": "good"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in skincare routine, sensitive skin is highly relevant",
+          "Consider these approaches: Share how you solved a similar problem, Suggest diagnostic questions to ask"
         ]
       }
     },
@@ -1376,12 +1800,12 @@
       "subreddit_color": "#00c851",
       "subreddit_display": "r/HaircareScience",
       "url": "https://reddit.com/r/HaircareScience/comments/1p34mqo/how_common_household_hair_products_pollute_our/",
-      "score": 30,
+      "score": 28,
       "comments": 10,
-      "engagement_score": 40,
+      "engagement_score": 38,
       "created_utc": 1763745884.0,
-      "age_human": "16d ago",
-      "age_seconds": 1464352.831362009,
+      "age_human": "17d ago",
+      "age_seconds": 1471647.280121088,
       "author": "LifeAtPurdue",
       "has_images": true,
       "image_urls": [
@@ -1397,13 +1821,13 @@
       "is_self": true,
       "permalink": "/r/HaircareScience/comments/1p34mqo/how_common_household_hair_products_pollute_our/",
       "relevance_score": 100,
-      "combined_score": 9.5,
-      "engagement_score_original": 40,
+      "combined_score": 9.100000000000001,
+      "engagement_score_original": 38,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
-          "routine",
-          "products"
+          "products",
+          "routine"
         ],
         "help_type": "routine_help",
         "help_type_confidence": 0.3,
@@ -1439,49 +1863,231 @@
       }
     },
     {
-      "id": "1phaetn",
-      "title": "Plz help trigger warning",
-      "content": "As in the picture I have these rashes near my thighs...next to that...I have been using candid dusting powder on it ... thinking tht will cure it ...but lately it has been increased alot ...ans there is a lot of itching too what should I do...",
-      "content_preview": "As in the picture I have these rashes near my thighs...next to that...I have been using candid dusting powder on it ... thinking tht will cure it ...b...",
-      "content_length": 243,
-      "subreddit": "skincareaddictsindia",
-      "subreddit_color": "#0079d3",
-      "subreddit_display": "r/skincareaddictsindia",
-      "url": "https://reddit.com/r/skincareaddictsindia/comments/1phaetn/plz_help_trigger_warning/",
-      "score": 2,
-      "comments": 24,
-      "engagement_score": 26,
-      "created_utc": 1765194495.0,
-      "age_human": "4h ago",
-      "age_seconds": 15741.831754922867,
-      "author": "-_kira-_-",
+      "id": "1phf7l5",
+      "title": "Dutasteride - When did it start working for you?!",
+      "content": "We might have seen lots of anecdotal reports of dut ruining peoples hair. If you took dut and if it made  a difference, good or bad, how was it?\nWhen did it start working?\nDid you shed initially?\n\nI've been on finasteride for 7 months and i didn't see anything. Now i switched to dut 2 months ago and im shedding a lot. Want to know from others experience ",
+      "content_preview": "We might have seen lots of anecdotal reports of dut ruining peoples hair. If you took dut and if it made  a difference, good or bad, how was it?\nWhen ...",
+      "content_length": 356,
+      "subreddit": "tressless",
+      "subreddit_color": "#8e44ad",
+      "subreddit_display": "r/tressless",
+      "url": "https://reddit.com/r/tressless/comments/1phf7l5/dutasteride_when_did_it_start_working_for_you/",
+      "score": 6,
+      "comments": 15,
+      "engagement_score": 21,
+      "created_utc": 1765207534.0,
+      "age_human": "2h ago",
+      "age_seconds": 9997.280558109283,
+      "author": "Slam_066",
+      "has_images": false,
+      "image_urls": [],
+      "image_count": 0,
+      "flair": "Finasteride/Dutasteride",
+      "is_self": true,
+      "permalink": "/r/tressless/comments/1phf7l5/dutasteride_when_did_it_start_working_for_you/",
+      "relevance_score": 100,
+      "combined_score": 9.019767498042848,
+      "engagement_score_original": 21,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "hair_concern",
+        "help_type_confidence": 0.1,
+        "expertise_match": [
+          "vitamin c serum",
+          "hair loss treatment",
+          "curly hair care",
+          "hair growth",
+          "hair oils",
+          "haircare"
+        ],
+        "response_angles": [
+          "Share your hair care experience",
+          "Suggest products for their hair type",
+          "Recommend professional consultation if needed"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 15,
+          "engagement_level": "high",
+          "response_opportunity": "limited"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
+          "Consider these approaches: Share your hair care experience, Suggest products for their hair type"
+        ]
+      }
+    },
+    {
+      "id": "1phgrzs",
+      "title": "[Routine help] new under eye wrinkles / bags",
+      "content": "\nHello! I am a 29F and have struggled with dark under eye circles for a long time, which you can see in the photo. I think this is genetic and have made my peace with them. \n\nBut recently I’ve developed these wrinkles (or are they bags) under my eyes and I’m unsure what is causing them or how to minimise them? I feel like it’s exacerbating my dark circles and just generally ageing me greatly.\n\nAny ideas, tips or products? ",
+      "content_preview": "\nHello! I am a 29F and have struggled with dark under eye circles for a long time, which you can see in the photo. I think this is genetic and have ma...",
+      "content_length": 426,
+      "subreddit": "SkincareAddiction",
+      "subreddit_color": "#7193ff",
+      "subreddit_display": "r/SkincareAddiction",
+      "url": "https://reddit.com/r/SkincareAddiction/comments/1phgrzs/routine_help_new_under_eye_wrinkles_bags/",
+      "score": 1,
+      "comments": 2,
+      "engagement_score": 3,
+      "created_utc": 1765211056.0,
+      "age_human": "1h ago",
+      "age_seconds": 6475.280893087387,
+      "author": "flames8",
       "has_images": true,
       "image_urls": [
         {
-          "url": "https://preview.redd.it/e1o2g88ixy5g1.jpg?width=2778&format=pjpg&auto=webp&s=27a64387cbf7ad666e1f0f67f4f4e123804f002d",
-          "width": 2778,
-          "height": 2146,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/4sfdhp6ixy5g1.jpg?width=2881&format=pjpg&auto=webp&s=fc02b5ebb1fbd5e472196515386fc38741d0c846",
-          "width": 2881,
-          "height": 2691,
-          "type": "gallery"
+          "url": "https://preview.redd.it/sx2p289ra06g1.jpeg?auto=webp&s=8464bd9c3b1a42033c8da5845aafb1a520d7ddb2",
+          "width": 737,
+          "height": 929,
+          "type": "preview"
         }
       ],
-      "image_count": 2,
-      "flair": "Skincare",
+      "image_count": 1,
+      "flair": "Routine Help",
       "is_self": false,
-      "permalink": "/r/skincareaddictsindia/comments/1phaetn/plz_help_trigger_warning/",
+      "permalink": "/r/SkincareAddiction/comments/1phgrzs/routine_help_new_under_eye_wrinkles_bags/",
       "relevance_score": 100,
-      "combined_score": 9.402652587832677,
-      "engagement_score_original": 26,
+      "combined_score": 8.880526651991739,
+      "engagement_score_original": 3,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "products",
+          "wrinkles",
+          "routine"
+        ],
+        "help_type": "routine_help",
+        "help_type_confidence": 0.3,
+        "expertise_match": [
+          "skincare routine",
+          "product recommendations",
+          "vitamin c serum",
+          "pH balance",
+          "skincare",
+          "product",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Share your personal routine experience",
+          "Suggest a step-by-step routine based on their skin type",
+          "Recommend products for each step"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 2,
+          "engagement_level": "low",
+          "response_opportunity": "good"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in skincare routine, product recommendations is highly relevant",
+          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
+        ]
+      }
+    },
+    {
+      "id": "1phi5in",
+      "title": "[routine help] hypoallergenic deodorant?",
+      "content": "hi everyone!\n\nover the past year, i’ve developed a bad allergy towards deodorant. i was only using aluminum free, and randomly started getting horrible reactions! since then, ive switched to the crystal deodorant but i find that it doesn’t do anything for the odor. i used a natural one like salt and stone - still had a horrible reaction to it.\n\ni’m wondering if anyone has any recommendations? i don’t wanna keep buying deodorants and them not work for me, especially as natural ones are more expensive.\n\ni appreciate any feedback!",
+      "content_preview": "hi everyone!\n\nover the past year, i’ve developed a bad allergy towards deodorant. i was only using aluminum free, and randomly started getting horribl...",
+      "content_length": 533,
+      "subreddit": "SkincareAddiction",
+      "subreddit_color": "#7193ff",
+      "subreddit_display": "r/SkincareAddiction",
+      "url": "https://reddit.com/r/SkincareAddiction/comments/1phi5in/routine_help_hypoallergenic_deodorant/",
+      "score": 1,
+      "comments": 1,
+      "engagement_score": 2,
+      "created_utc": 1765214157.0,
+      "age_human": "56m ago",
+      "age_seconds": 3374.2812559604645,
+      "author": "aniamoosavi",
+      "has_images": false,
+      "image_urls": [],
+      "image_count": 0,
+      "flair": "Routine Help",
+      "is_self": true,
+      "permalink": "/r/SkincareAddiction/comments/1phi5in/routine_help_hypoallergenic_deodorant/",
+      "relevance_score": 100,
+      "combined_score": 8.840703801298584,
+      "engagement_score_original": 2,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "routine"
+        ],
+        "help_type": "routine_help",
+        "help_type_confidence": 0.3,
+        "expertise_match": [
+          "skincare routine",
+          "product recommendations",
+          "vitamin c serum",
+          "skincare",
+          "product",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Share your personal routine experience",
+          "Suggest a step-by-step routine based on their skin type",
+          "Recommend products for each step"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 1,
+          "engagement_level": "low",
+          "response_opportunity": "good"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in skincare routine, product recommendations is highly relevant",
+          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
+        ]
+      }
+    },
+    {
+      "id": "1phivcq",
+      "title": "Save me from these cracked painful hands",
+      "content": "Please help..My hands are cracking badly. I wash them very frequently because of OCD. I have tried max olesoft, every other moisturiser but nothing seems to be working. It’s very painful. Anyone with the same issue can you please tell me what worked for you?\n\n",
+      "content_preview": "Please help..My hands are cracking badly. I wash them very frequently because of OCD. I have tried max olesoft, every other moisturiser but nothing se...",
+      "content_length": 260,
+      "subreddit": "IndianSkincareAddicts",
+      "subreddit_color": "#ff4500",
+      "subreddit_display": "r/IndianSkincareAddicts",
+      "url": "https://reddit.com/r/IndianSkincareAddicts/comments/1phivcq/save_me_from_these_cracked_painful_hands/",
+      "score": 1,
+      "comments": 5,
+      "engagement_score": 6,
+      "created_utc": 1765215768.0,
+      "age_human": "29m ago",
+      "age_seconds": 1763.2816710472107,
+      "author": "Entire_Break4380",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/bdk4m19ro06g1.jpeg?auto=webp&s=039a4a6d3dc82dd2e35d01c867062c9514d1647d",
+          "width": 3024,
+          "height": 4032,
+          "type": "preview"
+        }
+      ],
+      "image_count": 1,
+      "flair": "I Followed Posting Rules",
+      "is_self": false,
+      "permalink": "/r/IndianSkincareAddicts/comments/1phivcq/save_me_from_these_cracked_painful_hands/",
+      "relevance_score": 100,
+      "combined_score": 8.81632724583149,
+      "engagement_score_original": 6,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [],
         "help_type": "troubleshooting",
-        "help_type_confidence": 0.1,
+        "help_type_confidence": 0.4,
         "expertise_match": [
           "vitamin c serum",
           "problem-solving"
@@ -1493,15 +2099,517 @@
         ],
         "urgency_level": "low",
         "competition_analysis": {
-          "comment_count": 24,
+          "comment_count": 5,
+          "engagement_level": "medium",
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 0.52,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum, problem-solving is highly relevant",
+          "Consider these approaches: Share how you solved a similar problem, Suggest diagnostic questions to ask"
+        ]
+      }
+    },
+    {
+      "id": "1phiq2c",
+      "title": "accidentally (&amp; foolishly) shaved the hair on my hairline, and because it keeps coming back weird, i shave it again. Should i just let it grow, and will it look better, or is there no solution at all?",
+      "content": "Please help. I’m like desperate. Thank you for your help.",
+      "content_preview": "Please help. I’m like desperate. Thank you for your help.",
+      "content_length": 57,
+      "subreddit": "Hair",
+      "subreddit_color": "#e74c3c",
+      "subreddit_display": "r/Hair",
+      "url": "https://reddit.com/r/Hair/comments/1phiq2c/accidentally_foolishly_shaved_the_hair_on_my/",
+      "score": 1,
+      "comments": 5,
+      "engagement_score": 6,
+      "created_utc": 1765215440.0,
+      "age_human": "34m ago",
+      "age_seconds": 2091.281996011734,
+      "author": "yourbiggestlos3r",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/tsowvphsn06g1.jpg?width=2316&format=pjpg&auto=webp&s=5eb7d46e08ef5b197bc17b0e8bdbd1978e9c8a5e",
+          "width": 2316,
+          "height": 921,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/19c2uohsn06g1.jpg?width=1314&format=pjpg&auto=webp&s=4a4303fcfd0d30d3250ae74aaa44bd0f97235640",
+          "width": 1314,
+          "height": 627,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/i3ix9risn06g1.jpg?width=1242&format=pjpg&auto=webp&s=1acb91dac22e4abe5f3b8207a9a67123c01d1f3d",
+          "width": 1242,
+          "height": 495,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/4nbq1phsn06g1.jpg?width=1242&format=pjpg&auto=webp&s=87ba12d3b14072030bf96c2a204d1806aa1626f2",
+          "width": 1242,
+          "height": 431,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/772g8phsn06g1.jpg?width=1289&format=pjpg&auto=webp&s=7af4039b2dcda11f05cec428ca434c9548898281",
+          "width": 1289,
+          "height": 513,
+          "type": "gallery"
+        }
+      ],
+      "image_count": 5,
+      "flair": "Help",
+      "is_self": false,
+      "permalink": "/r/Hair/comments/1phiq2c/accidentally_foolishly_shaved_the_hair_on_my/",
+      "relevance_score": 100,
+      "combined_score": 8.782159916038314,
+      "engagement_score_original": 6,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "troubleshooting",
+        "help_type_confidence": 0.1,
+        "expertise_match": [
+          "vitamin c serum",
+          "hair loss treatment",
+          "curly hair care",
+          "hair growth",
+          "hair oils",
+          "haircare",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Share how you solved a similar problem",
+          "Suggest diagnostic questions to ask",
+          "Recommend gentle solutions to try first"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 5,
+          "engagement_level": "medium",
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
+          "Consider these approaches: Share how you solved a similar problem, Suggest diagnostic questions to ask"
+        ]
+      }
+    },
+    {
+      "id": "1phj4jy",
+      "title": "color and cut advice",
+      "content": "not me keeping here extra busy lol. but I just need a final -I hope so- decision. Can you pretty please tell me which picture is best?? I think I will definetly get curtaing bangs but idk if I should keep my natural color which is photo 1 or go dark blonde.",
+      "content_preview": "not me keeping here extra busy lol. but I just need a final -I hope so- decision. Can you pretty please tell me which picture is best?? I think I will...",
+      "content_length": 257,
+      "subreddit": "Hair",
+      "subreddit_color": "#e74c3c",
+      "subreddit_display": "r/Hair",
+      "url": "https://reddit.com/r/Hair/comments/1phj4jy/color_and_cut_advice/",
+      "score": 1,
+      "comments": 0,
+      "engagement_score": 1,
+      "created_utc": 1765216338.0,
+      "age_human": "19m ago",
+      "age_seconds": 1193.282310962677,
+      "author": "mariapuding",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/i3qew57gq06g1.jpg?width=864&format=pjpg&auto=webp&s=4e81ee5318e31039a3d7dadbc406d58374fa4ee2",
+          "width": 864,
+          "height": 1184,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/0f81q16gq06g1.jpg?width=864&format=pjpg&auto=webp&s=055110b1247f8dd737a303333f8395e68908a01e",
+          "width": 864,
+          "height": 1184,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/9nw0e86gq06g1.png?width=864&format=png&auto=webp&s=79ebd415d62d392bbb70df8afd0b62c41db049da",
+          "width": 864,
+          "height": 1184,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/jwoo026gq06g1.png?width=864&format=png&auto=webp&s=c86d9b77c8a2a2a01f59c6903a59e17ddbb54f4c",
+          "width": 864,
+          "height": 1184,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/roko3x6gq06g1.png?width=864&format=png&auto=webp&s=358e21fdc154b8b7a932a809384f22eb93ac200d",
+          "width": 864,
+          "height": 1184,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/t7efjy6gq06g1.jpg?width=864&format=pjpg&auto=webp&s=a5867c1d864d19c6a38dcf3ef16f53d232193aa2",
+          "width": 864,
+          "height": 1184,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/447py16gq06g1.jpg?width=864&format=pjpg&auto=webp&s=fd90291b857214c69b6a39ba58d13ac6b7332d04",
+          "width": 864,
+          "height": 1184,
+          "type": "gallery"
+        }
+      ],
+      "image_count": 7,
+      "flair": "Help",
+      "is_self": false,
+      "permalink": "/r/Hair/comments/1phj4jy/color_and_cut_advice/",
+      "relevance_score": 100,
+      "combined_score": 8.678463781679119,
+      "engagement_score_original": 1,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "product_recommendation",
+        "help_type_confidence": 0.2,
+        "expertise_match": [
+          "vitamin c serum",
+          "pH balance",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Recommend specific products you've used",
+          "Suggest budget-friendly alternatives",
+          "Share your experience with similar products"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 0,
+          "engagement_level": "low",
+          "response_opportunity": "good"
+        },
+        "confidence_score": 0.6600000000000001,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum, pH balance is highly relevant",
+          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
+        ]
+      }
+    },
+    {
+      "id": "1phjib2",
+      "title": "urgent help, is this just ghamoriya??",
+      "content": "it's not even that hot and I wasn't sweating or feeling hot but I got this rashesh around my neck, I started feeling an irritation last night during sleep I thiught it's just because of duckneck tshirt garmi and then I changed it but morning I see I have this but had to touch office and no time to do anything about it and whole day the skin was irritating idek what this is does anyone have an idea??? ",
+      "content_preview": "it's not even that hot and I wasn't sweating or feeling hot but I got this rashesh around my neck, I started feeling an irritation last night during s...",
+      "content_length": 404,
+      "subreddit": "skincareaddictsindia",
+      "subreddit_color": "#0079d3",
+      "subreddit_display": "r/skincareaddictsindia",
+      "url": "https://reddit.com/r/skincareaddictsindia/comments/1phjib2/urgent_help_is_this_just_ghamoriya/",
+      "score": 2,
+      "comments": 3,
+      "engagement_score": 5,
+      "created_utc": 1765217168.0,
+      "age_human": "6m ago",
+      "age_seconds": 363.28262305259705,
+      "author": "FoundationFree6695",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/fwprijhws06g1.jpg?width=4096&format=pjpg&auto=webp&s=468a85b715e0a79f72b5f24d359e93a68758d979",
+          "width": 4096,
+          "height": 3072,
+          "type": "gallery"
+        },
+        {
+          "url": "https://preview.redd.it/649e0cxws06g1.jpg?width=4896&format=pjpg&auto=webp&s=b3c138c98620a39967608d7d7662a1d07e4432f4",
+          "width": 4896,
+          "height": 6528,
+          "type": "gallery"
+        }
+      ],
+      "image_count": 2,
+      "flair": "Skincare",
+      "is_self": false,
+      "permalink": "/r/skincareaddictsindia/comments/1phjib2/urgent_help_is_this_just_ghamoriya/",
+      "relevance_score": 100,
+      "combined_score": 8.563842469271686,
+      "engagement_score_original": 5,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "skin_concern",
+        "help_type_confidence": 0.3,
+        "expertise_match": [
+          "sensitive skin",
+          "vitamin c serum",
+          "skin barrier repair",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Share your experience with similar skin concerns",
+          "Suggest gentle, proven solutions",
+          "Recommend a consultation approach"
+        ],
+        "urgency_level": "high",
+        "competition_analysis": {
+          "comment_count": 3,
+          "engagement_level": "low",
+          "response_opportunity": "good"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in sensitive skin, vitamin c serum is highly relevant",
+          "Consider these approaches: Share your experience with similar skin concerns, Suggest gentle, proven solutions"
+        ]
+      }
+    },
+    {
+      "id": "1owa3ke",
+      "title": "Heat damage: is there a safe temperature?",
+      "content": "I hope this question is allowed. I've been looking for this information, but I can't find a specific answer/explanation. \n\nIs there a safe temperature below which you could blow dry/style your hair without causing ANY damage and skip heat protectant? (E.g. below 70°C.)",
+      "content_preview": "I hope this question is allowed. I've been looking for this information, but I can't find a specific answer/explanation. \n\nIs there a safe temperature...",
+      "content_length": 269,
+      "subreddit": "HaircareScience",
+      "subreddit_color": "#00c851",
+      "subreddit_display": "r/HaircareScience",
+      "url": "https://reddit.com/r/HaircareScience/comments/1owa3ke/heat_damage_is_there_a_safe_temperature/",
+      "score": 26,
+      "comments": 12,
+      "engagement_score": 38,
+      "created_utc": 1763061308.0,
+      "age_human": "24d ago",
+      "age_seconds": 2156223.282938957,
+      "author": "Alessandreddit",
+      "has_images": false,
+      "image_urls": [],
+      "image_count": 0,
+      "flair": "Question",
+      "is_self": true,
+      "permalink": "/r/HaircareScience/comments/1owa3ke/heat_damage_is_there_a_safe_temperature/",
+      "relevance_score": 100,
+      "combined_score": 8.5,
+      "engagement_score_original": 38,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "product_recommendation",
+        "help_type_confidence": 0.1,
+        "expertise_match": [
+          "vitamin c serum",
+          "hair loss treatment",
+          "curly hair care",
+          "hair growth",
+          "hair oils",
+          "haircare"
+        ],
+        "response_angles": [
+          "Recommend specific products you've used",
+          "Suggest budget-friendly alternatives",
+          "Share your experience with similar products"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 12,
           "engagement_level": "high",
-          "response_opportunity": "limited"
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
+          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
+        ]
+      }
+    },
+    {
+      "id": "1phgfk5",
+      "title": "Need help to heal all these makati on my body.",
+      "content": "Whenever i eat chicken, i got all these makati on my body.Can someone recommend some cream or ointment i can use for these small something on my foot?😭",
+      "content_preview": "Whenever i eat chicken, i got all these makati on my body.Can someone recommend some cream or ointment i can use for these small something on my foot?...",
+      "content_length": 151,
+      "subreddit": "skincareaddictsindia",
+      "subreddit_color": "#0079d3",
+      "subreddit_display": "r/skincareaddictsindia",
+      "url": "https://reddit.com/r/skincareaddictsindia/comments/1phgfk5/need_help_to_heal_all_these_makati_on_my_body/",
+      "score": 1,
+      "comments": 1,
+      "engagement_score": 2,
+      "created_utc": 1765210281.0,
+      "age_human": "2h ago",
+      "age_seconds": 7250.283241987228,
+      "author": "Miserable_You6798",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/hp5q9x2g806g1.jpeg?auto=webp&s=c0365787619b1c5a19fd1e7cf2b87f66d7b9286a",
+          "width": 3024,
+          "height": 3024,
+          "type": "preview"
+        }
+      ],
+      "image_count": 1,
+      "flair": "Skincare",
+      "is_self": false,
+      "permalink": "/r/skincareaddictsindia/comments/1phgfk5/need_help_to_heal_all_these_makati_on_my_body/",
+      "relevance_score": 100,
+      "combined_score": 8.427981868490026,
+      "engagement_score_original": 2,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "product_recommendation",
+        "help_type_confidence": 0.1,
+        "expertise_match": [
+          "vitamin c serum",
+          "problem-solving"
+        ],
+        "response_angles": [
+          "Recommend specific products you've used",
+          "Suggest budget-friendly alternatives",
+          "Share your experience with similar products"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 1,
+          "engagement_level": "low",
+          "response_opportunity": "good"
         },
         "confidence_score": 0.6300000000000001,
         "response_suggestions": [
           "General match - provide helpful information and ask questions to understand their needs better",
           "Your expertise in vitamin c serum, problem-solving is highly relevant",
-          "Consider these approaches: Share how you solved a similar problem, Suggest diagnostic questions to ask"
+          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
+        ]
+      }
+    },
+    {
+      "id": "1phitdo",
+      "title": "My hair is extremely boring, what can I do with it?",
+      "content": "",
+      "content_preview": "",
+      "content_length": 0,
+      "subreddit": "Hair",
+      "subreddit_color": "#e74c3c",
+      "subreddit_display": "r/Hair",
+      "url": "https://reddit.com/r/Hair/comments/1phitdo/my_hair_is_extremely_boring_what_can_i_do_with_it/",
+      "score": 4,
+      "comments": 1,
+      "engagement_score": 5,
+      "created_utc": 1765215647.0,
+      "age_human": "31m ago",
+      "age_seconds": 1884.2835431098938,
+      "author": "OkAccountant5204",
+      "has_images": true,
+      "image_urls": [
+        {
+          "url": "https://preview.redd.it/tj3rulxao06g1.jpeg?auto=webp&s=0e56236e7c2ab52a0d6ebf3660541cdd9ef1abf6",
+          "width": 2316,
+          "height": 3088,
+          "type": "preview"
+        }
+      ],
+      "image_count": 1,
+      "flair": "Help",
+      "is_self": false,
+      "permalink": "/r/Hair/comments/1phitdo/my_hair_is_extremely_boring_what_can_i_do_with_it/",
+      "relevance_score": 100,
+      "combined_score": 8.412445867797842,
+      "engagement_score_original": 5,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [],
+        "help_type": "hair_concern",
+        "help_type_confidence": 0.1,
+        "expertise_match": [
+          "vitamin c serum",
+          "hair loss treatment",
+          "curly hair care",
+          "hair growth",
+          "hair oils",
+          "haircare"
+        ],
+        "response_angles": [
+          "Share your hair care experience",
+          "Suggest products for their hair type",
+          "Recommend professional consultation if needed"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 1,
+          "engagement_level": "low",
+          "response_opportunity": "good"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
+          "Consider these approaches: Share your hair care experience, Suggest products for their hair type"
+        ]
+      }
+    },
+    {
+      "id": "1p4lpq1",
+      "title": "Fabric content vs. fabric weave for effect on hair? (Options beyond silk/satin??)",
+      "content": "I hear a lot that the holy grail for protecting hair with fabric is a silk satin. And I know lots of people use polyester satins, or silk in other fabric weaves (twill, etc) too. \n\nI can't find any kind of evidence/study/etc comparing fabrics or comparing weaves when it comes to haircare, honestly not even much anecdotal comparisons either. I'm sure both factors work together on some level, but do we have more information here?  \n  \nEspecially since it's almost winter, I'm wondering if any softer wool-like material like cashmere or merino would protect hair if it's in a fine weave or just soft to the touch, for example.  \n  \nOr if a knit beanie with a high silk content in the yarn would be gentle on hair, even though it's in a yarn/chunky knit form?\n\nWhat would you look for if you're expanding beyond silk and satin? Or should we really not expand much beyond those?\n\nThank you!",
+      "content_preview": "I hear a lot that the holy grail for protecting hair with fabric is a silk satin. And I know lots of people use polyester satins, or silk in other fab...",
+      "content_length": 889,
+      "subreddit": "HaircareScience",
+      "subreddit_color": "#00c851",
+      "subreddit_display": "r/HaircareScience",
+      "url": "https://reddit.com/r/HaircareScience/comments/1p4lpq1/fabric_content_vs_fabric_weave_for_effect_on_hair/",
+      "score": 25,
+      "comments": 12,
+      "engagement_score": 37,
+      "created_utc": 1763901491.0,
+      "age_human": "15d ago",
+      "age_seconds": 1316040.283771038,
+      "author": "ClassicLitLangs",
+      "has_images": false,
+      "image_urls": [],
+      "image_count": 0,
+      "flair": "Question",
+      "is_self": true,
+      "permalink": "/r/HaircareScience/comments/1p4lpq1/fabric_content_vs_fabric_weave_for_effect_on_hair/",
+      "relevance_score": 100,
+      "combined_score": 8.3,
+      "engagement_score_original": 37,
+      "opportunity_rating": "low",
+      "context": {
+        "triggered_keywords": [
+          "haircare"
+        ],
+        "help_type": "hair_concern",
+        "help_type_confidence": 0.1,
+        "expertise_match": [
+          "vitamin c serum",
+          "hair loss treatment",
+          "curly hair care",
+          "hair growth",
+          "hair oils",
+          "haircare",
+          "scientific"
+        ],
+        "response_angles": [
+          "Share your hair care experience",
+          "Suggest products for their hair type",
+          "Recommend professional consultation if needed"
+        ],
+        "urgency_level": "low",
+        "competition_analysis": {
+          "comment_count": 12,
+          "engagement_level": "high",
+          "response_opportunity": "moderate"
+        },
+        "confidence_score": 1.0,
+        "response_suggestions": [
+          "General match - provide helpful information and ask questions to understand their needs better",
+          "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
+          "Consider these approaches: Share your hair care experience, Suggest products for their hair type"
         ]
       }
     },
@@ -1519,8 +2627,8 @@
       "comments": 1,
       "engagement_score": 2,
       "created_utc": 1765207965.0,
-      "age_human": "37m ago",
-      "age_seconds": 2271.8320500850677,
+      "age_human": "2h ago",
+      "age_seconds": 9566.284205913544,
       "author": "Common-Librarian9629",
       "has_images": true,
       "image_urls": [
@@ -1554,18 +2662,18 @@
       "is_self": false,
       "permalink": "/r/SkincareAddiction/comments/1phfedv/routine_help_how_to_combat_my_acne/",
       "relevance_score": 100,
-      "combined_score": 8.958093788704387,
+      "combined_score": 8.181370403431082,
       "engagement_score_original": 2,
       "opportunity_rating": "low",
       "context": {
         "triggered_keywords": [
-          "acne",
-          "skincare routine",
-          "spf",
-          "routine",
           "tretinoin",
+          "spf",
+          "mandelic acid",
+          "skincare routine",
+          "routine",
           "skincare",
-          "mandelic acid"
+          "acne"
         ],
         "help_type": "routine_help",
         "help_type_confidence": 0.9,
@@ -1616,8 +2724,8 @@
       "comments": 5,
       "engagement_score": 6,
       "created_utc": 1765195265.0,
-      "age_human": "4h ago",
-      "age_seconds": 14971.832675933838,
+      "age_human": "6h ago",
+      "age_seconds": 22266.284825086594,
       "author": "Nearby_Yellow4219",
       "has_images": false,
       "image_urls": [],
@@ -1626,7 +2734,7 @@
       "is_self": true,
       "permalink": "/r/skincareaddictsindia/comments/1phan6u/need_help_with_after_shave_face_bumps_and_acne/",
       "relevance_score": 100,
-      "combined_score": 8.928523421883583,
+      "combined_score": 8.016717753261329,
       "engagement_score_original": 6,
       "opportunity_rating": "low",
       "context": {
@@ -1661,416 +2769,16 @@
           "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
         ]
       }
-    },
-    {
-      "id": "1phdmyy",
-      "title": "how do i get out of moisture overload? is this even moisture overload?",
-      "content": "My hair has been feeling very limp &amp; shiny for quite some time.\n\n\nThe bottom of my hair is usually a mix of 2c-3a, predominantly very springy curls, and the past few wash days it’s been practically 2a. It feels stringy and too soft, but as far as i know i’m not doing anything excessive to be causing this(styling-wise).\n\n\nTo sum it up, the bottom is suffering the most, but all of my hair feels very limp, has basically no retention when messed with, and falls apart quick. \n\n\nI’ve been following a wavy-curly routine for 3 months, and this is what i know about my hair + my full monthly routine:\n\n\n• mixed porosity (crown+ face framing bits are high porosity, everything else is low-medium)\n\n• 2b-2c-3a, i have the occasional damaged pieces that curl and then fall into a 2b wave, and some that wont curl at all. i believe i’m predominantly 2c rn\n\n• medium density\n\n• fine strands\n\n• my curl pattern is quite damaged(used to be 3a-3b throughout my whole life) from years and years of straightening my hair twice a day, excessive bleaching and dying, and a hair pulling disorder focused on the crown &amp; pieces around my neck.\n\n• my hair naturally has a soft finish to it, so the excessive shine isn’t something i’m new to, but yesterday i looked in the mirror and literally looked like a disco ball… i’m reflecting INSANE amounts of light.\nthis isnt normal for me, lol!\n\n\npre-shampoo treatments:\n\n\ntwice a month - curlsmith bond curl rehab salve, i leave it on longer on my high porosity area, and about 20 min into waiting i apply it to everything else.\n\n\nonce a month - some kind of conditioning treatment, usually with a good protein-moisture balance. recently it was the garnier SOS keratin filler.\n\n\nwashing:\n\n- bounce curl gentle clarifying shampoo, i use this as a regular shampoo, it’s very light &amp; really doesnt strip much\n\n\n- macadamia naturals conditioner, i use this every second or third wash, my hair already feels too soft in the shower.\n\n\n- olaplex clarifying shampoo, once a week or once every two weeks. depends on how much i wash my hair that week.\n\n\nstyling:\n\n\n- i use mielle rosemary+mint leave in MAYBE once a month, only for my crown, if it feels dry. \n\n\n- balea sea salt spray, i use this before i do my whole routine &amp; spray pretty generously. my hair is naturally very soft too, so it needs some texture.\n\n\n- got2b curls mousse, 1 pump for my whole head, probably golf ball sized\n\n\n- keune styling x gel, i’m not sure exactly what amount i use, i just follow the needs of my hair that day. sometimes more, sometimes less.\n\n\n- i diffuse on medium air &amp; medium temp, switching to cool temp throughout the process.\n\n\nall products r applied with praying hands &amp; then scrunched in to the top.\n\ni don’t apply any stylers on the scalp, i just go near it, and my hair seems to react pretty well to it. i got it as a tip from my stylist, and my roots have been curling pretty well!\n\n",
-      "content_preview": "My hair has been feeling very limp &amp; shiny for quite some time.\n\n\nThe bottom of my hair is usually a mix of 2c-3a, predominantly very springy curl...",
-      "content_length": 2924,
-      "subreddit": "curlyhair",
-      "subreddit_color": "#ff6b35",
-      "subreddit_display": "r/curlyhair",
-      "url": "https://reddit.com/r/curlyhair/comments/1phdmyy/how_do_i_get_out_of_moisture_overload_is_this/",
-      "score": 6,
-      "comments": 1,
-      "engagement_score": 7,
-      "created_utc": 1765203783.0,
-      "age_human": "1h ago",
-      "age_seconds": 6453.833025932312,
-      "author": "viwxed",
-      "has_images": true,
-      "image_urls": [
-        {
-          "url": "https://preview.redd.it/uo18gek4pz5g1.jpg?width=1178&format=pjpg&auto=webp&s=f631344c42e62aded40829d9b1916b5489bad30b",
-          "width": 1178,
-          "height": 1482,
-          "type": "gallery"
-        },
-        {
-          "url": "https://preview.redd.it/nelmefk4pz5g1.jpg?width=1179&format=pjpg&auto=webp&s=0c2f88134f8c64723863f98453d9867a841d8e70",
-          "width": 1179,
-          "height": 1647,
-          "type": "gallery"
-        }
-      ],
-      "image_count": 2,
-      "flair": "Help!",
-      "is_self": false,
-      "permalink": "/r/curlyhair/comments/1phdmyy/how_do_i_get_out_of_moisture_overload_is_this/",
-      "relevance_score": 100,
-      "combined_score": 8.697848590142197,
-      "engagement_score_original": 7,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [
-          "scalp",
-          "routine",
-          "conditioner",
-          "products",
-          "shampoo",
-          "texture"
-        ],
-        "help_type": "routine_help",
-        "help_type_confidence": 0.4,
-        "expertise_match": [
-          "skincare routine",
-          "acne treatment",
-          "product recommendations",
-          "vitamin c serum",
-          "hyperpigmentation treatment",
-          "pH balance",
-          "hair loss treatment",
-          "scalp health",
-          "curly hair care",
-          "hair growth",
-          "protein treatments",
-          "hair oils",
-          "skincare",
-          "haircare",
-          "product"
-        ],
-        "response_angles": [
-          "Share your personal routine experience",
-          "Suggest a step-by-step routine based on their skin type",
-          "Recommend products for each step"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 1,
-          "engagement_level": "low",
-          "response_opportunity": "good"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in skincare routine, acne treatment is highly relevant",
-          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
-        ]
-      }
-    },
-    {
-      "id": "1phbyog",
-      "title": "Dermat prescribed isotretnoin on 1st ever visit",
-      "content": "I am 19 and i have always struggled with acne as long as i remember and i only got into skincare like 2 years ago so far i had tried aziderm little bit of glycolic acid and salcilyic acid here and there but they did not help so i went to dermatologist( fearing i might damage my skin). And she prescribed me isotret 20mg fro 20 days and told me to come back after that gave me a sunscreen a soap and some supplement? \n\nI feel like i have been ripped off but anyways my main concern is isotret.\n\nAny thoughts?",
-      "content_preview": "I am 19 and i have always struggled with acne as long as i remember and i only got into skincare like 2 years ago so far i had tried aziderm little bi...",
-      "content_length": 508,
-      "subreddit": "skincareaddictsindia",
-      "subreddit_color": "#0079d3",
-      "subreddit_display": "r/skincareaddictsindia",
-      "url": "https://reddit.com/r/skincareaddictsindia/comments/1phbyog/dermat_prescribed_isotretnoin_on_1st_ever_visit/",
-      "score": 0,
-      "comments": 8,
-      "engagement_score": 8,
-      "created_utc": 1765199305.0,
-      "age_human": "3h ago",
-      "age_seconds": 10931.83414888382,
-      "author": "Fit_Molasses1504",
-      "has_images": false,
-      "image_urls": [],
-      "image_count": 0,
-      "flair": "Skincare",
-      "is_self": true,
-      "permalink": "/r/skincareaddictsindia/comments/1phbyog/dermat_prescribed_isotretnoin_on_1st_ever_visit/",
-      "relevance_score": 100,
-      "combined_score": 8.560049083485648,
-      "engagement_score_original": 8,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [
-          "acne",
-          "sunscreen",
-          "glycolic acid",
-          "skincare"
-        ],
-        "help_type": "skin_concern",
-        "help_type_confidence": 0.3,
-        "expertise_match": [
-          "skincare routine",
-          "acne treatment",
-          "sensitive skin",
-          "vitamin c serum",
-          "skin barrier repair",
-          "salicylic acid",
-          "hyaluronic acid",
-          "sunscreen",
-          "curly hair care",
-          "skincare",
-          "problem-solving"
-        ],
-        "response_angles": [
-          "Share your experience with similar skin concerns",
-          "Suggest gentle, proven solutions",
-          "Recommend a consultation approach"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 8,
-          "engagement_level": "medium",
-          "response_opportunity": "moderate"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in skincare routine, acne treatment is highly relevant",
-          "Consider these approaches: Share your experience with similar skin concerns, Suggest gentle, proven solutions"
-        ]
-      }
-    },
-    {
-      "id": "1owa3ke",
-      "title": "Heat damage: is there a safe temperature?",
-      "content": "I hope this question is allowed. I've been looking for this information, but I can't find a specific answer/explanation. \n\nIs there a safe temperature below which you could blow dry/style your hair without causing ANY damage and skip heat protectant? (E.g. below 70°C.)",
-      "content_preview": "I hope this question is allowed. I've been looking for this information, but I can't find a specific answer/explanation. \n\nIs there a safe temperature...",
-      "content_length": 269,
-      "subreddit": "HaircareScience",
-      "subreddit_color": "#00c851",
-      "subreddit_display": "r/HaircareScience",
-      "url": "https://reddit.com/r/HaircareScience/comments/1owa3ke/heat_damage_is_there_a_safe_temperature/",
-      "score": 26,
-      "comments": 12,
-      "engagement_score": 38,
-      "created_utc": 1763061308.0,
-      "age_human": "24d ago",
-      "age_seconds": 2148928.8345019817,
-      "author": "Alessandreddit",
-      "has_images": false,
-      "image_urls": [],
-      "image_count": 0,
-      "flair": "Question",
-      "is_self": true,
-      "permalink": "/r/HaircareScience/comments/1owa3ke/heat_damage_is_there_a_safe_temperature/",
-      "relevance_score": 100,
-      "combined_score": 8.5,
-      "engagement_score_original": 38,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [],
-        "help_type": "product_recommendation",
-        "help_type_confidence": 0.1,
-        "expertise_match": [
-          "vitamin c serum",
-          "hair loss treatment",
-          "curly hair care",
-          "hair growth",
-          "hair oils",
-          "haircare"
-        ],
-        "response_angles": [
-          "Recommend specific products you've used",
-          "Suggest budget-friendly alternatives",
-          "Share your experience with similar products"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 12,
-          "engagement_level": "high",
-          "response_opportunity": "moderate"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
-          "Consider these approaches: Recommend specific products you've used, Suggest budget-friendly alternatives"
-        ]
-      }
-    },
-    {
-      "id": "1ph8y28",
-      "title": "Toe nails broken after wearing nail polish",
-      "content": "Hey everyone! \nA few years ago my nails would always get these white things after wearing nail polish on my toes. If I grow it out and don’t wear nail polish it disappears.. but whenever I put polish on again it happens again :( \nWhat is this? \nIt only happens on the toes and not on the fingers. It is no fungus etc. \nthanks for the help! 🌸 \n\n",
-      "content_preview": "Hey everyone! \nA few years ago my nails would always get these white things after wearing nail polish on my toes. If I grow it out and don’t wear nail...",
-      "content_length": 344,
-      "subreddit": "beauty",
-      "subreddit_color": "#f39c12",
-      "subreddit_display": "r/beauty",
-      "url": "https://reddit.com/r/beauty/comments/1ph8y28/toe_nails_broken_after_wearing_nail_polish/",
-      "score": 0,
-      "comments": 11,
-      "engagement_score": 11,
-      "created_utc": 1765189201.0,
-      "age_human": "5h ago",
-      "age_seconds": 21035.834846019745,
-      "author": "Icy-Barracuda-9094",
-      "has_images": true,
-      "image_urls": [
-        {
-          "url": "https://preview.redd.it/ymwtk1qrhy5g1.jpeg?auto=webp&s=3870c940f9d149e99d41d68f82c3b2a53555ba01",
-          "width": 2212,
-          "height": 1854,
-          "type": "preview"
-        }
-      ],
-      "image_count": 1,
-      "flair": "Nailcare",
-      "is_self": false,
-      "permalink": "/r/beauty/comments/1ph8y28/toe_nails_broken_after_wearing_nail_polish/",
-      "relevance_score": 100,
-      "combined_score": 8.321828380439568,
-      "engagement_score_original": 11,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [],
-        "help_type": "troubleshooting",
-        "help_type_confidence": 0.1,
-        "expertise_match": [
-          "vitamin c serum",
-          "problem-solving"
-        ],
-        "response_angles": [
-          "Share how you solved a similar problem",
-          "Suggest diagnostic questions to ask",
-          "Recommend gentle solutions to try first"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 11,
-          "engagement_level": "high",
-          "response_opportunity": "moderate"
-        },
-        "confidence_score": 0.43000000000000005,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in vitamin c serum, problem-solving is highly relevant",
-          "Consider these approaches: Share how you solved a similar problem, Suggest diagnostic questions to ask"
-        ]
-      }
-    },
-    {
-      "id": "1phb0a5",
-      "title": "The front of my curls are fine, how do I stop this frizzy mess at the back ?",
-      "content": "Was shocked to see the back of my head so frizzy 🥲🥲\n\n routine in this image: \nUmberto Giannini - shampoo, conditioning, leave in ",
-      "content_preview": "Was shocked to see the back of my head so frizzy 🥲🥲\n\n routine in this image: \nUmberto Giannini - shampoo, conditioning, leave in ",
-      "content_length": 129,
-      "subreddit": "curlyhair",
-      "subreddit_color": "#ff6b35",
-      "subreddit_display": "r/curlyhair",
-      "url": "https://reddit.com/r/curlyhair/comments/1phb0a5/the_front_of_my_curls_are_fine_how_do_i_stop_this/",
-      "score": 1,
-      "comments": 7,
-      "engagement_score": 8,
-      "created_utc": 1765196450.0,
-      "age_human": "3h ago",
-      "age_seconds": 13786.835213899612,
-      "author": "AintNoBarbieGirl",
-      "has_images": true,
-      "image_urls": [
-        {
-          "url": "https://preview.redd.it/ret8ldrb3z5g1.jpeg?auto=webp&s=e1bda517334ae9e64af6774f07d3cb4778cc8303",
-          "width": 895,
-          "height": 602,
-          "type": "preview"
-        }
-      ],
-      "image_count": 1,
-      "flair": "Help!",
-      "is_self": false,
-      "permalink": "/r/curlyhair/comments/1phb0a5/the_front_of_my_curls_are_fine_how_do_i_stop_this/",
-      "relevance_score": 100,
-      "combined_score": 8.236217463561232,
-      "engagement_score_original": 8,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [
-          "routine",
-          "shampoo"
-        ],
-        "help_type": "routine_help",
-        "help_type_confidence": 0.1,
-        "expertise_match": [
-          "skincare routine",
-          "vitamin c serum",
-          "skincare",
-          "haircare"
-        ],
-        "response_angles": [
-          "Share your personal routine experience",
-          "Suggest a step-by-step routine based on their skin type",
-          "Recommend products for each step"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 7,
-          "engagement_level": "medium",
-          "response_opportunity": "moderate"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in skincare routine, vitamin c serum is highly relevant",
-          "Consider these approaches: Share your personal routine experience, Suggest a step-by-step routine based on their skin type"
-        ]
-      }
-    },
-    {
-      "id": "1p4lpq1",
-      "title": "Fabric content vs. fabric weave for effect on hair? (Options beyond silk/satin??)",
-      "content": "I hear a lot that the holy grail for protecting hair with fabric is a silk satin. And I know lots of people use polyester satins, or silk in other fabric weaves (twill, etc) too. \n\nI can't find any kind of evidence/study/etc comparing fabrics or comparing weaves when it comes to haircare, honestly not even much anecdotal comparisons either. I'm sure both factors work together on some level, but do we have more information here?  \n  \nEspecially since it's almost winter, I'm wondering if any softer wool-like material like cashmere or merino would protect hair if it's in a fine weave or just soft to the touch, for example.  \n  \nOr if a knit beanie with a high silk content in the yarn would be gentle on hair, even though it's in a yarn/chunky knit form?\n\nWhat would you look for if you're expanding beyond silk and satin? Or should we really not expand much beyond those?\n\nThank you!",
-      "content_preview": "I hear a lot that the holy grail for protecting hair with fabric is a silk satin. And I know lots of people use polyester satins, or silk in other fab...",
-      "content_length": 889,
-      "subreddit": "HaircareScience",
-      "subreddit_color": "#00c851",
-      "subreddit_display": "r/HaircareScience",
-      "url": "https://reddit.com/r/HaircareScience/comments/1p4lpq1/fabric_content_vs_fabric_weave_for_effect_on_hair/",
-      "score": 24,
-      "comments": 12,
-      "engagement_score": 36,
-      "created_utc": 1763901491.0,
-      "age_human": "15d ago",
-      "age_seconds": 1308745.8355090618,
-      "author": "ClassicLitLangs",
-      "has_images": false,
-      "image_urls": [],
-      "image_count": 0,
-      "flair": "Question",
-      "is_self": true,
-      "permalink": "/r/HaircareScience/comments/1p4lpq1/fabric_content_vs_fabric_weave_for_effect_on_hair/",
-      "relevance_score": 100,
-      "combined_score": 8.1,
-      "engagement_score_original": 36,
-      "opportunity_rating": "low",
-      "context": {
-        "triggered_keywords": [
-          "haircare"
-        ],
-        "help_type": "hair_concern",
-        "help_type_confidence": 0.1,
-        "expertise_match": [
-          "vitamin c serum",
-          "hair loss treatment",
-          "curly hair care",
-          "hair growth",
-          "hair oils",
-          "haircare",
-          "scientific"
-        ],
-        "response_angles": [
-          "Share your hair care experience",
-          "Suggest products for their hair type",
-          "Recommend professional consultation if needed"
-        ],
-        "urgency_level": "low",
-        "competition_analysis": {
-          "comment_count": 12,
-          "engagement_level": "high",
-          "response_opportunity": "moderate"
-        },
-        "confidence_score": 1.0,
-        "response_suggestions": [
-          "General match - provide helpful information and ask questions to understand their needs better",
-          "Your expertise in vitamin c serum, hair loss treatment is highly relevant",
-          "Consider these approaches: Share your hair care experience, Suggest products for their hair type"
-        ]
-      }
     }
   ],
   "subreddits": [
+    "HaircareScience",
+    "Hair",
+    "skincareaddictsindia",
+    "tressless",
     "IndianSkincareAddicts",
     "curlyhair",
     "beauty",
-    "Hair",
-    "skincareaddictsindia",
-    "HaircareScience",
     "SkincareAddiction"
   ]
 }
